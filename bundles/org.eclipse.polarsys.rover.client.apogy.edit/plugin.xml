@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2015-2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Pierre Allard (Pierre.Allard@canada.ca), 
+     Regent L'Archeveque (Regent.Larcheveque@canada.ca),
+     Sebastien Gemme (Sebastien.Gemme@canada.ca),
+     Canadian Space Agency (CSA) - Initial API and implementation
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated polarys_rover_client_apogy -->
+      <factory
+            uri="org.eclipse.polarsys.rover.client.apogy"
+            class="org.eclipse.polarsys.rover.client.apogy.provider.PolarSysRoverClientApogyItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated polarys_rover_client_apogy -->
+      <extender
+            uri="ca.gc.asc_csa.apogy.core.invocator"
+            class="org.eclipse.polarsys.rover.client.apogy.provider.PolarSysRoverClientApogyItemProviderAdapterFactory$ApogyCoreInvocatorChildCreationExtender"/>
+      <extender
+            uri="ca.gc.asc_csa.apogy.common.topology"
+            class="org.eclipse.polarsys.rover.client.apogy.provider.PolarSysRoverClientApogyItemProviderAdapterFactory$ApogyCommonTopologyChildCreationExtender"/>
+   </extension>
+</plugin>

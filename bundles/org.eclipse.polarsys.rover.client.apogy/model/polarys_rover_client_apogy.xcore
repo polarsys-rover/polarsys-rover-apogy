@@ -1,0 +1,60 @@
+/*
+ * Copyright (c) 2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Pierre Allard (Pierre.Allard@canada.ca), 
+ *     Regent L'Archeveque (Regent.Larcheveque@canada.ca),
+ *     Sebastien Gemme (Sebastien.Gemme@canada.ca),
+ *     Canadian Space Agency (CSA) - Initial API and implementation
+ */
+@GenModel(prefix="PolarSysRoverClientApogy",
+		  copyrightText="Copyright (c) 2015-2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Pierre Allard (Pierre.Allard@canada.ca), 
+    Regent L'Archeveque (Regent.Larcheveque@canada.ca),
+    Sebastien Gemme (Sebastien.Gemme@canada.ca),
+    Canadian Space Agency (CSA) - Initial API and implementation",
+		  modelName="PolarSysRoverClientApogy",
+		  childCreationExtenders="true",
+		  extensibleProviderFactory="true",
+		  suppressGenModelAnnotations="false",
+		  dynamicTemplates="true", 
+		  templateDirectory="platform:/plugin/ca.gc.asc_csa.apogy.common.emf.templates")
+@GenModel(modelDirectory="/org.eclipse.polarsys.rover.client.apogy/src-generated")
+@GenModel(editDirectory="/org.eclipse.polarsys.rover.client.apogy.edit/src-generated")
+
+package org.eclipse.polarsys.rover.client.apogy
+
+import ca.gc.asc_csa.apogy.core.ApogySystemApiAdapter
+import ca.gc.asc_csa.apogy.core.ApogyInitializationData
+
+/*
+ * This class is the specialized Apogy API adapter, used for connecting
+ * the existing PolarSys Rover Client example, located at
+ * {@link org.eclipse.polarsys.rover.client.PolarSysRover},
+ * to Apogy; one can override the well-known callback functions to make
+ * Apogy perform a variety of useful functions, including initialization,
+ * disposal and other features. 
+ */
+class PolarSysRoverApogySystemApiAdapter extends ApogySystemApiAdapter{
+	/*
+	 * For specific implementation details,
+	 */
+}
+
+/*
+ * This class specifies the initialization data that Apogy
+ * should be interested in when (re)initializing the Mobile
+ * platform with the API Adapter.
+ */
+class PolarSysRoverData extends ApogyInitializationData{
+}
