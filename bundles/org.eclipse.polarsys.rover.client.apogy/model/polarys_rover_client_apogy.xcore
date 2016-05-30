@@ -51,6 +51,7 @@ class PolarSysRoverApogySystemApiAdapter extends ApogySystemApiAdapter{
 	 */
 }
 
+
 /*
  * This class specifies the initialization data that Apogy
  * should be interested in when (re)initializing the Mobile
