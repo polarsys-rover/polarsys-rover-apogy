@@ -1,0 +1,84 @@
+# Blender v2.74 (sub 0) OBJ File: ''
+# www.blender.org
+mtllib body.mtl
+o ShapeIndexedFaceSet.004_ShapeIndexedFaceSet.005_Shape.004
+v 0.035000 -0.100000 -0.050000
+v 0.035000 0.100000 -0.050000
+v 0.035000 0.100000 0.050000
+v 0.035000 -0.100000 0.050000
+vn 1.000000 0.000000 0.000000
+g ShapeIndexedFaceSet.004_ShapeIndexedFaceSet.005_Shape.004_ShapeIndexedFaceSet.004_ShapeIndexedFaceSet.005_Shape.004_Shape.004
+usemtl Shape.004
+s 1
+f 1//1 2//1 3//1
+f 3//1 4//1 1//1
+o ShapeIndexedFaceSet.006_ShapeIndexedFaceSet_Shape.006
+v -0.010000 -0.100000 -0.050000
+v -0.010000 -0.100000 0.050000
+v -0.035000 -0.075000 0.050000
+v -0.035000 -0.075000 -0.050000
+vn -0.707100 -0.707100 0.000000
+g ShapeIndexedFaceSet.006_ShapeIndexedFaceSet_Shape.006_ShapeIndexedFaceSet.006_ShapeIndexedFaceSet_Shape.006_Shape.006
+usemtl Shape.006
+s 1
+f 5//2 6//2 7//2
+f 7//2 8//2 5//2
+o ShapeIndexedFaceSet_ShapeIndexedFaceSet.001_Shape
+v -0.035000 0.100000 -0.050000
+v -0.035000 -0.075000 -0.050000
+v -0.035000 -0.075000 0.050000
+v -0.035000 0.100000 0.050000
+vn -1.000000 0.000000 0.000000
+g ShapeIndexedFaceSet_ShapeIndexedFaceSet.001_Shape_ShapeIndexedFaceSet_ShapeIndexedFaceSet.001_Shape_Shape
+usemtl Shape
+s 1
+f 9//3 10//3 11//3
+f 11//3 12//3 9//3
+o ShapeIndexedFaceSet.001_ShapeIndexedFaceSet.002_Shape.001
+v 0.035000 0.100000 -0.050000
+v -0.035000 0.100000 -0.050000
+v -0.035000 0.100000 0.050000
+v 0.035000 0.100000 0.050000
+vn 0.000000 1.000000 0.000000
+g ShapeIndexedFaceSet.001_ShapeIndexedFaceSet.002_Shape.001_ShapeIndexedFaceSet.001_ShapeIndexedFaceSet.002_Shape.001_Shape.001
+usemtl Shape.001
+s 1
+f 13//4 14//4 15//4
+f 15//4 16//4 13//4
+o ShapeIndexedFaceSet.002_ShapeIndexedFaceSet.003_Shape.002
+v 0.035000 0.100000 -0.050000
+v 0.035000 -0.100000 -0.050000
+v -0.035000 -0.075000 -0.050000
+v -0.010000 -0.100000 -0.050000
+v -0.035000 0.100000 -0.050000
+vn 0.000000 -0.000000 -1.000000
+g ShapeIndexedFaceSet.002_ShapeIndexedFaceSet.003_Shape.002_ShapeIndexedFaceSet.002_ShapeIndexedFaceSet.003_Shape.002_Shape.002
+usemtl Shape.002
+s 1
+f 17//5 18//5 19//5
+f 18//5 20//5 19//5
+f 19//5 21//5 17//5
+o ShapeIndexedFaceSet.005_ShapeIndexedFaceSet.006_Shape.005
+v -0.010000 -0.100000 -0.050000
+v 0.035000 -0.100000 -0.050000
+v 0.035000 -0.100000 0.050000
+v -0.010000 -0.100000 0.050000
+vn 0.000000 -1.000000 0.000000
+g ShapeIndexedFaceSet.005_ShapeIndexedFaceSet.006_Shape.005_ShapeIndexedFaceSet.005_ShapeIndexedFaceSet.006_Shape.005_Shape.005
+usemtl Shape.005
+s 1
+f 22//6 23//6 24//6
+f 24//6 25//6 22//6
+o ShapeIndexedFaceSet.003_ShapeIndexedFaceSet.004_Shape.003
+v 0.035000 0.100000 0.050000
+v -0.035000 0.100000 0.050000
+v -0.035000 -0.075000 0.050000
+v 0.035000 -0.100000 0.050000
+v -0.010000 -0.100000 0.050000
+vn 0.000000 0.000000 1.000000
+g ShapeIndexedFaceSet.003_ShapeIndexedFaceSet.004_Shape.003_ShapeIndexedFaceSet.003_ShapeIndexedFaceSet.004_Shape.003_Shape.003
+usemtl Shape.003
+s 1
+f 26//7 27//7 28//7
+f 28//7 29//7 26//7
+f 28//7 30//7 29//7

@@ -24,5 +24,11 @@
             class="org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyPackage"
             genModel="model/polarys_rover_client_apogy.xcore"/>
    </extension>
+   <extension
+         point="ca.gc.asc_csa.apogy.core.invocator.typeContributor">
+      <Type
+            URI="model/PolarSysRoverApogySystem.ss">
+      </Type>
+   </extension>
 
 </plugin>
