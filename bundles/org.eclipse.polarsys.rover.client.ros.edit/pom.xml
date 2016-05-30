@@ -1,0 +1,24 @@
+<!--
+ Copyright (c) 2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Pierre Allard (Pierre.Allard@canada.ca), 
+     Regent L'Archeveque (Regent.Larcheveque@canada.ca),
+     Sebastien Gemme (Sebastien.Gemme@canada.ca),
+     Canadian Space Agency (CSA) - Initial API and implementation
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>org.eclipse.polarsys.rover.client.ros.edit</artifactId>
+  <packaging>eclipse-plugin</packaging>
+  <parent>
+  	<groupId>org.eclipse.polarsys.rover.client</groupId>
+  	<artifactId>org.eclipse.polarsys.rover.client.parent</artifactId>
+  	<version>0.1.0-SNAPSHOT</version>
+  	<relativePath>../org.eclipse.polarsys.rover.client.parent</relativePath>
+  </parent>
+</project>

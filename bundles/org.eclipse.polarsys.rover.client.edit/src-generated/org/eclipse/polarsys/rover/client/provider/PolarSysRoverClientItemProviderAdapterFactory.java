@@ -100,29 +100,6 @@ public class PolarSysRoverClientItemProviderAdapterFactory extends PolarSysRover
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.PolarSysRoverClientSimulator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PolarSysRoverClientSimulatorItemProvider polarSysRoverClientSimulatorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.PolarSysRoverClientSimulator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPolarSysRoverClientSimulatorAdapter() {
-		if (polarSysRoverClientSimulatorItemProvider == null) {
-			polarSysRoverClientSimulatorItemProvider = new PolarSysRoverClientSimulatorItemProvider(this);
-		}
-
-		return polarSysRoverClientSimulatorItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,7 +225,6 @@ public class PolarSysRoverClientItemProviderAdapterFactory extends PolarSysRover
 	 * @generated
 	 */
 	public void dispose() {
-		if (polarSysRoverClientSimulatorItemProvider != null) polarSysRoverClientSimulatorItemProvider.dispose();
 	}
 
 }

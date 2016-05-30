@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClient;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientFactory;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
-import org.eclipse.polarsys.rover.client.PolarSysRoverClientSimulator;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,13 +35,6 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * @generated
 	 */
 	private EClass polarSysRoverClientEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass polarSysRoverClientSimulatorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -119,15 +111,6 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPolarSysRoverClientSimulator() {
-		return polarSysRoverClientSimulatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public PolarSysRoverClientFactory getPolarSysRoverClientFactory() {
 		return (PolarSysRoverClientFactory)getEFactoryInstance();
 	}
@@ -152,8 +135,6 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 
 		// Create classes and their features
 		polarSysRoverClientEClass = createEClass(POLAR_SYS_ROVER_CLIENT);
-
-		polarSysRoverClientSimulatorEClass = createEClass(POLAR_SYS_ROVER_CLIENT_SIMULATOR);
 	}
 
 	/**
@@ -184,12 +165,9 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		polarSysRoverClientSimulatorEClass.getESuperTypes().add(this.getPolarSysRoverClient());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(polarSysRoverClientEClass, PolarSysRoverClient.class, "PolarSysRoverClient", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(polarSysRoverClientSimulatorEClass, PolarSysRoverClientSimulator.class, "PolarSysRoverClientSimulator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

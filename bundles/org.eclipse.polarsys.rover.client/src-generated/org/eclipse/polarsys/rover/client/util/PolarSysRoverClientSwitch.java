@@ -83,13 +83,6 @@ public class PolarSysRoverClientSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_CLIENT_SIMULATOR: {
-				PolarSysRoverClientSimulator polarSysRoverClientSimulator = (PolarSysRoverClientSimulator)theEObject;
-				T result = casePolarSysRoverClientSimulator(polarSysRoverClientSimulator);
-				if (result == null) result = casePolarSysRoverClient(polarSysRoverClientSimulator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -106,21 +99,6 @@ public class PolarSysRoverClientSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePolarSysRoverClient(PolarSysRoverClient object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Simulator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Simulator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePolarSysRoverClientSimulator(PolarSysRoverClientSimulator object) {
 		return null;
 	}
 

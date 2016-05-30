@@ -1,0 +1,144 @@
+<!--
+ Copyright (c) 2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Pierre Allard (Pierre.Allard@canada.ca), 
+     Regent L'Archeveque (Regent.Larcheveque@canada.ca),
+     Sebastien Gemme (Sebastien.Gemme@canada.ca),
+     Canadian Space Agency (CSA) - Initial API and implementation
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.polarsys.rover.client</groupId>
+	<artifactId>org.eclipse.polarsys.rover.client.parent</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tycho.version>0.24.0</tycho.version>
+		<eclipse.version>mars</eclipse.version>
+		<eclipse.updates.version>4.5</eclipse.updates.version>
+	</properties>
+
+	<repositories>
+		<!-- configure p2 repository to resolve against -->
+		<repository>
+			<id>Eclipse</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/${eclipse.version}</url>
+		</repository>
+
+		<repository>
+			<id>Eclipse-Updates</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/eclipse/updates/${eclipse.updates.version}</url>
+		</repository>
+
+		<repository>
+			<id>Apogy</id>
+			<layout>p2</layout>
+			<url>https://dl.bintray.com/apogy/Develop/0.5/</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- enable the Tycho build extension -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<!-- enable the Tycho build extension -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<includeBinaryFeature>false</includeBinaryFeature>
+				</configuration>
+				<executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+						<configuration>
+							<excludes>
+							</excludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+	<modules>
+		<module>../org.eclipse.polarsys.rover.client</module>
+		<module>../org.eclipse.polarsys.rover.client.apogy</module>
+		<module>../org.eclipse.polarsys.rover.client.apogy.edit</module>
+		<module>../org.eclipse.polarsys.rover.client.edit</module>
+		<module>../org.eclipse.polarsys.rover.client.feature</module>
+		<module>../org.eclipse.polarsys.rover.client.mqtt</module>
+		<module>../org.eclipse.polarsys.rover.client.mqtt.edit</module>
+		<module>../org.eclipse.polarsys.rover.client.repository</module>		
+		<module>../org.eclipse.polarsys.rover.client.ros</module>
+		<module>../org.eclipse.polarsys.rover.client.ros.edit</module>
+		<module>../org.eclipse.polarsys.rover.client.simulator</module>
+		<module>../org.eclipse.polarsys.rover.client.simulator.edit</module>
+		<module>../org.eclipse.polarsys.rover.client.ui</module>
+	</modules>
+</project>

@@ -109,35 +109,6 @@ public interface PolarSysRoverClientPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientSimulatorImpl <em>Simulator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientSimulatorImpl
-	 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientPackageImpl#getPolarSysRoverClientSimulator()
-	 * @generated
-	 */
-	int POLAR_SYS_ROVER_CLIENT_SIMULATOR = 1;
-
-	/**
-	 * The number of structural features of the '<em>Simulator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_CLIENT_SIMULATOR_FEATURE_COUNT = POLAR_SYS_ROVER_CLIENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Simulator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_CLIENT_SIMULATOR_OPERATION_COUNT = POLAR_SYS_ROVER_CLIENT_OPERATION_COUNT + 0;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.PolarSysRoverClient <em>Polar Sys Rover Client</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,16 +117,6 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPolarSysRoverClient();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.PolarSysRoverClientSimulator <em>Simulator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Simulator</em>'.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientSimulator
-	 * @generated
-	 */
-	EClass getPolarSysRoverClientSimulator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -189,15 +150,6 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POLAR_SYS_ROVER_CLIENT = eINSTANCE.getPolarSysRoverClient();
-		/**
-		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientSimulatorImpl <em>Simulator</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientSimulatorImpl
-		 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientPackageImpl#getPolarSysRoverClientSimulator()
-		 * @generated
-		 */
-		EClass POLAR_SYS_ROVER_CLIENT_SIMULATOR = eINSTANCE.getPolarSysRoverClientSimulator();
 
 	}
 

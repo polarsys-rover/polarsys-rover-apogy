@@ -36,6 +36,3 @@ package org.eclipse.polarsys.rover.client
 
 abstract class PolarSysRoverClient{	
 }
-
-class PolarSysRoverClientSimulator extends PolarSysRoverClient{	
-}

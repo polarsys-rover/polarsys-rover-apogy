@@ -83,10 +83,6 @@ public class PolarSysRoverClientAdapterFactory extends AdapterFactoryImpl {
 				return createPolarSysRoverClientAdapter();
 			}
 			@Override
-			public Adapter casePolarSysRoverClientSimulator(PolarSysRoverClientSimulator object) {
-				return createPolarSysRoverClientSimulatorAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -117,20 +113,6 @@ public class PolarSysRoverClientAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPolarSysRoverClientAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.PolarSysRoverClientSimulator <em>Simulator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientSimulator
-	 * @generated
-	 */
-	public Adapter createPolarSysRoverClientSimulatorAdapter() {
 		return null;
 	}
 
