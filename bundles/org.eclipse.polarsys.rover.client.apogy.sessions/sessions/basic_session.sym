@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invocator:InvocatorSession xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="ca.gc.asc_csa.apogy.core" xmlns:emf="ca.gc.asc_csa.apogy.common.emf" xmlns:environment="ca.gc.asc_csa.apogy.core.environment" xmlns:images="ca.gc.asc_csa.apogy.common.images" xmlns:invocator="ca.gc.asc_csa.apogy.core.invocator" xmi:id="_CaxBIArPEeW4-_ONWXXiAw" name="">
+  <environment xsi:type="core:ApogyEnvironment" xmi:id="_CaxBIQrPEeW4-_ONWXXiAw" name="Mobile Platform Example" description="This is an example session, illustrating how to use the mobile platform example." activeContext="_CaxoMgrPEeW4-_ONWXXiAw" time="2016-02-29T13:15:59.930-0500" activeWorksite="_CaxoOQrPEeW4-_ONWXXiAw" activeTimeSource="_Ca4V4grPEeW4-_ONWXXiAw">
+    <typesList xmi:id="_CaxBIgrPEeW4-_ONWXXiAw">
+      <localTypes xmi:id="_CaxBIwrPEeW4-_ONWXXiAw"/>
+      <registeredTypes xmi:id="_CaxBJArPEeW4-_ONWXXiAw"/>
+    </typesList>
+    <variablesList xmi:id="_CaxBJQrPEeW4-_ONWXXiAw">
+      <variables xmi:id="_CaxoMArPEeW4-_ONWXXiAw" name="polarSysRover">
+        <variableType href="platform:/plugin/org.eclipse.polarsys.rover.client.apogy/model/PolarSysRoverPlatformApogySystem.ss#__7WE0CZkEea6vrHg0QgYmg"/>
+      </variables>
+    </variablesList>
+    <contextsList xmi:id="_CaxoMQrPEeW4-_ONWXXiAw">
+      <contexts xsi:type="invocator:BasicContext" xmi:id="_CaxoMgrPEeW4-_ONWXXiAw" name="Simulated" dataProductsList="_Ca7ZMgrPEeW4-_ONWXXiAw" instancesCreationDate="2016-06-01T10:21:48.335-0400">
+        <variableImplementationsList xmi:id="_CaxoMwrPEeW4-_ONWXXiAw">
+          <variableImplementations xmi:id="_CaxoNArPEeW4-_ONWXXiAw" variable="_CaxoMArPEeW4-_ONWXXiAw">
+            <implementationClass href="org.eclipse.polarsys.rover.client.simulator#//PolarSysRoverPlatformClientSimulator"/>
+          </variableImplementations>
+        </variableImplementationsList>
+      </contexts>
+      <contexts xsi:type="invocator:BasicContext" xmi:id="_CaxoNQrPEeW4-_ONWXXiAw" name="Stub" dataProductsList="_Ca7ZNArPEeW4-_ONWXXiAw">
+        <variableImplementationsList xmi:id="_CaxoNgrPEeW4-_ONWXXiAw">
+          <variableImplementations xmi:id="_CaxoNwrPEeW4-_ONWXXiAw" variable="_CaxoMArPEeW4-_ONWXXiAw">
+            <implementationClass href="ca.gc.asc_csa.apogy.examples.mobile_platform#//MobilePlatformStub"/>
+          </variableImplementations>
+        </variableImplementationsList>
+      </contexts>
+    </contextsList>
+    <worksitesList xmi:id="_CaxoOArPEeW4-_ONWXXiAw">
+      <worksites xsi:type="environment:EarthSurfaceWorksite" xmi:id="_CaxoOQrPEeW4-_ONWXXiAw" name="CSA AT" description="The CSA Default Worksite." time="2016-02-29T13:15:59.930-0500" xAxisAzimuth="3.1311206780778273">
+        <sky xsi:type="environment:EarthSky" xmi:id="_CaxoOgrPEeW4-_ONWXXiAw" time="2016-02-29T13:15:59.930-0500"/>
+        <mapsList xmi:id="_CayPQArPEeW4-_ONWXXiAw">
+          <maps xmi:id="_CayPQQrPEeW4-_ONWXXiAw" name="MarsYard" description="Simple Mars Yard Map.">
+            <transformation xmi:id="_CayPQgrPEeW4-_ONWXXiAw"/>
+            <layers xsi:type="environment:CartesianTriangularMeshURLMapLayer" xmi:id="_CayPQwrPEeW4-_ONWXXiAw" name="MarsYardDEM 1.0 meters resolution" description="Simple Plannar Mars Yard." meshIsDirty="false" url="platform:/plugin/ca.gc.asc_csa.apogy.examples.worksites.surface/data/CSAAnalogTerrainDEM100cm.tri">
+              <mapLayerPresentations xsi:type="environment:ImageMapLayerPresentation" xmi:id="_SuPDsN72EeW0zIqmOwfISQ" name="Aerial" mapLayer="_UOjm8N72EeW0zIqmOwfISQ"/>
+              <mapLayerPresentations xsi:type="environment:ImageMapLayerPresentation" xmi:id="_ikswoN73EeWUu90KVuiwJg" name="Slope Constraints" description="Shows slopes." mapLayer="_AlL-MN73EeW0zIqmOwfISQ"/>
+            </layers>
+            <layers xsi:type="environment:URLImageMapLayer" xmi:id="_UOjm8N72EeW0zIqmOwfISQ" name="Aerial View" description="The CSA terrain aerial image." width="60.0" height="120.0" url="platform:/plugin/ca.gc.asc_csa.apogy.examples.worksites.surface/data/CSA-AT-NGC-MET-seen-from-sky.jpg">
+              <image xsi:type="images:URLEImage" xmi:id="_g6pfEN72EeW0zIqmOwfISQ" url="platform:/plugin/ca.gc.asc_csa.apogy.examples.worksites.surface/data/CSA-AT-NGC-MET-seen-from-sky.jpg"/>
+            </layers>
+            <layers xsi:type="environment:CartesianTriangularMeshDiscreteSlopeImageMapLayer" xmi:id="_AlL-MN73EeW0zIqmOwfISQ" name="Slope" description="Shows the areas were the terrain slopes affect the mobile plateform accessibility. In yellow are the caution zones, in red the danger zones." cartesianTriangularMeshMapLayer="_CayPQwrPEeW4-_ONWXXiAw">
+              <image xsi:type="images:EImage" xmi:id="_hcyzwN7_EeWEppI0BeYPAg" width="60" height="120" imageContent="iVBORw0KGgoAAAANSUhEUgAAADwAAAB4CAYAAACuNZEIAAACmElEQVR42u2c0W7DMAhF+f+f9qZJm9LW2IDJAhdQ+9g0J9j4gnGIlDZ+PoVsjO/P5VsKuJyXqa2trW0TK/optBUZwvWED12+qODvstYNOqpe/oOcgXsCX8GffAAzbx4Bc6ARPP0xjD08HBn4xZv0OX/V97eDDQU9DmF3wBHz4KN74cL8zrtp178pMIECrxZy6PoVp1xgNatWqqX3/ilwTmilGPcEfuSBvXvZorWtoCGAf6E/xAf5DefHgyOrV2mtY62e8o4Ds6Rie30V9OENz+Sru4CSxCW1pydC/v0POLXmDnya/LAXEHh890cewK7VD9UwMqSYGmDJg/u3wDdLI5cjY5GCWtLBsOLHkm9DJDHs8HZeBXLo+bFe6/GgmflObW1+y01DI0N2wGhra7tDmNQApXndDUdXK6ot2KAjuadFoJP5m87LkvrY8vfewHc+tdU2rfga0T28q3EdTQOPXq1bQY1rKjfH3W4yShZm3lXQZEknu4LuI8SrR4uDNs8rxz3jFeijmpVrC3SFfDoaew+zo92/u7MUzxtbNo6G3yjXCoeIPZ1SnWue+9FyXE0QsQDnEPebvo60m2DSKgPn5XQNbNMdPYFH0253Sjy8W6JSDettgu64ROUBRyqqaVM0/EZy9PN/nPYlZPPspK23dYJ+mESixDAD36LvEhbYo7QE4eEOWr28tbW1RVmG2tra2tra2nJkUxAiJMs7gG5JC3cvUcEFhmsPruJlzYlxbus1pYfVQS0jsLXJJeUJU2lZdnlsnoCWJ01QywtL8jP/GAJE0AMCV8ZdNbfhJgmV3sM3ha7QSlGmI0gMDT+8B2i2xMFyAQ1HRSF09ply3szQJ0l+DS/PCntQsKR7dRxW7QphnS0F2xbIvgBD+r7cGb62ygAAAABJRU5ErkJggg=="/>
+              <slopeRanges xmi:id="_CY5XgN73EeW0zIqmOwfISQ" name="Safe" description="Safe slopes." color="-1.0,-1.0,-1.0"/>
+              <slopeRanges xmi:id="_EumDkN73EeW0zIqmOwfISQ" name="Caution" description="Caution slopes." slopeLowerBound="10.0" slopeUpperBound="20.0" color="1.0,1.0,0.0"/>
+              <slopeRanges xmi:id="_HXgmkN73EeW0zIqmOwfISQ" name="Danger" description="Dangerous slopes." slopeLowerBound="20.0" slopeUpperBound="90.0" color="1.0,0.0,0.0"/>
+            </layers>
+          </maps>
+        </mapsList>
+        <geographicalCoordinates xmi:id="_Ca1SkArPEeW4-_ONWXXiAw" longitude="-1.2809652838639536" latitude="0.7944425755487251" elevation="30.0"/>
+      </worksites>
+    </worksitesList>
+    <timeSourcesList xmi:id="_Ca4V4QrPEeW4-_ONWXXiAw">
+      <timeSources xsi:type="emf:CurrentTimeSource" xmi:id="_Ca4V4grPEeW4-_ONWXXiAw" name="Current Time" time="2016-02-29T13:15:59.930-0500"/>
+      <timeSources xsi:type="emf:BrowseableTimeSource" xmi:id="_xwMDYN73EeWUu90KVuiwJg" name="Browseable Time" time="2016-03-02T19:25:18.665-0500" startTime="2016-02-29T10:19:08.465-0500" updatePeriod="100" timeAcceration="3000.0"/>
+      <timeSources xsi:type="emf:FixedTimeSource" xmi:id="_eK62gN8DEeWYA5av90szLg" name="Noon" time="2016-02-29T12:00:00.000-0500"/>
+      <timeSources xsi:type="emf:FixedTimeSource" xmi:id="_gQ8u4N8DEeWYA5av90szLg" name="Midnight" time="2016-02-29T23:59:59.000-0500"/>
+      <timeSources xsi:type="emf:SelectionBasedTimeSource" xmi:id="_NK9gAN8EEeWG-djpd_eLug" name="Selection" time="2016-02-29T10:22:54.874-0500"/>
+      <timeSources xsi:type="invocator:OperationCallResultsListTimeSource" xmi:id="_2oTxcN8OEeWObpCwMBazUA" name="Ops Call List" description="Time source allowing one to navigate throught a list of time Ops Call Results." time="2016-06-01T09:39:05.122-0400" startTime="2016-02-29T13:04:19.661-0500" timeAcceration="1000.0" loopEnable="true" earliestDate="2016-06-01T09:39:05.122-0400" latestDate="2016-06-01T09:39:05.122-0400" opsCallList="_Ca7ZMwrPEeW4-_ONWXXiAw"/>
+    </timeSourcesList>
+  </environment>
+  <programsList xmi:id="_Ca4V4wrPEeW4-_ONWXXiAw">
+    <programs xsi:type="invocator:OperationCallsList" xmi:id="_Rucw0CdnEea25ZpQzwTfqQ" name="Default">
+      <operationCalls xmi:id="_XaefgCdnEea25ZpQzwTfqQ" name="init" variable="_CaxoMArPEeW4-_ONWXXiAw">
+        <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/init"/>
+      </operationCalls>
+      <operationCalls xmi:id="_cgtZgCdnEea25ZpQzwTfqQ" name="moveForward" variable="_CaxoMArPEeW4-_ONWXXiAw">
+        <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/cmdVelocities"/>
+        <argumentsList xmi:id="_dzB9ACdnEea25ZpQzwTfqQ">
+          <arguments xsi:type="invocator:NumericEDataTypeArgument" xmi:id="_dzB9ASdnEea25ZpQzwTfqQ" value="10.0"/>
+          <arguments xsi:type="invocator:NumericEDataTypeArgument" xmi:id="_dzB9AidnEea25ZpQzwTfqQ" value="-0.17453292519943295"/>
+        </argumentsList>
+      </operationCalls>
+      <operationCalls xmi:id="_egUygCgEEeaq5fymrluR0g" name="stop" variable="_CaxoMArPEeW4-_ONWXXiAw">
+        <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/stop"/>
+      </operationCalls>
+    </programs>
+  </programsList>
+  <dataProductsListContainer xmi:id="_Ca7ZMQrPEeW4-_ONWXXiAw">
+    <dataProductsList xmi:id="_Ca7ZMgrPEeW4-_ONWXXiAw" name="Simulated Data" description="The list of data products associated with the mobile platform's simulated implementation">
+      <operationCallResultsList xmi:id="_Ca7ZMwrPEeW4-_ONWXXiAw" name="Simulated Ops Call Data"/>
+    </dataProductsList>
+    <dataProductsList xmi:id="_Ca7ZNArPEeW4-_ONWXXiAw" name="Stub Data" description="The list of data products associated with the mobile platform's stub implementation">
+      <operationCallResultsList xmi:id="_Ca7ZNQrPEeW4-_ONWXXiAw" name="Stub Ops Call Data"/>
+    </dataProductsList>
+  </dataProductsListContainer>
+  <toolsList xmi:id="_Ca7ZNgrPEeW4-_ONWXXiAw"/>
+</invocator:InvocatorSession>

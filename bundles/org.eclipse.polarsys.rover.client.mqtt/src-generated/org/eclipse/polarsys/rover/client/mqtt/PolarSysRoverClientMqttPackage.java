@@ -15,7 +15,6 @@ package org.eclipse.polarsys.rover.client.mqtt;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 
 /**
@@ -82,14 +81,14 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	PolarSysRoverClientMqttPackage eINSTANCE = org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttImpl <em>Polar Sys Rover Client Mqtt</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl <em>Polar Sys Rover Platform Client Mqtt</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttImpl
-	 * @see org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttPackageImpl#getPolarSysRoverClientMqtt()
+	 * @see org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl
+	 * @see org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttPackageImpl#getPolarSysRoverPlatformClientMqtt()
 	 * @generated
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT = 0;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Initialized</b></em>' attribute.
@@ -98,7 +97,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__INITIALIZED = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__INITIALIZED = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED;
 
 	/**
 	 * The feature id for the '<em><b>Disposed</b></em>' attribute.
@@ -107,7 +106,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__DISPOSED = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__DISPOSED;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__DISPOSED = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__DISPOSED;
 
 	/**
 	 * The feature id for the '<em><b>Position Error</b></em>' attribute.
@@ -116,7 +115,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__POSITION_ERROR = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__POSITION_ERROR = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR;
 
 	/**
 	 * The feature id for the '<em><b>Linear Velocity</b></em>' attribute.
@@ -125,7 +124,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__LINEAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__LINEAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY;
 
 	/**
 	 * The feature id for the '<em><b>Angular Velocity</b></em>' attribute.
@@ -134,7 +133,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__ANGULAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__ANGULAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY;
 
 	/**
 	 * The feature id for the '<em><b>Front Left Wheel Position</b></em>' attribute.
@@ -143,7 +142,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__FRONT_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Front Right Wheel Position</b></em>' attribute.
@@ -152,7 +151,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__FRONT_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Rear Left Wheel Position</b></em>' attribute.
@@ -161,7 +160,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__REAR_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__REAR_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Rear Right Wheel Position</b></em>' attribute.
@@ -170,25 +169,25 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__REAR_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__REAR_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' reference.
+	 * The feature id for the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT__POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION;
 
 	/**
-	 * The number of structural features of the '<em>Polar Sys Rover Client Mqtt</em>' class.
+	 * The number of structural features of the '<em>Polar Sys Rover Platform Client Mqtt</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 0;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -197,7 +196,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT___DISPOSE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___DISPOSE;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___DISPOSE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___DISPOSE;
 
 	/**
 	 * The operation id for the '<em>Init</em>' operation.
@@ -206,7 +205,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT___INIT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___INIT;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___INIT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___INIT;
 
 	/**
 	 * The operation id for the '<em>Reset Position</em>' operation.
@@ -215,7 +214,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT___RESET_POSITION__POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___RESET_POSITION__POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___RESET_POSITION__POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___RESET_POSITION__POSITION;
 
 	/**
 	 * The operation id for the '<em>Clear Position Error</em>' operation.
@@ -224,7 +223,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT___CLEAR_POSITION_ERROR = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CLEAR_POSITION_ERROR;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___CLEAR_POSITION_ERROR = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CLEAR_POSITION_ERROR;
 
 	/**
 	 * The operation id for the '<em>Stop</em>' operation.
@@ -233,7 +232,7 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT___STOP = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___STOP;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___STOP = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___STOP;
 
 	/**
 	 * The operation id for the '<em>Cmd Velocities</em>' operation.
@@ -242,27 +241,27 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT___CMD_VELOCITIES__DOUBLE_DOUBLE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___CMD_VELOCITIES__DOUBLE_DOUBLE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE;
 
 	/**
-	 * The number of operations of the '<em>Polar Sys Rover Client Mqtt</em>' class.
+	 * The number of operations of the '<em>Polar Sys Rover Platform Client Mqtt</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_MQTT_OPERATION_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_OPERATION_COUNT + 0;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT_OPERATION_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_OPERATION_COUNT + 0;
 
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt <em>Polar Sys Rover Client Mqtt</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt <em>Polar Sys Rover Platform Client Mqtt</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Polar Sys Rover Client Mqtt</em>'.
-	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt
+	 * @return the meta object for class '<em>Polar Sys Rover Platform Client Mqtt</em>'.
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt
 	 * @generated
 	 */
-	EClass getPolarSysRoverClientMqtt();
+	EClass getPolarSysRoverPlatformClientMqtt();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -288,14 +287,14 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttImpl <em>Polar Sys Rover Client Mqtt</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl <em>Polar Sys Rover Platform Client Mqtt</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttImpl
-		 * @see org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttPackageImpl#getPolarSysRoverClientMqtt()
+		 * @see org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl
+		 * @see org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttPackageImpl#getPolarSysRoverPlatformClientMqtt()
 		 * @generated
 		 */
-		EClass POLAR_SYS_ROVER_CLIENT_MQTT = eINSTANCE.getPolarSysRoverClientMqtt();
+		EClass POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT = eINSTANCE.getPolarSysRoverPlatformClientMqtt();
 
 	}
 

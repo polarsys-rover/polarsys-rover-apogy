@@ -67,7 +67,7 @@ public class PolarSysRoverClientRosFactoryImpl extends EFactoryImpl implements P
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PolarSysRoverClientRosPackage.POLAR_SYS_ROVER_CLIENT_ROS: return createPolarSysRoverClientRos();
+			case PolarSysRoverClientRosPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_ROS: return createPolarSysRoverPlatformClientRos();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -78,9 +78,9 @@ public class PolarSysRoverClientRosFactoryImpl extends EFactoryImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PolarSysRoverClientRos createPolarSysRoverClientRos() {
-		PolarSysRoverClientRosImpl polarSysRoverClientRos = new PolarSysRoverClientRosImpl();
-		return polarSysRoverClientRos;
+	public PolarSysRoverPlatformClientRos createPolarSysRoverPlatformClientRos() {
+		PolarSysRoverPlatformClientRosImpl polarSysRoverPlatformClientRos = new PolarSysRoverPlatformClientRosImpl();
+		return polarSysRoverPlatformClientRos;
 	}
 
 	/**

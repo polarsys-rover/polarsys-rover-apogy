@@ -21,23 +21,25 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import org.eclipse.polarsys.rover.client.provider.PolarSysRoverPlatformClientItemProvider;
-import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulator;
+
+import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulator} object.
+ * This is the item provider adapter for a {@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PolarSysRoverClientSimulatorItemProvider extends PolarSysRoverPlatformClientItemProvider {
+public class PolarSysRoverPlatformClientSimulatorItemProvider extends PolarSysRoverPlatformClientItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PolarSysRoverClientSimulatorItemProvider(AdapterFactory adapterFactory) {
+	public PolarSysRoverPlatformClientSimulatorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,14 +59,14 @@ public class PolarSysRoverClientSimulatorItemProvider extends PolarSysRoverPlatf
 	}
 
 	/**
-	 * This returns PolarSysRoverClientSimulator.gif.
+	 * This returns PolarSysRoverPlatformClientSimulator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PolarSysRoverClientSimulator"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PolarSysRoverPlatformClientSimulator"));
 	}
 
 	/**
@@ -75,8 +77,8 @@ public class PolarSysRoverClientSimulatorItemProvider extends PolarSysRoverPlatf
 	 */
 	@Override
 	public String getText(Object object) {
-		PolarSysRoverClientSimulator polarSysRoverClientSimulator = (PolarSysRoverClientSimulator)object;
-		return getString("_UI_PolarSysRoverClientSimulator_type") + " " + polarSysRoverClientSimulator.isInitialized();
+		PolarSysRoverPlatformClientSimulator polarSysRoverPlatformClientSimulator = (PolarSysRoverPlatformClientSimulator)object;
+		return getString("_UI_PolarSysRoverPlatformClientSimulator_type") + " " + polarSysRoverPlatformClientSimulator.isInitialized();
 	}
 	
 

@@ -17,10 +17,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
-
-import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulator;
+import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorFactory;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorPackage;
 
@@ -36,8 +34,7 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass polarSysRoverClientSimulatorEClass = null;
-
+	private EClass polarSysRoverPlatformClientSimulatorEClass = null;
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -107,8 +104,8 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPolarSysRoverClientSimulator() {
-		return polarSysRoverClientSimulatorEClass;
+	public EClass getPolarSysRoverPlatformClientSimulator() {
+		return polarSysRoverPlatformClientSimulatorEClass;
 	}
 
 	/**
@@ -139,7 +136,7 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 		isCreated = true;
 
 		// Create classes and their features
-		polarSysRoverClientSimulatorEClass = createEClass(POLAR_SYS_ROVER_CLIENT_SIMULATOR);
+		polarSysRoverPlatformClientSimulatorEClass = createEClass(POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR);
 	}
 
 	/**
@@ -173,10 +170,10 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		polarSysRoverClientSimulatorEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
+		polarSysRoverPlatformClientSimulatorEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(polarSysRoverClientSimulatorEClass, PolarSysRoverClientSimulator.class, "PolarSysRoverClientSimulator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(polarSysRoverPlatformClientSimulatorEClass, PolarSysRoverPlatformClientSimulator.class, "PolarSysRoverPlatformClientSimulator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

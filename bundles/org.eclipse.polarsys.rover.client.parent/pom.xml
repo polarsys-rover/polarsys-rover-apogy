@@ -130,6 +130,7 @@
 		<module>../org.eclipse.polarsys.rover.client</module>
 		<module>../org.eclipse.polarsys.rover.client.apogy</module>
 		<module>../org.eclipse.polarsys.rover.client.apogy.edit</module>
+		<module>../org.eclipse.polarsys.rover.client.apogy.sessions</module>
 		<module>../org.eclipse.polarsys.rover.client.edit</module>
 		<module>../org.eclipse.polarsys.rover.client.feature</module>
 		<module>../org.eclipse.polarsys.rover.client.mqtt</module>

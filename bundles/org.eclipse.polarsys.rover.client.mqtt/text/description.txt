@@ -7,4 +7,4 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 
 Package mqtt <org.eclipse.polarsys.rover.client.mqtt>
 
-  Class PolarSysRoverClientMqtt -> PolarSysRoverPlatformClient
+  Class PolarSysRoverPlatformClientMqtt -> PolarSysRoverPlatformClient

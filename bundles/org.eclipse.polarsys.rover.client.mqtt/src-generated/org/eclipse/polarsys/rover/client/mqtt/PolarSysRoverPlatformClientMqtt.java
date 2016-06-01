@@ -11,19 +11,19 @@
  *     Sebastien Gemme (Sebastien.Gemme@canada.ca),
  *     Canadian Space Agency (CSA) - Initial API and implementation
  */
-package org.eclipse.polarsys.rover.client.simulator;
+package org.eclipse.polarsys.rover.client.mqtt;
 
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Polar Sys Rover Client Simulator</b></em>'.
+ * A representation of the model object '<em><b>Polar Sys Rover Client Mqtt</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorPackage#getPolarSysRoverClientSimulator()
+ * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttPackage#getPolarSysRoverPlatformClientMqtt()
  * @model
  * @generated
  */
-public interface PolarSysRoverClientSimulator extends PolarSysRoverPlatformClient {
-} // PolarSysRoverClientSimulator
+public interface PolarSysRoverPlatformClientMqtt extends PolarSysRoverPlatformClient {
+} // PolarSysRoverClientMqtt

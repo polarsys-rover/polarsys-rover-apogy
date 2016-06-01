@@ -33,13 +33,13 @@ public interface PolarSysRoverClientSimulatorFactory extends EFactory {
 	PolarSysRoverClientSimulatorFactory eINSTANCE = org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverClientSimulatorFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Polar Sys Rover Client Simulator</em>'.
+	 * Returns a new object of class '<em>Polar Sys Rover Platform Client Simulator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Polar Sys Rover Client Simulator</em>'.
+	 * @return a new object of class '<em>Polar Sys Rover Platform Client Simulator</em>'.
 	 * @generated
 	 */
-	PolarSysRoverClientSimulator createPolarSysRoverClientSimulator();
+	PolarSysRoverPlatformClientSimulator createPolarSysRoverPlatformClientSimulator();
 
 	/**
 	 * Returns the package supported by this factory.

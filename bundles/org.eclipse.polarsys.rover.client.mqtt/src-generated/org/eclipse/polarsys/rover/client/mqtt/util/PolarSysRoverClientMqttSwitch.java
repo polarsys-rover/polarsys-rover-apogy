@@ -78,11 +78,11 @@ public class PolarSysRoverClientMqttSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_CLIENT_MQTT: {
-				PolarSysRoverClientMqtt polarSysRoverClientMqtt = (PolarSysRoverClientMqtt)theEObject;
-				T result = casePolarSysRoverClientMqtt(polarSysRoverClientMqtt);
-				if (result == null) result = casePolarSysRoverPlatformClient(polarSysRoverClientMqtt);
-				if (result == null) result = caseDisposable(polarSysRoverClientMqtt);
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT: {
+				PolarSysRoverPlatformClientMqtt polarSysRoverPlatformClientMqtt = (PolarSysRoverPlatformClientMqtt)theEObject;
+				T result = casePolarSysRoverPlatformClientMqtt(polarSysRoverPlatformClientMqtt);
+				if (result == null) result = casePolarSysRoverPlatformClient(polarSysRoverPlatformClientMqtt);
+				if (result == null) result = caseDisposable(polarSysRoverPlatformClientMqtt);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -91,17 +91,17 @@ public class PolarSysRoverClientMqttSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Client Mqtt</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Client Mqtt</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Client Mqtt</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Client Mqtt</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePolarSysRoverClientMqtt(PolarSysRoverClientMqtt object) {
+	public T casePolarSysRoverPlatformClientMqtt(PolarSysRoverPlatformClientMqtt object) {
 		return null;
 	}
 

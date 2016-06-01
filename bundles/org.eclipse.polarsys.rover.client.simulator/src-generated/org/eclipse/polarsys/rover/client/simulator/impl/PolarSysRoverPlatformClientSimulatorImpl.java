@@ -25,7 +25,7 @@ import org.eclipse.polarsys.rover.client.PolarSysRoverClientFactory;
 import org.eclipse.polarsys.rover.client.Position;
 import org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl;
 import org.eclipse.polarsys.rover.client.simulator.Activator;
-import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulator;
+import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorPackage;
 
 import ca.gc.asc_csa.apogy.common.log.EventSeverity;
@@ -37,8 +37,8 @@ import ca.gc.asc_csa.apogy.common.log.Logger;
  *
  * @generated
  */
-public class PolarSysRoverClientSimulatorImpl extends PolarSysRoverPlatformClientImpl
-		implements PolarSysRoverClientSimulator {
+public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatformClientImpl
+		implements PolarSysRoverPlatformClientSimulator {
 
 	/**
 	 * This is the degree symbol, as expressed in unicode
@@ -95,7 +95,7 @@ public class PolarSysRoverClientSimulatorImpl extends PolarSysRoverPlatformClien
 	 * 
 	 * @generated_NOT
 	 */
-	protected PolarSysRoverClientSimulatorImpl() {
+	protected PolarSysRoverPlatformClientSimulatorImpl() {
 		super();
 
 		// Initialize the lock
@@ -115,7 +115,7 @@ public class PolarSysRoverClientSimulatorImpl extends PolarSysRoverPlatformClien
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PolarSysRoverClientSimulatorPackage.Literals.POLAR_SYS_ROVER_CLIENT_SIMULATOR;
+		return PolarSysRoverClientSimulatorPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR;
 	}
 
 	@Override
@@ -457,13 +457,13 @@ public class PolarSysRoverClientSimulatorImpl extends PolarSysRoverPlatformClien
 		 * This is the change in time (in seconds)
 		 * between subsequent movement steps of the job
 		 */
-		private final static double DELTA_T = (((double)PolarSysRoverClientSimulatorImpl.MOVE_WAIT_PERIOD) / 1000.0);
+		private final static double DELTA_T = (((double)PolarSysRoverPlatformClientSimulatorImpl.MOVE_WAIT_PERIOD) / 1000.0);
 
 		/**
 		 * This is the platform upon which the movement
 		 * job is being performed.
 		 */
-		private PolarSysRoverClientSimulatorImpl platform;
+		private PolarSysRoverPlatformClientSimulatorImpl platform;
 		
 		/**
 		 * This is the constructor for the MobilePlatformSimulatedMoveJob class
@@ -471,7 +471,7 @@ public class PolarSysRoverClientSimulatorImpl extends PolarSysRoverPlatformClien
 		 * @param platform The platform which is to be moved
 		 * @param name The name of the job (used by superclass)
 		 */
-		protected MoveJob(PolarSysRoverClientSimulatorImpl platform,
+		protected MoveJob(PolarSysRoverPlatformClientSimulatorImpl platform,
 												 String name)
 		{
 			// Call the superclass's constructor
@@ -528,7 +528,7 @@ public class PolarSysRoverClientSimulatorImpl extends PolarSysRoverPlatformClien
 					// which is dependent on the displacement (m) and
 					// ERROR_PER_METER
 					newPosError = newPosError + (Math.abs(displacement) *
-							PolarSysRoverClientSimulatorImpl.ERROR_PER_METER);
+							PolarSysRoverPlatformClientSimulatorImpl.ERROR_PER_METER);
 					
 					// Add a rotation angle to the theta,
 					// which is based on the angular velocity and DELTA_T
@@ -542,12 +542,12 @@ public class PolarSysRoverClientSimulatorImpl extends PolarSysRoverPlatformClien
 					
 					// Extract the linear velocities of the wheels
 					double rightWheelVel = (angVel *
-											 (PolarSysRoverClientSimulatorImpl.WHEEL_TRACK / 2.0)) + linVel;
+											 (PolarSysRoverPlatformClientSimulatorImpl.WHEEL_TRACK / 2.0)) + linVel;
 					double leftWheelVel = (2 * linVel) - rightWheelVel;
 
 					// Get the wheels' angular velocities
-					double rightWheelAngVel = (rightWheelVel / PolarSysRoverClientSimulatorImpl.WHEEL_RADIUS);
-					double leftWheelAngVel = (leftWheelVel / PolarSysRoverClientSimulatorImpl.WHEEL_RADIUS);
+					double rightWheelAngVel = (rightWheelVel / PolarSysRoverPlatformClientSimulatorImpl.WHEEL_RADIUS);
+					double leftWheelAngVel = (leftWheelVel / PolarSysRoverPlatformClientSimulatorImpl.WHEEL_RADIUS);
 
 					// Add a offset to the wheel positions,
 					// which is dependent on the wheels' angular
@@ -576,7 +576,7 @@ public class PolarSysRoverClientSimulatorImpl extends PolarSysRoverPlatformClien
 				{
 					// Sleep for a short period of time (this makes it far easier
 					// to visualize and follow the movement of the mobile platform)
-					Thread.sleep(PolarSysRoverClientSimulatorImpl.MOVE_WAIT_PERIOD);
+					Thread.sleep(PolarSysRoverPlatformClientSimulatorImpl.MOVE_WAIT_PERIOD);
 				}
 				catch (InterruptedException e)
 				{
@@ -587,6 +587,53 @@ public class PolarSysRoverClientSimulatorImpl extends PolarSysRoverPlatformClien
 			
 			// Indicate that the job finished successfully
 			return Status.OK_STATUS;
+		}
+	}
+
+	/**
+	 * This operation is used to dispose of the mobile platform
+	 * and as such, it will perform the steps required to
+	 * shutdown the platform and any resources it uses.  Note
+	 * that implicitly, this means that the mobile platform won't
+	 * be available after it has been disposed.
+	 * 
+	 * @generated_NOT
+	 */
+	@Override
+	public void dispose()
+	{
+		final String LOG_PREFIX = this.getClass().getSimpleName() +
+									".dispose(): ";
+		
+		// If the mobile platform has already been disposed
+		if (this.isDisposed() == true)
+		{
+			// Generate the error message
+			String message = LOG_PREFIX +
+								"Ignored; the mobile platform has already " +
+								"been disposed (with dispose()).";
+			
+			// Throw an exception to indicate that the operation failed; this will
+			// be caught and handled by Apogy
+			throw new RuntimeException(message);
+		}
+		// Otherwise, the platform hasn't been disposed yet 
+		else
+		{
+			// Perform the necessary disposal actions
+			
+			// Cancel the movement job
+			if (moveJob != null){
+				this.moveJob.cancel();
+			}
+			
+			// Indicate that the mobile platform is now disposed
+			this.setDisposed(true);
+			
+			// Log this event
+			String message = LOG_PREFIX +
+								"Mobile platform has been successfully disposed.";
+			Logger.INSTANCE.log(Activator.ID, this, message, EventSeverity.INFO);
 		}
 	}
 	

@@ -33,13 +33,13 @@ public interface PolarSysRoverClientRosFactory extends EFactory {
 	PolarSysRoverClientRosFactory eINSTANCE = org.eclipse.polarsys.rover.client.ros.impl.PolarSysRoverClientRosFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Polar Sys Rover Client Ros</em>'.
+	 * Returns a new object of class '<em>Polar Sys Rover Platform Client Ros</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Polar Sys Rover Client Ros</em>'.
+	 * @return a new object of class '<em>Polar Sys Rover Platform Client Ros</em>'.
 	 * @generated
 	 */
-	PolarSysRoverClientRos createPolarSysRoverClientRos();
+	PolarSysRoverPlatformClientRos createPolarSysRoverPlatformClientRos();
 
 	/**
 	 * Returns the package supported by this factory.

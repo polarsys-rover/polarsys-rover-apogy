@@ -24,6 +24,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -36,6 +38,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.eclipse.polarsys.rover.client.PolarSysRoverClientFactory;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
 
@@ -83,7 +86,6 @@ public class PolarSysRoverPlatformClientItemProvider
 			addFrontRightWheelPositionPropertyDescriptor(object);
 			addRearLeftWheelPositionPropertyDescriptor(object);
 			addRearRightWheelPositionPropertyDescriptor(object);
-			addPositionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +113,7 @@ public class PolarSysRoverPlatformClientItemProvider
 				 null));
 	}
 
+	
 	/**
 	 * This adds a property descriptor for the Disposed feature.
 	 * <!-- begin-user-doc -->
@@ -133,6 +136,7 @@ public class PolarSysRoverPlatformClientItemProvider
 				 null));
 	}
 
+	
 	/**
 	 * This adds a property descriptor for the Position Error feature.
 	 * <!-- begin-user-doc -->
@@ -155,6 +159,7 @@ public class PolarSysRoverPlatformClientItemProvider
 				 null));
 	}
 
+	
 	/**
 	 * This adds a property descriptor for the Linear Velocity feature.
 	 * <!-- begin-user-doc -->
@@ -293,25 +298,33 @@ public class PolarSysRoverPlatformClientItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Position feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPositionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PolarSysRoverPlatformClient_position_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_position_feature", "_UI_PolarSysRoverPlatformClient_type"),
-				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI_PositionPropertyCategory"),
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -348,8 +361,10 @@ public class PolarSysRoverPlatformClientItemProvider
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION:
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -365,6 +380,11 @@ public class PolarSysRoverPlatformClientItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION,
+				 PolarSysRoverClientFactory.eINSTANCE.createPosition()));
 	}
 
 	/**

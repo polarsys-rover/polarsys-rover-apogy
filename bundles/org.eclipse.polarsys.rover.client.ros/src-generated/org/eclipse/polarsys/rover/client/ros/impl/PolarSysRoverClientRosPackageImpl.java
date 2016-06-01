@@ -17,10 +17,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
-
-import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRos;
+import org.eclipse.polarsys.rover.client.ros.PolarSysRoverPlatformClientRos;
 import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRosFactory;
 import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRosPackage;
 
@@ -36,8 +34,7 @@ public class PolarSysRoverClientRosPackageImpl extends EPackageImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass polarSysRoverClientRosEClass = null;
-
+	private EClass polarSysRoverPlatformClientRosEClass = null;
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -107,8 +104,8 @@ public class PolarSysRoverClientRosPackageImpl extends EPackageImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPolarSysRoverClientRos() {
-		return polarSysRoverClientRosEClass;
+	public EClass getPolarSysRoverPlatformClientRos() {
+		return polarSysRoverPlatformClientRosEClass;
 	}
 
 	/**
@@ -139,7 +136,7 @@ public class PolarSysRoverClientRosPackageImpl extends EPackageImpl implements P
 		isCreated = true;
 
 		// Create classes and their features
-		polarSysRoverClientRosEClass = createEClass(POLAR_SYS_ROVER_CLIENT_ROS);
+		polarSysRoverPlatformClientRosEClass = createEClass(POLAR_SYS_ROVER_PLATFORM_CLIENT_ROS);
 	}
 
 	/**
@@ -173,10 +170,10 @@ public class PolarSysRoverClientRosPackageImpl extends EPackageImpl implements P
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		polarSysRoverClientRosEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
+		polarSysRoverPlatformClientRosEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(polarSysRoverClientRosEClass, PolarSysRoverClientRos.class, "PolarSysRoverClientRos", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(polarSysRoverPlatformClientRosEClass, PolarSysRoverPlatformClientRos.class, "PolarSysRoverPlatformClientRos", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -14,6 +14,7 @@
 package org.eclipse.polarsys.rover.client.util;
 
 import ca.gc.asc_csa.apogy.common.emf.Disposable;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 

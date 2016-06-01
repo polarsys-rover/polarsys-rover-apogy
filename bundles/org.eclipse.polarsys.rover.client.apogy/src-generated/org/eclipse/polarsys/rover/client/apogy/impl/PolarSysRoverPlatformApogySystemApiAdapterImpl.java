@@ -187,7 +187,7 @@ public class PolarSysRoverPlatformApogySystemApiAdapterImpl extends ApogySystemA
 			{				
 				if(msg.getNotifier() instanceof PolarSysRoverPlatformClient)
 				{
-					int featureID = msg.getFeatureID(PolarSysRoverPlatformClient.class);
+//					int featureID = msg.getFeatureID(PolarSysRoverPlatformClient.class);
 					// TODO : Update pose when the rover pose changes.
 				}
 			}
@@ -203,6 +203,8 @@ public class PolarSysRoverPlatformApogySystemApiAdapterImpl extends ApogySystemA
 		 * PolarSys rover instance which raised the notification. 
 		 * @param position The new position of the mobile platform instance
 		 */
+		// TODO Remove Annotation once completed.
+		@SuppressWarnings("unused")
 		private void updatePose() 
 		{
 			// TODO : Fill matrix m with the pose of the PolarSys rover.

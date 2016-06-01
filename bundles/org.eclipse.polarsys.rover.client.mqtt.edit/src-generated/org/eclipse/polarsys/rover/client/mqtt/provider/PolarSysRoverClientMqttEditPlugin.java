@@ -17,7 +17,6 @@ import ca.gc.asc_csa.apogy.common.emf.provider.ApogyCommonEMFEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.polarsys.rover.client.provider.PolarSysRoverClientEditPlugin;
 
 /**

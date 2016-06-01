@@ -22,23 +22,24 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt;
+import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt;
+
 import org.eclipse.polarsys.rover.client.provider.PolarSysRoverPlatformClientItemProvider;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt} object.
+ * This is the item provider adapter for a {@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PolarSysRoverClientMqttItemProvider extends PolarSysRoverPlatformClientItemProvider {
+public class PolarSysRoverPlatformClientMqttItemProvider extends PolarSysRoverPlatformClientItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PolarSysRoverClientMqttItemProvider(AdapterFactory adapterFactory) {
+	public PolarSysRoverPlatformClientMqttItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -58,14 +59,14 @@ public class PolarSysRoverClientMqttItemProvider extends PolarSysRoverPlatformCl
 	}
 
 	/**
-	 * This returns PolarSysRoverClientMqtt.gif.
+	 * This returns PolarSysRoverPlatformClientMqtt.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PolarSysRoverClientMqtt"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PolarSysRoverPlatformClientMqtt"));
 	}
 
 	/**
@@ -76,8 +77,8 @@ public class PolarSysRoverClientMqttItemProvider extends PolarSysRoverPlatformCl
 	 */
 	@Override
 	public String getText(Object object) {
-		PolarSysRoverClientMqtt polarSysRoverClientMqtt = (PolarSysRoverClientMqtt)object;
-		return getString("_UI_PolarSysRoverClientMqtt_type") + " " + polarSysRoverClientMqtt.isInitialized();
+		PolarSysRoverPlatformClientMqtt polarSysRoverPlatformClientMqtt = (PolarSysRoverPlatformClientMqtt)object;
+		return getString("_UI_PolarSysRoverPlatformClientMqtt_type") + " " + polarSysRoverPlatformClientMqtt.isInitialized();
 	}
 	
 

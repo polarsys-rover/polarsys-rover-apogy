@@ -100,26 +100,26 @@ public class PolarSysRoverClientSimulatorItemProviderAdapterFactory extends Pola
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulator} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PolarSysRoverClientSimulatorItemProvider polarSysRoverClientSimulatorItemProvider;
+	protected PolarSysRoverPlatformClientSimulatorItemProvider polarSysRoverPlatformClientSimulatorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulator}.
+	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPolarSysRoverClientSimulatorAdapter() {
-		if (polarSysRoverClientSimulatorItemProvider == null) {
-			polarSysRoverClientSimulatorItemProvider = new PolarSysRoverClientSimulatorItemProvider(this);
+	public Adapter createPolarSysRoverPlatformClientSimulatorAdapter() {
+		if (polarSysRoverPlatformClientSimulatorItemProvider == null) {
+			polarSysRoverPlatformClientSimulatorItemProvider = new PolarSysRoverPlatformClientSimulatorItemProvider(this);
 		}
 
-		return polarSysRoverClientSimulatorItemProvider;
+		return polarSysRoverPlatformClientSimulatorItemProvider;
 	}
 
 	/**
@@ -248,7 +248,7 @@ public class PolarSysRoverClientSimulatorItemProviderAdapterFactory extends Pola
 	 * @generated
 	 */
 	public void dispose() {
-		if (polarSysRoverClientSimulatorItemProvider != null) polarSysRoverClientSimulatorItemProvider.dispose();
+		if (polarSysRoverPlatformClientSimulatorItemProvider != null) polarSysRoverPlatformClientSimulatorItemProvider.dispose();
 	}
 
 }

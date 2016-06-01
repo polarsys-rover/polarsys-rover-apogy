@@ -301,26 +301,26 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	void setRearRightWheelPosition(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Position</b></em>' reference.
+	 * Returns the value of the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This is the mobile platform's current position
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Position</em>' reference.
+	 * @return the value of the '<em>Position</em>' containment reference.
 	 * @see #setPosition(Position)
 	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_Position()
-	 * @model required="true" transient="true"
+	 * @model containment="true" required="true" transient="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel notify='true' propertyCategory='Position'"
 	 * @generated
 	 */
 	Position getPosition();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition <em>Position</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition <em>Position</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Position</em>' reference.
+	 * @param value the new value of the '<em>Position</em>' containment reference.
 	 * @see #getPosition()
 	 * @generated
 	 */

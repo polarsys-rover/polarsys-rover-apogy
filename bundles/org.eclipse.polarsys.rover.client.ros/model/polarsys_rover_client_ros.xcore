@@ -36,5 +36,5 @@ package org.eclipse.polarsys.rover.client.ros
 
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient
 
-class PolarSysRoverClientRos extends PolarSysRoverPlatformClient{	
+class PolarSysRoverPlatformClientRos extends PolarSysRoverPlatformClient{	
 }

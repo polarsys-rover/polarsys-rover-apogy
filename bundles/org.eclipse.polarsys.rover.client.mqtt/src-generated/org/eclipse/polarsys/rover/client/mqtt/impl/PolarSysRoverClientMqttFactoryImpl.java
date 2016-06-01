@@ -67,7 +67,7 @@ public class PolarSysRoverClientMqttFactoryImpl extends EFactoryImpl implements 
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_CLIENT_MQTT: return createPolarSysRoverClientMqtt();
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT: return createPolarSysRoverPlatformClientMqtt();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -78,9 +78,9 @@ public class PolarSysRoverClientMqttFactoryImpl extends EFactoryImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PolarSysRoverClientMqtt createPolarSysRoverClientMqtt() {
-		PolarSysRoverClientMqttImpl polarSysRoverClientMqtt = new PolarSysRoverClientMqttImpl();
-		return polarSysRoverClientMqtt;
+	public PolarSysRoverPlatformClientMqtt createPolarSysRoverPlatformClientMqtt() {
+		PolarSysRoverPlatformClientMqttImpl polarSysRoverPlatformClientMqtt = new PolarSysRoverPlatformClientMqttImpl();
+		return polarSysRoverPlatformClientMqtt;
 	}
 
 	/**

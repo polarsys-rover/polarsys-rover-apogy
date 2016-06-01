@@ -80,8 +80,8 @@ public class PolarSysRoverClientMqttAdapterFactory extends AdapterFactoryImpl {
 	protected PolarSysRoverClientMqttSwitch<Adapter> modelSwitch =
 		new PolarSysRoverClientMqttSwitch<Adapter>() {
 			@Override
-			public Adapter casePolarSysRoverClientMqtt(PolarSysRoverClientMqtt object) {
-				return createPolarSysRoverClientMqttAdapter();
+			public Adapter casePolarSysRoverPlatformClientMqtt(PolarSysRoverPlatformClientMqtt object) {
+				return createPolarSysRoverPlatformClientMqttAdapter();
 			}
 			@Override
 			public Adapter caseDisposable(Disposable object) {
@@ -112,16 +112,16 @@ public class PolarSysRoverClientMqttAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt <em>Polar Sys Rover Client Mqtt</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt <em>Polar Sys Rover Platform Client Mqtt</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt
 	 * @generated
 	 */
-	public Adapter createPolarSysRoverClientMqttAdapter() {
+	public Adapter createPolarSysRoverPlatformClientMqttAdapter() {
 		return null;
 	}
 

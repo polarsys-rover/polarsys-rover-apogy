@@ -78,11 +78,11 @@ public class PolarSysRoverClientRosSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case PolarSysRoverClientRosPackage.POLAR_SYS_ROVER_CLIENT_ROS: {
-				PolarSysRoverClientRos polarSysRoverClientRos = (PolarSysRoverClientRos)theEObject;
-				T result = casePolarSysRoverClientRos(polarSysRoverClientRos);
-				if (result == null) result = casePolarSysRoverPlatformClient(polarSysRoverClientRos);
-				if (result == null) result = caseDisposable(polarSysRoverClientRos);
+			case PolarSysRoverClientRosPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_ROS: {
+				PolarSysRoverPlatformClientRos polarSysRoverPlatformClientRos = (PolarSysRoverPlatformClientRos)theEObject;
+				T result = casePolarSysRoverPlatformClientRos(polarSysRoverPlatformClientRos);
+				if (result == null) result = casePolarSysRoverPlatformClient(polarSysRoverPlatformClientRos);
+				if (result == null) result = caseDisposable(polarSysRoverPlatformClientRos);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -91,17 +91,17 @@ public class PolarSysRoverClientRosSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Client Ros</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Client Ros</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Client Ros</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Client Ros</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePolarSysRoverClientRos(PolarSysRoverClientRos object) {
+	public T casePolarSysRoverPlatformClientRos(PolarSysRoverPlatformClientRos object) {
 		return null;
 	}
 

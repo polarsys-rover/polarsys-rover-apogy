@@ -17,10 +17,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
-
-import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt;
+import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttFactory;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttPackage;
 
@@ -36,8 +34,7 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass polarSysRoverClientMqttEClass = null;
-
+	private EClass polarSysRoverPlatformClientMqttEClass = null;
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -107,8 +104,8 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPolarSysRoverClientMqtt() {
-		return polarSysRoverClientMqttEClass;
+	public EClass getPolarSysRoverPlatformClientMqtt() {
+		return polarSysRoverPlatformClientMqttEClass;
 	}
 
 	/**
@@ -139,7 +136,7 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 		isCreated = true;
 
 		// Create classes and their features
-		polarSysRoverClientMqttEClass = createEClass(POLAR_SYS_ROVER_CLIENT_MQTT);
+		polarSysRoverPlatformClientMqttEClass = createEClass(POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT);
 	}
 
 	/**
@@ -173,10 +170,10 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		polarSysRoverClientMqttEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
+		polarSysRoverPlatformClientMqttEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(polarSysRoverClientMqttEClass, PolarSysRoverClientMqtt.class, "PolarSysRoverClientMqtt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(polarSysRoverPlatformClientMqttEClass, PolarSysRoverPlatformClientMqtt.class, "PolarSysRoverPlatformClientMqtt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

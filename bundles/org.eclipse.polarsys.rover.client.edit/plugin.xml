@@ -16,7 +16,6 @@
 -->
 
 <plugin>
-
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated polarsys_rover_client -->
       <factory
@@ -29,5 +28,4 @@
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
-
 </plugin>

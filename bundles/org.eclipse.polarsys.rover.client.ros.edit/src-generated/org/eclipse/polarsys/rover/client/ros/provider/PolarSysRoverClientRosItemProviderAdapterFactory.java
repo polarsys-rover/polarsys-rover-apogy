@@ -100,26 +100,26 @@ public class PolarSysRoverClientRosItemProviderAdapterFactory extends PolarSysRo
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRos} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.ros.PolarSysRoverPlatformClientRos} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PolarSysRoverClientRosItemProvider polarSysRoverClientRosItemProvider;
+	protected PolarSysRoverPlatformClientRosItemProvider polarSysRoverPlatformClientRosItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRos}.
+	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.ros.PolarSysRoverPlatformClientRos}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPolarSysRoverClientRosAdapter() {
-		if (polarSysRoverClientRosItemProvider == null) {
-			polarSysRoverClientRosItemProvider = new PolarSysRoverClientRosItemProvider(this);
+	public Adapter createPolarSysRoverPlatformClientRosAdapter() {
+		if (polarSysRoverPlatformClientRosItemProvider == null) {
+			polarSysRoverPlatformClientRosItemProvider = new PolarSysRoverPlatformClientRosItemProvider(this);
 		}
 
-		return polarSysRoverClientRosItemProvider;
+		return polarSysRoverPlatformClientRosItemProvider;
 	}
 
 	/**
@@ -248,7 +248,7 @@ public class PolarSysRoverClientRosItemProviderAdapterFactory extends PolarSysRo
 	 * @generated
 	 */
 	public void dispose() {
-		if (polarSysRoverClientRosItemProvider != null) polarSysRoverClientRosItemProvider.dispose();
+		if (polarSysRoverPlatformClientRosItemProvider != null) polarSysRoverPlatformClientRosItemProvider.dispose();
 	}
 
 }

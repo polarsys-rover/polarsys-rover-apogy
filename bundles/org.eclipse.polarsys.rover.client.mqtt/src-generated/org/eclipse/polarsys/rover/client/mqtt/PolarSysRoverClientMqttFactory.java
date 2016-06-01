@@ -33,13 +33,13 @@ public interface PolarSysRoverClientMqttFactory extends EFactory {
 	PolarSysRoverClientMqttFactory eINSTANCE = org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverClientMqttFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Polar Sys Rover Client Mqtt</em>'.
+	 * Returns a new object of class '<em>Polar Sys Rover Platform Client Mqtt</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Polar Sys Rover Client Mqtt</em>'.
+	 * @return a new object of class '<em>Polar Sys Rover Platform Client Mqtt</em>'.
 	 * @generated
 	 */
-	PolarSysRoverClientMqtt createPolarSysRoverClientMqtt();
+	PolarSysRoverPlatformClientMqtt createPolarSysRoverPlatformClientMqtt();
 
 	/**
 	 * Returns the package supported by this factory.

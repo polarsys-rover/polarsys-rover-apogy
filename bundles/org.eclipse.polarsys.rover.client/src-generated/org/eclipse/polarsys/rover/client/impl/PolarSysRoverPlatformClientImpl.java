@@ -14,14 +14,15 @@
 package org.eclipse.polarsys.rover.client.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.polarsys.rover.client.PolarSysRoverClientFactory;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
 import org.eclipse.polarsys.rover.client.Position;
@@ -214,7 +215,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	protected double rearRightWheelPosition = REAR_RIGHT_WHEEL_POSITION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPosition() <em>Position</em>}' reference.
+	 * The cached value of the '{@link #getPosition() <em>Position</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPosition()
@@ -436,25 +437,37 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Position getPosition() {
-		if (position != null && position.eIsProxy()) {
-			InternalEObject oldPosition = (InternalEObject)position;
-			position = (Position)eResolveProxy(oldPosition);
-			if (position != oldPosition) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION, oldPosition, position));
-			}
-		}
+	public Position getPositionGen() {
 		return position;
 	}
+	
+	/**
+	 * (non-Javadoc)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition()
+	 * @generated_NOT
+	 */
+	public Position getPosition() {
+		Position position = getPositionGen();		
+		if (position == null){
+			setPosition(PolarSysRoverClientFactory.eINSTANCE.createPosition());
+		}		
+		return position;
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Position basicGetPosition() {
-		return position;
+	public NotificationChain basicSetPosition(Position newPosition, NotificationChain msgs) {
+		Position oldPosition = position;
+		position = newPosition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION, oldPosition, newPosition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -463,10 +476,17 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * @generated
 	 */
 	public void setPosition(Position newPosition) {
-		Position oldPosition = position;
-		position = newPosition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION, oldPosition, position));
+		if (newPosition != position) {
+			NotificationChain msgs = null;
+			if (position != null)
+				msgs = ((InternalEObject)position).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION, null, msgs);
+			if (newPosition != null)
+				msgs = ((InternalEObject)newPosition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION, null, msgs);
+			msgs = basicSetPosition(newPosition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION, newPosition, newPosition));
 	}
 
 	/**
@@ -479,35 +499,23 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated_NOT
 	 */
-	public void resetPosition(Position position) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public void resetPosition(Position position);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated_NOT
 	 */
-	public void clearPositionError() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public void clearPositionError();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated_NOT
 	 */
-	public void stop() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public void stop();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -519,12 +527,22 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated_NOT
+	 */
+	abstract public void dispose();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void dispose() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
+				return basicSetPosition(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -554,8 +572,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION:
 				return getRearRightWheelPosition();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
-				if (resolve) return getPosition();
-				return basicGetPosition();
+				return getPosition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

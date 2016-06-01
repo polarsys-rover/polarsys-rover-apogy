@@ -78,11 +78,11 @@ public class PolarSysRoverClientSimulatorSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_CLIENT_SIMULATOR: {
-				PolarSysRoverClientSimulator polarSysRoverClientSimulator = (PolarSysRoverClientSimulator)theEObject;
-				T result = casePolarSysRoverClientSimulator(polarSysRoverClientSimulator);
-				if (result == null) result = casePolarSysRoverPlatformClient(polarSysRoverClientSimulator);
-				if (result == null) result = caseDisposable(polarSysRoverClientSimulator);
+			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR: {
+				PolarSysRoverPlatformClientSimulator polarSysRoverPlatformClientSimulator = (PolarSysRoverPlatformClientSimulator)theEObject;
+				T result = casePolarSysRoverPlatformClientSimulator(polarSysRoverPlatformClientSimulator);
+				if (result == null) result = casePolarSysRoverPlatformClient(polarSysRoverPlatformClientSimulator);
+				if (result == null) result = caseDisposable(polarSysRoverPlatformClientSimulator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -91,17 +91,17 @@ public class PolarSysRoverClientSimulatorSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Client Simulator</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Client Simulator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Client Simulator</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Client Simulator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePolarSysRoverClientSimulator(PolarSysRoverClientSimulator object) {
+	public T casePolarSysRoverPlatformClientSimulator(PolarSysRoverPlatformClientSimulator object) {
 		return null;
 	}
 

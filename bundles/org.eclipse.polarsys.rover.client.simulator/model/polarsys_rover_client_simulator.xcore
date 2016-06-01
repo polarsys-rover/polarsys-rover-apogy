@@ -36,7 +36,7 @@ package org.eclipse.polarsys.rover.client.simulator
 
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient
 
-class PolarSysRoverClientSimulator extends PolarSysRoverPlatformClient{
+class PolarSysRoverPlatformClientSimulator extends PolarSysRoverPlatformClient{
 	
 		
 }

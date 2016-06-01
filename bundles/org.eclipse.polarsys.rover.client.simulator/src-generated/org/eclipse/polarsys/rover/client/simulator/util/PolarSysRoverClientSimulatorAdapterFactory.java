@@ -80,8 +80,8 @@ public class PolarSysRoverClientSimulatorAdapterFactory extends AdapterFactoryIm
 	protected PolarSysRoverClientSimulatorSwitch<Adapter> modelSwitch =
 		new PolarSysRoverClientSimulatorSwitch<Adapter>() {
 			@Override
-			public Adapter casePolarSysRoverClientSimulator(PolarSysRoverClientSimulator object) {
-				return createPolarSysRoverClientSimulatorAdapter();
+			public Adapter casePolarSysRoverPlatformClientSimulator(PolarSysRoverPlatformClientSimulator object) {
+				return createPolarSysRoverPlatformClientSimulatorAdapter();
 			}
 			@Override
 			public Adapter caseDisposable(Disposable object) {
@@ -112,16 +112,16 @@ public class PolarSysRoverClientSimulatorAdapterFactory extends AdapterFactoryIm
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulator <em>Polar Sys Rover Client Simulator</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator <em>Polar Sys Rover Platform Client Simulator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulator
+	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator
 	 * @generated
 	 */
-	public Adapter createPolarSysRoverClientSimulatorAdapter() {
+	public Adapter createPolarSysRoverPlatformClientSimulatorAdapter() {
 		return null;
 	}
 

@@ -14,6 +14,7 @@
 package org.eclipse.polarsys.rover.client;
 
 import ca.gc.asc_csa.apogy.common.emf.ApogyCommonEMFPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -230,7 +231,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' reference.
+	 * The feature id for the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -464,10 +465,10 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	EAttribute getPolarSysRoverPlatformClient_RearRightWheelPosition();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition <em>Position</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition <em>Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Position</em>'.
+	 * @return the meta object for the containment reference '<em>Position</em>'.
 	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition()
 	 * @see #getPolarSysRoverPlatformClient()
 	 * @generated
@@ -556,6 +557,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POSITION = eINSTANCE.getPosition();
+
 		/**
 		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -563,6 +565,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POSITION__X = eINSTANCE.getPosition_X();
+
 		/**
 		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -570,6 +573,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POSITION__Y = eINSTANCE.getPosition_Y();
+
 		/**
 		 * The meta object literal for the '<em><b>Theta</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -577,6 +581,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POSITION__THETA = eINSTANCE.getPosition_Theta();
+
 		/**
 		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl <em>Polar Sys Rover Platform Client</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -586,6 +591,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POLAR_SYS_ROVER_PLATFORM_CLIENT = eINSTANCE.getPolarSysRoverPlatformClient();
+
 		/**
 		 * The meta object literal for the '<em><b>Initialized</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -593,6 +599,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED = eINSTANCE.getPolarSysRoverPlatformClient_Initialized();
+
 		/**
 		 * The meta object literal for the '<em><b>Disposed</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -600,6 +607,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__DISPOSED = eINSTANCE.getPolarSysRoverPlatformClient_Disposed();
+
 		/**
 		 * The meta object literal for the '<em><b>Position Error</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -607,6 +615,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR = eINSTANCE.getPolarSysRoverPlatformClient_PositionError();
+
 		/**
 		 * The meta object literal for the '<em><b>Linear Velocity</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -614,6 +623,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClient_LinearVelocity();
+
 		/**
 		 * The meta object literal for the '<em><b>Angular Velocity</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -621,6 +631,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClient_AngularVelocity();
+
 		/**
 		 * The meta object literal for the '<em><b>Front Left Wheel Position</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -628,6 +639,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_FrontLeftWheelPosition();
+
 		/**
 		 * The meta object literal for the '<em><b>Front Right Wheel Position</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -635,6 +647,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_FrontRightWheelPosition();
+
 		/**
 		 * The meta object literal for the '<em><b>Rear Left Wheel Position</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -642,6 +655,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_RearLeftWheelPosition();
+
 		/**
 		 * The meta object literal for the '<em><b>Rear Right Wheel Position</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -649,13 +663,15 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_RearRightWheelPosition();
+
 		/**
-		 * The meta object literal for the '<em><b>Position</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Position</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION = eINSTANCE.getPolarSysRoverPlatformClient_Position();
+
 		/**
 		 * The meta object literal for the '<em><b>Init</b></em>' operation.
 		 * <!-- begin-user-doc -->
@@ -663,6 +679,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___INIT = eINSTANCE.getPolarSysRoverPlatformClient__Init();
+
 		/**
 		 * The meta object literal for the '<em><b>Reset Position</b></em>' operation.
 		 * <!-- begin-user-doc -->
@@ -670,6 +687,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___RESET_POSITION__POSITION = eINSTANCE.getPolarSysRoverPlatformClient__ResetPosition__Position();
+
 		/**
 		 * The meta object literal for the '<em><b>Clear Position Error</b></em>' operation.
 		 * <!-- begin-user-doc -->
@@ -677,6 +695,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___CLEAR_POSITION_ERROR = eINSTANCE.getPolarSysRoverPlatformClient__ClearPositionError();
+
 		/**
 		 * The meta object literal for the '<em><b>Stop</b></em>' operation.
 		 * <!-- begin-user-doc -->
@@ -684,6 +703,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___STOP = eINSTANCE.getPolarSysRoverPlatformClient__Stop();
+
 		/**
 		 * The meta object literal for the '<em><b>Cmd Velocities</b></em>' operation.
 		 * <!-- begin-user-doc -->

@@ -14,14 +14,16 @@
 package org.eclipse.polarsys.rover.client.impl;
 
 import ca.gc.asc_csa.apogy.common.emf.ApogyCommonEMFPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientFactory;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
@@ -40,12 +42,14 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * @generated
 	 */
 	private EClass positionEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass polarSysRoverPlatformClientEClass = null;
+
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -391,7 +395,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		initEAttribute(getPolarSysRoverPlatformClient_FrontRightWheelPosition(), theEcorePackage.getEDouble(), "frontRightWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClient_RearLeftWheelPosition(), theEcorePackage.getEDouble(), "rearLeftWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClient_RearRightWheelPosition(), theEcorePackage.getEDouble(), "rearRightWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPolarSysRoverPlatformClient_Position(), this.getPosition(), null, "position", null, 1, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPolarSysRoverPlatformClient_Position(), this.getPosition(), null, "position", null, 1, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPolarSysRoverPlatformClient__Init(), theEcorePackage.getEBoolean(), "init", 0, 1, !IS_UNIQUE, IS_ORDERED);
 

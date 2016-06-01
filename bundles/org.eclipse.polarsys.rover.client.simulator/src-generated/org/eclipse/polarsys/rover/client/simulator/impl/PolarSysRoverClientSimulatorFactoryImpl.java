@@ -67,7 +67,7 @@ public class PolarSysRoverClientSimulatorFactoryImpl extends EFactoryImpl implem
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_CLIENT_SIMULATOR: return createPolarSysRoverClientSimulator();
+			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR: return createPolarSysRoverPlatformClientSimulator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -78,9 +78,9 @@ public class PolarSysRoverClientSimulatorFactoryImpl extends EFactoryImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PolarSysRoverClientSimulator createPolarSysRoverClientSimulator() {
-		PolarSysRoverClientSimulatorImpl polarSysRoverClientSimulator = new PolarSysRoverClientSimulatorImpl();
-		return polarSysRoverClientSimulator;
+	public PolarSysRoverPlatformClientSimulator createPolarSysRoverPlatformClientSimulator() {
+		PolarSysRoverPlatformClientSimulatorImpl polarSysRoverPlatformClientSimulator = new PolarSysRoverPlatformClientSimulatorImpl();
+		return polarSysRoverPlatformClientSimulator;
 	}
 
 	/**

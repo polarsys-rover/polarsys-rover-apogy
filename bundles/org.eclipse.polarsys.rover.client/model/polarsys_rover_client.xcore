@@ -166,7 +166,7 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 	 */
 	@GenModel(notify="true",
 			  propertyCategory="Position")
-	refers transient Position[1] position
+	contains transient Position[1] position
 		
 	/*
 	 * This operation is used to initialize the mobile platform

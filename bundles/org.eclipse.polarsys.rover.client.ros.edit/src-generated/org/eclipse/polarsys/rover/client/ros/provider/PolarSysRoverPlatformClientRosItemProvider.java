@@ -21,23 +21,25 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import org.eclipse.polarsys.rover.client.provider.PolarSysRoverPlatformClientItemProvider;
-import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRos;
+
+import org.eclipse.polarsys.rover.client.ros.PolarSysRoverPlatformClientRos;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRos} object.
+ * This is the item provider adapter for a {@link org.eclipse.polarsys.rover.client.ros.PolarSysRoverPlatformClientRos} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PolarSysRoverClientRosItemProvider extends PolarSysRoverPlatformClientItemProvider {
+public class PolarSysRoverPlatformClientRosItemProvider extends PolarSysRoverPlatformClientItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PolarSysRoverClientRosItemProvider(AdapterFactory adapterFactory) {
+	public PolarSysRoverPlatformClientRosItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,14 +59,14 @@ public class PolarSysRoverClientRosItemProvider extends PolarSysRoverPlatformCli
 	}
 
 	/**
-	 * This returns PolarSysRoverClientRos.gif.
+	 * This returns PolarSysRoverPlatformClientRos.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PolarSysRoverClientRos"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PolarSysRoverPlatformClientRos"));
 	}
 
 	/**
@@ -75,8 +77,8 @@ public class PolarSysRoverClientRosItemProvider extends PolarSysRoverPlatformCli
 	 */
 	@Override
 	public String getText(Object object) {
-		PolarSysRoverClientRos polarSysRoverClientRos = (PolarSysRoverClientRos)object;
-		return getString("_UI_PolarSysRoverClientRos_type") + " " + polarSysRoverClientRos.isInitialized();
+		PolarSysRoverPlatformClientRos polarSysRoverPlatformClientRos = (PolarSysRoverPlatformClientRos)object;
+		return getString("_UI_PolarSysRoverPlatformClientRos_type") + " " + polarSysRoverPlatformClientRos.isInitialized();
 	}
 	
 

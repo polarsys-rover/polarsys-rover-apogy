@@ -100,26 +100,26 @@ public class PolarSysRoverClientMqttItemProviderAdapterFactory extends PolarSysR
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PolarSysRoverClientMqttItemProvider polarSysRoverClientMqttItemProvider;
+	protected PolarSysRoverPlatformClientMqttItemProvider polarSysRoverPlatformClientMqttItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt}.
+	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPolarSysRoverClientMqttAdapter() {
-		if (polarSysRoverClientMqttItemProvider == null) {
-			polarSysRoverClientMqttItemProvider = new PolarSysRoverClientMqttItemProvider(this);
+	public Adapter createPolarSysRoverPlatformClientMqttAdapter() {
+		if (polarSysRoverPlatformClientMqttItemProvider == null) {
+			polarSysRoverPlatformClientMqttItemProvider = new PolarSysRoverPlatformClientMqttItemProvider(this);
 		}
 
-		return polarSysRoverClientMqttItemProvider;
+		return polarSysRoverPlatformClientMqttItemProvider;
 	}
 
 	/**
@@ -248,7 +248,7 @@ public class PolarSysRoverClientMqttItemProviderAdapterFactory extends PolarSysR
 	 * @generated
 	 */
 	public void dispose() {
-		if (polarSysRoverClientMqttItemProvider != null) polarSysRoverClientMqttItemProvider.dispose();
+		if (polarSysRoverPlatformClientMqttItemProvider != null) polarSysRoverPlatformClientMqttItemProvider.dispose();
 	}
 
 }

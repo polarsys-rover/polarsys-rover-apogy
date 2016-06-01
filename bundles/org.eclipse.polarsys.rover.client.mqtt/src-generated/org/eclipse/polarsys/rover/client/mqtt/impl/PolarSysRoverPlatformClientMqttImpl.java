@@ -11,27 +11,28 @@
  *     Sebastien Gemme (Sebastien.Gemme@canada.ca),
  *     Canadian Space Agency (CSA) - Initial API and implementation
  */
-package org.eclipse.polarsys.rover.client.ros.impl;
+package org.eclipse.polarsys.rover.client.mqtt.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.polarsys.rover.client.Position;
 import org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl;
-import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRos;
-import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRosPackage;
+import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt;
+import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Polar Sys Rover Client Ros</b></em>'.
+ * An implementation of the model object '<em><b>Polar Sys Rover Client Mqtt</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class PolarSysRoverClientRosImpl extends PolarSysRoverPlatformClientImpl implements PolarSysRoverClientRos {
+public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformClientImpl implements PolarSysRoverPlatformClientMqtt {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PolarSysRoverClientRosImpl() {
+	protected PolarSysRoverPlatformClientMqttImpl() {
 		super();
 	}
 
@@ -42,7 +43,7 @@ public class PolarSysRoverClientRosImpl extends PolarSysRoverPlatformClientImpl 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PolarSysRoverClientRosPackage.Literals.POLAR_SYS_ROVER_CLIENT_ROS;
+		return PolarSysRoverClientMqttPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT;
 	}
 
 	@Override
@@ -57,4 +58,28 @@ public class PolarSysRoverClientRosImpl extends PolarSysRoverPlatformClientImpl 
 		
 	}
 
-} //PolarSysRoverClientRosImpl
+	@Override
+	public void resetPosition(Position position) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clearPositionError() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+} //PolarSysRoverClientMqttImpl

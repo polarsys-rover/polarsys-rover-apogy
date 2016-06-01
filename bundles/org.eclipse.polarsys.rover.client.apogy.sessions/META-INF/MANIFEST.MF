@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %bundleName
+Bundle-SymbolicName: org.eclipse.polarsys.rover.client.apogy.sessions;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.polarsys.rover.client.apogy.sessions.Activator
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.core.runtime,
+ ca.gc.asc_csa.apogy.core;bundle-version="0.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin
