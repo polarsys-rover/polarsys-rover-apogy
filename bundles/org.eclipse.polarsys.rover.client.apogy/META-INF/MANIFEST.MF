@@ -20,5 +20,6 @@ Require-Bundle: org.eclipse.core.runtime,
  ca.gc.asc_csa.apogy.common.math;visibility:=reexport,
  ca.gc.asc_csa.apogy.common.emf;visibility:=reexport,
  ca.gc.asc_csa.apogy.common.topology;visibility:=reexport,
- ca.gc.asc_csa.apogy.common.topology.bindings;visibility:=reexport
+ ca.gc.asc_csa.apogy.common.topology.bindings;visibility:=reexport,
+ ca.gc.asc_csa.apogy.addons.vehicle;bundle-version="0.5.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
