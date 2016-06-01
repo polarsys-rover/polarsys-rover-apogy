@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <core:ApogySystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="ca.gc.asc_csa.apogy.core" xmlns:topology="ca.gc.asc_csa.apogy.common.topology" xmi:id="__7WE0CZkEea6vrHg0QgYmg" name="PolarSysRoverApogySystem">
-  <interfaceClass href="org.eclipse.polarsys.rover.client#//PolarSysRoverClient"/>
+  <interfaceClass href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient"/>
+  <typeApiAdapterClass href="org.eclipse.polarsys.rover.client.apogy#//PolarSysRoverApogySystemApiAdapter"/>
   <topologyRoot xmi:id="__7Wr4CZkEea6vrHg0QgYmg">
     <originNode xsi:type="topology:AggregateGroupNode" xmi:id="__7XS8CZkEea6vrHg0QgYmg" nodeId="POLARSYS_ROVER_ROOT">
       <aggregatedChildren xsi:type="topology:TransformNode" xmi:id="_YbyfUCZmEea6vrHg0QgYmg" parent="__7XS8CZkEea6vrHg0QgYmg" nodeId="POLARSYS_ROVER_ORIGIN">

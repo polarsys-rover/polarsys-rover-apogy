@@ -67,9 +67,20 @@ public class PolarSysRoverClientFactoryImpl extends EFactoryImpl implements Pola
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case PolarSysRoverClientPackage.POSITION: return createPosition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Position createPosition() {
+		PositionImpl position = new PositionImpl();
+		return position;
 	}
 
 	/**

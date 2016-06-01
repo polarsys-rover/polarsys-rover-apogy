@@ -31,8 +31,196 @@ Contributors:
 		  templateDirectory="platform:/plugin/ca.gc.asc_csa.apogy.common.emf.templates")
 @GenModel(modelDirectory="/org.eclipse.polarsys.rover.client/src-generated")
 @GenModel(editDirectory="/org.eclipse.polarsys.rover.client.edit/src-generated")
-
 package org.eclipse.polarsys.rover.client
 
-abstract class PolarSysRoverClient{	
+import ca.gc.asc_csa.apogy.common.emf.Disposable
+
+/*
+ * This class is used to represent a position of a particular object
+ * in space.  In particular, this provides both a Cartesian coordinate
+ * location as well as an angle corresponding to the object's pose.
+ */
+class Position
+{
+	/* 
+	 * This is the position's X coordinate (given in metres)
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  apogy_units="m")
+	double x = "0.0"
+	/*
+	 * This is the position's Y coordinate (given in metres)
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  apogy_units="m")
+	double y = "0.0"
+	/*
+	 * This is the pose angle (in radians) of an object, which
+	 * specifies a rotation around the Z axis.  
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  apogy_units="rad")
+	double theta = "0.0"
+}
+
+/*
+ * This class represents the PolarSys Rover Platform client.
+ * 
+ */
+abstract class PolarSysRoverPlatformClient extends Disposable{
+	/*
+	 * This is whether or not the mobile platform has
+	 * been initialized; initially false.
+	 * @see #init()
+	 */
+	@GenModel(children="false",
+			  property="Readonly",
+			  propertyCategory="Status")
+	boolean initialized = "false"
+	/*
+	 * This is whether or not the mobile platform has
+	 * been disposed; initially false.
+	 * @see #dispose()
+	 */
+	@GenModel(children="false",
+			  property="Readonly",
+			  propertyCategory="Status")
+	boolean disposed = "false"
+	/*
+	 * This is the mobile platform's current estimate of the error
+	 * in its position (given in metres.)
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="Position",
+			  apogy_units="m")
+	double positionError = "0.0"
+	/* 
+	 * This is the mobile platform's current linear velocity
+	 * (in metres per second)
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="Velocities",
+			  apogy_units="m/s")
+	double linearVelocity = "0.0"
+	/* 
+	 * This is the mobile platform's current angular velocity
+	 * (in radians per second).
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="Velocities",
+			  apogy_units="rad/s")
+	double angularVelocity = "0.0"
+	/* 
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front left wheels.
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="Position",
+			  apogy_units="rad")
+	double frontLeftWheelPosition = "0.0"
+	/*
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front right wheels.
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="Position",
+			  apogy_units="rad")
+	double frontRightWheelPosition = "0.0"
+	/* 
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's rear left wheels.
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="Position",
+			  apogy_units="rad")
+	double rearLeftWheelPosition = "0.0"
+	
+	/*
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's rear right wheels.
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="Position",
+			  apogy_units="rad")
+	double rearRightWheelPosition = "0.0"
+	
+	/* 
+	 * This is the mobile platform's current position
+	 */
+	@GenModel(notify="true",
+			  propertyCategory="Position")
+	refers transient Position[1] position
+		
+	/*
+	 * This operation is used to initialize the mobile platform
+	 * and as such, it will perform the required creation and
+	 * initialization steps.
+	 * 
+	 * @return Whether or not the mobile platform was successfully initialized
+	 */
+	op boolean init()
+	
+	/*
+	 * This operation is used to change the mobile platform to
+	 * have the coordinates and pose matching the given position.
+	 * That new position will be considered the new starting place
+	 * for the mobile platform and as such, the accumulated error will
+	 * be cleared; all error will be relative to that new position.
+	 * 
+	 * @param position The mobile platform's new desired position
+	 */
+	op void resetPosition(Position position)
+	
+	/*
+	 * This operation is used to clear the mobile platform's positional
+	 * error; this could be used to indicate that all error should now
+	 * be taken in respect to the robot's current position.
+	 */
+	op void clearPositionError()
+	
+	/*
+	 * This operation is used to stop the mobile platform, if it is 
+	 * currently moving.
+	 */
+	op void stop()
+	
+	/*
+	 * The operation is used to change the mobile platform's linear and
+	 * angular velocities, which are in metres / second and radians / second,
+	 * respectively.
+	 * <p>
+	 * Note 1: Unlike the traditional definition of linear velocity as a vector,
+	 * this is simply a signed scalar; a positive value indicates the speed
+	 * forward while a negative value is the speed backwards.  Zero means there
+	 * is no movement.
+	 * <p>
+	 * Note 2: Unlike the traditional definition of angular velocity as a vector,
+	 * this is simply a signed scalar; a positive value is the rotation in the
+	 * clockwise direction while a negative value implies the rotation is in the
+	 * counter-clockwise direction.  Zero means there is no rotation.
+	 * 
+	 * @param linearVelocity The commanded linear velocity.
+	 * @param angularVelocity The commanded angular velocity.
+	 * @see #cmdLinearVelocity(double)
+	 * @see #cmdAngularVelocity(double)
+	 */
+	op void cmdVelocities(@GenModel(apogy_units="m/s") double linearVelocity,
+					      @GenModel(apogy_units="rad/s") double angularVelocity)
 }

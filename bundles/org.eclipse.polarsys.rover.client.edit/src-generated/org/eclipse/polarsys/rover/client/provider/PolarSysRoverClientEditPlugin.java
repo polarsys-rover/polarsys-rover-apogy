@@ -13,6 +13,7 @@
  */
 package org.eclipse.polarsys.rover.client.provider;
 
+import ca.gc.asc_csa.apogy.common.emf.provider.ApogyCommonEMFEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -49,6 +50,7 @@ public final class PolarSysRoverClientEditPlugin extends EMFPlugin {
 	public PolarSysRoverClientEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     ApogyCommonEMFEditPlugin.INSTANCE,
 		   });
 	}
 

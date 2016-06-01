@@ -33,6 +33,15 @@ public interface PolarSysRoverClientFactory extends EFactory {
 	PolarSysRoverClientFactory eINSTANCE = org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Position</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Position</em>'.
+	 * @generated
+	 */
+	Position createPosition();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

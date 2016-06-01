@@ -92,13 +92,157 @@ public interface PolarSysRoverClientRosPackage extends EPackage {
 	int POLAR_SYS_ROVER_CLIENT_ROS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Initialized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__INITIALIZED = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED;
+
+	/**
+	 * The feature id for the '<em><b>Disposed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__DISPOSED = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__DISPOSED;
+
+	/**
+	 * The feature id for the '<em><b>Position Error</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__POSITION_ERROR = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR;
+
+	/**
+	 * The feature id for the '<em><b>Linear Velocity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__LINEAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY;
+
+	/**
+	 * The feature id for the '<em><b>Angular Velocity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__ANGULAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY;
+
+	/**
+	 * The feature id for the '<em><b>Front Left Wheel Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__FRONT_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Front Right Wheel Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__FRONT_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Rear Left Wheel Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__REAR_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Rear Right Wheel Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__REAR_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS__POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION;
+
+	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Client Ros</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_ROS_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_CLIENT_FEATURE_COUNT + 0;
+	int POLAR_SYS_ROVER_CLIENT_ROS_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Dispose</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS___DISPOSE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___DISPOSE;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS___INIT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___INIT;
+
+	/**
+	 * The operation id for the '<em>Reset Position</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS___RESET_POSITION__POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___RESET_POSITION__POSITION;
+
+	/**
+	 * The operation id for the '<em>Clear Position Error</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS___CLEAR_POSITION_ERROR = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CLEAR_POSITION_ERROR;
+
+	/**
+	 * The operation id for the '<em>Stop</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS___STOP = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___STOP;
+
+	/**
+	 * The operation id for the '<em>Cmd Velocities</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CLIENT_ROS___CMD_VELOCITIES__DOUBLE_DOUBLE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE;
 
 	/**
 	 * The number of operations of the '<em>Polar Sys Rover Client Ros</em>' class.
@@ -107,7 +251,7 @@ public interface PolarSysRoverClientRosPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_CLIENT_ROS_OPERATION_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_CLIENT_OPERATION_COUNT + 0;
+	int POLAR_SYS_ROVER_CLIENT_ROS_OPERATION_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_OPERATION_COUNT + 0;
 
 
 	/**

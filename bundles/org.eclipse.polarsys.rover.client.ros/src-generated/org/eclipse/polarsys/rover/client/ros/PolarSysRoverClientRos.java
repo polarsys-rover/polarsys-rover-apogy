@@ -13,7 +13,7 @@
  */
 package org.eclipse.polarsys.rover.client.ros;
 
-import org.eclipse.polarsys.rover.client.PolarSysRoverClient;
+import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,5 +25,5 @@ import org.eclipse.polarsys.rover.client.PolarSysRoverClient;
  * @model
  * @generated
  */
-public interface PolarSysRoverClientRos extends PolarSysRoverClient {
+public interface PolarSysRoverClientRos extends PolarSysRoverPlatformClient {
 } // PolarSysRoverClientRos

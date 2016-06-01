@@ -14,9 +14,7 @@
 package org.eclipse.polarsys.rover.client.mqtt.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientImpl;
-
+import org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqtt;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttPackage;
 
@@ -27,7 +25,7 @@ import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttPackage;
  *
  * @generated
  */
-public class PolarSysRoverClientMqttImpl extends PolarSysRoverClientImpl implements PolarSysRoverClientMqtt {
+public class PolarSysRoverClientMqttImpl extends PolarSysRoverPlatformClientImpl implements PolarSysRoverClientMqtt {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,6 +43,18 @@ public class PolarSysRoverClientMqttImpl extends PolarSysRoverClientImpl impleme
 	@Override
 	protected EClass eStaticClass() {
 		return PolarSysRoverClientMqttPackage.Literals.POLAR_SYS_ROVER_CLIENT_MQTT;
+	}
+
+	@Override
+	public boolean init() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void cmdVelocities(double linearVelocity, double angularVelocity) {
+		// TODO Auto-generated method stub
+		
 	}
 
 } //PolarSysRoverClientMqttImpl

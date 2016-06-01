@@ -100,6 +100,29 @@ public class PolarSysRoverClientItemProviderAdapterFactory extends PolarSysRover
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.Position} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PositionItemProvider positionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.Position}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPositionAdapter() {
+		if (positionItemProvider == null) {
+			positionItemProvider = new PositionItemProvider(this);
+		}
+
+		return positionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,6 +248,7 @@ public class PolarSysRoverClientItemProviderAdapterFactory extends PolarSysRover
 	 * @generated
 	 */
 	public void dispose() {
+		if (positionItemProvider != null) positionItemProvider.dispose();
 	}
 
 }

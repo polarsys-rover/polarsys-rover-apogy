@@ -173,7 +173,7 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		polarSysRoverClientSimulatorEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverClient());
+		polarSysRoverClientSimulatorEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(polarSysRoverClientSimulatorEClass, PolarSysRoverClientSimulator.class, "PolarSysRoverClientSimulator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

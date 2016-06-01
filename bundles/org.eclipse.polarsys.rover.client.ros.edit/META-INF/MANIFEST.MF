@@ -13,5 +13,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.polarsys.rover.client.ros;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.polarsys.rover.client;visibility:=reexport,
- org.eclipse.polarsys.rover.client.edit;visibility:=reexport
+ org.eclipse.polarsys.rover.client.edit;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.emf;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.emf.edit;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

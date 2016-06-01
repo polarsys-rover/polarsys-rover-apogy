@@ -7,4 +7,24 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 
 Package client <org.eclipse.polarsys.rover.client>
 
-  Class PolarSysRoverClient
+  Class Position
+    Attribute x : EDouble
+    Attribute y : EDouble
+    Attribute theta : EDouble
+
+  Class PolarSysRoverPlatformClient -> Disposable
+    Attribute initialized : EBoolean
+    Attribute disposed : EBoolean
+    Attribute positionError : EDouble
+    Attribute linearVelocity : EDouble
+    Attribute angularVelocity : EDouble
+    Attribute frontLeftWheelPosition : EDouble
+    Attribute frontRightWheelPosition : EDouble
+    Attribute rearLeftWheelPosition : EDouble
+    Attribute rearRightWheelPosition : EDouble
+    Reference position : Position<<1..1>>
+    Operation init() : EBoolean
+    Operation resetPosition(Position) : void
+    Operation clearPositionError() : void
+    Operation stop() : void
+    Operation cmdVelocities(EDouble, EDouble) : void

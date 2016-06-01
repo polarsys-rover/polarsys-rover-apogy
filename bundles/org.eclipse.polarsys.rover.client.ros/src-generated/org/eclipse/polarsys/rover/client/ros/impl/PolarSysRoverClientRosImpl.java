@@ -14,9 +14,7 @@
 package org.eclipse.polarsys.rover.client.ros.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientImpl;
-
+import org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl;
 import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRos;
 import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRosPackage;
 
@@ -27,7 +25,7 @@ import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRosPackage;
  *
  * @generated
  */
-public class PolarSysRoverClientRosImpl extends PolarSysRoverClientImpl implements PolarSysRoverClientRos {
+public class PolarSysRoverClientRosImpl extends PolarSysRoverPlatformClientImpl implements PolarSysRoverClientRos {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,6 +43,18 @@ public class PolarSysRoverClientRosImpl extends PolarSysRoverClientImpl implemen
 	@Override
 	protected EClass eStaticClass() {
 		return PolarSysRoverClientRosPackage.Literals.POLAR_SYS_ROVER_CLIENT_ROS;
+	}
+
+	@Override
+	public boolean init() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void cmdVelocities(double linearVelocity, double angularVelocity) {
+		// TODO Auto-generated method stub
+		
 	}
 
 } //PolarSysRoverClientRosImpl

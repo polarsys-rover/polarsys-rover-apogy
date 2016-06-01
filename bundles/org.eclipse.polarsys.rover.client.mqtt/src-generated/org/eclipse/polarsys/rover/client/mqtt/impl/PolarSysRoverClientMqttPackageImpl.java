@@ -173,7 +173,7 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		polarSysRoverClientMqttEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverClient());
+		polarSysRoverClientMqttEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(polarSysRoverClientMqttEClass, PolarSysRoverClientMqtt.class, "PolarSysRoverClientMqtt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

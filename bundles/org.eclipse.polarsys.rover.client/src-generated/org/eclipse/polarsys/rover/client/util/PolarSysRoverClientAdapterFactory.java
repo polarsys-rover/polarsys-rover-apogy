@@ -13,6 +13,7 @@
  */
 package org.eclipse.polarsys.rover.client.util;
 
+import ca.gc.asc_csa.apogy.common.emf.Disposable;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -79,8 +80,16 @@ public class PolarSysRoverClientAdapterFactory extends AdapterFactoryImpl {
 	protected PolarSysRoverClientSwitch<Adapter> modelSwitch =
 		new PolarSysRoverClientSwitch<Adapter>() {
 			@Override
-			public Adapter casePolarSysRoverClient(PolarSysRoverClient object) {
-				return createPolarSysRoverClientAdapter();
+			public Adapter casePosition(Position object) {
+				return createPositionAdapter();
+			}
+			@Override
+			public Adapter casePolarSysRoverPlatformClient(PolarSysRoverPlatformClient object) {
+				return createPolarSysRoverPlatformClientAdapter();
+			}
+			@Override
+			public Adapter caseDisposable(Disposable object) {
+				return createDisposableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -103,16 +112,44 @@ public class PolarSysRoverClientAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.PolarSysRoverClient <em>Polar Sys Rover Client</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.Position <em>Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClient
+	 * @see org.eclipse.polarsys.rover.client.Position
 	 * @generated
 	 */
-	public Adapter createPolarSysRoverClientAdapter() {
+	public Adapter createPositionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient <em>Polar Sys Rover Platform Client</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient
+	 * @generated
+	 */
+	public Adapter createPolarSysRoverPlatformClientAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.common.emf.Disposable <em>Disposable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.common.emf.Disposable
+	 * @generated
+	 */
+	public Adapter createDisposableAdapter() {
 		return null;
 	}
 

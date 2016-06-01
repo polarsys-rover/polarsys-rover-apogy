@@ -173,7 +173,7 @@ public class PolarSysRoverClientRosPackageImpl extends EPackageImpl implements P
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		polarSysRoverClientRosEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverClient());
+		polarSysRoverClientRosEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(polarSysRoverClientRosEClass, PolarSysRoverClientRos.class, "PolarSysRoverClientRos", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -13,6 +13,7 @@
  */
 package org.eclipse.polarsys.rover.client.util;
 
+import ca.gc.asc_csa.apogy.common.emf.Disposable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -77,9 +78,16 @@ public class PolarSysRoverClientSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_CLIENT: {
-				PolarSysRoverClient polarSysRoverClient = (PolarSysRoverClient)theEObject;
-				T result = casePolarSysRoverClient(polarSysRoverClient);
+			case PolarSysRoverClientPackage.POSITION: {
+				Position position = (Position)theEObject;
+				T result = casePosition(position);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT: {
+				PolarSysRoverPlatformClient polarSysRoverPlatformClient = (PolarSysRoverPlatformClient)theEObject;
+				T result = casePolarSysRoverPlatformClient(polarSysRoverPlatformClient);
+				if (result == null) result = caseDisposable(polarSysRoverPlatformClient);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -88,17 +96,47 @@ public class PolarSysRoverClientSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Client</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Position</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Client</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Position</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePolarSysRoverClient(PolarSysRoverClient object) {
+	public T casePosition(Position object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Client</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Client</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePolarSysRoverPlatformClient(PolarSysRoverPlatformClient object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Disposable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Disposable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDisposable(Disposable object) {
 		return null;
 	}
 

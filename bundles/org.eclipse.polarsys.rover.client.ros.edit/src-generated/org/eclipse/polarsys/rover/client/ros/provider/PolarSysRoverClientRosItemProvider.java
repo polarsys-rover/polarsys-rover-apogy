@@ -21,8 +21,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
-import org.eclipse.polarsys.rover.client.provider.PolarSysRoverClientItemProvider;
+import org.eclipse.polarsys.rover.client.provider.PolarSysRoverPlatformClientItemProvider;
+import org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRos;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.polarsys.rover.client.ros.PolarSysRoverClientRos} object.
@@ -30,7 +30,7 @@ import org.eclipse.polarsys.rover.client.provider.PolarSysRoverClientItemProvide
  * <!-- end-user-doc -->
  * @generated
  */
-public class PolarSysRoverClientRosItemProvider extends PolarSysRoverClientItemProvider {
+public class PolarSysRoverClientRosItemProvider extends PolarSysRoverPlatformClientItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -75,7 +75,8 @@ public class PolarSysRoverClientRosItemProvider extends PolarSysRoverClientItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PolarSysRoverClientRos_type");
+		PolarSysRoverClientRos polarSysRoverClientRos = (PolarSysRoverClientRos)object;
+		return getString("_UI_PolarSysRoverClientRos_type") + " " + polarSysRoverClientRos.isInitialized();
 	}
 	
 
