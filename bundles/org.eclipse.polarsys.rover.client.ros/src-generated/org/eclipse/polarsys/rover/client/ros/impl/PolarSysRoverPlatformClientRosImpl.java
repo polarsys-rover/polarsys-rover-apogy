@@ -48,8 +48,7 @@ public class PolarSysRoverPlatformClientRosImpl extends PolarSysRoverPlatformCli
 
 	@Override
 	public boolean init() {
-		// TODO Auto-generated method stub
-		return false;
+		return super.init();
 	}
 
 	@Override

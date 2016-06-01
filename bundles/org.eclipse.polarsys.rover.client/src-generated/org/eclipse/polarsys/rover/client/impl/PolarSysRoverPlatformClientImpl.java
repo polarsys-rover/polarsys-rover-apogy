@@ -437,23 +437,9 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Position getPositionGen() {
-		return position;
-	}
-	
-	/**
-	 * (non-Javadoc)
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition()
-	 * @generated_NOT
-	 */
 	public Position getPosition() {
-		Position position = getPositionGen();		
-		if (position == null){
-			setPosition(PolarSysRoverClientFactory.eINSTANCE.createPosition());
-		}		
 		return position;
 	}
-	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -494,7 +480,10 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated_NOT
 	 */
-	abstract public boolean init();
+	public boolean init(){
+		setPosition(PolarSysRoverClientFactory.eINSTANCE.createPosition());
+		return true;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

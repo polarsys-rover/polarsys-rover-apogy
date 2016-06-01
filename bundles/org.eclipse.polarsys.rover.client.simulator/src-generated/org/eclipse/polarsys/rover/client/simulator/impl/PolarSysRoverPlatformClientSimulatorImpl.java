@@ -121,6 +121,8 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 	@Override
 	public boolean init() {
 		final String LOG_PREFIX = this.getClass().getSimpleName() + ".init(): ";
+		
+		super.init();
 
 		// If the mobile platform has already been disposed
 		if (this.isDisposed() == true) {

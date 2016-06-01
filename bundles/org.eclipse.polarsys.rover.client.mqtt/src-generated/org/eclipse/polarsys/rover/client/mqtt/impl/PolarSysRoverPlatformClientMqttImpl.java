@@ -48,8 +48,7 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 
 	@Override
 	public boolean init() {
-		// TODO Auto-generated method stub
-		return false;
+		return super.init();
 	}
 
 	@Override
