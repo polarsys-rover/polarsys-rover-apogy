@@ -27,7 +27,7 @@
    <extension
          point="ca.gc.asc_csa.apogy.core.invocator.typeContributor">
       <Type
-            URI="model/PolarSysRoverApogySystem.ss">
+            URI="model/PolarSysRoverPlatformApogySystem.ss">
       </Type>
    </extension>
 

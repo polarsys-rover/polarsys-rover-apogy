@@ -18,7 +18,7 @@ import ca.gc.asc_csa.apogy.core.impl.ApogyInitializationDataImpl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyPackage;
-import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData;
+import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,13 +27,13 @@ import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData;
  *
  * @generated
  */
-public class PolarSysRoverDataImpl extends ApogyInitializationDataImpl implements PolarSysRoverData {
+public class PolarSysRoverPlatformDataImpl extends ApogyInitializationDataImpl implements PolarSysRoverPlatformData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PolarSysRoverDataImpl() {
+	protected PolarSysRoverPlatformDataImpl() {
 		super();
 	}
 
@@ -44,7 +44,7 @@ public class PolarSysRoverDataImpl extends ApogyInitializationDataImpl implement
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PolarSysRoverClientApogyPackage.Literals.POLAR_SYS_ROVER_DATA;
+		return PolarSysRoverClientApogyPackage.Literals.POLAR_SYS_ROVER_PLATFORM_DATA;
 	}
 
 } //PolarSysRoverDataImpl

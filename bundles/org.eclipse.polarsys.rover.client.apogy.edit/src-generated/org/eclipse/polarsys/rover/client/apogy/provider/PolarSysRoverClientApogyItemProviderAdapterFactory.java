@@ -116,49 +116,49 @@ public class PolarSysRoverClientApogyItemProviderAdapterFactory extends PolarSys
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverApogySystemApiAdapter} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PolarSysRoverApogySystemApiAdapterItemProvider polarSysRoverApogySystemApiAdapterItemProvider;
+	protected PolarSysRoverPlatformApogySystemApiAdapterItemProvider polarSysRoverPlatformApogySystemApiAdapterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverApogySystemApiAdapter}.
+	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPolarSysRoverApogySystemApiAdapterAdapter() {
-		if (polarSysRoverApogySystemApiAdapterItemProvider == null) {
-			polarSysRoverApogySystemApiAdapterItemProvider = new PolarSysRoverApogySystemApiAdapterItemProvider(this);
+	public Adapter createPolarSysRoverPlatformApogySystemApiAdapterAdapter() {
+		if (polarSysRoverPlatformApogySystemApiAdapterItemProvider == null) {
+			polarSysRoverPlatformApogySystemApiAdapterItemProvider = new PolarSysRoverPlatformApogySystemApiAdapterItemProvider(this);
 		}
 
-		return polarSysRoverApogySystemApiAdapterItemProvider;
+		return polarSysRoverPlatformApogySystemApiAdapterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PolarSysRoverDataItemProvider polarSysRoverDataItemProvider;
+	protected PolarSysRoverPlatformDataItemProvider polarSysRoverPlatformDataItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData}.
+	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPolarSysRoverDataAdapter() {
-		if (polarSysRoverDataItemProvider == null) {
-			polarSysRoverDataItemProvider = new PolarSysRoverDataItemProvider(this);
+	public Adapter createPolarSysRoverPlatformDataAdapter() {
+		if (polarSysRoverPlatformDataItemProvider == null) {
+			polarSysRoverPlatformDataItemProvider = new PolarSysRoverPlatformDataItemProvider(this);
 		}
 
-		return polarSysRoverDataItemProvider;
+		return polarSysRoverPlatformDataItemProvider;
 	}
 
 	/**
@@ -287,8 +287,8 @@ public class PolarSysRoverClientApogyItemProviderAdapterFactory extends PolarSys
 	 * @generated
 	 */
 	public void dispose() {
-		if (polarSysRoverApogySystemApiAdapterItemProvider != null) polarSysRoverApogySystemApiAdapterItemProvider.dispose();
-		if (polarSysRoverDataItemProvider != null) polarSysRoverDataItemProvider.dispose();
+		if (polarSysRoverPlatformApogySystemApiAdapterItemProvider != null) polarSysRoverPlatformApogySystemApiAdapterItemProvider.dispose();
+		if (polarSysRoverPlatformDataItemProvider != null) polarSysRoverPlatformDataItemProvider.dispose();
 	}
 
 	/**
@@ -341,7 +341,7 @@ public class PolarSysRoverClientApogyItemProviderAdapterFactory extends PolarSys
 				newChildDescriptors.add
 					(createChildParameter
 						(ApogyCoreInvocatorPackage.Literals.ABSTRACT_TYPE_IMPLEMENTATION__ABSTRACT_INITIALIZATION_DATA,
-						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverData()));
+						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverPlatformData()));
 
 				return null;
 			}
@@ -428,12 +428,12 @@ public class PolarSysRoverClientApogyItemProviderAdapterFactory extends PolarSys
 				newChildDescriptors.add
 					(createChildParameter
 						(ApogyCommonTopologyPackage.Literals.CONTENT_NODE__CONTENT,
-						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverApogySystemApiAdapter()));
+						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverPlatformApogySystemApiAdapter()));
 
 				newChildDescriptors.add
 					(createChildParameter
 						(ApogyCommonTopologyPackage.Literals.CONTENT_NODE__CONTENT,
-						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverData()));
+						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverPlatformData()));
 
 				return null;
 			}
@@ -448,12 +448,12 @@ public class PolarSysRoverClientApogyItemProviderAdapterFactory extends PolarSys
 				newChildDescriptors.add
 					(createChildParameter
 						(ApogyCommonTopologyPackage.Literals.AGGREGATE_CONTENT_NODE__AGGREGATE_CONTENT,
-						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverApogySystemApiAdapter()));
+						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverPlatformApogySystemApiAdapter()));
 
 				newChildDescriptors.add
 					(createChildParameter
 						(ApogyCommonTopologyPackage.Literals.AGGREGATE_CONTENT_NODE__AGGREGATE_CONTENT,
-						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverData()));
+						 PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverPlatformData()));
 
 				return null;
 			}

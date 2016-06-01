@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverApogySystemApiAdapter;
+import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter;
 import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyFactory;
 import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyPackage;
-import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData;
+import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,14 +37,14 @@ public class PolarSysRoverClientApogyPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass polarSysRoverApogySystemApiAdapterEClass = null;
+	private EClass polarSysRoverPlatformApogySystemApiAdapterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass polarSysRoverDataEClass = null;
+	private EClass polarSysRoverPlatformDataEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -115,8 +115,8 @@ public class PolarSysRoverClientApogyPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPolarSysRoverApogySystemApiAdapter() {
-		return polarSysRoverApogySystemApiAdapterEClass;
+	public EClass getPolarSysRoverPlatformApogySystemApiAdapter() {
+		return polarSysRoverPlatformApogySystemApiAdapterEClass;
 	}
 
 	/**
@@ -124,8 +124,8 @@ public class PolarSysRoverClientApogyPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPolarSysRoverData() {
-		return polarSysRoverDataEClass;
+	public EClass getPolarSysRoverPlatformData() {
+		return polarSysRoverPlatformDataEClass;
 	}
 
 	/**
@@ -156,9 +156,9 @@ public class PolarSysRoverClientApogyPackageImpl extends EPackageImpl implements
 		isCreated = true;
 
 		// Create classes and their features
-		polarSysRoverApogySystemApiAdapterEClass = createEClass(POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER);
+		polarSysRoverPlatformApogySystemApiAdapterEClass = createEClass(POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER);
 
-		polarSysRoverDataEClass = createEClass(POLAR_SYS_ROVER_DATA);
+		polarSysRoverPlatformDataEClass = createEClass(POLAR_SYS_ROVER_PLATFORM_DATA);
 	}
 
 	/**
@@ -192,13 +192,13 @@ public class PolarSysRoverClientApogyPackageImpl extends EPackageImpl implements
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		polarSysRoverApogySystemApiAdapterEClass.getESuperTypes().add(theApogyCorePackage.getApogySystemApiAdapter());
-		polarSysRoverDataEClass.getESuperTypes().add(theApogyCorePackage.getApogyInitializationData());
+		polarSysRoverPlatformApogySystemApiAdapterEClass.getESuperTypes().add(theApogyCorePackage.getApogySystemApiAdapter());
+		polarSysRoverPlatformDataEClass.getESuperTypes().add(theApogyCorePackage.getApogyInitializationData());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(polarSysRoverApogySystemApiAdapterEClass, PolarSysRoverApogySystemApiAdapter.class, "PolarSysRoverApogySystemApiAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(polarSysRoverPlatformApogySystemApiAdapterEClass, PolarSysRoverPlatformApogySystemApiAdapter.class, "PolarSysRoverPlatformApogySystemApiAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(polarSysRoverDataEClass, PolarSysRoverData.class, "PolarSysRoverData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(polarSysRoverPlatformDataEClass, PolarSysRoverPlatformData.class, "PolarSysRoverPlatformData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -234,13 +234,13 @@ public class PolarSysRoverClientApogyPackageImpl extends EPackageImpl implements
 			 "basePackage", "org.eclipse.polarsys.rover.client"
 		   });	
 		addAnnotation
-		  (polarSysRoverApogySystemApiAdapterEClass, 
+		  (polarSysRoverPlatformApogySystemApiAdapterEClass, 
 		   source, 
 		   new String[] {
 			 "documentation", "This class is the specialized Apogy API adapter, used for connecting\nthe existing PolarSys Rover Client example, located at\n{@link org.eclipse.polarsys.rover.client.PolarSysRover},\nto Apogy; one can override the well-known callback functions to make\nApogy perform a variety of useful functions, including initialization,\ndisposal and other features."
 		   });	
 		addAnnotation
-		  (polarSysRoverDataEClass, 
+		  (polarSysRoverPlatformDataEClass, 
 		   source, 
 		   new String[] {
 			 "documentation", "This class specifies the initialization data that Apogy\nshould be interested in when (re)initializing the Mobile\nplatform with the API Adapter."

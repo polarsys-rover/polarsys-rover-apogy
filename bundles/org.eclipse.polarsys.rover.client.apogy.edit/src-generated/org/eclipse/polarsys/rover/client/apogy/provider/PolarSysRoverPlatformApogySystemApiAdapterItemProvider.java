@@ -25,19 +25,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverApogySystemApiAdapter} object.
+ * This is the item provider adapter for a {@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PolarSysRoverApogySystemApiAdapterItemProvider extends ApogySystemApiAdapterItemProvider {
+public class PolarSysRoverPlatformApogySystemApiAdapterItemProvider extends ApogySystemApiAdapterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PolarSysRoverApogySystemApiAdapterItemProvider(AdapterFactory adapterFactory) {
+	public PolarSysRoverPlatformApogySystemApiAdapterItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,14 +57,14 @@ public class PolarSysRoverApogySystemApiAdapterItemProvider extends ApogySystemA
 	}
 
 	/**
-	 * This returns PolarSysRoverApogySystemApiAdapter.gif.
+	 * This returns PolarSysRoverPlatformApogySystemApiAdapter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PolarSysRoverApogySystemApiAdapter"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PolarSysRoverPlatformApogySystemApiAdapter"));
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class PolarSysRoverApogySystemApiAdapterItemProvider extends ApogySystemA
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PolarSysRoverApogySystemApiAdapter_type");
+		return getString("_UI_PolarSysRoverPlatformApogySystemApiAdapter_type");
 	}
 	
 

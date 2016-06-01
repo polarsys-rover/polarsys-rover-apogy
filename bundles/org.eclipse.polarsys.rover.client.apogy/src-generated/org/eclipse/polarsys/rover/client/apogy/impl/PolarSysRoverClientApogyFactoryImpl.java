@@ -67,8 +67,8 @@ public class PolarSysRoverClientApogyFactoryImpl extends EFactoryImpl implements
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PolarSysRoverClientApogyPackage.POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER: return createPolarSysRoverApogySystemApiAdapter();
-			case PolarSysRoverClientApogyPackage.POLAR_SYS_ROVER_DATA: return createPolarSysRoverData();
+			case PolarSysRoverClientApogyPackage.POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER: return createPolarSysRoverPlatformApogySystemApiAdapter();
+			case PolarSysRoverClientApogyPackage.POLAR_SYS_ROVER_PLATFORM_DATA: return createPolarSysRoverPlatformData();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -79,9 +79,9 @@ public class PolarSysRoverClientApogyFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PolarSysRoverApogySystemApiAdapter createPolarSysRoverApogySystemApiAdapter() {
-		PolarSysRoverApogySystemApiAdapterImpl polarSysRoverApogySystemApiAdapter = new PolarSysRoverApogySystemApiAdapterImpl();
-		return polarSysRoverApogySystemApiAdapter;
+	public PolarSysRoverPlatformApogySystemApiAdapter createPolarSysRoverPlatformApogySystemApiAdapter() {
+		PolarSysRoverPlatformApogySystemApiAdapterImpl polarSysRoverPlatformApogySystemApiAdapter = new PolarSysRoverPlatformApogySystemApiAdapterImpl();
+		return polarSysRoverPlatformApogySystemApiAdapter;
 	}
 
 	/**
@@ -89,9 +89,9 @@ public class PolarSysRoverClientApogyFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PolarSysRoverData createPolarSysRoverData() {
-		PolarSysRoverDataImpl polarSysRoverData = new PolarSysRoverDataImpl();
-		return polarSysRoverData;
+	public PolarSysRoverPlatformData createPolarSysRoverPlatformData() {
+		PolarSysRoverPlatformDataImpl polarSysRoverPlatformData = new PolarSysRoverPlatformDataImpl();
+		return polarSysRoverPlatformData;
 	}
 
 	/**

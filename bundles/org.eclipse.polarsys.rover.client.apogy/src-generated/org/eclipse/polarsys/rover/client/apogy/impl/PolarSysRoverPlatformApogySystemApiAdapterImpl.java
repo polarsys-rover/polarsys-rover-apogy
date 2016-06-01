@@ -21,10 +21,10 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
-import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverApogySystemApiAdapter;
+import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter;
 import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyFactory;
 import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyPackage;
-import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData;
+import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData;
 
 import ca.gc.asc_csa.apogy.addons.vehicle.ApogyAddonsVehicleFactory;
 import ca.gc.asc_csa.apogy.addons.vehicle.VehiclePoseCorrector;
@@ -42,7 +42,7 @@ import ca.gc.asc_csa.apogy.core.invocator.Type;
  *
  * @generated
  */
-public class PolarSysRoverApogySystemApiAdapterImpl extends ApogySystemApiAdapterImpl implements PolarSysRoverApogySystemApiAdapter 
+public class PolarSysRoverPlatformApogySystemApiAdapterImpl extends ApogySystemApiAdapterImpl implements PolarSysRoverPlatformApogySystemApiAdapter 
 {
 	/**
 	 * This is the adapter used to receive notifications to the
@@ -55,7 +55,7 @@ public class PolarSysRoverApogySystemApiAdapterImpl extends ApogySystemApiAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PolarSysRoverApogySystemApiAdapterImpl() {
+	protected PolarSysRoverPlatformApogySystemApiAdapterImpl() {
 		super();
 	}
 
@@ -66,7 +66,7 @@ public class PolarSysRoverApogySystemApiAdapterImpl extends ApogySystemApiAdapte
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PolarSysRoverClientApogyPackage.Literals.POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER;
+		return PolarSysRoverClientApogyPackage.Literals.POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER;
 	}
 	
 	/**
@@ -137,7 +137,7 @@ public class PolarSysRoverApogySystemApiAdapterImpl extends ApogySystemApiAdapte
 	@Override
 	public AbstractInitializationData createInitializationData() 
 	{
-		return PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverData();
+		return PolarSysRoverClientApogyFactory.eINSTANCE.createPolarSysRoverPlatformData();
 	}
 	
 	@Override
@@ -146,7 +146,7 @@ public class PolarSysRoverApogySystemApiAdapterImpl extends ApogySystemApiAdapte
 		// Call the superclass's version of this method
 		super.collect(initializationData);
 		
-		if(initializationData instanceof PolarSysRoverData)
+		if(initializationData instanceof PolarSysRoverPlatformData)
 		{
 			// TODO Collect PolarSys Rover specific initialization data.
 		}
@@ -158,7 +158,7 @@ public class PolarSysRoverApogySystemApiAdapterImpl extends ApogySystemApiAdapte
 		// Call the superclass's version of this method
 		super.apply(initializationData);
 		
-		if(initializationData instanceof PolarSysRoverData)
+		if(initializationData instanceof PolarSysRoverPlatformData)
 		{
 			// TODO Apply PolarSys Rover specific initialization data.
 		}
@@ -173,9 +173,9 @@ public class PolarSysRoverApogySystemApiAdapterImpl extends ApogySystemApiAdapte
 		/**
 		 * The PolarSysRoverApogySystemApiAdapter managing the PolarSys rover.
 		 */
-		private PolarSysRoverApogySystemApiAdapter polarSysRoverApogySystemApiAdapter;
+		private PolarSysRoverPlatformApogySystemApiAdapter polarSysRoverApogySystemApiAdapter;
 		
-		public PoseAdapter(PolarSysRoverApogySystemApiAdapter polarSysRoverApogySystemApiAdapter)
+		public PoseAdapter(PolarSysRoverPlatformApogySystemApiAdapter polarSysRoverApogySystemApiAdapter)
 		{
 			this.polarSysRoverApogySystemApiAdapter = polarSysRoverApogySystemApiAdapter; 
 		}

@@ -85,21 +85,21 @@ public class PolarSysRoverClientApogySwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case PolarSysRoverClientApogyPackage.POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER: {
-				PolarSysRoverApogySystemApiAdapter polarSysRoverApogySystemApiAdapter = (PolarSysRoverApogySystemApiAdapter)theEObject;
-				T result = casePolarSysRoverApogySystemApiAdapter(polarSysRoverApogySystemApiAdapter);
-				if (result == null) result = caseApogySystemApiAdapter(polarSysRoverApogySystemApiAdapter);
-				if (result == null) result = caseTypeApiAdapter(polarSysRoverApogySystemApiAdapter);
-				if (result == null) result = casePoseProvider(polarSysRoverApogySystemApiAdapter);
+			case PolarSysRoverClientApogyPackage.POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER: {
+				PolarSysRoverPlatformApogySystemApiAdapter polarSysRoverPlatformApogySystemApiAdapter = (PolarSysRoverPlatformApogySystemApiAdapter)theEObject;
+				T result = casePolarSysRoverPlatformApogySystemApiAdapter(polarSysRoverPlatformApogySystemApiAdapter);
+				if (result == null) result = caseApogySystemApiAdapter(polarSysRoverPlatformApogySystemApiAdapter);
+				if (result == null) result = caseTypeApiAdapter(polarSysRoverPlatformApogySystemApiAdapter);
+				if (result == null) result = casePoseProvider(polarSysRoverPlatformApogySystemApiAdapter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PolarSysRoverClientApogyPackage.POLAR_SYS_ROVER_DATA: {
-				PolarSysRoverData polarSysRoverData = (PolarSysRoverData)theEObject;
-				T result = casePolarSysRoverData(polarSysRoverData);
-				if (result == null) result = caseApogyInitializationData(polarSysRoverData);
-				if (result == null) result = caseInitializationData(polarSysRoverData);
-				if (result == null) result = caseAbstractInitializationData(polarSysRoverData);
+			case PolarSysRoverClientApogyPackage.POLAR_SYS_ROVER_PLATFORM_DATA: {
+				PolarSysRoverPlatformData polarSysRoverPlatformData = (PolarSysRoverPlatformData)theEObject;
+				T result = casePolarSysRoverPlatformData(polarSysRoverPlatformData);
+				if (result == null) result = caseApogyInitializationData(polarSysRoverPlatformData);
+				if (result == null) result = caseInitializationData(polarSysRoverPlatformData);
+				if (result == null) result = caseAbstractInitializationData(polarSysRoverPlatformData);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,32 +108,32 @@ public class PolarSysRoverClientApogySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Apogy System Api Adapter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Apogy System Api Adapter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Apogy System Api Adapter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Apogy System Api Adapter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePolarSysRoverApogySystemApiAdapter(PolarSysRoverApogySystemApiAdapter object) {
+	public T casePolarSysRoverPlatformApogySystemApiAdapter(PolarSysRoverPlatformApogySystemApiAdapter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Data</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Data</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Rover Platform Data</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePolarSysRoverData(PolarSysRoverData object) {
+	public T casePolarSysRoverPlatformData(PolarSysRoverPlatformData object) {
 		return null;
 	}
 

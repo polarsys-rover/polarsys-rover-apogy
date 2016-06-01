@@ -87,12 +87,12 @@ public class PolarSysRoverClientApogyAdapterFactory extends AdapterFactoryImpl {
 	protected PolarSysRoverClientApogySwitch<Adapter> modelSwitch =
 		new PolarSysRoverClientApogySwitch<Adapter>() {
 			@Override
-			public Adapter casePolarSysRoverApogySystemApiAdapter(PolarSysRoverApogySystemApiAdapter object) {
-				return createPolarSysRoverApogySystemApiAdapterAdapter();
+			public Adapter casePolarSysRoverPlatformApogySystemApiAdapter(PolarSysRoverPlatformApogySystemApiAdapter object) {
+				return createPolarSysRoverPlatformApogySystemApiAdapterAdapter();
 			}
 			@Override
-			public Adapter casePolarSysRoverData(PolarSysRoverData object) {
-				return createPolarSysRoverDataAdapter();
+			public Adapter casePolarSysRoverPlatformData(PolarSysRoverPlatformData object) {
+				return createPolarSysRoverPlatformDataAdapter();
 			}
 			@Override
 			public Adapter caseTypeApiAdapter(TypeApiAdapter object) {
@@ -139,30 +139,30 @@ public class PolarSysRoverClientApogyAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverApogySystemApiAdapter <em>Polar Sys Rover Apogy System Api Adapter</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter <em>Polar Sys Rover Platform Apogy System Api Adapter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverApogySystemApiAdapter
+	 * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter
 	 * @generated
 	 */
-	public Adapter createPolarSysRoverApogySystemApiAdapterAdapter() {
+	public Adapter createPolarSysRoverPlatformApogySystemApiAdapterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData <em>Polar Sys Rover Data</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData <em>Polar Sys Rover Platform Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData
+	 * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData
 	 * @generated
 	 */
-	public Adapter createPolarSysRoverDataAdapter() {
+	public Adapter createPolarSysRoverPlatformDataAdapter() {
 		return null;
 	}
 

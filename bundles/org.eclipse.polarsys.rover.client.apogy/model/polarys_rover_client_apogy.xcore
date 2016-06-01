@@ -45,7 +45,7 @@ import ca.gc.asc_csa.apogy.core.ApogyInitializationData
  * Apogy perform a variety of useful functions, including initialization,
  * disposal and other features. 
  */
-class PolarSysRoverApogySystemApiAdapter extends ApogySystemApiAdapter{
+class PolarSysRoverPlatformApogySystemApiAdapter extends ApogySystemApiAdapter{
 	/*
 	 * For specific implementation details,
 	 */
@@ -57,5 +57,5 @@ class PolarSysRoverApogySystemApiAdapter extends ApogySystemApiAdapter{
  * should be interested in when (re)initializing the Mobile
  * platform with the API Adapter.
  */
-class PolarSysRoverData extends ApogyInitializationData{
+class PolarSysRoverPlatformData extends ApogyInitializationData{
 }

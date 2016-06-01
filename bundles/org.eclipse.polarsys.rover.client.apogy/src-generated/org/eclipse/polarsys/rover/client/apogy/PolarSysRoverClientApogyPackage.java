@@ -82,14 +82,14 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	PolarSysRoverClientApogyPackage eINSTANCE = org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverApogySystemApiAdapterImpl <em>Polar Sys Rover Apogy System Api Adapter</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverPlatformApogySystemApiAdapterImpl <em>Polar Sys Rover Platform Apogy System Api Adapter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverApogySystemApiAdapterImpl
-	 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyPackageImpl#getPolarSysRoverApogySystemApiAdapter()
+	 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverPlatformApogySystemApiAdapterImpl
+	 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyPackageImpl#getPolarSysRoverPlatformApogySystemApiAdapter()
 	 * @generated
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER = 0;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Environment</b></em>' reference.
@@ -98,7 +98,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER__ENVIRONMENT = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__ENVIRONMENT;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER__ENVIRONMENT = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__ENVIRONMENT;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' reference.
@@ -107,7 +107,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER__INSTANCE = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__INSTANCE;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER__INSTANCE = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__INSTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Element Type</b></em>' reference.
@@ -116,7 +116,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER__ELEMENT_TYPE = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__ELEMENT_TYPE;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER__ELEMENT_TYPE = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__ELEMENT_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Pose Transform</b></em>' containment reference.
@@ -125,7 +125,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER__POSE_TRANSFORM = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__POSE_TRANSFORM;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER__POSE_TRANSFORM = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__POSE_TRANSFORM;
 
 	/**
 	 * The feature id for the '<em><b>Pose Corrector</b></em>' containment reference.
@@ -134,7 +134,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER__POSE_CORRECTOR = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__POSE_CORRECTOR;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER__POSE_CORRECTOR = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__POSE_CORRECTOR;
 
 	/**
 	 * The feature id for the '<em><b>Apogy System</b></em>' reference.
@@ -143,16 +143,16 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER__APOGY_SYSTEM = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__APOGY_SYSTEM;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER__APOGY_SYSTEM = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER__APOGY_SYSTEM;
 
 	/**
-	 * The number of structural features of the '<em>Polar Sys Rover Apogy System Api Adapter</em>' class.
+	 * The number of structural features of the '<em>Polar Sys Rover Platform Apogy System Api Adapter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER_FEATURE_COUNT = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER_FEATURE_COUNT + 0;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER_FEATURE_COUNT = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Init</em>' operation.
@@ -161,7 +161,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER___INIT__ENVIRONMENT_TYPE_EOBJECT = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___INIT__ENVIRONMENT_TYPE_EOBJECT;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER___INIT__ENVIRONMENT_TYPE_EOBJECT = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___INIT__ENVIRONMENT_TYPE_EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Apply</em>' operation.
@@ -170,7 +170,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER___APPLY__ABSTRACTINITIALIZATIONDATA = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___APPLY__ABSTRACTINITIALIZATIONDATA;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER___APPLY__ABSTRACTINITIALIZATIONDATA = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___APPLY__ABSTRACTINITIALIZATIONDATA;
 
 	/**
 	 * The operation id for the '<em>Create Initialization Data</em>' operation.
@@ -179,7 +179,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER___CREATE_INITIALIZATION_DATA = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___CREATE_INITIALIZATION_DATA;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER___CREATE_INITIALIZATION_DATA = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___CREATE_INITIALIZATION_DATA;
 
 	/**
 	 * The operation id for the '<em>Collect</em>' operation.
@@ -188,7 +188,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER___COLLECT__ABSTRACTINITIALIZATIONDATA = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___COLLECT__ABSTRACTINITIALIZATIONDATA;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER___COLLECT__ABSTRACTINITIALIZATIONDATA = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___COLLECT__ABSTRACTINITIALIZATIONDATA;
 
 	/**
 	 * The operation id for the '<em>Create Result</em>' operation.
@@ -197,7 +197,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT__OPERATIONCALL = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT__OPERATIONCALL;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT__OPERATIONCALL = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT__OPERATIONCALL;
 
 	/**
 	 * The operation id for the '<em>Create Result</em>' operation.
@@ -206,7 +206,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT__OPERATIONCALL_LONG_OBJECT_EXCEPTION = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT__OPERATIONCALL_LONG_OBJECT_EXCEPTION;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT__OPERATIONCALL_LONG_OBJECT_EXCEPTION = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT__OPERATIONCALL_LONG_OBJECT_EXCEPTION;
 
 	/**
 	 * The operation id for the '<em>Invoke</em>' operation.
@@ -215,7 +215,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER___INVOKE__EOBJECT_OPERATIONCALL_BOOLEAN = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___INVOKE__EOBJECT_OPERATIONCALL_BOOLEAN;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER___INVOKE__EOBJECT_OPERATIONCALL_BOOLEAN = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___INVOKE__EOBJECT_OPERATIONCALL_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -224,7 +224,7 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER___DISPOSE = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___DISPOSE;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER___DISPOSE = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___DISPOSE;
 
 	/**
 	 * The operation id for the '<em>Create Result Matrix</em>' operation.
@@ -233,26 +233,26 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT_MATRIX__OPERATIONCALL = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT_MATRIX__OPERATIONCALL;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT_MATRIX__OPERATIONCALL = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER___CREATE_RESULT_MATRIX__OPERATIONCALL;
 
 	/**
-	 * The number of operations of the '<em>Polar Sys Rover Apogy System Api Adapter</em>' class.
+	 * The number of operations of the '<em>Polar Sys Rover Platform Apogy System Api Adapter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER_OPERATION_COUNT = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER_OPERATION_COUNT + 0;
+	int POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER_OPERATION_COUNT = ApogyCorePackage.APOGY_SYSTEM_API_ADAPTER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverDataImpl <em>Polar Sys Rover Data</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverPlatformDataImpl <em>Polar Sys Rover Platform Data</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverDataImpl
-	 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyPackageImpl#getPolarSysRoverData()
+	 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverPlatformDataImpl
+	 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyPackageImpl#getPolarSysRoverPlatformData()
 	 * @generated
 	 */
-	int POLAR_SYS_ROVER_DATA = 1;
+	int POLAR_SYS_ROVER_PLATFORM_DATA = 1;
 
 	/**
 	 * The feature id for the '<em><b>Initial Pose Transform</b></em>' containment reference.
@@ -261,46 +261,46 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_DATA__INITIAL_POSE_TRANSFORM = ApogyCorePackage.APOGY_INITIALIZATION_DATA__INITIAL_POSE_TRANSFORM;
+	int POLAR_SYS_ROVER_PLATFORM_DATA__INITIAL_POSE_TRANSFORM = ApogyCorePackage.APOGY_INITIALIZATION_DATA__INITIAL_POSE_TRANSFORM;
 
 	/**
-	 * The number of structural features of the '<em>Polar Sys Rover Data</em>' class.
+	 * The number of structural features of the '<em>Polar Sys Rover Platform Data</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_DATA_FEATURE_COUNT = ApogyCorePackage.APOGY_INITIALIZATION_DATA_FEATURE_COUNT + 0;
+	int POLAR_SYS_ROVER_PLATFORM_DATA_FEATURE_COUNT = ApogyCorePackage.APOGY_INITIALIZATION_DATA_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Polar Sys Rover Data</em>' class.
+	 * The number of operations of the '<em>Polar Sys Rover Platform Data</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_DATA_OPERATION_COUNT = ApogyCorePackage.APOGY_INITIALIZATION_DATA_OPERATION_COUNT + 0;
+	int POLAR_SYS_ROVER_PLATFORM_DATA_OPERATION_COUNT = ApogyCorePackage.APOGY_INITIALIZATION_DATA_OPERATION_COUNT + 0;
 
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverApogySystemApiAdapter <em>Polar Sys Rover Apogy System Api Adapter</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter <em>Polar Sys Rover Platform Apogy System Api Adapter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Polar Sys Rover Apogy System Api Adapter</em>'.
-	 * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverApogySystemApiAdapter
+	 * @return the meta object for class '<em>Polar Sys Rover Platform Apogy System Api Adapter</em>'.
+	 * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter
 	 * @generated
 	 */
-	EClass getPolarSysRoverApogySystemApiAdapter();
+	EClass getPolarSysRoverPlatformApogySystemApiAdapter();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData <em>Polar Sys Rover Data</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData <em>Polar Sys Rover Platform Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Polar Sys Rover Data</em>'.
-	 * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverData
+	 * @return the meta object for class '<em>Polar Sys Rover Platform Data</em>'.
+	 * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData
 	 * @generated
 	 */
-	EClass getPolarSysRoverData();
+	EClass getPolarSysRoverPlatformData();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -326,24 +326,24 @@ public interface PolarSysRoverClientApogyPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverApogySystemApiAdapterImpl <em>Polar Sys Rover Apogy System Api Adapter</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverPlatformApogySystemApiAdapterImpl <em>Polar Sys Rover Platform Apogy System Api Adapter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverApogySystemApiAdapterImpl
-		 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyPackageImpl#getPolarSysRoverApogySystemApiAdapter()
+		 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverPlatformApogySystemApiAdapterImpl
+		 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyPackageImpl#getPolarSysRoverPlatformApogySystemApiAdapter()
 		 * @generated
 		 */
-		EClass POLAR_SYS_ROVER_APOGY_SYSTEM_API_ADAPTER = eINSTANCE.getPolarSysRoverApogySystemApiAdapter();
+		EClass POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER = eINSTANCE.getPolarSysRoverPlatformApogySystemApiAdapter();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverDataImpl <em>Polar Sys Rover Data</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverPlatformDataImpl <em>Polar Sys Rover Platform Data</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverDataImpl
-		 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyPackageImpl#getPolarSysRoverData()
+		 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverPlatformDataImpl
+		 * @see org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyPackageImpl#getPolarSysRoverPlatformData()
 		 * @generated
 		 */
-		EClass POLAR_SYS_ROVER_DATA = eINSTANCE.getPolarSysRoverData();
+		EClass POLAR_SYS_ROVER_PLATFORM_DATA = eINSTANCE.getPolarSysRoverPlatformData();
 
 	}
 

@@ -33,22 +33,22 @@ public interface PolarSysRoverClientApogyFactory extends EFactory {
 	PolarSysRoverClientApogyFactory eINSTANCE = org.eclipse.polarsys.rover.client.apogy.impl.PolarSysRoverClientApogyFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Polar Sys Rover Apogy System Api Adapter</em>'.
+	 * Returns a new object of class '<em>Polar Sys Rover Platform Apogy System Api Adapter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Polar Sys Rover Apogy System Api Adapter</em>'.
+	 * @return a new object of class '<em>Polar Sys Rover Platform Apogy System Api Adapter</em>'.
 	 * @generated
 	 */
-	PolarSysRoverApogySystemApiAdapter createPolarSysRoverApogySystemApiAdapter();
+	PolarSysRoverPlatformApogySystemApiAdapter createPolarSysRoverPlatformApogySystemApiAdapter();
 
 	/**
-	 * Returns a new object of class '<em>Polar Sys Rover Data</em>'.
+	 * Returns a new object of class '<em>Polar Sys Rover Platform Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Polar Sys Rover Data</em>'.
+	 * @return a new object of class '<em>Polar Sys Rover Platform Data</em>'.
 	 * @generated
 	 */
-	PolarSysRoverData createPolarSysRoverData();
+	PolarSysRoverPlatformData createPolarSysRoverPlatformData();
 
 	/**
 	 * Returns the package supported by this factory.

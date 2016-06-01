@@ -13,23 +13,26 @@
  */
 package org.eclipse.polarsys.rover.client.apogy;
 
-import ca.gc.asc_csa.apogy.core.ApogyInitializationData;
+import ca.gc.asc_csa.apogy.core.ApogySystemApiAdapter;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Polar Sys Rover Data</b></em>'.
+ * A representation of the model object '<em><b>Polar Sys Rover Apogy System Api Adapter</b></em>'.
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This class specifies the initialization data that Apogy
- * should be interested in when (re)initializing the Mobile
- * platform with the API Adapter.
+ * This class is the specialized Apogy API adapter, used for connecting
+ * the existing PolarSys Rover Client example, located at
+ * {@link org.eclipse.polarsys.rover.client.PolarSysRover},
+ * to Apogy; one can override the well-known callback functions to make
+ * Apogy perform a variety of useful functions, including initialization,
+ * disposal and other features.
  * <!-- end-model-doc -->
  *
  *
- * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyPackage#getPolarSysRoverData()
+ * @see org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyPackage#getPolarSysRoverPlatformApogySystemApiAdapter()
  * @model
  * @generated
  */
-public interface PolarSysRoverData extends ApogyInitializationData {
-} // PolarSysRoverData
+public interface PolarSysRoverPlatformApogySystemApiAdapter extends ApogySystemApiAdapter {
+} // PolarSysRoverApogySystemApiAdapter
