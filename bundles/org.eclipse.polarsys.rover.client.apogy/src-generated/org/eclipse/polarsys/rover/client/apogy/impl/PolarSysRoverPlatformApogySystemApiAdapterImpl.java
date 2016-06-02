@@ -20,15 +20,18 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
-import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter;
+import org.eclipse.polarsys.rover.client.Position;
 import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyFactory;
 import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyPackage;
+import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformApogySystemApiAdapter;
 import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverPlatformData;
 
 import ca.gc.asc_csa.apogy.addons.vehicle.ApogyAddonsVehicleFactory;
 import ca.gc.asc_csa.apogy.addons.vehicle.VehiclePoseCorrector;
 import ca.gc.asc_csa.apogy.common.math.ApogyCommonMathFacade;
+import ca.gc.asc_csa.apogy.common.math.GeometricUtils;
 import ca.gc.asc_csa.apogy.common.math.Matrix4x4;
 import ca.gc.asc_csa.apogy.core.impl.ApogySystemApiAdapterImpl;
 import ca.gc.asc_csa.apogy.core.invocator.AbstractInitializationData;
@@ -164,6 +167,8 @@ public class PolarSysRoverPlatformApogySystemApiAdapterImpl extends ApogySystemA
 		}
 	}
 	
+
+	
 	/**
 	 * This class is an adapter which is specialized to check
 	 * for changes to the PolarSys rover instance's pose.
@@ -187,8 +192,43 @@ public class PolarSysRoverPlatformApogySystemApiAdapterImpl extends ApogySystemA
 			{				
 				if(msg.getNotifier() instanceof PolarSysRoverPlatformClient)
 				{
-//					int featureID = msg.getFeatureID(PolarSysRoverPlatformClient.class);
-					// TODO : Update pose when the rover pose changes.
+					// If the feature being changed was the position
+					if (msg.getFeatureID(PolarSysRoverPlatformClient.class) == PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION)
+					{
+						// If there was a previous Position object
+						if (msg.getOldValue() instanceof Position)
+						{
+							// Cast down accordingly
+							Position oldPosition = (Position) msg.getOldValue();
+							
+							// Stop this adapter from listening to the old position object
+							oldPosition.eAdapters().remove(this);
+						}
+
+						// If there is a new Position object
+						if (msg.getNewValue() instanceof Position)
+						{
+							// Cast down accordingly
+							Position newPosition = (Position) msg.getNewValue();
+
+							// Trigger an update in the API adapter's pose
+							// transform to reflect the mobile platform's new position
+							updatePose(newPosition);
+
+							// Make this adapter start listening to the new position object
+							newPosition.eAdapters().add(this);
+						}
+					}
+				}
+				// If the object throwing the notification is the position object itself
+				else if (msg.getNotifier() instanceof Position)
+				{
+					// Cast down accordingly
+					Position newPosition = (Position) msg.getNotifier();
+
+					// Trigger an update in the API adapter's pose
+					// transform to reflect the mobile platform's new position
+					updatePose(newPosition);				
 				}
 			}
 			catch(Throwable t)
@@ -204,12 +244,15 @@ public class PolarSysRoverPlatformApogySystemApiAdapterImpl extends ApogySystemA
 		 * @param position The new position of the mobile platform instance
 		 */
 		// TODO Remove Annotation once completed.
-		@SuppressWarnings("unused")
-		private void updatePose() 
+		private void updatePose(Position position) 
 		{
-			// TODO : Fill matrix m with the pose of the PolarSys rover.
-			Matrix4d m = new Matrix4d();
-			m.setIdentity();
+			// Create a 4x4 matrix which has all of the given transformation
+			Matrix4d m = GeometricUtils.packXYZ(position.getX(),
+												position.getY(),
+												0,
+												0,
+												0,
+												position.getTheta());
 			
 			// Create a EObject wrapper for the matrix
 			Matrix4x4 matrix = ApogyCommonMathFacade.INSTANCE.createMatrix4x4(m);

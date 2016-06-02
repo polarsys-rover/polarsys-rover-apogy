@@ -518,8 +518,12 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 					double newX = this.platform.getPosition().getX();
 					double newY = this.platform.getPosition().getY();
 					double newTheta = this.platform.getPosition().getTheta();
+					
 					double newFrontLeftWheelPos = this.platform.getFrontLeftWheelPosition();
+					double newRearLeftWheelPos = this.platform.getRearLeftWheelPosition();
 					double newFrontRightWheelPos = this.platform.getFrontRightWheelPosition();
+					double newRearRightWheelPos = this.platform.getRearRightWheelPosition();
+					
 					double newPosError = this.platform.getPositionError();
 
 					// Computes distance traveled during time interval,
@@ -555,8 +559,12 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 					// which is dependent on the wheels' angular
 					// velocities and DELTA_T 
 					newFrontLeftWheelPos = newFrontLeftWheelPos + (DELTA_T * leftWheelAngVel);
+					newRearLeftWheelPos = newFrontLeftWheelPos;
+					
 					newFrontRightWheelPos = newFrontRightWheelPos + (DELTA_T * rightWheelAngVel);
-
+					newRearRightWheelPos = newFrontRightWheelPos;
+					
+					
 					// Create a new position and populate it with new values
 					Position newPosition = PolarSysRoverClientFactory.eINSTANCE
 							.createPosition();
@@ -567,8 +575,14 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 					// Update the platform with the new values 
 					this.platform.setPosition(newPosition);
 					this.platform.setPositionError(newPosError);
+					
+					// Left Wheels
 					this.platform.setFrontLeftWheelPosition(newFrontLeftWheelPos);
+					this.platform.setRearLeftWheelPosition(newRearLeftWheelPos);
+					
+					// Right Wheels
 					this.platform.setFrontRightWheelPosition(newFrontRightWheelPos);
+					this.platform.setRearRightWheelPosition(newRearRightWheelPos);
 				}
 				
 				// Release the internal lock
