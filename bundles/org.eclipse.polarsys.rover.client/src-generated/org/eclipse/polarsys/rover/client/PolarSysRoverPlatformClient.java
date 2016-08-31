@@ -412,4 +412,20 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * @generated
 	 */
 	void cmdVelocities(double linearVelocity, double angularVelocity);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model powerLevelUnique="false"
+	 * @generated
+	 */
+	void cmdLeftPowerLevel(byte powerLevel);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model powerLevelUnique="false"
+	 * @generated
+	 */
+	void cmdRightPowerLevel(byte powerLevel);
 } // PolarSysRoverPlatformClient

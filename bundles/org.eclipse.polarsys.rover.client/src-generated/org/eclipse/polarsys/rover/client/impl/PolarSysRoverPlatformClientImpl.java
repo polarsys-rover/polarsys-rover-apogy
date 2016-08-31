@@ -516,6 +516,28 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void cmdLeftPowerLevel(byte powerLevel) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void cmdRightPowerLevel(byte powerLevel) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated_NOT
 	 */
 	abstract public void dispose();
@@ -703,6 +725,12 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return null;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE:
 				cmdVelocities((Double)arguments.get(0), (Double)arguments.get(1));
+				return null;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_LEFT_POWER_LEVEL__BYTE:
+				cmdLeftPowerLevel((Byte)arguments.get(0));
+				return null;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_RIGHT_POWER_LEVEL__BYTE:
+				cmdRightPowerLevel((Byte)arguments.get(0));
 				return null;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___DISPOSE:
 				dispose();

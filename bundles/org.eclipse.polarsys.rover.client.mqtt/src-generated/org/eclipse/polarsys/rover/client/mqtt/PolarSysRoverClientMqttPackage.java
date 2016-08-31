@@ -13,6 +13,7 @@
  */
 package org.eclipse.polarsys.rover.client.mqtt;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
@@ -181,13 +182,40 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION;
 
 	/**
+	 * The feature id for the '<em><b>Broker</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__BROKER = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Qos</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__QOS = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Client Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Platform Client Mqtt</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 0;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -244,6 +272,24 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___CMD_VELOCITIES__DOUBLE_DOUBLE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE;
 
 	/**
+	 * The operation id for the '<em>Cmd Left Power Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___CMD_LEFT_POWER_LEVEL__BYTE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_LEFT_POWER_LEVEL__BYTE;
+
+	/**
+	 * The operation id for the '<em>Cmd Right Power Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___CMD_RIGHT_POWER_LEVEL__BYTE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_RIGHT_POWER_LEVEL__BYTE;
+
+	/**
 	 * The number of operations of the '<em>Polar Sys Rover Platform Client Mqtt</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -262,6 +308,39 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPolarSysRoverPlatformClientMqtt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getBroker <em>Broker</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Broker</em>'.
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getBroker()
+	 * @see #getPolarSysRoverPlatformClientMqtt()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClientMqtt_Broker();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getQos <em>Qos</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Qos</em>'.
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getQos()
+	 * @see #getPolarSysRoverPlatformClientMqtt()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClientMqtt_Qos();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getClientId <em>Client Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Client Id</em>'.
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getClientId()
+	 * @see #getPolarSysRoverPlatformClientMqtt()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClientMqtt_ClientId();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -295,6 +374,27 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT = eINSTANCE.getPolarSysRoverPlatformClientMqtt();
+		/**
+		 * The meta object literal for the '<em><b>Broker</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__BROKER = eINSTANCE.getPolarSysRoverPlatformClientMqtt_Broker();
+		/**
+		 * The meta object literal for the '<em><b>Qos</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__QOS = eINSTANCE.getPolarSysRoverPlatformClientMqtt_Qos();
+		/**
+		 * The meta object literal for the '<em><b>Client Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID = eINSTANCE.getPolarSysRoverPlatformClientMqtt_ClientId();
 
 	}
 

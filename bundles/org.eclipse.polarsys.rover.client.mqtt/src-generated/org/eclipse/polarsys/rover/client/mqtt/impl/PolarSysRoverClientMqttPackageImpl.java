@@ -13,9 +13,11 @@
  */
 package org.eclipse.polarsys.rover.client.mqtt.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt;
@@ -113,6 +115,33 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPolarSysRoverPlatformClientMqtt_Broker() {
+		return (EAttribute)polarSysRoverPlatformClientMqttEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClientMqtt_Qos() {
+		return (EAttribute)polarSysRoverPlatformClientMqttEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClientMqtt_ClientId() {
+		return (EAttribute)polarSysRoverPlatformClientMqttEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PolarSysRoverClientMqttFactory getPolarSysRoverClientMqttFactory() {
 		return (PolarSysRoverClientMqttFactory)getEFactoryInstance();
 	}
@@ -137,6 +166,9 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 
 		// Create classes and their features
 		polarSysRoverPlatformClientMqttEClass = createEClass(POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT);
+		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__BROKER);
+		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__QOS);
+		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID);
 	}
 
 	/**
@@ -164,6 +196,7 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 
 		// Obtain other dependent packages
 		PolarSysRoverClientPackage thePolarSysRoverClientPackage = (PolarSysRoverClientPackage)EPackage.Registry.INSTANCE.getEPackage(PolarSysRoverClientPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -174,6 +207,9 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(polarSysRoverPlatformClientMqttEClass, PolarSysRoverPlatformClientMqtt.class, "PolarSysRoverPlatformClientMqtt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPolarSysRoverPlatformClientMqtt_Broker(), theEcorePackage.getEString(), "broker", "tcp://192.168.0.150:1883", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClientMqtt_Qos(), theEcorePackage.getEByte(), "qos", "2", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClientMqtt_ClientId(), theEcorePackage.getEString(), "clientId", "Default", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

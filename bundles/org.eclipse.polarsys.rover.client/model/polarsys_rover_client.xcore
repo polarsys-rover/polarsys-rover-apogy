@@ -223,4 +223,7 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 	 */
 	op void cmdVelocities(@GenModel(apogy_units="m/s") double linearVelocity,
 					      @GenModel(apogy_units="rad/s") double angularVelocity)
+					      
+    op void cmdLeftPowerLevel(byte powerLevel)
+    op void cmdRightPowerLevel(byte powerLevel)			   
 }
