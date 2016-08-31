@@ -37,7 +37,7 @@ public interface PolarSysRoverPlatformClientMqtt extends PolarSysRoverPlatformCl
 
 	/**
 	 * Returns the value of the '<em><b>Broker</b></em>' attribute.
-	 * The default value is <code>"tcp://192.168.0.150:1883"</code>.
+	 * The default value is <code>"tcp://192.168.0.151:1883"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Broker</em>' attribute isn't clear,
@@ -47,7 +47,7 @@ public interface PolarSysRoverPlatformClientMqtt extends PolarSysRoverPlatformCl
 	 * @return the value of the '<em>Broker</em>' attribute.
 	 * @see #setBroker(String)
 	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttPackage#getPolarSysRoverPlatformClientMqtt_Broker()
-	 * @model default="tcp://192.168.0.150:1883" unique="false"
+	 * @model default="tcp://192.168.0.151:1883" unique="false"
 	 * @generated
 	 */
 	String getBroker();

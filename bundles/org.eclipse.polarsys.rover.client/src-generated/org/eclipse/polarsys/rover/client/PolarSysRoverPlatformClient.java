@@ -303,7 +303,7 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 
 	/**
 	 * Returns the value of the '<em><b>Front Sonar</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Front Sonar</em>' attribute isn't clear,
@@ -311,12 +311,12 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Front Sonar</em>' attribute.
-	 * @see #setFrontSonar(double)
+	 * @see #setFrontSonar(int)
 	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_FrontSonar()
-	 * @model default="0.0" unique="false"
+	 * @model default="0" unique="false"
 	 * @generated
 	 */
-	double getFrontSonar();
+	int getFrontSonar();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar <em>Front Sonar</em>}' attribute.
@@ -326,7 +326,7 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * @see #getFrontSonar()
 	 * @generated
 	 */
-	void setFrontSonar(double value);
+	void setFrontSonar(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Position</b></em>' containment reference.

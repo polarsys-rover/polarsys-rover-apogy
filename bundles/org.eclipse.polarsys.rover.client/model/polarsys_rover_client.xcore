@@ -161,7 +161,7 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  apogy_units="rad")
 	double rearRightWheelPosition = "0.0"
 	
-	double frontSonar = "0.0"
+	int frontSonar = "0"
 	
 	/* 
 	 * This is the mobile platform's current position

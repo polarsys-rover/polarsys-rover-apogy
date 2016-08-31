@@ -207,7 +207,7 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(polarSysRoverPlatformClientMqttEClass, PolarSysRoverPlatformClientMqtt.class, "PolarSysRoverPlatformClientMqtt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPolarSysRoverPlatformClientMqtt_Broker(), theEcorePackage.getEString(), "broker", "tcp://192.168.0.150:1883", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClientMqtt_Broker(), theEcorePackage.getEString(), "broker", "tcp://192.168.0.151:1883", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClientMqtt_Qos(), theEcorePackage.getEByte(), "qos", "2", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClientMqtt_ClientId(), theEcorePackage.getEString(), "clientId", "Default", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

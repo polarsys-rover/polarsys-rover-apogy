@@ -38,7 +38,7 @@ import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient
 
 class PolarSysRoverPlatformClientMqtt extends PolarSysRoverPlatformClient{	
 	
-	String broker = "tcp://192.168.0.150:1883"
+	String broker = "tcp://192.168.0.151:1883"
 	byte qos = "2"
 	String clientId = "Default"	
 }

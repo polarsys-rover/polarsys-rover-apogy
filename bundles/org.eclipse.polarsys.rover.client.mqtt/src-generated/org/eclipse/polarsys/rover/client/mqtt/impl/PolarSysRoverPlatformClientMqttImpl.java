@@ -30,6 +30,8 @@ import org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttPackage;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt;
 import org.eclipse.polarsys.rover.client.mqtt.proto.Controls;
+import org.eclipse.polarsys.rover.client.mqtt.proto.Sensors;
+import org.eclipse.polarsys.rover.client.mqtt.proto.Sensors.RoverSensors;
 import org.eclipse.polarsys.rover.client.mqtt.proto.Controls.RoverControls;
 import org.eclipse.polarsys.rover.client.mqtt.proto.Controls.RoverControls.Builder;
 
@@ -57,7 +59,7 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BROKER_EDEFAULT = "tcp://192.168.0.150:1883";
+	protected static final String BROKER_EDEFAULT = "tcp://192.168.0.151:1883";
 	/**
 	 * The cached value of the '{@link #getBroker() <em>Broker</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -297,6 +299,13 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 				
 				@Override
 				public void messageArrived(String topic, MqttMessage message) throws Exception {
+					
+					RoverSensors sensors = Sensors.RoverSensors.parseFrom(message.getPayload());
+					
+					if (sensors.hasSonar()) {
+						setFrontSonar(sensors.getSonar());
+					}
+					
 			        String time = new Timestamp(System.currentTimeMillis()).toString();
 			        System.out.println("\nReceived a Message!" +
 			            "\n\tTime:    " + time +
@@ -314,13 +323,14 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 				}
 			});
 			
-			sampleClient.subscribe("/polarsys-rover/sensors", 0);
 			
 	        MqttConnectOptions connOpts = new MqttConnectOptions();
 	        connOpts.setCleanSession(true);
 	        System.out.println("Connecting to broker: "+broker);
 	        sampleClient.connect(connOpts);
-	        System.out.println("Connected");			
+	        System.out.println("Connected");	
+	        sampleClient.subscribe("/polarsys-rover/sensors", 0);
+	        System.out.println("Subscribed");
 		} catch (MqttException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

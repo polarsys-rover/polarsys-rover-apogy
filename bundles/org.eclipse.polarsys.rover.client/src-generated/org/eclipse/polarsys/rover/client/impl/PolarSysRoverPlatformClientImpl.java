@@ -223,7 +223,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double FRONT_SONAR_EDEFAULT = 0.0;
+	protected static final int FRONT_SONAR_EDEFAULT = 0;
 	/**
 	 * The cached value of the '{@link #getFrontSonar() <em>Front Sonar</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -232,7 +232,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected double frontSonar = FRONT_SONAR_EDEFAULT;
+	protected int frontSonar = FRONT_SONAR_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getPosition() <em>Position</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -456,7 +456,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getFrontSonar() {
+	public int getFrontSonar() {
 		return frontSonar;
 	}
 
@@ -465,8 +465,8 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFrontSonar(double newFrontSonar) {
-		double oldFrontSonar = frontSonar;
+	public void setFrontSonar(int newFrontSonar) {
+		int oldFrontSonar = frontSonar;
 		frontSonar = newFrontSonar;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR, oldFrontSonar, frontSonar));
@@ -655,7 +655,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				setRearRightWheelPosition((Double)newValue);
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR:
-				setFrontSonar((Double)newValue);
+				setFrontSonar((Integer)newValue);
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
 				setPosition((Position)newValue);
