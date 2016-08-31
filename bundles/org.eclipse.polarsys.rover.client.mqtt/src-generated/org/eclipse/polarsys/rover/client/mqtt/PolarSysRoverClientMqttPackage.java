@@ -272,22 +272,13 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___CMD_VELOCITIES__DOUBLE_DOUBLE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE;
 
 	/**
-	 * The operation id for the '<em>Cmd Left Power Level</em>' operation.
+	 * The operation id for the '<em>Cmd Power Level</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___CMD_LEFT_POWER_LEVEL__BYTE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_LEFT_POWER_LEVEL__BYTE;
-
-	/**
-	 * The operation id for the '<em>Cmd Right Power Level</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___CMD_RIGHT_POWER_LEVEL__BYTE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_RIGHT_POWER_LEVEL__BYTE;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT___CMD_POWER_LEVEL__BYTE_BYTE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__BYTE_BYTE;
 
 	/**
 	 * The number of operations of the '<em>Polar Sys Rover Platform Client Mqtt</em>' class.

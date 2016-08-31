@@ -303,22 +303,13 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE = ApogyCommonEMFPackage.DISPOSABLE_OPERATION_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Cmd Left Power Level</em>' operation.
+	 * The operation id for the '<em>Cmd Power Level</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_LEFT_POWER_LEVEL__BYTE = ApogyCommonEMFPackage.DISPOSABLE_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Cmd Right Power Level</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_RIGHT_POWER_LEVEL__BYTE = ApogyCommonEMFPackage.DISPOSABLE_OPERATION_COUNT + 6;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__BYTE_BYTE = ApogyCommonEMFPackage.DISPOSABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Polar Sys Rover Platform Client</em>' class.
@@ -327,7 +318,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_OPERATION_COUNT = ApogyCommonEMFPackage.DISPOSABLE_OPERATION_COUNT + 7;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_OPERATION_COUNT = ApogyCommonEMFPackage.DISPOSABLE_OPERATION_COUNT + 6;
 
 
 	/**
@@ -544,24 +535,14 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	EOperation getPolarSysRoverPlatformClient__CmdVelocities__double_double();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdLeftPowerLevel(byte) <em>Cmd Left Power Level</em>}' operation.
+	 * Returns the meta object for the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdPowerLevel(byte, byte) <em>Cmd Power Level</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Cmd Left Power Level</em>' operation.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdLeftPowerLevel(byte)
+	 * @return the meta object for the '<em>Cmd Power Level</em>' operation.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdPowerLevel(byte, byte)
 	 * @generated
 	 */
-	EOperation getPolarSysRoverPlatformClient__CmdLeftPowerLevel__byte();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdRightPowerLevel(byte) <em>Cmd Right Power Level</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Cmd Right Power Level</em>' operation.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdRightPowerLevel(byte)
-	 * @generated
-	 */
-	EOperation getPolarSysRoverPlatformClient__CmdRightPowerLevel__byte();
+	EOperation getPolarSysRoverPlatformClient__CmdPowerLevel__byte_byte();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -751,20 +732,12 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE = eINSTANCE.getPolarSysRoverPlatformClient__CmdVelocities__double_double();
 
 		/**
-		 * The meta object literal for the '<em><b>Cmd Left Power Level</b></em>' operation.
+		 * The meta object literal for the '<em><b>Cmd Power Level</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_LEFT_POWER_LEVEL__BYTE = eINSTANCE.getPolarSysRoverPlatformClient__CmdLeftPowerLevel__byte();
-
-		/**
-		 * The meta object literal for the '<em><b>Cmd Right Power Level</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_RIGHT_POWER_LEVEL__BYTE = eINSTANCE.getPolarSysRoverPlatformClient__CmdRightPowerLevel__byte();
+		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__BYTE_BYTE = eINSTANCE.getPolarSysRoverPlatformClient__CmdPowerLevel__byte_byte();
 
 	}
 

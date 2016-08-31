@@ -18,12 +18,16 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.eclipse.polarsys.rover.client.Position;
 import org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttPackage;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt;
+import org.eclipse.polarsys.rover.client.mqtt.proto.Controls;
+import org.eclipse.polarsys.rover.client.mqtt.proto.Controls.RoverControls;
+import org.eclipse.polarsys.rover.client.mqtt.proto.Controls.RoverControls.Builder;
 
 /**
  * <!-- begin-user-doc -->
@@ -283,12 +287,17 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 		boolean result = super.init();
 		
 		MemoryPersistence persistence = new MemoryPersistence();		
-		sampleClient = new MqttClient(broker, clientId, persistence);
-        MqttConnectOptions connOpts = new MqttConnectOptions();
-        connOpts.setCleanSession(true);
-        System.out.println("Connecting to broker: "+broker);
-        sampleClient.connect(connOpts);
-        System.out.println("Connected");        
+		try {
+			sampleClient = new MqttClient(broker, clientId, persistence);
+	        MqttConnectOptions connOpts = new MqttConnectOptions();
+	        connOpts.setCleanSession(true);
+	        System.out.println("Connecting to broker: "+broker);
+	        sampleClient.connect(connOpts);
+	        System.out.println("Connected");			
+		} catch (MqttException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return result;
 	}
 
@@ -312,31 +321,60 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 
 	@Override
 	public void stop() {
-		// TODO Auto-generated method stub
-		
+		cmdPowerLevel((byte)0, (byte)0);
 	}
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
+		try {
+			sampleClient.disconnect();
+		} catch (MqttException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void cmdPowerLevel(byte leftPowerLevel, byte rightPowerLevel) {
+		Builder builder = Controls.RoverControls.newBuilder();
+		RoverControls content = builder.setLeft(leftPowerLevel)
+			.setRight(rightPowerLevel).build();
+		
+		MqttMessage message = new MqttMessage(content.toByteArray());
+		
+      message.setQos(qos);
+      
+      String topic        = "/polarsys-rover/controls";
+      try {
+		sampleClient.publish(topic, message);
+	} catch (MqttException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 		
 	}
 	
-	@Override
-	public void cmdLeftPowerLevel(byte powerLevel) {
-        MqttMessage message = new MqttMessage(content.getBytes());
-        message.setQos(qos);
-        sampleClient.publish(topic, message);
-        System.out.println("Message published");
-        sampleClient.disconnect();
-        System.out.println("Disconnected");
-        System.exit(0);		
-	}
-	
-	@Override
-	public void cmdRightPowerLevel(byte powerLevel) {
-		// TODO Auto-generated method stub
-		super.cmdRightPowerLevel(powerLevel);
-	}
+//	
+//	@Override
+//	public void cmdLeftPowerLevel(byte powerLevel) {
+//		
+//		Builder builder = Controls.RoverControls.newBuilder();
+//				.setLeft(powerLevel)
+//				.build();
+//		
+//        MqttMessage message = new MqttMessage(content.getBytes());
+//        message.setQos(qos);
+//        sampleClient.publish(topic, message);
+//        System.out.println("Message published");
+//        sampleClient.disconnect();
+//        System.out.println("Disconnected");
+//        System.exit(0);		
+//	}
+//	
+//	@Override
+//	public void cmdRightPowerLevel(byte powerLevel) {
+//		// TODO Auto-generated method stub
+//		super.cmdRightPowerLevel(powerLevel);
+//	}
 
 } //PolarSysRoverClientMqttImpl

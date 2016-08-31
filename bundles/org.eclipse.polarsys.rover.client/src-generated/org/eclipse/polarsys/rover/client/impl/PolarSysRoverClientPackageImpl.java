@@ -299,17 +299,8 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPolarSysRoverPlatformClient__CmdLeftPowerLevel__byte() {
+	public EOperation getPolarSysRoverPlatformClient__CmdPowerLevel__byte_byte() {
 		return polarSysRoverPlatformClientEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPolarSysRoverPlatformClient__CmdRightPowerLevel__byte() {
-		return polarSysRoverPlatformClientEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -361,8 +352,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___CLEAR_POSITION_ERROR);
 		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___STOP);
 		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE);
-		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_LEFT_POWER_LEVEL__BYTE);
-		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_RIGHT_POWER_LEVEL__BYTE);
+		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__BYTE_BYTE);
 	}
 
 	/**
@@ -430,11 +420,9 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		addEParameter(op, theEcorePackage.getEDouble(), "linearVelocity", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEDouble(), "angularVelocity", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getPolarSysRoverPlatformClient__CmdLeftPowerLevel__byte(), null, "cmdLeftPowerLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcorePackage.getEByte(), "powerLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getPolarSysRoverPlatformClient__CmdRightPowerLevel__byte(), null, "cmdRightPowerLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcorePackage.getEByte(), "powerLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPolarSysRoverPlatformClient__CmdPowerLevel__byte_byte(), null, "cmdPowerLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEByte(), "leftPowerLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEByte(), "rightPowerLevel", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
