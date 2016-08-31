@@ -1,4 +1,4 @@
-# Polarsys-Rover-Apogy
+# polarsys-rover-apogy
 Apogy Bundles to Remote-Control the Polarsys Rover
 
 Apogy is currently available on bitbucket.
