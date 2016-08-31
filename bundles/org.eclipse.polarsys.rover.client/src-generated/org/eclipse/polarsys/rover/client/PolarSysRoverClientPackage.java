@@ -309,7 +309,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__BYTE_BYTE = ApogyCommonEMFPackage.DISPOSABLE_OPERATION_COUNT + 5;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__DOUBLE_DOUBLE = ApogyCommonEMFPackage.DISPOSABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Polar Sys Rover Platform Client</em>' class.
@@ -535,14 +535,14 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	EOperation getPolarSysRoverPlatformClient__CmdVelocities__double_double();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdPowerLevel(byte, byte) <em>Cmd Power Level</em>}' operation.
+	 * Returns the meta object for the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdPowerLevel(double, double) <em>Cmd Power Level</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Cmd Power Level</em>' operation.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdPowerLevel(byte, byte)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#cmdPowerLevel(double, double)
 	 * @generated
 	 */
-	EOperation getPolarSysRoverPlatformClient__CmdPowerLevel__byte_byte();
+	EOperation getPolarSysRoverPlatformClient__CmdPowerLevel__double_double();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -737,7 +737,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__BYTE_BYTE = eINSTANCE.getPolarSysRoverPlatformClient__CmdPowerLevel__byte_byte();
+		EOperation POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__DOUBLE_DOUBLE = eINSTANCE.getPolarSysRoverPlatformClient__CmdPowerLevel__double_double();
 
 	}
 

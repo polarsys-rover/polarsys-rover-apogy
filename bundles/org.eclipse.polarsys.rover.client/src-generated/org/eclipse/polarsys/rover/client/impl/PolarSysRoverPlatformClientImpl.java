@@ -518,7 +518,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void cmdPowerLevel(byte leftPowerLevel, byte rightPowerLevel) {
+	public void cmdPowerLevel(double leftPowerLevel, double rightPowerLevel) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -715,8 +715,8 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_VELOCITIES__DOUBLE_DOUBLE:
 				cmdVelocities((Double)arguments.get(0), (Double)arguments.get(1));
 				return null;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__BYTE_BYTE:
-				cmdPowerLevel((Byte)arguments.get(0), (Byte)arguments.get(1));
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__DOUBLE_DOUBLE:
+				cmdPowerLevel((Double)arguments.get(0), (Double)arguments.get(1));
 				return null;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___DISPOSE:
 				dispose();

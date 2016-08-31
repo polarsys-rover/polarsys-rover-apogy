@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<invocator:InvocatorSession xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="ca.gc.asc_csa.apogy.core" xmlns:emf="ca.gc.asc_csa.apogy.common.emf" xmlns:environment="ca.gc.asc_csa.apogy.core.environment" xmlns:images="ca.gc.asc_csa.apogy.common.images" xmlns:invocator="ca.gc.asc_csa.apogy.core.invocator" xmi:id="_CaxBIArPEeW4-_ONWXXiAw" name="">
-  <environment xsi:type="core:ApogyEnvironment" xmi:id="_CaxBIQrPEeW4-_ONWXXiAw" name="Mobile Platform Example" description="This is an example session, illustrating how to use the mobile platform example." activeContext="_CaxoMgrPEeW4-_ONWXXiAw" time="2016-02-29T13:15:59.930-0500" activeWorksite="_CaxoOQrPEeW4-_ONWXXiAw" activeTimeSource="_Ca4V4grPEeW4-_ONWXXiAw">
+<invocator:InvocatorSession xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:controllers="ca.gc.asc_csa.apogy.core.programs.controllers" xmlns:core="ca.gc.asc_csa.apogy.core" xmlns:emf="ca.gc.asc_csa.apogy.common.emf" xmlns:environment="ca.gc.asc_csa.apogy.core.environment" xmlns:images="ca.gc.asc_csa.apogy.common.images" xmlns:invocator="ca.gc.asc_csa.apogy.core.invocator" xmi:id="_CaxBIArPEeW4-_ONWXXiAw" name="">
+  <environment xsi:type="core:ApogyEnvironment" xmi:id="_CaxBIQrPEeW4-_ONWXXiAw" name="Mobile Platform Example" description="This is an example session, illustrating how to use the mobile platform example." activeContext="_o4qcEG-REeaT-axctTGBYw" time="2016-02-29T13:15:59.930-0500" activeWorksite="_CaxoOQrPEeW4-_ONWXXiAw" activeTimeSource="_Ca4V4grPEeW4-_ONWXXiAw">
     <typesList xmi:id="_CaxBIgrPEeW4-_ONWXXiAw">
       <localTypes xmi:id="_CaxBIwrPEeW4-_ONWXXiAw"/>
       <registeredTypes xmi:id="_CaxBJArPEeW4-_ONWXXiAw"/>
@@ -11,7 +11,7 @@
       </variables>
     </variablesList>
     <contextsList xmi:id="_CaxoMQrPEeW4-_ONWXXiAw">
-      <contexts xsi:type="invocator:BasicContext" xmi:id="_CaxoMgrPEeW4-_ONWXXiAw" name="Simulated" dataProductsList="_Ca7ZMgrPEeW4-_ONWXXiAw" instancesCreationDate="2016-06-01T10:21:48.335-0400">
+      <contexts xsi:type="invocator:BasicContext" xmi:id="_CaxoMgrPEeW4-_ONWXXiAw" name="Simulated" dataProductsList="_Ca7ZMgrPEeW4-_ONWXXiAw" instancesCreationDate="2016-08-31T11:42:34.451-0400">
         <variableImplementationsList xmi:id="_CaxoMwrPEeW4-_ONWXXiAw">
           <variableImplementations xmi:id="_CaxoNArPEeW4-_ONWXXiAw" variable="_CaxoMArPEeW4-_ONWXXiAw">
             <implementationClass href="org.eclipse.polarsys.rover.client.simulator#//PolarSysRoverPlatformClientSimulator"/>
@@ -22,6 +22,13 @@
         <variableImplementationsList xmi:id="_CaxoNgrPEeW4-_ONWXXiAw">
           <variableImplementations xmi:id="_CaxoNwrPEeW4-_ONWXXiAw" variable="_CaxoMArPEeW4-_ONWXXiAw">
             <implementationClass href="ca.gc.asc_csa.apogy.examples.mobile_platform#//MobilePlatformStub"/>
+          </variableImplementations>
+        </variableImplementationsList>
+      </contexts>
+      <contexts xsi:type="invocator:BasicContext" xmi:id="_o4qcEG-REeaT-axctTGBYw" name="MQTT" dataProductsList="_Ca7ZNArPEeW4-_ONWXXiAw" instancesCreationDate="2016-08-31T12:42:31.100-0400">
+        <variableImplementationsList xmi:id="_o6ExUG-REeaT-axctTGBYw">
+          <variableImplementations xmi:id="_o6ExUW-REeaT-axctTGBYw" variable="_CaxoMArPEeW4-_ONWXXiAw">
+            <implementationClass href="org.eclipse.polarsys.rover.client.mqtt#//PolarSysRoverPlatformClientMqtt"/>
           </variableImplementations>
         </variableImplementationsList>
       </contexts>
@@ -75,13 +82,114 @@
         <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/stop"/>
       </operationCalls>
     </programs>
+    <programs xsi:type="invocator:OperationCallsList" xmi:id="_E3zngG-SEeaT-axctTGBYw" name="MQTT" description="">
+      <operationCalls xmi:id="_JNRL4G-SEeaT-axctTGBYw" name="Init" variable="_CaxoMArPEeW4-_ONWXXiAw">
+        <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/init"/>
+      </operationCalls>
+      <operationCalls xmi:id="_Nhn9AG-SEeaT-axctTGBYw" name="Move" variable="_CaxoMArPEeW4-_ONWXXiAw">
+        <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/cmdPowerLevel"/>
+        <argumentsList xmi:id="_P9NOoG-SEeaT-axctTGBYw">
+          <arguments xsi:type="invocator:NumericEDataTypeArgument" xmi:id="_P9NOoW-SEeaT-axctTGBYw" value="20"/>
+          <arguments xsi:type="invocator:NumericEDataTypeArgument" xmi:id="_P9NOom-SEeaT-axctTGBYw" value="-20"/>
+        </argumentsList>
+      </operationCalls>
+    </programs>
+    <programs xsi:type="controllers:ControllersConfiguration" xmi:id="_6aJD4G-TEeazptij2_VH-g">
+      <operationCalls xsi:type="controllers:OperationCallControllerBinding" xmi:id="_75v1cG-TEeazptij2_VH-g" name="Move" variable="_CaxoMArPEeW4-_ONWXXiAw">
+        <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/cmdPowerLevel"/>
+        <argumentsList xmi:id="_Aa3QMG-UEeazptij2_VH-g">
+          <arguments xsi:type="controllers:BindedEDataTypeArgument" xmi:id="_Aa3QMW-UEeazptij2_VH-g">
+            <valueSource xsi:type="controllers:ControllerValueSource" xmi:id="_DEfk4G-UEeazptij2_VH-g" lastValue="ACED0005737200106A6176612E6C616E672E446F75626C6580B3C24A296BFB0402000144000576616C7565787200106A6176612E6C616E672E4E756D62657286AC951D0B94E08B02000078700000000000000000">
+              <eComponentQualifier xmi:id="_DGkogG-UEeazptij2_VH-g" eComponentName="y" eControllerName="Logitech Gamepad F510 [1]"/>
+              <conditioning xsi:type="controllers:CenteredParabolicInputConditioning" xmi:id="_XIT4gG-UEeazptij2_VH-g" minimum="100.0" maximum="-100.0" deadBand="0.1"/>
+            </valueSource>
+          </arguments>
+          <arguments xsi:type="controllers:BindedEDataTypeArgument" xmi:id="_Aa3QMm-UEeazptij2_VH-g">
+            <valueSource xsi:type="controllers:ControllerValueSource" xmi:id="_hHAWQG-UEeazptij2_VH-g" lastValue="ACED0005737200106A6176612E6C616E672E446F75626C6580B3C24A296BFB0402000144000576616C7565787200106A6176612E6C616E672E4E756D62657286AC951D0B94E08B02000078700000000000000000">
+              <eComponentQualifier xmi:id="_hJUDYG-UEeazptij2_VH-g" eComponentName="ry" eControllerName="Logitech Gamepad F510 [1]"/>
+              <conditioning xsi:type="controllers:CenteredParabolicInputConditioning" xmi:id="_l0QIgG-UEeazptij2_VH-g" minimum="100.0" maximum="-100.0" deadBand="0.1"/>
+            </valueSource>
+          </arguments>
+        </argumentsList>
+        <trigger xsi:type="controllers:TimeTrigger" xmi:id="_wkv2oG-UEeazptij2_VH-g" refreshPeriod="50"/>
+      </operationCalls>
+    </programs>
   </programsList>
   <dataProductsListContainer xmi:id="_Ca7ZMQrPEeW4-_ONWXXiAw">
     <dataProductsList xmi:id="_Ca7ZMgrPEeW4-_ONWXXiAw" name="Simulated Data" description="The list of data products associated with the mobile platform's simulated implementation">
       <operationCallResultsList xmi:id="_Ca7ZMwrPEeW4-_ONWXXiAw" name="Simulated Ops Call Data"/>
     </dataProductsList>
     <dataProductsList xmi:id="_Ca7ZNArPEeW4-_ONWXXiAw" name="Stub Data" description="The list of data products associated with the mobile platform's stub implementation">
-      <operationCallResultsList xmi:id="_Ca7ZNQrPEeW4-_ONWXXiAw" name="Stub Ops Call Data"/>
+      <operationCallResultsList xmi:id="_Ca7ZNQrPEeW4-_ONWXXiAw" name="Stub Ops Call Data">
+        <results xsi:type="core:OperationCallPositionedResult" xmi:id="_hGwwkG-SEeaT-axctTGBYw" time="2016-08-31T11:48:47.769-0400" context="_o4qcEG-REeaT-axctTGBYw">
+          <resultValue xsi:type="invocator:AttributeResultValue" xmi:id="_hGwwkW-SEeaT-axctTGBYw">
+            <value xmi:id="_hGwwkm-SEeaT-axctTGBYw" object="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+          </resultValue>
+          <operationCalls xmi:id="_hGwwk2-SEeaT-axctTGBYw" name="Init" variable="_CaxoMArPEeW4-_ONWXXiAw">
+            <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/init"/>
+          </operationCalls>
+          <pose xmi:id="_hGwwlG-SEeaT-axctTGBYw"/>
+          <relativePose xmi:id="_hGwwlW-SEeaT-axctTGBYw"/>
+        </results>
+        <results xsi:type="core:OperationCallPositionedResult" xmi:id="_yx6jsG-SEeaT-axctTGBYw" time="2016-08-31T11:51:34.486-0400" context="_o4qcEG-REeaT-axctTGBYw">
+          <resultValue xsi:type="invocator:AttributeResultValue" xmi:id="_yx6jsW-SEeaT-axctTGBYw">
+            <value xmi:id="_yx6jsm-SEeaT-axctTGBYw" object="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+          </resultValue>
+          <operationCalls xmi:id="_yx6js2-SEeaT-axctTGBYw" name="Init" variable="_CaxoMArPEeW4-_ONWXXiAw">
+            <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/init"/>
+          </operationCalls>
+          <pose xmi:id="_yx6jtG-SEeaT-axctTGBYw"/>
+          <relativePose xmi:id="_yx6jtW-SEeaT-axctTGBYw"/>
+        </results>
+        <results xsi:type="core:OperationCallPositionedResult" xmi:id="_0VMUUG-SEeaT-axctTGBYw" time="2016-08-31T11:51:44.870-0400" context="_o4qcEG-REeaT-axctTGBYw">
+          <resultValue xsi:type="invocator:AttributeResultValue" xmi:id="_0VMUUW-SEeaT-axctTGBYw">
+            <value xmi:id="_0VMUUm-SEeaT-axctTGBYw"/>
+          </resultValue>
+          <operationCalls xmi:id="_0VMUU2-SEeaT-axctTGBYw" name="Move" variable="_CaxoMArPEeW4-_ONWXXiAw">
+            <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/cmdPowerLevel"/>
+            <argumentsList xmi:id="_0VMUVG-SEeaT-axctTGBYw">
+              <arguments xsi:type="invocator:NumericEDataTypeArgument" xmi:id="_0VMUVW-SEeaT-axctTGBYw" value="20"/>
+              <arguments xsi:type="invocator:NumericEDataTypeArgument" xmi:id="_0VMUVm-SEeaT-axctTGBYw" value="-20"/>
+            </argumentsList>
+          </operationCalls>
+          <pose xmi:id="_0VMUV2-SEeaT-axctTGBYw"/>
+          <relativePose xmi:id="_0VMUWG-SEeaT-axctTGBYw"/>
+        </results>
+        <results xsi:type="core:OperationCallPositionedResult" xmi:id="_HoXJ8G-aEeah8YV3aDnieQ" time="2016-08-31T12:44:00.836-0400" context="_o4qcEG-REeaT-axctTGBYw">
+          <resultValue xsi:type="invocator:AttributeResultValue" xmi:id="_HoXJ8W-aEeah8YV3aDnieQ">
+            <value xmi:id="_HoXJ8m-aEeah8YV3aDnieQ" object="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+          </resultValue>
+          <operationCalls xmi:id="_HoXJ82-aEeah8YV3aDnieQ" name="Init" variable="_CaxoMArPEeW4-_ONWXXiAw">
+            <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/init"/>
+          </operationCalls>
+          <pose xmi:id="_HoXJ9G-aEeah8YV3aDnieQ"/>
+          <relativePose xmi:id="_HoXJ9W-aEeah8YV3aDnieQ"/>
+        </results>
+        <results xsi:type="core:OperationCallPositionedResult" xmi:id="_Jm5TMG-aEeah8YV3aDnieQ" time="2016-08-31T12:44:14.173-0400" context="_o4qcEG-REeaT-axctTGBYw">
+          <resultValue xsi:type="invocator:AttributeResultValue" xmi:id="_Jm5TMW-aEeah8YV3aDnieQ">
+            <value xmi:id="_Jm5TMm-aEeah8YV3aDnieQ"/>
+          </resultValue>
+          <operationCalls xmi:id="_Jm5TM2-aEeah8YV3aDnieQ" name="Move" variable="_CaxoMArPEeW4-_ONWXXiAw">
+            <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/cmdPowerLevel"/>
+            <argumentsList xmi:id="_Jm5TNG-aEeah8YV3aDnieQ">
+              <arguments xsi:type="invocator:NumericEDataTypeArgument" xmi:id="_Jm5TNW-aEeah8YV3aDnieQ" value="20"/>
+              <arguments xsi:type="invocator:NumericEDataTypeArgument" xmi:id="_Jm5TNm-aEeah8YV3aDnieQ" value="-20"/>
+            </argumentsList>
+          </operationCalls>
+          <pose xmi:id="_Jm5TN2-aEeah8YV3aDnieQ"/>
+          <relativePose xmi:id="_Jm5TOG-aEeah8YV3aDnieQ"/>
+        </results>
+        <results xsi:type="core:OperationCallPositionedResult" xmi:id="_YEKjIG-cEeah8YV3aDnieQ" time="2016-08-31T13:00:10.185-0400" context="_o4qcEG-REeaT-axctTGBYw">
+          <resultValue xsi:type="invocator:AttributeResultValue" xmi:id="_YEKjIW-cEeah8YV3aDnieQ">
+            <value xmi:id="_YEKjIm-cEeah8YV3aDnieQ" object="ACED0005737200116A6176612E6C616E672E426F6F6C65616ECD207280D59CFAEE0200015A000576616C7565787001"/>
+          </resultValue>
+          <operationCalls xmi:id="_YEKjI2-cEeah8YV3aDnieQ" name="Init" variable="_CaxoMArPEeW4-_ONWXXiAw">
+            <eOperation href="org.eclipse.polarsys.rover.client#//PolarSysRoverPlatformClient/init"/>
+          </operationCalls>
+          <pose xmi:id="_YEKjJG-cEeah8YV3aDnieQ"/>
+          <relativePose xmi:id="_YEKjJW-cEeah8YV3aDnieQ"/>
+        </results>
+      </operationCallResultsList>
     </dataProductsList>
   </dataProductsListContainer>
   <toolsList xmi:id="_Ca7ZNgrPEeW4-_ONWXXiAw"/>

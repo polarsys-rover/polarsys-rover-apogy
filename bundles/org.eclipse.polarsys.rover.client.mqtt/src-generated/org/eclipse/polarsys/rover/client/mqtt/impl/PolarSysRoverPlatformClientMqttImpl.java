@@ -321,7 +321,7 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 
 	@Override
 	public void stop() {
-		cmdPowerLevel((byte)0, (byte)0);
+		cmdPowerLevel(0, 0);
 	}
 
 	@Override
@@ -335,10 +335,10 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 	}
 	
 	@Override
-	public void cmdPowerLevel(byte leftPowerLevel, byte rightPowerLevel) {
+	public void cmdPowerLevel(double leftPowerLevel, double rightPowerLevel) {
 		Builder builder = Controls.RoverControls.newBuilder();
-		RoverControls content = builder.setLeft(leftPowerLevel)
-			.setRight(rightPowerLevel).build();
+		RoverControls content = builder.setLeft((int) leftPowerLevel)
+			.setRight((int) rightPowerLevel).build();
 		
 		MqttMessage message = new MqttMessage(content.toByteArray());
 		

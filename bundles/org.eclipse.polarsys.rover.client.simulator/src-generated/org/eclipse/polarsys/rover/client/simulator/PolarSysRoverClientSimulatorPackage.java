@@ -250,7 +250,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR___CMD_POWER_LEVEL__BYTE_BYTE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__BYTE_BYTE;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR___CMD_POWER_LEVEL__DOUBLE_DOUBLE = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT___CMD_POWER_LEVEL__DOUBLE_DOUBLE;
 
 	/**
 	 * The number of operations of the '<em>Polar Sys Rover Platform Client Simulator</em>' class.
