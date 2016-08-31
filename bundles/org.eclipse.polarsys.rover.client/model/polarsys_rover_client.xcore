@@ -34,6 +34,7 @@ Contributors:
 package org.eclipse.polarsys.rover.client
 
 import ca.gc.asc_csa.apogy.common.emf.Disposable
+import ca.gc.asc_csa.apogy.addons.sensors.imaging.AbstractCamera
 
 /*
  * This class is used to represent a position of a particular object
@@ -64,6 +65,9 @@ class Position
 			  notify="true",
 			  apogy_units="rad")
 	double theta = "0.0"
+}
+
+class Camera extends AbstractCamera{	
 }
 
 /*
@@ -169,6 +173,8 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 	@GenModel(notify="true",
 			  propertyCategory="Position")
 	contains transient Position[1] position
+				
+	contains Camera[0..1] frontCamera		
 		
 	/*
 	 * This operation is used to initialize the mobile platform

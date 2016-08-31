@@ -333,6 +333,7 @@ public class PolarSysRoverPlatformClientItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION);
+			childrenFeatures.add(PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA);
 		}
 		return childrenFeatures;
 	}
@@ -388,6 +389,7 @@ public class PolarSysRoverPlatformClientItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -409,6 +411,11 @@ public class PolarSysRoverPlatformClientItemProvider
 			(createChildParameter
 				(PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION,
 				 PolarSysRoverClientFactory.eINSTANCE.createPosition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA,
+				 PolarSysRoverClientFactory.eINSTANCE.createCamera()));
 	}
 
 	/**

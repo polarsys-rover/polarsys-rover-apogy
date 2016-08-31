@@ -190,6 +190,15 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION;
 
 	/**
+	 * The feature id for the '<em><b>Front Camera</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__FRONT_CAMERA = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA;
+
+	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Platform Client Simulator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

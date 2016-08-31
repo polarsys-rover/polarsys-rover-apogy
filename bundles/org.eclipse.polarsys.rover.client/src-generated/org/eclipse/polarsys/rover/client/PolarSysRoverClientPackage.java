@@ -13,6 +13,7 @@
  */
 package org.eclipse.polarsys.rover.client;
 
+import ca.gc.asc_csa.apogy.addons.sensors.imaging.ApogyAddonsSensorsImagingPackage;
 import ca.gc.asc_csa.apogy.common.emf.ApogyCommonEMFPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -140,6 +141,133 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	int POSITION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.impl.CameraImpl <em>Camera</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.polarsys.rover.client.impl.CameraImpl
+	 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientPackageImpl#getCamera()
+	 * @generated
+	 */
+	int CAMERA = 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__PARENT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__DESCRIPTION = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Node Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__NODE_ID = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__NODE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__CHILDREN = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Aggregated Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__AGGREGATED_CHILDREN = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__AGGREGATED_CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__STATUS = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__NAME = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Latest Image Snapshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__LATEST_IMAGE_SNAPSHOT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__LATEST_IMAGE_SNAPSHOT;
+
+	/**
+	 * The number of structural features of the '<em>Camera</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA_FEATURE_COUNT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA___ACCEPT__INODEVISITOR = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA___ACCEPT__INODEVISITOR;
+
+	/**
+	 * The operation id for the '<em>Take Snapshot</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA___TAKE_SNAPSHOT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA___TAKE_SNAPSHOT;
+
+	/**
+	 * The operation id for the '<em>Get Field Of View</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA___GET_FIELD_OF_VIEW = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA___GET_FIELD_OF_VIEW;
+
+	/**
+	 * The number of operations of the '<em>Camera</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA_OPERATION_COUNT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl <em>Polar Sys Rover Platform Client</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,7 +275,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientPackageImpl#getPolarSysRoverPlatformClient()
 	 * @generated
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT = 1;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Initialized</b></em>' attribute.
@@ -249,13 +377,22 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Front Camera</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Platform Client</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 11;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -372,6 +509,16 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPosition_Theta();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.Camera <em>Camera</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Camera</em>'.
+	 * @see org.eclipse.polarsys.rover.client.Camera
+	 * @generated
+	 */
+	EClass getCamera();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient <em>Polar Sys Rover Platform Client</em>}'.
@@ -505,6 +652,17 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	EReference getPolarSysRoverPlatformClient_Position();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontCamera <em>Front Camera</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Front Camera</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontCamera()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EReference getPolarSysRoverPlatformClient_FrontCamera();
+
+	/**
 	 * Returns the meta object for the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#init() <em>Init</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -622,6 +780,16 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		EAttribute POSITION__THETA = eINSTANCE.getPosition_Theta();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.impl.CameraImpl <em>Camera</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.polarsys.rover.client.impl.CameraImpl
+		 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientPackageImpl#getCamera()
+		 * @generated
+		 */
+		EClass CAMERA = eINSTANCE.getCamera();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl <em>Polar Sys Rover Platform Client</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -718,6 +886,14 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EReference POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION = eINSTANCE.getPolarSysRoverPlatformClient_Position();
+
+		/**
+		 * The meta object literal for the '<em><b>Front Camera</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA = eINSTANCE.getPolarSysRoverPlatformClient_FrontCamera();
 
 		/**
 		 * The meta object literal for the '<em><b>Init</b></em>' operation.

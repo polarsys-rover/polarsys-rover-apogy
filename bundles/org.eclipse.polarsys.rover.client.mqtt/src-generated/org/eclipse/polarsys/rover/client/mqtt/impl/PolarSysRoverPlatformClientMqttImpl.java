@@ -13,7 +13,11 @@
  */
 package org.eclipse.polarsys.rover.client.mqtt.impl;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.sql.Timestamp;
+import javax.imageio.ImageIO;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -30,10 +34,16 @@ import org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverClientMqttPackage;
 import org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt;
 import org.eclipse.polarsys.rover.client.mqtt.proto.Controls;
-import org.eclipse.polarsys.rover.client.mqtt.proto.Sensors;
-import org.eclipse.polarsys.rover.client.mqtt.proto.Sensors.RoverSensors;
 import org.eclipse.polarsys.rover.client.mqtt.proto.Controls.RoverControls;
 import org.eclipse.polarsys.rover.client.mqtt.proto.Controls.RoverControls.Builder;
+import org.eclipse.polarsys.rover.client.mqtt.proto.Sensors;
+import org.eclipse.polarsys.rover.client.mqtt.proto.Sensors.RoverSensors;
+
+import ca.gc.asc_csa.apogy.addons.sensors.fov.ApogyAddonsSensorsFOVFacade;
+import ca.gc.asc_csa.apogy.addons.sensors.imaging.ApogyAddonsSensorsImagingFactory;
+import ca.gc.asc_csa.apogy.addons.sensors.imaging.ImageSnapshot;
+import ca.gc.asc_csa.apogy.common.images.ApogyCommonImagesFactory;
+import ca.gc.asc_csa.apogy.common.images.EImage;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +56,11 @@ import org.eclipse.polarsys.rover.client.mqtt.proto.Controls.RoverControls.Build
  *   <li>{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl#getBroker <em>Broker</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl#getQos <em>Qos</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl#getClientId <em>Client Id</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl#getFrontCameraTopic <em>Front Camera Topic</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl#getSensorsTopic <em>Sensors Topic</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl#getControlsTopic <em>Controls Topic</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl#getFrontCameraHorizontalFOV <em>Front Camera Horizontal FOV</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.mqtt.impl.PolarSysRoverPlatformClientMqttImpl#getFrontCameraVerticalFOV <em>Front Camera Vertical FOV</em>}</li>
  * </ul>
  *
  * @generated
@@ -106,6 +121,96 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 	 * @ordered
 	 */
 	protected String clientId = CLIENT_ID_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getFrontCameraTopic() <em>Front Camera Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFrontCameraTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FRONT_CAMERA_TOPIC_EDEFAULT = "/polarsys-rover/front-camera";
+	/**
+	 * The cached value of the '{@link #getFrontCameraTopic() <em>Front Camera Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFrontCameraTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected String frontCameraTopic = FRONT_CAMERA_TOPIC_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getSensorsTopic() <em>Sensors Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSensorsTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SENSORS_TOPIC_EDEFAULT = "/polarsys-rover/sensors";
+	/**
+	 * The cached value of the '{@link #getSensorsTopic() <em>Sensors Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSensorsTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sensorsTopic = SENSORS_TOPIC_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getControlsTopic() <em>Controls Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getControlsTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTROLS_TOPIC_EDEFAULT = "/polarsys-rover/controls";
+	/**
+	 * The cached value of the '{@link #getControlsTopic() <em>Controls Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getControlsTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected String controlsTopic = CONTROLS_TOPIC_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getFrontCameraHorizontalFOV() <em>Front Camera Horizontal FOV</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFrontCameraHorizontalFOV()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double FRONT_CAMERA_HORIZONTAL_FOV_EDEFAULT = 53.5;
+	/**
+	 * The cached value of the '{@link #getFrontCameraHorizontalFOV() <em>Front Camera Horizontal FOV</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFrontCameraHorizontalFOV()
+	 * @generated
+	 * @ordered
+	 */
+	protected double frontCameraHorizontalFOV = FRONT_CAMERA_HORIZONTAL_FOV_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getFrontCameraVerticalFOV() <em>Front Camera Vertical FOV</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFrontCameraVerticalFOV()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double FRONT_CAMERA_VERTICAL_FOV_EDEFAULT = 41.4;
+	/**
+	 * The cached value of the '{@link #getFrontCameraVerticalFOV() <em>Front Camera Vertical FOV</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFrontCameraVerticalFOV()
+	 * @generated
+	 * @ordered
+	 */
+	protected double frontCameraVerticalFOV = FRONT_CAMERA_VERTICAL_FOV_EDEFAULT;
 	private MqttClient sampleClient;
 
 	/**
@@ -195,6 +300,111 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getFrontCameraTopic() {
+		return frontCameraTopic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrontCameraTopic(String newFrontCameraTopic) {
+		String oldFrontCameraTopic = frontCameraTopic;
+		frontCameraTopic = newFrontCameraTopic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC, oldFrontCameraTopic, frontCameraTopic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSensorsTopic() {
+		return sensorsTopic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSensorsTopic(String newSensorsTopic) {
+		String oldSensorsTopic = sensorsTopic;
+		sensorsTopic = newSensorsTopic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC, oldSensorsTopic, sensorsTopic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getControlsTopic() {
+		return controlsTopic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setControlsTopic(String newControlsTopic) {
+		String oldControlsTopic = controlsTopic;
+		controlsTopic = newControlsTopic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC, oldControlsTopic, controlsTopic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getFrontCameraHorizontalFOV() {
+		return frontCameraHorizontalFOV;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrontCameraHorizontalFOV(double newFrontCameraHorizontalFOV) {
+		double oldFrontCameraHorizontalFOV = frontCameraHorizontalFOV;
+		frontCameraHorizontalFOV = newFrontCameraHorizontalFOV;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV, oldFrontCameraHorizontalFOV, frontCameraHorizontalFOV));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getFrontCameraVerticalFOV() {
+		return frontCameraVerticalFOV;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrontCameraVerticalFOV(double newFrontCameraVerticalFOV) {
+		double oldFrontCameraVerticalFOV = frontCameraVerticalFOV;
+		frontCameraVerticalFOV = newFrontCameraVerticalFOV;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV, oldFrontCameraVerticalFOV, frontCameraVerticalFOV));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -204,6 +414,16 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 				return getQos();
 			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID:
 				return getClientId();
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC:
+				return getFrontCameraTopic();
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC:
+				return getSensorsTopic();
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC:
+				return getControlsTopic();
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV:
+				return getFrontCameraHorizontalFOV();
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV:
+				return getFrontCameraVerticalFOV();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,6 +444,21 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 				return;
 			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID:
 				setClientId((String)newValue);
+				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC:
+				setFrontCameraTopic((String)newValue);
+				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC:
+				setSensorsTopic((String)newValue);
+				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC:
+				setControlsTopic((String)newValue);
+				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV:
+				setFrontCameraHorizontalFOV((Double)newValue);
+				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV:
+				setFrontCameraVerticalFOV((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -246,6 +481,21 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID:
 				setClientId(CLIENT_ID_EDEFAULT);
 				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC:
+				setFrontCameraTopic(FRONT_CAMERA_TOPIC_EDEFAULT);
+				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC:
+				setSensorsTopic(SENSORS_TOPIC_EDEFAULT);
+				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC:
+				setControlsTopic(CONTROLS_TOPIC_EDEFAULT);
+				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV:
+				setFrontCameraHorizontalFOV(FRONT_CAMERA_HORIZONTAL_FOV_EDEFAULT);
+				return;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV:
+				setFrontCameraVerticalFOV(FRONT_CAMERA_VERTICAL_FOV_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -264,6 +514,16 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 				return qos != QOS_EDEFAULT;
 			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID:
 				return CLIENT_ID_EDEFAULT == null ? clientId != null : !CLIENT_ID_EDEFAULT.equals(clientId);
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC:
+				return FRONT_CAMERA_TOPIC_EDEFAULT == null ? frontCameraTopic != null : !FRONT_CAMERA_TOPIC_EDEFAULT.equals(frontCameraTopic);
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC:
+				return SENSORS_TOPIC_EDEFAULT == null ? sensorsTopic != null : !SENSORS_TOPIC_EDEFAULT.equals(sensorsTopic);
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC:
+				return CONTROLS_TOPIC_EDEFAULT == null ? controlsTopic != null : !CONTROLS_TOPIC_EDEFAULT.equals(controlsTopic);
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV:
+				return frontCameraHorizontalFOV != FRONT_CAMERA_HORIZONTAL_FOV_EDEFAULT;
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV:
+				return frontCameraVerticalFOV != FRONT_CAMERA_VERTICAL_FOV_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -284,6 +544,16 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 		result.append(qos);
 		result.append(", clientId: ");
 		result.append(clientId);
+		result.append(", frontCameraTopic: ");
+		result.append(frontCameraTopic);
+		result.append(", sensorsTopic: ");
+		result.append(sensorsTopic);
+		result.append(", controlsTopic: ");
+		result.append(controlsTopic);
+		result.append(", frontCameraHorizontalFOV: ");
+		result.append(frontCameraHorizontalFOV);
+		result.append(", frontCameraVerticalFOV: ");
+		result.append(frontCameraVerticalFOV);
 		result.append(')');
 		return result.toString();
 	}
@@ -299,19 +569,45 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 				
 				@Override
 				public void messageArrived(String topic, MqttMessage message) throws Exception {
-					
-					RoverSensors sensors = Sensors.RoverSensors.parseFrom(message.getPayload());
-					
-					if (sensors.hasSonar()) {
-						setFrontSonar(sensors.getSonar());
-					}
-					
 			        String time = new Timestamp(System.currentTimeMillis()).toString();
-			        System.out.println("\nReceived a Message!" +
-			            "\n\tTime:    " + time +
-			            "\n\tTopic:   " + topic +
-			            "\n\tMessage: " + new String(message.getPayload()) +
-			            "\n\tQoS:     " + message.getQos() + "\n");				
+					System.out.println("\nReceived a Message!" +
+				            "\n\tTime:    " + time +
+				            "\n\tTopic:   " + topic +
+				            "\n\tQoS:     " + message.getQos() + "\n");				
+					
+					if (topic.equals(getSensorsTopic())){
+						// Sensors Message.
+						RoverSensors sensors = Sensors.RoverSensors.parseFrom(message.getPayload());
+						
+						if (sensors.hasSonar()) {
+							setFrontSonar(sensors.getSonar());
+						}
+						
+					}else if (topic.equals(getControlsTopic())){
+						// Controls Message.
+						
+					}else if (topic.equals(getFrontCameraTopic())){
+						// Front Camera Message.
+						byte[] imageBytes = message.getPayload();
+						
+						if (imageBytes != null && imageBytes.length > 0) {
+							// Deserialize image and create an EImage with it
+							EImage eImage = ApogyCommonImagesFactory.eINSTANCE.createEImage();
+							
+							InputStream imageInputStream = new ByteArrayInputStream(imageBytes);
+
+							// Read the byte array and write out the image
+							BufferedImage convertedImage = ImageIO.read(imageInputStream);													
+							eImage.setImageContent(convertedImage);
+
+							// Set latest image snapshot to deserialized image
+							ImageSnapshot imageSnapshot = ApogyAddonsSensorsImagingFactory.eINSTANCE.createImageSnapshot();
+							imageSnapshot.setImage(eImage);
+							imageSnapshot.setFieldOfView(ApogyAddonsSensorsFOVFacade.INSTANCE
+									.createRectangularFrustrumFieldOfView(0, 100, Math.toRadians(getFrontCameraHorizontalFOV()), Math.toRadians(getFrontCameraVerticalFOV())));
+							getFrontCamera().setLatestImageSnapshot(imageSnapshot);
+						}						
+					}
 				}
 				
 				@Override
@@ -329,7 +625,8 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 	        System.out.println("Connecting to broker: "+broker);
 	        sampleClient.connect(connOpts);
 	        System.out.println("Connected");	
-	        sampleClient.subscribe("/polarsys-rover/sensors", 0);
+	        sampleClient.subscribe(getControlsTopic(), 0);
+	        sampleClient.subscribe(getFrontCameraTopic(), 0);
 	        System.out.println("Subscribed");
 		} catch (MqttException e) {
 			// TODO Auto-generated catch block
@@ -377,13 +674,11 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 		RoverControls content = builder.setLeft((int) leftPowerLevel)
 			.setRight((int) rightPowerLevel).build();
 		
-		MqttMessage message = new MqttMessage(content.toByteArray());
-		
+	MqttMessage message = new MqttMessage(content.toByteArray());		
       message.setQos(qos);
       
-      String topic        = "/polarsys-rover/controls";
       try {
-		sampleClient.publish(topic, message);
+		sampleClient.publish(getControlsTopic(), message);
 	} catch (MqttException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

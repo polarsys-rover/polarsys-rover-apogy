@@ -41,4 +41,11 @@ class PolarSysRoverPlatformClientMqtt extends PolarSysRoverPlatformClient{
 	String broker = "tcp://192.168.0.151:1883"
 	byte qos = "2"
 	String clientId = "Default"	
+	
+	String frontCameraTopic = "/polarsys-rover/front-camera"	
+	String sensorsTopic = "/polarsys-rover/sensors"
+	String controlsTopic = "/polarsys-rover/controls"
+	
+	double frontCameraHorizontalFOV = "53.5"
+	double frontCameraVerticalFOV = "41.4"
 }

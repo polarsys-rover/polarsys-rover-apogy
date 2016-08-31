@@ -17,6 +17,7 @@ import javax.vecmath.Matrix4d;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -72,6 +73,17 @@ public class PolarSysRoverPlatformApogySystemApiAdapterImpl extends ApogySystemA
 		return PolarSysRoverClientApogyPackage.Literals.POLAR_SYS_ROVER_PLATFORM_APOGY_SYSTEM_API_ADAPTER;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public NotificationChain basicSetPoseTransform(Void newPoseTransform, NotificationChain msgs) {
+		return super.basicSetPoseTransform(newPoseTransform, msgs);
+	}
+
 	/**
 	 * Utility method that return the PolarSysRoverPlatformClient currently managed by this PolarSysRoverApogySystemApiAdapter.
 	 * @return The PolarSysRoverPlatformClient.

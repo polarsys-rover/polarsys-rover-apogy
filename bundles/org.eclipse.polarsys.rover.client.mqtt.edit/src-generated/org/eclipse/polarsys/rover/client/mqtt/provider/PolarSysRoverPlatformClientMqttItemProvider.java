@@ -61,6 +61,11 @@ public class PolarSysRoverPlatformClientMqttItemProvider extends PolarSysRoverPl
 			addBrokerPropertyDescriptor(object);
 			addQosPropertyDescriptor(object);
 			addClientIdPropertyDescriptor(object);
+			addFrontCameraTopicPropertyDescriptor(object);
+			addSensorsTopicPropertyDescriptor(object);
+			addControlsTopicPropertyDescriptor(object);
+			addFrontCameraHorizontalFOVPropertyDescriptor(object);
+			addFrontCameraVerticalFOVPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +137,116 @@ public class PolarSysRoverPlatformClientMqttItemProvider extends PolarSysRoverPl
 	}
 
 	/**
+	 * This adds a property descriptor for the Front Camera Topic feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFrontCameraTopicPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PolarSysRoverPlatformClientMqtt_frontCameraTopic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClientMqtt_frontCameraTopic_feature", "_UI_PolarSysRoverPlatformClientMqtt_type"),
+				 PolarSysRoverClientMqttPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Sensors Topic feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSensorsTopicPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PolarSysRoverPlatformClientMqtt_sensorsTopic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClientMqtt_sensorsTopic_feature", "_UI_PolarSysRoverPlatformClientMqtt_type"),
+				 PolarSysRoverClientMqttPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Controls Topic feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addControlsTopicPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PolarSysRoverPlatformClientMqtt_controlsTopic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClientMqtt_controlsTopic_feature", "_UI_PolarSysRoverPlatformClientMqtt_type"),
+				 PolarSysRoverClientMqttPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Front Camera Horizontal FOV feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFrontCameraHorizontalFOVPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PolarSysRoverPlatformClientMqtt_frontCameraHorizontalFOV_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClientMqtt_frontCameraHorizontalFOV_feature", "_UI_PolarSysRoverPlatformClientMqtt_type"),
+				 PolarSysRoverClientMqttPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Front Camera Vertical FOV feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFrontCameraVerticalFOVPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PolarSysRoverPlatformClientMqtt_frontCameraVerticalFOV_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClientMqtt_frontCameraVerticalFOV_feature", "_UI_PolarSysRoverPlatformClientMqtt_type"),
+				 PolarSysRoverClientMqttPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns PolarSysRoverPlatformClientMqtt.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +285,11 @@ public class PolarSysRoverPlatformClientMqttItemProvider extends PolarSysRoverPl
 			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__BROKER:
 			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__QOS:
 			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID:
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC:
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC:
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC:
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV:
+			case PolarSysRoverClientMqttPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

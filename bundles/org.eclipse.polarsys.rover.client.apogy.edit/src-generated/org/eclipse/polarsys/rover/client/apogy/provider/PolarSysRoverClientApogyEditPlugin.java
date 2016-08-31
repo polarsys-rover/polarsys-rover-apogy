@@ -13,11 +13,6 @@
  */
 package org.eclipse.polarsys.rover.client.apogy.provider;
 
-import ca.gc.asc_csa.apogy.common.emf.provider.ApogyCommonEMFEditPlugin;
-import ca.gc.asc_csa.apogy.common.math.provider.ApogyCommonMathEditPlugin;
-import ca.gc.asc_csa.apogy.common.topology.bindings.provider.ApogyCommonTopologyBindingsEditPlugin;
-import ca.gc.asc_csa.apogy.common.topology.provider.ApogyCommonTopologyEditPlugin;
-import ca.gc.asc_csa.apogy.core.invocator.provider.ApogyCoreInvocatorEditPlugin;
 import ca.gc.asc_csa.apogy.core.provider.ApogyCoreEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
@@ -56,11 +51,6 @@ public final class PolarSysRoverClientApogyEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     ApogyCoreEditPlugin.INSTANCE,
-		     ApogyCoreInvocatorEditPlugin.INSTANCE,
-		     ApogyCommonMathEditPlugin.INSTANCE,
-		     ApogyCommonEMFEditPlugin.INSTANCE,
-		     ApogyCommonTopologyEditPlugin.INSTANCE,
-		     ApogyCommonTopologyBindingsEditPlugin.INSTANCE,
 		   });
 	}
 

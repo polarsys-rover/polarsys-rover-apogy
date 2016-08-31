@@ -15,5 +15,14 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.ecore.xcore.lib,
  org.eclipse.polarsys.rover.client;bundle-version="0.1.0";visibility:=reexport,
- ca.gc.asc_csa.apogy.common.emf;visibility:=reexport
+ ca.gc.asc_csa.apogy.common.emf;visibility:=reexport,
+ ca.gc.asc_csa.apogy.addons.sensors.imaging;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.topology;visibility:=reexport,
+ ca.gc.asc_csa.apogy.addons.sensors;visibility:=reexport,
+ ca.gc.asc_csa.apogy.addons.sensors.fov;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.images;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.math;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.geometry.data;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.geometry.data3d;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.processors;visibility:=reexport
 Bundle-ActivationPolicy: lazy

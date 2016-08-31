@@ -191,6 +191,15 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION;
 
 	/**
+	 * The feature id for the '<em><b>Front Camera</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA;
+
+	/**
 	 * The feature id for the '<em><b>Broker</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,13 +227,58 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Front Camera Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Sensors Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Controls Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Front Camera Horizontal FOV</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Front Camera Vertical FOV</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Platform Client Mqtt</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 3;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -343,6 +397,61 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	EAttribute getPolarSysRoverPlatformClientMqtt_ClientId();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getFrontCameraTopic <em>Front Camera Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Front Camera Topic</em>'.
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getFrontCameraTopic()
+	 * @see #getPolarSysRoverPlatformClientMqtt()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClientMqtt_FrontCameraTopic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getSensorsTopic <em>Sensors Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sensors Topic</em>'.
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getSensorsTopic()
+	 * @see #getPolarSysRoverPlatformClientMqtt()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClientMqtt_SensorsTopic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getControlsTopic <em>Controls Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Controls Topic</em>'.
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getControlsTopic()
+	 * @see #getPolarSysRoverPlatformClientMqtt()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClientMqtt_ControlsTopic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getFrontCameraHorizontalFOV <em>Front Camera Horizontal FOV</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Front Camera Horizontal FOV</em>'.
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getFrontCameraHorizontalFOV()
+	 * @see #getPolarSysRoverPlatformClientMqtt()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClientMqtt_FrontCameraHorizontalFOV();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getFrontCameraVerticalFOV <em>Front Camera Vertical FOV</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Front Camera Vertical FOV</em>'.
+	 * @see org.eclipse.polarsys.rover.client.mqtt.PolarSysRoverPlatformClientMqtt#getFrontCameraVerticalFOV()
+	 * @see #getPolarSysRoverPlatformClientMqtt()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClientMqtt_FrontCameraVerticalFOV();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -395,6 +504,41 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID = eINSTANCE.getPolarSysRoverPlatformClientMqtt_ClientId();
+		/**
+		 * The meta object literal for the '<em><b>Front Camera Topic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC = eINSTANCE.getPolarSysRoverPlatformClientMqtt_FrontCameraTopic();
+		/**
+		 * The meta object literal for the '<em><b>Sensors Topic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC = eINSTANCE.getPolarSysRoverPlatformClientMqtt_SensorsTopic();
+		/**
+		 * The meta object literal for the '<em><b>Controls Topic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC = eINSTANCE.getPolarSysRoverPlatformClientMqtt_ControlsTopic();
+		/**
+		 * The meta object literal for the '<em><b>Front Camera Horizontal FOV</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV = eINSTANCE.getPolarSysRoverPlatformClientMqtt_FrontCameraHorizontalFOV();
+		/**
+		 * The meta object literal for the '<em><b>Front Camera Vertical FOV</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV = eINSTANCE.getPolarSysRoverPlatformClientMqtt_FrontCameraVerticalFOV();
 
 	}
 

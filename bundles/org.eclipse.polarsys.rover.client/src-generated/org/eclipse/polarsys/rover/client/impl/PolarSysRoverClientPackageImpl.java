@@ -13,6 +13,7 @@
  */
 package org.eclipse.polarsys.rover.client.impl;
 
+import ca.gc.asc_csa.apogy.addons.sensors.imaging.ApogyAddonsSensorsImagingPackage;
 import ca.gc.asc_csa.apogy.common.emf.ApogyCommonEMFPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.polarsys.rover.client.Camera;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientFactory;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
@@ -42,6 +44,13 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * @generated
 	 */
 	private EClass positionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cameraEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,7 +106,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		isInited = true;
 
 		// Initialize simple dependencies
-		ApogyCommonEMFPackage.eINSTANCE.eClass();
+		ApogyAddonsSensorsImagingPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		thePolarSysRoverClientPackage.createPackageContents();
@@ -148,6 +157,15 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 */
 	public EAttribute getPosition_Theta() {
 		return (EAttribute)positionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCamera() {
+		return cameraEClass;
 	}
 
 	/**
@@ -263,6 +281,15 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPolarSysRoverPlatformClient_FrontCamera() {
+		return (EReference)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPolarSysRoverPlatformClient__Init() {
 		return polarSysRoverPlatformClientEClass.getEOperations().get(0);
 	}
@@ -345,6 +372,8 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		createEAttribute(positionEClass, POSITION__Y);
 		createEAttribute(positionEClass, POSITION__THETA);
 
+		cameraEClass = createEClass(CAMERA);
+
 		polarSysRoverPlatformClientEClass = createEClass(POLAR_SYS_ROVER_PLATFORM_CLIENT);
 		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED);
 		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__DISPOSED);
@@ -357,6 +386,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION);
 		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR);
 		createEReference(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION);
+		createEReference(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA);
 		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___INIT);
 		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___RESET_POSITION__POSITION);
 		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___CLEAR_POSITION_ERROR);
@@ -390,6 +420,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 
 		// Obtain other dependent packages
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		ApogyAddonsSensorsImagingPackage theApogyAddonsSensorsImagingPackage = (ApogyAddonsSensorsImagingPackage)EPackage.Registry.INSTANCE.getEPackage(ApogyAddonsSensorsImagingPackage.eNS_URI);
 		ApogyCommonEMFPackage theApogyCommonEMFPackage = (ApogyCommonEMFPackage)EPackage.Registry.INSTANCE.getEPackage(ApogyCommonEMFPackage.eNS_URI);
 
 		// Create type parameters
@@ -397,6 +428,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		cameraEClass.getESuperTypes().add(theApogyAddonsSensorsImagingPackage.getAbstractCamera());
 		polarSysRoverPlatformClientEClass.getESuperTypes().add(theApogyCommonEMFPackage.getDisposable());
 
 		// Initialize classes, features, and operations; add parameters
@@ -404,6 +436,8 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		initEAttribute(getPosition_X(), theEcorePackage.getEDouble(), "x", "0.0", 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPosition_Y(), theEcorePackage.getEDouble(), "y", "0.0", 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPosition_Theta(), theEcorePackage.getEDouble(), "theta", "0.0", 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cameraEClass, Camera.class, "Camera", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(polarSysRoverPlatformClientEClass, PolarSysRoverPlatformClient.class, "PolarSysRoverPlatformClient", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPolarSysRoverPlatformClient_Initialized(), theEcorePackage.getEBoolean(), "initialized", "false", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -417,6 +451,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		initEAttribute(getPolarSysRoverPlatformClient_RearRightWheelPosition(), theEcorePackage.getEDouble(), "rearRightWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClient_FrontSonar(), theEcorePackage.getEInt(), "frontSonar", "0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPolarSysRoverPlatformClient_Position(), this.getPosition(), null, "position", null, 1, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPolarSysRoverPlatformClient_FrontCamera(), this.getCamera(), null, "frontCamera", null, 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPolarSysRoverPlatformClient__Init(), theEcorePackage.getEBoolean(), "init", 0, 1, !IS_UNIQUE, IS_ORDERED);
 

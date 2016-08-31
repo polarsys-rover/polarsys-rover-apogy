@@ -14,5 +14,14 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.ecore.xcore.lib,
- ca.gc.asc_csa.apogy.common.emf;bundle-version="0.5.0";visibility:=reexport
+ ca.gc.asc_csa.apogy.common.emf;bundle-version="0.5.0";visibility:=reexport,
+ ca.gc.asc_csa.apogy.addons.sensors.fov;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.images;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.math;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.geometry.data;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.geometry.data3d;visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.processors;visibility:=reexport,
+ ca.gc.asc_csa.apogy.addons.sensors.imaging;bundle-version="0.5.0";visibility:=reexport,
+ ca.gc.asc_csa.apogy.common.topology;visibility:=reexport,
+ ca.gc.asc_csa.apogy.addons.sensors;visibility:=reexport
 Bundle-ActivationPolicy: lazy

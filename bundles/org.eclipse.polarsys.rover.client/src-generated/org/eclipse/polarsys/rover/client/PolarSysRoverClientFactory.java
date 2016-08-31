@@ -42,6 +42,15 @@ public interface PolarSysRoverClientFactory extends EFactory {
 	Position createPosition();
 
 	/**
+	 * Returns a new object of class '<em>Camera</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Camera</em>'.
+	 * @generated
+	 */
+	Camera createCamera();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

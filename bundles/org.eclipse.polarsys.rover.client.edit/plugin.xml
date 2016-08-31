@@ -28,4 +28,11 @@
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated polarsys_rover_client -->
+      <extender
+            uri="ca.gc.asc_csa.apogy.common.topology"
+            class="org.eclipse.polarsys.rover.client.provider.PolarSysRoverClientItemProviderAdapterFactory$ApogyCommonTopologyChildCreationExtender"/>
+   </extension>
 </plugin>

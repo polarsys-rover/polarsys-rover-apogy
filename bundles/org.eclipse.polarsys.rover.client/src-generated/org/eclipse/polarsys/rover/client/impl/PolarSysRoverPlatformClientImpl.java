@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.polarsys.rover.client.Camera;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientFactory;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
@@ -46,6 +47,7 @@ import org.eclipse.polarsys.rover.client.Position;
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getRearRightWheelPosition <em>Rear Right Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getFrontSonar <em>Front Sonar</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getPosition <em>Position</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getFrontCamera <em>Front Camera</em>}</li>
  * </ul>
  *
  * @generated
@@ -242,6 +244,16 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * @ordered
 	 */
 	protected Position position;
+
+	/**
+	 * The cached value of the '{@link #getFrontCamera() <em>Front Camera</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFrontCamera()
+	 * @generated
+	 * @ordered
+	 */
+	protected Camera frontCamera;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -518,6 +530,49 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Camera getFrontCamera() {
+		return frontCamera;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFrontCamera(Camera newFrontCamera, NotificationChain msgs) {
+		Camera oldFrontCamera = frontCamera;
+		frontCamera = newFrontCamera;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA, oldFrontCamera, newFrontCamera);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrontCamera(Camera newFrontCamera) {
+		if (newFrontCamera != frontCamera) {
+			NotificationChain msgs = null;
+			if (frontCamera != null)
+				msgs = ((InternalEObject)frontCamera).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA, null, msgs);
+			if (newFrontCamera != null)
+				msgs = ((InternalEObject)newFrontCamera).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA, null, msgs);
+			msgs = basicSetFrontCamera(newFrontCamera, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA, newFrontCamera, newFrontCamera));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated_NOT
 	 */
 	public boolean init(){
@@ -581,6 +636,8 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 		switch (featureID) {
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
 				return basicSetPosition(null, msgs);
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA:
+				return basicSetFrontCamera(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -615,6 +672,8 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return getFrontSonar();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
 				return getPosition();
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA:
+				return getFrontCamera();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -659,6 +718,9 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
 				setPosition((Position)newValue);
+				return;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA:
+				setFrontCamera((Camera)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -705,6 +767,9 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
 				setPosition((Position)null);
 				return;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA:
+				setFrontCamera((Camera)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -739,6 +804,8 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return frontSonar != FRONT_SONAR_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
 				return position != null;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA:
+				return frontCamera != null;
 		}
 		return super.eIsSet(featureID);
 	}

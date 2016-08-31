@@ -142,6 +142,51 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPolarSysRoverPlatformClientMqtt_FrontCameraTopic() {
+		return (EAttribute)polarSysRoverPlatformClientMqttEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClientMqtt_SensorsTopic() {
+		return (EAttribute)polarSysRoverPlatformClientMqttEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClientMqtt_ControlsTopic() {
+		return (EAttribute)polarSysRoverPlatformClientMqttEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClientMqtt_FrontCameraHorizontalFOV() {
+		return (EAttribute)polarSysRoverPlatformClientMqttEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClientMqtt_FrontCameraVerticalFOV() {
+		return (EAttribute)polarSysRoverPlatformClientMqttEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PolarSysRoverClientMqttFactory getPolarSysRoverClientMqttFactory() {
 		return (PolarSysRoverClientMqttFactory)getEFactoryInstance();
 	}
@@ -169,6 +214,11 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__BROKER);
 		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__QOS);
 		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CLIENT_ID);
+		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_TOPIC);
+		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__SENSORS_TOPIC);
+		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__CONTROLS_TOPIC);
+		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_HORIZONTAL_FOV);
+		createEAttribute(polarSysRoverPlatformClientMqttEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_CAMERA_VERTICAL_FOV);
 	}
 
 	/**
@@ -210,6 +260,11 @@ public class PolarSysRoverClientMqttPackageImpl extends EPackageImpl implements 
 		initEAttribute(getPolarSysRoverPlatformClientMqtt_Broker(), theEcorePackage.getEString(), "broker", "tcp://192.168.0.151:1883", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClientMqtt_Qos(), theEcorePackage.getEByte(), "qos", "2", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClientMqtt_ClientId(), theEcorePackage.getEString(), "clientId", "Default", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClientMqtt_FrontCameraTopic(), theEcorePackage.getEString(), "frontCameraTopic", "/polarsys-rover/front-camera", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClientMqtt_SensorsTopic(), theEcorePackage.getEString(), "sensorsTopic", "/polarsys-rover/sensors", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClientMqtt_ControlsTopic(), theEcorePackage.getEString(), "controlsTopic", "/polarsys-rover/controls", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClientMqtt_FrontCameraHorizontalFOV(), theEcorePackage.getEDouble(), "frontCameraHorizontalFOV", "53.5", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClientMqtt_FrontCameraVerticalFOV(), theEcorePackage.getEDouble(), "frontCameraVerticalFOV", "41.4", 0, 1, PolarSysRoverPlatformClientMqtt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

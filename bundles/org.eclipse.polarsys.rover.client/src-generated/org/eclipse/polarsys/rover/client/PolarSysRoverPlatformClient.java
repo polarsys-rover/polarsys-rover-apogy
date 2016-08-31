@@ -39,6 +39,7 @@ import ca.gc.asc_csa.apogy.common.emf.Disposable;
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearRightWheelPosition <em>Rear Right Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar <em>Front Sonar</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition <em>Position</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontCamera <em>Front Camera</em>}</li>
  * </ul>
  *
  * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient()
@@ -353,6 +354,32 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * @generated
 	 */
 	void setPosition(Position value);
+
+	/**
+	 * Returns the value of the '<em><b>Front Camera</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Front Camera</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Front Camera</em>' containment reference.
+	 * @see #setFrontCamera(Camera)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_FrontCamera()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Camera getFrontCamera();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontCamera <em>Front Camera</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Front Camera</em>' containment reference.
+	 * @see #getFrontCamera()
+	 * @generated
+	 */
+	void setFrontCamera(Camera value);
 
 	/**
 	 * <!-- begin-user-doc -->
