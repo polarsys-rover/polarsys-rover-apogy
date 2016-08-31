@@ -86,6 +86,7 @@ public class PolarSysRoverPlatformClientItemProvider
 			addFrontRightWheelPositionPropertyDescriptor(object);
 			addRearLeftWheelPositionPropertyDescriptor(object);
 			addRearRightWheelPositionPropertyDescriptor(object);
+			addFrontSonarPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -298,6 +299,28 @@ public class PolarSysRoverPlatformClientItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Front Sonar feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFrontSonarPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PolarSysRoverPlatformClient_frontSonar_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_frontSonar_feature", "_UI_PolarSysRoverPlatformClient_type"),
+				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -361,6 +384,7 @@ public class PolarSysRoverPlatformClientItemProvider
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION:
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:

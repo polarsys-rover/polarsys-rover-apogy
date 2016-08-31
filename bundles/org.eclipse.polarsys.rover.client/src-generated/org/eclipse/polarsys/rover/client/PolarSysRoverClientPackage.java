@@ -231,13 +231,22 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Front Sonar</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 9;
+
+	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 9;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Platform Client</em>' class.
@@ -246,7 +255,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 10;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -474,6 +483,17 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	EAttribute getPolarSysRoverPlatformClient_RearRightWheelPosition();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar <em>Front Sonar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Front Sonar</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_FrontSonar();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition <em>Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -682,6 +702,14 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_RearRightWheelPosition();
+
+		/**
+		 * The meta object literal for the '<em><b>Front Sonar</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR = eINSTANCE.getPolarSysRoverPlatformClient_FrontSonar();
 
 		/**
 		 * The meta object literal for the '<em><b>Position</b></em>' containment reference feature.

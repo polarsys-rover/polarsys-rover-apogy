@@ -37,6 +37,7 @@ import ca.gc.asc_csa.apogy.common.emf.Disposable;
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontRightWheelPosition <em>Front Right Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearLeftWheelPosition <em>Rear Left Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearRightWheelPosition <em>Rear Right Wheel Position</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar <em>Front Sonar</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition <em>Position</em>}</li>
  * </ul>
  *
@@ -299,6 +300,33 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * @generated
 	 */
 	void setRearRightWheelPosition(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Front Sonar</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Front Sonar</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Front Sonar</em>' attribute.
+	 * @see #setFrontSonar(double)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_FrontSonar()
+	 * @model default="0.0" unique="false"
+	 * @generated
+	 */
+	double getFrontSonar();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar <em>Front Sonar</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Front Sonar</em>' attribute.
+	 * @see #getFrontSonar()
+	 * @generated
+	 */
+	void setFrontSonar(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Position</b></em>' containment reference.

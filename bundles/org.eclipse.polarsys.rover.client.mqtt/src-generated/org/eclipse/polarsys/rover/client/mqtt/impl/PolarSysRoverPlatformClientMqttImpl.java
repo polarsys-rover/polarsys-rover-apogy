@@ -13,9 +13,13 @@
  */
 package org.eclipse.polarsys.rover.client.mqtt.impl;
 
+import java.sql.Timestamp;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -288,7 +292,30 @@ public class PolarSysRoverPlatformClientMqttImpl extends PolarSysRoverPlatformCl
 		
 		MemoryPersistence persistence = new MemoryPersistence();		
 		try {
-			sampleClient = new MqttClient(broker, clientId, persistence);
+			sampleClient = new MqttClient(broker, clientId, persistence);			
+			sampleClient.setCallback(new MqttCallback() {
+				
+				@Override
+				public void messageArrived(String topic, MqttMessage message) throws Exception {
+			        String time = new Timestamp(System.currentTimeMillis()).toString();
+			        System.out.println("\nReceived a Message!" +
+			            "\n\tTime:    " + time +
+			            "\n\tTopic:   " + topic +
+			            "\n\tMessage: " + new String(message.getPayload()) +
+			            "\n\tQoS:     " + message.getQos() + "\n");				
+				}
+				
+				@Override
+				public void deliveryComplete(IMqttDeliveryToken arg0) {
+				}
+				
+				@Override
+				public void connectionLost(Throwable arg0) {
+				}
+			});
+			
+			sampleClient.subscribe("/polarsys-rover/sensors", 0);
+			
 	        MqttConnectOptions connOpts = new MqttConnectOptions();
 	        connOpts.setCleanSession(true);
 	        System.out.println("Connecting to broker: "+broker);
