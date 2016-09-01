@@ -14,8 +14,6 @@
 package org.eclipse.polarsys.rover.client.apogy.impl;
 
 import ca.gc.asc_csa.apogy.core.impl.ApogyInitializationDataImpl;
-
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.polarsys.rover.client.apogy.PolarSysRoverClientApogyPackage;
@@ -46,17 +44,6 @@ public class PolarSysRoverPlatformDataImpl extends ApogyInitializationDataImpl i
 	@Override
 	protected EClass eStaticClass() {
 		return PolarSysRoverClientApogyPackage.Literals.POLAR_SYS_ROVER_PLATFORM_DATA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific type known in this context.
-	 * @generated
-	 */
-	@Override
-	public NotificationChain basicSetInitialPoseTransform(Void newInitialPoseTransform, NotificationChain msgs) {
-		return super.basicSetInitialPoseTransform(newInitialPoseTransform, msgs);
 	}
 
 } //PolarSysRoverDataImpl
