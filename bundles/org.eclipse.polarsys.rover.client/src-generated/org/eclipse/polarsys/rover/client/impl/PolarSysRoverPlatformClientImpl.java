@@ -611,13 +611,9 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated_NOT
 	 */
-	public void cmdPowerLevel(double leftPowerLevel, double rightPowerLevel) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public void cmdPowerLevel(double leftPowerLevel, double rightPowerLevel);
 
 	/**
 	 * <!-- begin-user-doc -->

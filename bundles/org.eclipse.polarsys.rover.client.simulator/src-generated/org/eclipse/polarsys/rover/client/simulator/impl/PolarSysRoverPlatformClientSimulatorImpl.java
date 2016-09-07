@@ -653,4 +653,9 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 		}
 	}
 	
+	@Override
+	public void cmdPowerLevel(double leftPowerLevel, double rightPowerLevel) {
+		// FIXME Auto-generated method stub		
+	}
+	
 } // PolarSysRoverClientSimulatorImpl
