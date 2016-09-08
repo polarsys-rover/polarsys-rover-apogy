@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="org.eclipse.polarsys.rover.client"
+            id="org.eclipse.polarsys.rover.client.apogy.ui">
+      </category>
+      <view
+            name="PolarSys Rover Client Dashboard"
+            icon="icons/sample.gif"
+            category="org.eclipse.polarsys.rover.client.apogy.ui"
+            class="org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverClientDashboard"
+            id="org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverClientDashboard">
+      </view>
+   </extension>
+
+</plugin>
