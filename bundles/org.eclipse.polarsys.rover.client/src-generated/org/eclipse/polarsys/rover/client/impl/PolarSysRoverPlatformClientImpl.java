@@ -41,6 +41,8 @@ import org.eclipse.polarsys.rover.client.Position;
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getPositionError <em>Position Error</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getLinearVelocity <em>Linear Velocity</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getAngularVelocity <em>Angular Velocity</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getLeftPowerLevel <em>Left Power Level</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getRightPowerLevel <em>Right Power Level</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getLeftWheelPosition <em>Left Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getRightWheelPosition <em>Right Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getFrontSonar <em>Front Sonar</em>}</li>
@@ -142,6 +144,42 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 */
 	protected double angularVelocity = ANGULAR_VELOCITY_EDEFAULT;
 
+	/**
+	 * The default value of the '{@link #getLeftPowerLevel() <em>Left Power Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeftPowerLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double LEFT_POWER_LEVEL_EDEFAULT = 0.0;
+	/**
+	 * The cached value of the '{@link #getLeftPowerLevel() <em>Left Power Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeftPowerLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected double leftPowerLevel = LEFT_POWER_LEVEL_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getRightPowerLevel() <em>Right Power Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRightPowerLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double RIGHT_POWER_LEVEL_EDEFAULT = 0.0;
+	/**
+	 * The cached value of the '{@link #getRightPowerLevel() <em>Right Power Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRightPowerLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected double rightPowerLevel = RIGHT_POWER_LEVEL_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getLeftWheelPosition() <em>Left Wheel Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -338,6 +376,48 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 		angularVelocity = newAngularVelocity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY, oldAngularVelocity, angularVelocity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getLeftPowerLevel() {
+		return leftPowerLevel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeftPowerLevel(double newLeftPowerLevel) {
+		double oldLeftPowerLevel = leftPowerLevel;
+		leftPowerLevel = newLeftPowerLevel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL, oldLeftPowerLevel, leftPowerLevel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getRightPowerLevel() {
+		return rightPowerLevel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRightPowerLevel(double newRightPowerLevel) {
+		double oldRightPowerLevel = rightPowerLevel;
+		rightPowerLevel = newRightPowerLevel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL, oldRightPowerLevel, rightPowerLevel));
 	}
 
 	/**
@@ -582,6 +662,10 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return getLinearVelocity();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
 				return getAngularVelocity();
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
+				return getLeftPowerLevel();
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL:
+				return getRightPowerLevel();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
 				return getLeftWheelPosition();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION:
@@ -618,6 +702,12 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
 				setAngularVelocity((Double)newValue);
+				return;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
+				setLeftPowerLevel((Double)newValue);
+				return;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL:
+				setRightPowerLevel((Double)newValue);
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
 				setLeftWheelPosition((Double)newValue);
@@ -661,6 +751,12 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
 				setAngularVelocity(ANGULAR_VELOCITY_EDEFAULT);
 				return;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
+				setLeftPowerLevel(LEFT_POWER_LEVEL_EDEFAULT);
+				return;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL:
+				setRightPowerLevel(RIGHT_POWER_LEVEL_EDEFAULT);
+				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
 				setLeftWheelPosition(LEFT_WHEEL_POSITION_EDEFAULT);
 				return;
@@ -698,6 +794,10 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return linearVelocity != LINEAR_VELOCITY_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
 				return angularVelocity != ANGULAR_VELOCITY_EDEFAULT;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
+				return leftPowerLevel != LEFT_POWER_LEVEL_EDEFAULT;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL:
+				return rightPowerLevel != RIGHT_POWER_LEVEL_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
 				return leftWheelPosition != LEFT_WHEEL_POSITION_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION:
@@ -764,6 +864,10 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 		result.append(linearVelocity);
 		result.append(", angularVelocity: ");
 		result.append(angularVelocity);
+		result.append(", leftPowerLevel: ");
+		result.append(leftPowerLevel);
+		result.append(", rightPowerLevel: ");
+		result.append(rightPowerLevel);
 		result.append(", leftWheelPosition: ");
 		result.append(leftWheelPosition);
 		result.append(", rightWheelPosition: ");

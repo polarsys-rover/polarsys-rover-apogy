@@ -17,7 +17,6 @@ import ca.gc.asc_csa.apogy.addons.sensors.fov.provider.ApogyAddonsSensorsFOVEdit
 import ca.gc.asc_csa.apogy.addons.sensors.imaging.provider.ApogyAddonsSensorsImagingEditPlugin;
 import ca.gc.asc_csa.apogy.addons.sensors.provider.ApogyAddonsSensorsEditPlugin;
 import ca.gc.asc_csa.apogy.common.emf.provider.ApogyCommonEMFEditPlugin;
-
 import ca.gc.asc_csa.apogy.common.geometry.data.provider.ApogyCommonGeometryDataEditPlugin;
 import ca.gc.asc_csa.apogy.common.geometry.data3d.provider.ApogyCommonGeometryData3DEditPlugin;
 import ca.gc.asc_csa.apogy.common.images.provider.ApogyCommonImagesEditPlugin;

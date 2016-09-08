@@ -36,10 +36,51 @@ package org.eclipse.polarsys.rover.client.simulator
 
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient
 
+@GenModel(dynamic="false")
 class PolarSysRoverPlatformClientSimulator extends PolarSysRoverPlatformClient{
 	
+
 	/*
 	 * This is the radius (in m) of the mobile platform's wheels.
 	 */
 	transient readonly double wheelRadius = "0.25"
+	/**
+	 * This is the degree symbol, as expressed in unicode
+	 */
+	transient readonly String degreeSYM = "\u00b0"
+
+	/**
+	 * This is the length (in m) of the mobile platform's track
+	 */
+	transient readonly double wheelTrack = "0.64"
+
+	/**
+	 * This is the time (in milliseconds) between subsequent movement steps of
+	 * the mobile platform.
+	 */
+	transient readonly int moveWaitPeriod = "30"
+
+	/**
+	 * This is the minimum linear velocity (in metres / second) that a moveTo()
+	 * operates at.
+	 */
+	transient readonly double moveToMinLinSpeed = "1.5"
+
+	/**
+	 * This is the amount of error is taking place per metre of distance
+	 * traveled by the mobile platform.
+	 */
+	transient readonly double ErrorPerMeter = "0.05"
+	
+	transient readonly double maxPowerLevel = "1"
+	transient readonly double minPowerLevel = "-1"
+	transient readonly double maxCtrPowerLevel = "100"
+	transient readonly double minCtrPowerLevel = "-100"
+	transient readonly double maxAngVelocity = "2"
+	transient readonly double minAngVelocity = "-2"
+	transient readonly double maxLinVelocity = "2"
+	transient readonly double minLinVelocity = "-2"
+	transient readonly double distanceBetweenWheels = "2"
+	
+	
 }

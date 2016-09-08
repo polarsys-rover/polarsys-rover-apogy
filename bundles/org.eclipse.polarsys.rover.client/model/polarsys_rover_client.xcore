@@ -123,6 +123,29 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  propertyCategory="Velocities",
 			  apogy_units="rad/s")
 	double angularVelocity = "0.0"
+	
+	/* 
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front left wheels.
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="PowerLevels",
+			  apogy_units="%")
+	double leftPowerLevel = "0.0"
+	
+	/* 
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front left wheels.
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="PowerLevels",
+			  apogy_units="%")
+	double rightPowerLevel = "0.0"
+	
 	/* 
 	 * This is the current angular position (in radians) of
 	 * the mobile platform's front left wheels.
@@ -133,6 +156,7 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  propertyCategory="Position",
 			  apogy_units="rad")
 	double leftWheelPosition = "0.0"
+	
 	/*
 	 * This is the current angular position (in radians) of
 	 * the mobile platform's front right wheels.

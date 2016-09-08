@@ -33,6 +33,8 @@ import ca.gc.asc_csa.apogy.common.emf.Disposable;
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPositionError <em>Position Error</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLinearVelocity <em>Linear Velocity</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getAngularVelocity <em>Angular Velocity</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftPowerLevel <em>Left Power Level</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightPowerLevel <em>Right Power Level</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftWheelPosition <em>Left Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightWheelPosition <em>Right Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar <em>Front Sonar</em>}</li>
@@ -187,6 +189,62 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * @generated
 	 */
 	void setAngularVelocity(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Left Power Level</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front left wheels.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Left Power Level</em>' attribute.
+	 * @see #setLeftPowerLevel(double)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_LeftPowerLevel()
+	 * @model default="0.0" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='PowerLevels' apogy_units='%'"
+	 * @generated
+	 */
+	double getLeftPowerLevel();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftPowerLevel <em>Left Power Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Left Power Level</em>' attribute.
+	 * @see #getLeftPowerLevel()
+	 * @generated
+	 */
+	void setLeftPowerLevel(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Right Power Level</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front left wheels.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Right Power Level</em>' attribute.
+	 * @see #setRightPowerLevel(double)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_RightPowerLevel()
+	 * @model default="0.0" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='PowerLevels' apogy_units='%'"
+	 * @generated
+	 */
+	double getRightPowerLevel();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightPowerLevel <em>Right Power Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Right Power Level</em>' attribute.
+	 * @see #getRightPowerLevel()
+	 * @generated
+	 */
+	void setRightPowerLevel(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Left Wheel Position</b></em>' attribute.

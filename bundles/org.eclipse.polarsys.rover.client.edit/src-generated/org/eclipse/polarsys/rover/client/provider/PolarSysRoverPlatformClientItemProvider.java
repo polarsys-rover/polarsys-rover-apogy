@@ -82,6 +82,8 @@ public class PolarSysRoverPlatformClientItemProvider
 			addPositionErrorPropertyDescriptor(object);
 			addLinearVelocityPropertyDescriptor(object);
 			addAngularVelocityPropertyDescriptor(object);
+			addLeftPowerLevelPropertyDescriptor(object);
+			addRightPowerLevelPropertyDescriptor(object);
 			addLeftWheelPositionPropertyDescriptor(object);
 			addRightWheelPositionPropertyDescriptor(object);
 			addFrontSonarPropertyDescriptor(object);
@@ -205,6 +207,50 @@ public class PolarSysRoverPlatformClientItemProvider
 	}
 
 	
+	/**
+	 * This adds a property descriptor for the Left Power Level feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLeftPowerLevelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new AbstractUnitItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PolarSysRoverPlatformClient_leftPowerLevel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_leftPowerLevel_feature", "_UI_PolarSysRoverPlatformClient_type"),
+				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI_PowerLevelsPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Right Power Level feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRightPowerLevelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new AbstractUnitItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PolarSysRoverPlatformClient_rightPowerLevel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_rightPowerLevel_feature", "_UI_PolarSysRoverPlatformClient_type"),
+				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI_PowerLevelsPropertyCategory"),
+				 null));
+	}
+
 	/**
 	 * This adds a property descriptor for the Left Wheel Position feature.
 	 * <!-- begin-user-doc -->
@@ -332,6 +378,8 @@ public class PolarSysRoverPlatformClientItemProvider
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR:
