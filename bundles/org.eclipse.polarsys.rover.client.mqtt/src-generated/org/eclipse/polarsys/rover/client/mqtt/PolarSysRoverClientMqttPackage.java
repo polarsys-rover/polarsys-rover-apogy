@@ -137,40 +137,22 @@ public interface PolarSysRoverClientMqttPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__ANGULAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY;
 
 	/**
-	 * The feature id for the '<em><b>Front Left Wheel Position</b></em>' attribute.
+	 * The feature id for the '<em><b>Left Wheel Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION;
 
 	/**
-	 * The feature id for the '<em><b>Front Right Wheel Position</b></em>' attribute.
+	 * The feature id for the '<em><b>Right Wheel Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__FRONT_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION;
-
-	/**
-	 * The feature id for the '<em><b>Rear Left Wheel Position</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__REAR_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION;
-
-	/**
-	 * The feature id for the '<em><b>Rear Right Wheel Position</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__REAR_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_MQTT__RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Front Sonar</b></em>' attribute.

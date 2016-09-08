@@ -41,10 +41,8 @@ import org.eclipse.polarsys.rover.client.Position;
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getPositionError <em>Position Error</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getLinearVelocity <em>Linear Velocity</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getAngularVelocity <em>Angular Velocity</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getFrontLeftWheelPosition <em>Front Left Wheel Position</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getFrontRightWheelPosition <em>Front Right Wheel Position</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getRearLeftWheelPosition <em>Rear Left Wheel Position</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getRearRightWheelPosition <em>Rear Right Wheel Position</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getLeftWheelPosition <em>Left Wheel Position</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getRightWheelPosition <em>Right Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getFrontSonar <em>Front Sonar</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getFrontCamera <em>Front Camera</em>}</li>
@@ -145,78 +143,41 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	protected double angularVelocity = ANGULAR_VELOCITY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFrontLeftWheelPosition() <em>Front Left Wheel Position</em>}' attribute.
+	 * The default value of the '{@link #getLeftWheelPosition() <em>Left Wheel Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrontLeftWheelPosition()
+	 * @see #getLeftWheelPosition()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double FRONT_LEFT_WHEEL_POSITION_EDEFAULT = 0.0;
+	protected static final double LEFT_WHEEL_POSITION_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getFrontLeftWheelPosition() <em>Front Left Wheel Position</em>}' attribute.
+	 * The cached value of the '{@link #getLeftWheelPosition() <em>Left Wheel Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrontLeftWheelPosition()
+	 * @see #getLeftWheelPosition()
 	 * @generated
 	 * @ordered
 	 */
-	protected double frontLeftWheelPosition = FRONT_LEFT_WHEEL_POSITION_EDEFAULT;
+	protected double leftWheelPosition = LEFT_WHEEL_POSITION_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getFrontRightWheelPosition() <em>Front Right Wheel Position</em>}' attribute.
+	 * The default value of the '{@link #getRightWheelPosition() <em>Right Wheel Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrontRightWheelPosition()
+	 * @see #getRightWheelPosition()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double FRONT_RIGHT_WHEEL_POSITION_EDEFAULT = 0.0;
+	protected static final double RIGHT_WHEEL_POSITION_EDEFAULT = 0.0;
 	/**
-	 * The cached value of the '{@link #getFrontRightWheelPosition() <em>Front Right Wheel Position</em>}' attribute.
+	 * The cached value of the '{@link #getRightWheelPosition() <em>Right Wheel Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrontRightWheelPosition()
+	 * @see #getRightWheelPosition()
 	 * @generated
 	 * @ordered
 	 */
-	protected double frontRightWheelPosition = FRONT_RIGHT_WHEEL_POSITION_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getRearLeftWheelPosition() <em>Rear Left Wheel Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRearLeftWheelPosition()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double REAR_LEFT_WHEEL_POSITION_EDEFAULT = 0.0;
-	/**
-	 * The cached value of the '{@link #getRearLeftWheelPosition() <em>Rear Left Wheel Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRearLeftWheelPosition()
-	 * @generated
-	 * @ordered
-	 */
-	protected double rearLeftWheelPosition = REAR_LEFT_WHEEL_POSITION_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getRearRightWheelPosition() <em>Rear Right Wheel Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRearRightWheelPosition()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double REAR_RIGHT_WHEEL_POSITION_EDEFAULT = 0.0;
-	/**
-	 * The cached value of the '{@link #getRearRightWheelPosition() <em>Rear Right Wheel Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRearRightWheelPosition()
-	 * @generated
-	 * @ordered
-	 */
-	protected double rearRightWheelPosition = REAR_RIGHT_WHEEL_POSITION_EDEFAULT;
-
+	protected double rightWheelPosition = RIGHT_WHEEL_POSITION_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getFrontSonar() <em>Front Sonar</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -384,8 +345,8 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getFrontLeftWheelPosition() {
-		return frontLeftWheelPosition;
+	public double getLeftWheelPosition() {
+		return leftWheelPosition;
 	}
 
 	/**
@@ -393,11 +354,11 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFrontLeftWheelPosition(double newFrontLeftWheelPosition) {
-		double oldFrontLeftWheelPosition = frontLeftWheelPosition;
-		frontLeftWheelPosition = newFrontLeftWheelPosition;
+	public void setLeftWheelPosition(double newLeftWheelPosition) {
+		double oldLeftWheelPosition = leftWheelPosition;
+		leftWheelPosition = newLeftWheelPosition;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION, oldFrontLeftWheelPosition, frontLeftWheelPosition));
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION, oldLeftWheelPosition, leftWheelPosition));
 	}
 
 	/**
@@ -405,8 +366,8 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getFrontRightWheelPosition() {
-		return frontRightWheelPosition;
+	public double getRightWheelPosition() {
+		return rightWheelPosition;
 	}
 
 	/**
@@ -414,53 +375,11 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFrontRightWheelPosition(double newFrontRightWheelPosition) {
-		double oldFrontRightWheelPosition = frontRightWheelPosition;
-		frontRightWheelPosition = newFrontRightWheelPosition;
+	public void setRightWheelPosition(double newRightWheelPosition) {
+		double oldRightWheelPosition = rightWheelPosition;
+		rightWheelPosition = newRightWheelPosition;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION, oldFrontRightWheelPosition, frontRightWheelPosition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getRearLeftWheelPosition() {
-		return rearLeftWheelPosition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRearLeftWheelPosition(double newRearLeftWheelPosition) {
-		double oldRearLeftWheelPosition = rearLeftWheelPosition;
-		rearLeftWheelPosition = newRearLeftWheelPosition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION, oldRearLeftWheelPosition, rearLeftWheelPosition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getRearRightWheelPosition() {
-		return rearRightWheelPosition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRearRightWheelPosition(double newRearRightWheelPosition) {
-		double oldRearRightWheelPosition = rearRightWheelPosition;
-		rearRightWheelPosition = newRearRightWheelPosition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION, oldRearRightWheelPosition, rearRightWheelPosition));
+			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION, oldRightWheelPosition, rightWheelPosition));
 	}
 
 	/**
@@ -489,10 +408,18 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Position getPosition() {
+	public Position getPositionGen() {
 		return position;
 	}
 
+	public Position getPosition() {		
+		Position position = getPositionGen();
+		if (position == null){
+			setPosition(PolarSysRoverClientFactory.eINSTANCE.createPosition());
+		}		
+		return getPositionGen();
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -576,7 +503,6 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * @generated_NOT
 	 */
 	public boolean init(){
-		setPosition(PolarSysRoverClientFactory.eINSTANCE.createPosition());
 		return true;
 	}
 
@@ -656,14 +582,10 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return getLinearVelocity();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
 				return getAngularVelocity();
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION:
-				return getFrontLeftWheelPosition();
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION:
-				return getFrontRightWheelPosition();
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION:
-				return getRearLeftWheelPosition();
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION:
-				return getRearRightWheelPosition();
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
+				return getLeftWheelPosition();
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION:
+				return getRightWheelPosition();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR:
 				return getFrontSonar();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
@@ -697,17 +619,11 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
 				setAngularVelocity((Double)newValue);
 				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION:
-				setFrontLeftWheelPosition((Double)newValue);
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
+				setLeftWheelPosition((Double)newValue);
 				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION:
-				setFrontRightWheelPosition((Double)newValue);
-				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION:
-				setRearLeftWheelPosition((Double)newValue);
-				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION:
-				setRearRightWheelPosition((Double)newValue);
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION:
+				setRightWheelPosition((Double)newValue);
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR:
 				setFrontSonar((Integer)newValue);
@@ -745,17 +661,11 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
 				setAngularVelocity(ANGULAR_VELOCITY_EDEFAULT);
 				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION:
-				setFrontLeftWheelPosition(FRONT_LEFT_WHEEL_POSITION_EDEFAULT);
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
+				setLeftWheelPosition(LEFT_WHEEL_POSITION_EDEFAULT);
 				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION:
-				setFrontRightWheelPosition(FRONT_RIGHT_WHEEL_POSITION_EDEFAULT);
-				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION:
-				setRearLeftWheelPosition(REAR_LEFT_WHEEL_POSITION_EDEFAULT);
-				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION:
-				setRearRightWheelPosition(REAR_RIGHT_WHEEL_POSITION_EDEFAULT);
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION:
+				setRightWheelPosition(RIGHT_WHEEL_POSITION_EDEFAULT);
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR:
 				setFrontSonar(FRONT_SONAR_EDEFAULT);
@@ -788,14 +698,10 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return linearVelocity != LINEAR_VELOCITY_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
 				return angularVelocity != ANGULAR_VELOCITY_EDEFAULT;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION:
-				return frontLeftWheelPosition != FRONT_LEFT_WHEEL_POSITION_EDEFAULT;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION:
-				return frontRightWheelPosition != FRONT_RIGHT_WHEEL_POSITION_EDEFAULT;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION:
-				return rearLeftWheelPosition != REAR_LEFT_WHEEL_POSITION_EDEFAULT;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION:
-				return rearRightWheelPosition != REAR_RIGHT_WHEEL_POSITION_EDEFAULT;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
+				return leftWheelPosition != LEFT_WHEEL_POSITION_EDEFAULT;
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION:
+				return rightWheelPosition != RIGHT_WHEEL_POSITION_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR:
 				return frontSonar != FRONT_SONAR_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION:
@@ -858,14 +764,10 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 		result.append(linearVelocity);
 		result.append(", angularVelocity: ");
 		result.append(angularVelocity);
-		result.append(", frontLeftWheelPosition: ");
-		result.append(frontLeftWheelPosition);
-		result.append(", frontRightWheelPosition: ");
-		result.append(frontRightWheelPosition);
-		result.append(", rearLeftWheelPosition: ");
-		result.append(rearLeftWheelPosition);
-		result.append(", rearRightWheelPosition: ");
-		result.append(rearRightWheelPosition);
+		result.append(", leftWheelPosition: ");
+		result.append(leftWheelPosition);
+		result.append(", rightWheelPosition: ");
+		result.append(rightWheelPosition);
 		result.append(", frontSonar: ");
 		result.append(frontSonar);
 		result.append(')');

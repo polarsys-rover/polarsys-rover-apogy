@@ -82,10 +82,8 @@ public class PolarSysRoverPlatformClientItemProvider
 			addPositionErrorPropertyDescriptor(object);
 			addLinearVelocityPropertyDescriptor(object);
 			addAngularVelocityPropertyDescriptor(object);
-			addFrontLeftWheelPositionPropertyDescriptor(object);
-			addFrontRightWheelPositionPropertyDescriptor(object);
-			addRearLeftWheelPositionPropertyDescriptor(object);
-			addRearRightWheelPositionPropertyDescriptor(object);
+			addLeftWheelPositionPropertyDescriptor(object);
+			addRightWheelPositionPropertyDescriptor(object);
 			addFrontSonarPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -208,19 +206,19 @@ public class PolarSysRoverPlatformClientItemProvider
 
 	
 	/**
-	 * This adds a property descriptor for the Front Left Wheel Position feature.
+	 * This adds a property descriptor for the Left Wheel Position feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFrontLeftWheelPositionPropertyDescriptor(Object object) {
+	protected void addLeftWheelPositionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(new AbstractUnitItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PolarSysRoverPlatformClient_frontLeftWheelPosition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_frontLeftWheelPosition_feature", "_UI_PolarSysRoverPlatformClient_type"),
-				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION,
+				 getString("_UI_PolarSysRoverPlatformClient_leftWheelPosition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_leftWheelPosition_feature", "_UI_PolarSysRoverPlatformClient_type"),
+				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION,
 				 false,
 				 false,
 				 false,
@@ -229,67 +227,20 @@ public class PolarSysRoverPlatformClientItemProvider
 				 null));
 	}
 
-	
 	/**
-	 * This adds a property descriptor for the Front Right Wheel Position feature.
+	 * This adds a property descriptor for the Right Wheel Position feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFrontRightWheelPositionPropertyDescriptor(Object object) {
+	protected void addRightWheelPositionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(new AbstractUnitItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PolarSysRoverPlatformClient_frontRightWheelPosition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_frontRightWheelPosition_feature", "_UI_PolarSysRoverPlatformClient_type"),
-				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI_PositionPropertyCategory"),
-				 null));
-	}
-
-	
-	/**
-	 * This adds a property descriptor for the Rear Left Wheel Position feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRearLeftWheelPositionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(new AbstractUnitItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PolarSysRoverPlatformClient_rearLeftWheelPosition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_rearLeftWheelPosition_feature", "_UI_PolarSysRoverPlatformClient_type"),
-				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI_PositionPropertyCategory"),
-				 null));
-	}
-
-	
-	/**
-	 * This adds a property descriptor for the Rear Right Wheel Position feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRearRightWheelPositionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(new AbstractUnitItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PolarSysRoverPlatformClient_rearRightWheelPosition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_rearRightWheelPosition_feature", "_UI_PolarSysRoverPlatformClient_type"),
-				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION,
+				 getString("_UI_PolarSysRoverPlatformClient_rightWheelPosition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_rightWheelPosition_feature", "_UI_PolarSysRoverPlatformClient_type"),
+				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION,
 				 false,
 				 false,
 				 false,
@@ -381,10 +332,8 @@ public class PolarSysRoverPlatformClientItemProvider
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION:
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION:
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION:
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION:
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
+			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

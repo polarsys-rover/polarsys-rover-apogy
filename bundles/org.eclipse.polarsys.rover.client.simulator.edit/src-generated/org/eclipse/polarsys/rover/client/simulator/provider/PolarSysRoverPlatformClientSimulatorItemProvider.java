@@ -20,10 +20,14 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.polarsys.rover.client.provider.PolarSysRoverPlatformClientItemProvider;
 
+import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorPackage;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator;
 
 /**
@@ -54,8 +58,31 @@ public class PolarSysRoverPlatformClientSimulatorItemProvider extends PolarSysRo
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addWheelRadiusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Wheel Radius feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWheelRadiusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PolarSysRoverPlatformClientSimulator_wheelRadius_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClientSimulator_wheelRadius_feature", "_UI_PolarSysRoverPlatformClientSimulator_type"),
+				 PolarSysRoverClientSimulatorPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -92,6 +119,12 @@ public class PolarSysRoverPlatformClientSimulatorItemProvider extends PolarSysRo
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(PolarSysRoverPlatformClientSimulator.class)) {
+			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

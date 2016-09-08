@@ -13,6 +13,7 @@
  */
 package org.eclipse.polarsys.rover.client.simulator;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
@@ -136,40 +137,22 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__ANGULAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY;
 
 	/**
-	 * The feature id for the '<em><b>Front Left Wheel Position</b></em>' attribute.
+	 * The feature id for the '<em><b>Left Wheel Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__FRONT_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION;
 
 	/**
-	 * The feature id for the '<em><b>Front Right Wheel Position</b></em>' attribute.
+	 * The feature id for the '<em><b>Right Wheel Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__FRONT_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION;
-
-	/**
-	 * The feature id for the '<em><b>Rear Left Wheel Position</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__REAR_LEFT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION;
-
-	/**
-	 * The feature id for the '<em><b>Rear Right Wheel Position</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__REAR_RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__RIGHT_WHEEL_POSITION = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Front Sonar</b></em>' attribute.
@@ -199,13 +182,22 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__FRONT_CAMERA = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA;
 
 	/**
+	 * The feature id for the '<em><b>Wheel Radius</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Platform Client Simulator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 0;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -291,6 +283,17 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	EClass getPolarSysRoverPlatformClientSimulator();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getWheelRadius <em>Wheel Radius</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Wheel Radius</em>'.
+	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getWheelRadius()
+	 * @see #getPolarSysRoverPlatformClientSimulator()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClientSimulator_WheelRadius();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +325,13 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR = eINSTANCE.getPolarSysRoverPlatformClientSimulator();
+		/**
+		 * The meta object literal for the '<em><b>Wheel Radius</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS = eINSTANCE.getPolarSysRoverPlatformClientSimulator_WheelRadius();
 
 	}
 

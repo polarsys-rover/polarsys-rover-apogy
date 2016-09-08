@@ -38,5 +38,8 @@ import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient
 
 class PolarSysRoverPlatformClientSimulator extends PolarSysRoverPlatformClient{
 	
-		
+	/*
+	 * This is the radius (in m) of the mobile platform's wheels.
+	 */
+	transient readonly double wheelRadius = "0.25"
 }

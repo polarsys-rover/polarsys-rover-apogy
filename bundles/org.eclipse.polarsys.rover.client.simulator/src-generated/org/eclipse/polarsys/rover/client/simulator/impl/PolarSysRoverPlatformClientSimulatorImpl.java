@@ -34,6 +34,12 @@ import ca.gc.asc_csa.apogy.common.log.Logger;
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Polar Sys Rover Client Simulator</b></em>'. <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getWheelRadius <em>Wheel Radius</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -41,14 +47,29 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 		implements PolarSysRoverPlatformClientSimulator {
 
 	/**
+	 * The default value of the '{@link #getWheelRadius() <em>Wheel Radius</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWheelRadius()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double WHEEL_RADIUS_EDEFAULT = 0.25;
+
+	/**
+	 * The cached value of the '{@link #getWheelRadius() <em>Wheel Radius</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWheelRadius()
+	 * @generated
+	 * @ordered
+	 */
+	protected double wheelRadius = WHEEL_RADIUS_EDEFAULT;
+
+	/**
 	 * This is the degree symbol, as expressed in unicode
 	 */
 	private static final String DEGREE_SYM = "\u00b0";
-
-	/**
-	 * This is the radius (in m) of the mobile platform's wheels
-	 */
-	protected static final double WHEEL_RADIUS = 0.25;
 
 	/**
 	 * This is the length (in m) of the mobile platform's track
@@ -76,7 +97,7 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 	/**
 	 * This is the job used to handle moving the mobile platform
 	 */
-	private Job moveJob;
+	private CmdVelocitiesJob cmdVelocitiesJob;
 
 	/**
 	 * This is used to stop concurrent R/W access to the platform's relevant
@@ -102,7 +123,7 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 		this.lock = new ReentrantLock();
 
 		// Initialize the move job
-		this.moveJob = null;
+		this.cmdVelocitiesJob = null;
 
 		// Initialize whether or not the mobile platform is doing an explicit
 		// move
@@ -116,6 +137,59 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 	@Override
 	protected EClass eStaticClass() {
 		return PolarSysRoverClientSimulatorPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getWheelRadius() {
+		return wheelRadius;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS:
+				return getWheelRadius();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS:
+				return wheelRadius != WHEEL_RADIUS_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (wheelRadius: ");
+		result.append(wheelRadius);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override
@@ -156,8 +230,8 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 			// platform
 
 			// Create and schedule the mobile platform's move job
-			this.moveJob = new MoveJob(this, "Mobile Platform Move Job");
-			this.moveJob.schedule();
+			this.cmdVelocitiesJob = new CmdVelocitiesJob(this, "Mobile Platform Move Job");
+			this.cmdVelocitiesJob.schedule();
 
 			// Indicate the success of the initialization
 			this.setInitialized(true);
@@ -292,6 +366,9 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 			// Change both the linear and angular velocities to 0
 			this.setAngularVelocity(0.0);
 			this.setLinearVelocity(0.0);
+			
+			// FIXME: Check if this is required.
+			// cmdVelocitiesJob.cancel();
 			
 			// Release the internal lock
 			this.lock.unlock();
@@ -453,7 +530,7 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 	 * both not zero, it will move the platform, updating its
 	 * location and pose accordingly to reflect the movement. 
 	 */
-	class MoveJob extends Job
+	class CmdVelocitiesJob extends Job
 	{
 		/**
 		 * This is the change in time (in seconds)
@@ -473,7 +550,7 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 		 * @param platform The platform which is to be moved
 		 * @param name The name of the job (used by superclass)
 		 */
-		protected MoveJob(PolarSysRoverPlatformClientSimulatorImpl platform,
+		protected CmdVelocitiesJob(PolarSysRoverPlatformClientSimulatorImpl platform,
 												 String name)
 		{
 			// Call the superclass's constructor
@@ -519,10 +596,8 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 					double newY = this.platform.getPosition().getY();
 					double newTheta = this.platform.getPosition().getTheta();
 					
-					double newFrontLeftWheelPos = this.platform.getFrontLeftWheelPosition();
-					double newRearLeftWheelPos = this.platform.getRearLeftWheelPosition();
-					double newFrontRightWheelPos = this.platform.getFrontRightWheelPosition();
-					double newRearRightWheelPos = this.platform.getRearRightWheelPosition();
+					double newLeftWheelPos = this.platform.getLeftWheelPosition();
+					double newRightWheelPos = this.platform.getRightWheelPosition();
 					
 					double newPosError = this.platform.getPositionError();
 
@@ -552,18 +627,14 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 					double leftWheelVel = (2 * linVel) - rightWheelVel;
 
 					// Get the wheels' angular velocities
-					double rightWheelAngVel = (rightWheelVel / PolarSysRoverPlatformClientSimulatorImpl.WHEEL_RADIUS);
-					double leftWheelAngVel = (leftWheelVel / PolarSysRoverPlatformClientSimulatorImpl.WHEEL_RADIUS);
+					double rightWheelAngVel = (rightWheelVel / getWheelRadius());
+					double leftWheelAngVel = (leftWheelVel / getWheelRadius());
 
 					// Add a offset to the wheel positions,
 					// which is dependent on the wheels' angular
 					// velocities and DELTA_T 
-					newFrontLeftWheelPos = newFrontLeftWheelPos + (DELTA_T * leftWheelAngVel);
-					newRearLeftWheelPos = newFrontLeftWheelPos;
-					
-					newFrontRightWheelPos = newFrontRightWheelPos + (DELTA_T * rightWheelAngVel);
-					newRearRightWheelPos = newFrontRightWheelPos;
-					
+					newLeftWheelPos = newLeftWheelPos + (DELTA_T * leftWheelAngVel);					
+					newRightWheelPos = newRightWheelPos + (DELTA_T * rightWheelAngVel);				
 					
 					// Create a new position and populate it with new values
 					Position newPosition = PolarSysRoverClientFactory.eINSTANCE
@@ -577,12 +648,10 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 					this.platform.setPositionError(newPosError);
 					
 					// Left Wheels
-					this.platform.setFrontLeftWheelPosition(newFrontLeftWheelPos);
-					this.platform.setRearLeftWheelPosition(newRearLeftWheelPos);
+					this.platform.setLeftWheelPosition(newLeftWheelPos);
 					
 					// Right Wheels
-					this.platform.setFrontRightWheelPosition(newFrontRightWheelPos);
-					this.platform.setRearRightWheelPosition(newRearRightWheelPos);
+					this.platform.setRightWheelPosition(newRightWheelPos);
 				}
 				
 				// Release the internal lock
@@ -639,8 +708,8 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 			// Perform the necessary disposal actions
 			
 			// Cancel the movement job
-			if (moveJob != null){
-				this.moveJob.cancel();
+			if (cmdVelocitiesJob != null){
+				this.cmdVelocitiesJob.cancel();
 			}
 			
 			// Indicate that the mobile platform is now disposed

@@ -132,7 +132,7 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  property="Readonly",
 			  propertyCategory="Position",
 			  apogy_units="rad")
-	double frontLeftWheelPosition = "0.0"
+	double leftWheelPosition = "0.0"
 	/*
 	 * This is the current angular position (in radians) of
 	 * the mobile platform's front right wheels.
@@ -142,29 +142,11 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  property="Readonly",
 			  propertyCategory="Position",
 			  apogy_units="rad")
-	double frontRightWheelPosition = "0.0"
-	/* 
-	 * This is the current angular position (in radians) of
-	 * the mobile platform's rear left wheels.
-	 */
-	@GenModel(children="false",
-			  notify="true",
-			  property="Readonly",
-			  propertyCategory="Position",
-			  apogy_units="rad")
-	double rearLeftWheelPosition = "0.0"
+	double rightWheelPosition = "0.0"
 	
 	/*
-	 * This is the current angular position (in radians) of
-	 * the mobile platform's rear right wheels.
-	 */
-	@GenModel(children="false",
-			  notify="true",
-			  property="Readonly",
-			  propertyCategory="Position",
-			  apogy_units="rad")
-	double rearRightWheelPosition = "0.0"
-	
+	 * Front Sonar Level.
+	 */	
 	int frontSonar = "0"
 	
 	/* 
@@ -174,6 +156,9 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  propertyCategory="Position")
 	contains transient Position[1] position
 				
+	/* 
+	 * Front Camera.
+	 */
 	contains Camera[0..1] frontCamera		
 		
 	/*
@@ -231,6 +216,7 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 	 */
 	op void cmdVelocities(@GenModel(apogy_units="m/s") double linearVelocity,
 					      @GenModel(apogy_units="rad/s") double angularVelocity)
+				
 					      
     op void cmdPowerLevel(double leftPowerLevel, double rightPowerLevel) 
 }

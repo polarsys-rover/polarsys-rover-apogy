@@ -13,9 +13,11 @@
  */
 package org.eclipse.polarsys.rover.client.simulator.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator;
@@ -113,6 +115,15 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPolarSysRoverPlatformClientSimulator_WheelRadius() {
+		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PolarSysRoverClientSimulatorFactory getPolarSysRoverClientSimulatorFactory() {
 		return (PolarSysRoverClientSimulatorFactory)getEFactoryInstance();
 	}
@@ -137,6 +148,7 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 
 		// Create classes and their features
 		polarSysRoverPlatformClientSimulatorEClass = createEClass(POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR);
+		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS);
 	}
 
 	/**
@@ -164,6 +176,7 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 
 		// Obtain other dependent packages
 		PolarSysRoverClientPackage thePolarSysRoverClientPackage = (PolarSysRoverClientPackage)EPackage.Registry.INSTANCE.getEPackage(PolarSysRoverClientPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -174,6 +187,7 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(polarSysRoverPlatformClientSimulatorEClass, PolarSysRoverPlatformClientSimulator.class, "PolarSysRoverPlatformClientSimulator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPolarSysRoverPlatformClientSimulator_WheelRadius(), theEcorePackage.getEDouble(), "wheelRadius", "0.25", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -207,6 +221,12 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 			 "modelDirectory", "/org.eclipse.polarsys.rover.client.simulator/src-generated",
 			 "editDirectory", "/org.eclipse.polarsys.rover.client.simulator.edit/src-generated",
 			 "basePackage", "org.eclipse.polarsys.rover.client"
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClientSimulator_WheelRadius(), 
+		   source, 
+		   new String[] {
+			 "documentation", "This is the radius (in m) of the mobile platform\'s wheels."
 		   });
 	}
 

@@ -20,10 +20,31 @@ import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
  * A representation of the model object '<em><b>Polar Sys Rover Client Simulator</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getWheelRadius <em>Wheel Radius</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorPackage#getPolarSysRoverPlatformClientSimulator()
  * @model
  * @generated
  */
 public interface PolarSysRoverPlatformClientSimulator extends PolarSysRoverPlatformClient {
+
+	/**
+	 * Returns the value of the '<em><b>Wheel Radius</b></em>' attribute.
+	 * The default value is <code>"0.25"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the radius (in m) of the mobile platform's wheels.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Wheel Radius</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorPackage#getPolarSysRoverPlatformClientSimulator_WheelRadius()
+	 * @model default="0.25" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getWheelRadius();
 } // PolarSysRoverClientSimulator
