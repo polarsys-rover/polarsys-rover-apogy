@@ -784,11 +784,22 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 		
 				
 			// Set power levels using the resolved skid steering model equations
-			// PowerLeft = Linear velocity - (Angular velocity * Distance between the wheels) / 2
-			this.setLeftPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
-					- (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2));
-			this.setRightPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
-					+ (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2)); 			
+			// Power left = Linear velocity + (Angular velocity * Distance between the wheels) / 2
+			// Power right = LInear velocity - (Angular velocity * Distance between the wheels) / 2
+			if(linearVelocity >= 0){
+				this.setLeftPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
+						+ (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2));
+				this.setRightPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
+						- (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2));  
+			}
+			// Otherwise, if the linear velocity is negative, the angular velocity changes sign
+			else{
+				this.setLeftPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
+						- (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2));
+				this.setRightPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
+						+ (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2)); 
+			}
+				
 			
 			// Release the internal lock
 			this.lock.unlock();
