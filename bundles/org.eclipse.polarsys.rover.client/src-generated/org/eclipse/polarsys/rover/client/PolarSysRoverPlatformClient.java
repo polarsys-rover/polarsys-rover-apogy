@@ -40,6 +40,16 @@ import ca.gc.asc_csa.apogy.common.emf.Disposable;
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar <em>Front Sonar</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition <em>Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontCamera <em>Front Camera</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getWheelRadius <em>Wheel Radius</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getWheelTrack <em>Wheel Track</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMoveWaitPeriod <em>Move Wait Period</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMoveToMinLinSpeed <em>Move To Min Lin Speed</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getErrorPerMeter <em>Error Per Meter</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxPowerLevel <em>Max Power Level</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxCtrPowerLevel <em>Max Ctr Power Level</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxAngVelocity <em>Max Ang Velocity</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxLinVelocity <em>Max Lin Velocity</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getDistanceBetweenWheels <em>Distance Between Wheels</em>}</li>
  * </ul>
  *
  * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient()
@@ -388,10 +398,176 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	void setFrontCamera(Camera value);
 
 	/**
+	 * Returns the value of the '<em><b>Wheel Radius</b></em>' attribute.
+	 * The default value is <code>"0.25"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This is the radius (in m) of the mobile platform's wheels.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Wheel Radius</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_WheelRadius()
+	 * @model default="0.25" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getWheelRadius();
+
+	/**
+	 * Returns the value of the '<em><b>Wheel Track</b></em>' attribute.
+	 * The default value is <code>"0.64"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the length (in m) of the mobile platform's track
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Wheel Track</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_WheelTrack()
+	 * @model default="0.64" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getWheelTrack();
+
+	/**
+	 * Returns the value of the '<em><b>Move Wait Period</b></em>' attribute.
+	 * The default value is <code>"30"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the time (in milliseconds) between subsequent movement steps of
+	 * the mobile platform.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Move Wait Period</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MoveWaitPeriod()
+	 * @model default="30" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	int getMoveWaitPeriod();
+
+	/**
+	 * Returns the value of the '<em><b>Move To Min Lin Speed</b></em>' attribute.
+	 * The default value is <code>"1.5"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the minimum linear velocity (in metres / second) that a moveTo()
+	 * operates at.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Move To Min Lin Speed</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MoveToMinLinSpeed()
+	 * @model default="1.5" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMoveToMinLinSpeed();
+
+	/**
+	 * Returns the value of the '<em><b>Error Per Meter</b></em>' attribute.
+	 * The default value is <code>"0.05"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the amount of error is taking place per metre of distance
+	 * traveled by the mobile platform.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Error Per Meter</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_ErrorPerMeter()
+	 * @model default="0.05" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getErrorPerMeter();
+
+	/**
+	 * Returns the value of the '<em><b>Max Power Level</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the maximum power level that can be sent to the rover
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Power Level</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MaxPowerLevel()
+	 * @model default="1" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMaxPowerLevel();
+
+	/**
+	 * Returns the value of the '<em><b>Max Ctr Power Level</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the maximum power level that the controller sends
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Ctr Power Level</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MaxCtrPowerLevel()
+	 * @model default="100" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMaxCtrPowerLevel();
+
+	/**
+	 * Returns the value of the '<em><b>Max Ang Velocity</b></em>' attribute.
+	 * The default value is <code>"2"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the maximum angular velocity that the controller sends
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Ang Velocity</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MaxAngVelocity()
+	 * @model default="2" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMaxAngVelocity();
+
+	/**
+	 * Returns the value of the '<em><b>Max Lin Velocity</b></em>' attribute.
+	 * The default value is <code>"2"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the maximum linear velocity that the controller sends
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Lin Velocity</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MaxLinVelocity()
+	 * @model default="2" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMaxLinVelocity();
+
+	/**
+	 * Returns the value of the '<em><b>Distance Between Wheels</b></em>' attribute.
+	 * The default value is <code>"2"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the distance between the wheels
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Distance Between Wheels</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_DistanceBetweenWheels()
+	 * @model default="2" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getDistanceBetweenWheels();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This operation is used to initialize the mobile platform
+	 * and as such, it will perform the required creation and
+	 * initialization steps.
+	 * 
+	 * @return Whether or not the mobile platform was successfully initialized
 	 * <!-- end-model-doc -->
 	 * @model unique="false"
 	 * @generated

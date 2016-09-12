@@ -858,10 +858,7 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 			// Change both the left and right power levels to 0
 			this.setLeftPowerLevel(0.0);
 			this.setRightPowerLevel(0.0);
-			
-			// FIXME: Check if this is required.
-			// cmdVelocitiesJob.cancel();
-			
+				
 			// Release the internal lock
 			this.lock.unlock();
 		}
