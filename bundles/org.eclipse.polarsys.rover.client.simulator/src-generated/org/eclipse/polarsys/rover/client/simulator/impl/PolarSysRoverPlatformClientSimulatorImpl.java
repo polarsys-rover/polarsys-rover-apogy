@@ -782,47 +782,13 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 			// Acquire the internal lock
 			this.lock.lock();
 		
-			// Temporary values that will be used to call cmdPowerLevel()
-			Double leftPowerLvlTemp = 0.0;
-			Double rightPowerLvlTemp = 0.0;
-		
-			// FIXME: Verify logic
-			// Distribute the linear velocity between the two sides
-			if(linearVelocity > 0){
-				leftPowerLvlTemp = MAX_POWER_LEVEL_EDEFAULT * linearVelocity/2 / MAX_ANG_VELOCITY_EDEFAULT;
-				rightPowerLvlTemp = MAX_POWER_LEVEL_EDEFAULT* linearVelocity/2 / MAX_ANG_VELOCITY_EDEFAULT;
-			}else{
-				leftPowerLvlTemp = MIN_POWER_LEVEL_EDEFAULT * linearVelocity/2 / MIN_ANG_VELOCITY_EDEFAULT;
-				rightPowerLvlTemp = MIN_POWER_LEVEL_EDEFAULT* linearVelocity/2 / MIN_ANG_VELOCITY_EDEFAULT;
-			}
-		
-			
-			// If there is no angular velocity, keep the same power level on both sides and double it
-			if(angularVelocity == 0){
-				leftPowerLvlTemp *= 2;
-				rightPowerLvlTemp *= 2;
-			// Otherwise, if the angular velocity is positive
-			}else if(angularVelocity > 0){
-				// If the linear velocity is 0, set only a power level on the left side
-				if(linearVelocity == 0){
-					leftPowerLvlTemp += MAX_POWER_LEVEL_EDEFAULT * angularVelocity/MAX_ANG_VELOCITY_EDEFAULT;
-				}else{
-					leftPowerLvlTemp += linearVelocity/2 * angularVelocity/MAX_ANG_VELOCITY_EDEFAULT;
-					rightPowerLvlTemp -= linearVelocity/2 * angularVelocity/MAX_ANG_VELOCITY_EDEFAULT;
-				}
-			// Otherwise(if the angular velocity is negative)
-			}else{
-				// If the linear velocity is 0, set only a power level on the right side
-				if(linearVelocity == 0){
-					rightPowerLvlTemp -= MIN_POWER_LEVEL_EDEFAULT * angularVelocity/MIN_ANG_VELOCITY_EDEFAULT;
-				}else{
-					leftPowerLvlTemp += linearVelocity/2 * angularVelocity/MIN_ANG_VELOCITY_EDEFAULT;
-					rightPowerLvlTemp -= linearVelocity/2 * angularVelocity/MIN_ANG_VELOCITY_EDEFAULT;
-				}
-			}
-			
-			// Call the power level method to set the power levels
-			cmdPowerLevel(leftPowerLvlTemp, rightPowerLvlTemp);			
+				
+			// Set power levels using the resolved skid steering model equations
+			// PowerLeft = Linear velocity - (Angular velocity * Distance between the wheels) / 2
+			this.setLeftPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
+					- (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2));
+			this.setRightPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
+					+ (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2)); 			
 			
 			// Release the internal lock
 			this.lock.unlock();
@@ -1111,69 +1077,14 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 					double linVel  = 0;
 					double angVel = 0;
 					
-		
-					// If there is a situation where the rover is only turning
-					if(leftPow == -rightPow || leftPow == 0 || rightPow == 0 ){
-						// Set the linear velocity to 0
-						linVel = 0;
-						// Set the angular velocity using the formula
-						// Angular velocity = Tangent velocity / radius
-						angVel = ((leftPow * MAX_LIN_VELOCITY_EDEFAULT 
-											- rightPow * MAX_LIN_VELOCITY_EDEFAULT)
-											/DISTANCE_BETWEEN_WHEELS_EDEFAULT);
-						
-					// Otherwise, if the power is the same on both sides, the rover is not turning
-					}else if(leftPow == rightPow){
-						if(leftPow >= 0){
-							linVel = MAX_LIN_VELOCITY_EDEFAULT * leftPow / MAX_POWER_LEVEL_EDEFAULT;
-						}else{
-							linVel = MIN_LIN_VELOCITY_EDEFAULT * leftPow / MIN_POWER_LEVEL_EDEFAULT;
-						}
-						angVel = 0;
-					
-					// Otherwise
-					// FIXME: Verify logic 
-					}else{
-						// If the power levels are opposed
-						if(leftPow/rightPow < 1){
-							// Set the angular velocity to the power used to create a moment
-							angVel = ((leftPow * MAX_LIN_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT
-									- rightPow * MAX_LIN_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT)
-									/ DISTANCE_BETWEEN_WHEELS_EDEFAULT);
-							// If the power on the left is bigger
-							if(Math.abs(leftPow) > Math.abs(rightPow)){
-								// Set the linear velocity the the power remaining
-								linVel = leftPow * MAX_LIN_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT - 
-										(leftPow * MAX_LIN_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT -
-										rightPow * MAX_LIN_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT);
-							// Otherwise (if the power on the right is bigger)
-							}else{
-								// Set the linear velocity the the power remaining
-								linVel = rightPow * MAX_LIN_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT - 
-										(rightPow * MAX_LIN_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT -
-										leftPow * MAX_LIN_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT);
-							}
-						// Otherwise (if the power levels are not opposed
-						}else{
-							// If there is more power on the left
-							if(Math.abs(leftPow) > Math.abs(rightPow)){
-								// Set the linear velocity to the right power times 2
-								linVel = rightPow * 2;
-								// Set the angular velocity to the power remaining
-								angVel = leftPow * MAX_ANG_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT -
-											rightPow * MAX_ANG_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT;
-								
-							// If there is more power on the right
-							}else{
-								// Set the linear velocity to the left power times 2
-								linVel = leftPow * 2;
-								// Set the angular velocity to the power remaining
-								angVel = rightPow * MAX_ANG_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT 
-											- leftPow * MAX_ANG_VELOCITY_EDEFAULT / MAX_POWER_LEVEL_EDEFAULT;
-							}
-						}
-					}
-										
+					// Set the linear velocities using the skid steering model equations
+					// Linear velocity = (Right power + Left power) / 2
+					// Angular velocity = (Right power - Left power) / Distance between the wheels
+					linVel = (MAX_LIN_VELOCITY_EDEFAULT * rightPow / MAX_POWER_LEVEL_EDEFAULT
+								+ MAX_LIN_VELOCITY_EDEFAULT * leftPow / MAX_POWER_LEVEL_EDEFAULT) / 2;
+					angVel = (MAX_ANG_VELOCITY_EDEFAULT * rightPow / MAX_POWER_LEVEL_EDEFAULT 
+								- MAX_ANG_VELOCITY_EDEFAULT * leftPow / MAX_POWER_LEVEL_EDEFAULT) / distanceBetweenWheels;
+													
 					// Get all the values which need to be updated
 					double newX = this.platform.getPosition().getX();
 					double newY = this.platform.getPosition().getY();

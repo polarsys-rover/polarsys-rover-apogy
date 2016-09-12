@@ -391,11 +391,7 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This operation is used to initialize the mobile platform
-	 * and as such, it will perform the required creation and
-	 * initialization steps.
-	 * 
-	 * @return Whether or not the mobile platform was successfully initialized
+	 * This is the radius (in m) of the mobile platform's wheels.
 	 * <!-- end-model-doc -->
 	 * @model unique="false"
 	 * @generated

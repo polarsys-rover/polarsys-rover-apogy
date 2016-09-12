@@ -546,7 +546,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		  (getPolarSysRoverPlatformClient__Init(), 
 		   source, 
 		   new String[] {
-			 "documentation", "This operation is used to initialize the mobile platform\nand as such, it will perform the required creation and\ninitialization steps.\n\n@return Whether or not the mobile platform was successfully initialized"
+			 "documentation", "This is the radius (in m) of the mobile platform\'s wheels."
 		   });	
 		addAnnotation
 		  (getPolarSysRoverPlatformClient__ResetPosition__Position(), 

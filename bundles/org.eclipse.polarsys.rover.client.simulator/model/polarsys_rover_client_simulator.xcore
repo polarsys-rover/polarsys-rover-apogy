@@ -78,19 +78,10 @@ class PolarSysRoverPlatformClientSimulator extends PolarSysRoverPlatformClient{
 	transient readonly double maxPowerLevel = "1"
 	
 	/**
-	 * This is the minimum power level that can be sent to the rover
-	 */
-	transient readonly double minPowerLevel = "-1"
-	
-	/**
 	 * This is the maximum power level that the controller sends
 	 */
 	transient readonly double maxCtrPowerLevel = "100"
 	
-	/**
-	 * This is the minimum power level that can be sent to the rover
-	 */
-	transient readonly double minCtrPowerLevel = "-100"
 	
 	/**
 	 * This is the maximum angular velocity that the controller sends
@@ -98,19 +89,9 @@ class PolarSysRoverPlatformClientSimulator extends PolarSysRoverPlatformClient{
 	transient readonly double maxAngVelocity = "2"
 	
 	/**
-	 * This is the minimum angular velocity that the controller sends
-	 */
-	transient readonly double minAngVelocity = "-2"
-	
-	/**
 	 * This is the maximum linear velocity that the controller sends
 	 */
 	transient readonly double maxLinVelocity = "2"
-	
-	/**
-	 * This is the minimum linear velocity that the controller sends
-	 */
-	transient readonly double minLinVelocity = "-2"
 	
 	/**
 	 * This is the distance between the wheels
