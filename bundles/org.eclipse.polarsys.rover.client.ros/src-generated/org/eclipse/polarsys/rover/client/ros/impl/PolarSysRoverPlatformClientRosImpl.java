@@ -81,4 +81,10 @@ public class PolarSysRoverPlatformClientRosImpl extends PolarSysRoverPlatformCli
 		
 	}
 
+	@Override
+	public void cmdPowerLevel(double leftPowerLevel, double rightPowerLevel) {
+		// TODO Auto-generated method stub
+		
+	}
+
 } //PolarSysRoverClientRosImpl

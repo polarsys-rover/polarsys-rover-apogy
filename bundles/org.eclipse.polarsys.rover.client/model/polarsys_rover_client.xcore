@@ -123,6 +123,29 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  propertyCategory="Velocities",
 			  apogy_units="rad/s")
 	double angularVelocity = "0.0"
+	
+	/* 
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front left wheels.
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="PowerLevels",
+			  apogy_units="%")
+	double leftPowerLevel = "0.0"
+	
+	/* 
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front left wheels.
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="PowerLevels",
+			  apogy_units="%")
+	double rightPowerLevel = "0.0"
+	
 	/* 
 	 * This is the current angular position (in radians) of
 	 * the mobile platform's front left wheels.
@@ -132,7 +155,8 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  property="Readonly",
 			  propertyCategory="Position",
 			  apogy_units="rad")
-	double frontLeftWheelPosition = "0.0"
+	double leftWheelPosition = "0.0"
+	
 	/*
 	 * This is the current angular position (in radians) of
 	 * the mobile platform's front right wheels.
@@ -142,29 +166,11 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  property="Readonly",
 			  propertyCategory="Position",
 			  apogy_units="rad")
-	double frontRightWheelPosition = "0.0"
-	/* 
-	 * This is the current angular position (in radians) of
-	 * the mobile platform's rear left wheels.
-	 */
-	@GenModel(children="false",
-			  notify="true",
-			  property="Readonly",
-			  propertyCategory="Position",
-			  apogy_units="rad")
-	double rearLeftWheelPosition = "0.0"
+	double rightWheelPosition = "0.0"
 	
 	/*
-	 * This is the current angular position (in radians) of
-	 * the mobile platform's rear right wheels.
-	 */
-	@GenModel(children="false",
-			  notify="true",
-			  property="Readonly",
-			  propertyCategory="Position",
-			  apogy_units="rad")
-	double rearRightWheelPosition = "0.0"
-	
+	 * Front Sonar Level.
+	 */	
 	int frontSonar = "0"
 	
 	/* 
@@ -174,7 +180,66 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  propertyCategory="Position")
 	contains transient Position[1] position
 				
+	/* 
+	 * Front Camera.
+	 */
 	contains Camera[0..1] frontCamera		
+		
+	
+	/*
+	 * This is the radius (in m) of the mobile platform's wheels.
+	 */
+	transient readonly double wheelRadius = "0.25"
+
+	/**
+	 * This is the length (in m) of the mobile platform's track
+	 */
+	transient readonly double wheelTrack = "0.64"
+
+	/**
+	 * This is the time (in milliseconds) between subsequent movement steps of
+	 * the mobile platform.
+	 */
+	transient readonly int moveWaitPeriod = "30"
+
+	/**
+	 * This is the minimum linear velocity (in metres / second) that a moveTo()
+	 * operates at.
+	 */
+	transient readonly double moveToMinLinSpeed = "1.5"
+
+	/**
+	 * This is the amount of error is taking place per metre of distance
+	 * traveled by the mobile platform.
+	 */
+	transient readonly double ErrorPerMeter = "0.05"
+	
+	/**
+	 * This is the maximum power level that can be sent to the rover
+	 */
+	transient readonly double maxPowerLevel = "1"
+	
+	/**
+	 * This is the maximum power level that the controller sends
+	 */
+	transient readonly double maxCtrPowerLevel = "100"
+	
+	/**
+	 * This is the maximum angular velocity that the controller sends
+	 */
+	transient readonly double maxAngVelocity = "2"
+	
+	/**
+	 * This is the maximum linear velocity that the controller sends
+	 */
+	transient readonly double maxLinVelocity = "2"
+	
+	/**
+	 * This is the distance between the wheels
+	 */
+	transient readonly double distanceBetweenWheels = "2"
+		
+		
 		
 	/*
 	 * This operation is used to initialize the mobile platform
@@ -231,6 +296,7 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 	 */
 	op void cmdVelocities(@GenModel(apogy_units="m/s") double linearVelocity,
 					      @GenModel(apogy_units="rad/s") double angularVelocity)
+				
 					      
     op void cmdPowerLevel(double leftPowerLevel, double rightPowerLevel) 
 }

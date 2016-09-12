@@ -33,13 +33,23 @@ import ca.gc.asc_csa.apogy.common.emf.Disposable;
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPositionError <em>Position Error</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLinearVelocity <em>Linear Velocity</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getAngularVelocity <em>Angular Velocity</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontLeftWheelPosition <em>Front Left Wheel Position</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontRightWheelPosition <em>Front Right Wheel Position</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearLeftWheelPosition <em>Rear Left Wheel Position</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearRightWheelPosition <em>Rear Right Wheel Position</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftPowerLevel <em>Left Power Level</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightPowerLevel <em>Right Power Level</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftWheelPosition <em>Left Wheel Position</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightWheelPosition <em>Right Wheel Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar <em>Front Sonar</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPosition <em>Position</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontCamera <em>Front Camera</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getWheelRadius <em>Wheel Radius</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getWheelTrack <em>Wheel Track</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMoveWaitPeriod <em>Move Wait Period</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMoveToMinLinSpeed <em>Move To Min Lin Speed</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getErrorPerMeter <em>Error Per Meter</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxPowerLevel <em>Max Power Level</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxCtrPowerLevel <em>Max Ctr Power Level</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxAngVelocity <em>Max Ang Velocity</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxLinVelocity <em>Max Lin Velocity</em>}</li>
+ *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getDistanceBetweenWheels <em>Distance Between Wheels</em>}</li>
  * </ul>
  *
  * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient()
@@ -191,7 +201,7 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	void setAngularVelocity(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Front Left Wheel Position</b></em>' attribute.
+	 * Returns the value of the '<em><b>Left Power Level</b></em>' attribute.
 	 * The default value is <code>"0.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -199,27 +209,83 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * This is the current angular position (in radians) of
 	 * the mobile platform's front left wheels.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Front Left Wheel Position</em>' attribute.
-	 * @see #setFrontLeftWheelPosition(double)
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_FrontLeftWheelPosition()
+	 * @return the value of the '<em>Left Power Level</em>' attribute.
+	 * @see #setLeftPowerLevel(double)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_LeftPowerLevel()
+	 * @model default="0.0" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='PowerLevels' apogy_units='%'"
+	 * @generated
+	 */
+	double getLeftPowerLevel();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftPowerLevel <em>Left Power Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Left Power Level</em>' attribute.
+	 * @see #getLeftPowerLevel()
+	 * @generated
+	 */
+	void setLeftPowerLevel(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Right Power Level</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front left wheels.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Right Power Level</em>' attribute.
+	 * @see #setRightPowerLevel(double)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_RightPowerLevel()
+	 * @model default="0.0" unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='PowerLevels' apogy_units='%'"
+	 * @generated
+	 */
+	double getRightPowerLevel();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightPowerLevel <em>Right Power Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Right Power Level</em>' attribute.
+	 * @see #getRightPowerLevel()
+	 * @generated
+	 */
+	void setRightPowerLevel(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Left Wheel Position</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the current angular position (in radians) of
+	 * the mobile platform's front left wheels.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Left Wheel Position</em>' attribute.
+	 * @see #setLeftWheelPosition(double)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_LeftWheelPosition()
 	 * @model default="0.0" unique="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='Position' apogy_units='rad'"
 	 * @generated
 	 */
-	double getFrontLeftWheelPosition();
+	double getLeftWheelPosition();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontLeftWheelPosition <em>Front Left Wheel Position</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftWheelPosition <em>Left Wheel Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Front Left Wheel Position</em>' attribute.
-	 * @see #getFrontLeftWheelPosition()
+	 * @param value the new value of the '<em>Left Wheel Position</em>' attribute.
+	 * @see #getLeftWheelPosition()
 	 * @generated
 	 */
-	void setFrontLeftWheelPosition(double value);
+	void setLeftWheelPosition(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Front Right Wheel Position</b></em>' attribute.
+	 * Returns the value of the '<em><b>Right Wheel Position</b></em>' attribute.
 	 * The default value is <code>"0.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,80 +293,24 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * This is the current angular position (in radians) of
 	 * the mobile platform's front right wheels.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Front Right Wheel Position</em>' attribute.
-	 * @see #setFrontRightWheelPosition(double)
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_FrontRightWheelPosition()
+	 * @return the value of the '<em>Right Wheel Position</em>' attribute.
+	 * @see #setRightWheelPosition(double)
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_RightWheelPosition()
 	 * @model default="0.0" unique="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='Position' apogy_units='rad'"
 	 * @generated
 	 */
-	double getFrontRightWheelPosition();
+	double getRightWheelPosition();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontRightWheelPosition <em>Front Right Wheel Position</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightWheelPosition <em>Right Wheel Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Front Right Wheel Position</em>' attribute.
-	 * @see #getFrontRightWheelPosition()
+	 * @param value the new value of the '<em>Right Wheel Position</em>' attribute.
+	 * @see #getRightWheelPosition()
 	 * @generated
 	 */
-	void setFrontRightWheelPosition(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Rear Left Wheel Position</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This is the current angular position (in radians) of
-	 * the mobile platform's rear left wheels.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Rear Left Wheel Position</em>' attribute.
-	 * @see #setRearLeftWheelPosition(double)
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_RearLeftWheelPosition()
-	 * @model default="0.0" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='Position' apogy_units='rad'"
-	 * @generated
-	 */
-	double getRearLeftWheelPosition();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearLeftWheelPosition <em>Rear Left Wheel Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rear Left Wheel Position</em>' attribute.
-	 * @see #getRearLeftWheelPosition()
-	 * @generated
-	 */
-	void setRearLeftWheelPosition(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Rear Right Wheel Position</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This is the current angular position (in radians) of
-	 * the mobile platform's rear right wheels.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Rear Right Wheel Position</em>' attribute.
-	 * @see #setRearRightWheelPosition(double)
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_RearRightWheelPosition()
-	 * @model default="0.0" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='Position' apogy_units='rad'"
-	 * @generated
-	 */
-	double getRearRightWheelPosition();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearRightWheelPosition <em>Rear Right Wheel Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rear Right Wheel Position</em>' attribute.
-	 * @see #getRearRightWheelPosition()
-	 * @generated
-	 */
-	void setRearRightWheelPosition(double value);
+	void setRightWheelPosition(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Front Sonar</b></em>' attribute.
@@ -311,6 +321,9 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Front Sonar Level.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Front Sonar</em>' attribute.
 	 * @see #setFrontSonar(int)
 	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_FrontSonar()
@@ -363,6 +376,9 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Front Camera.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Front Camera</em>' containment reference.
 	 * @see #setFrontCamera(Camera)
 	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_FrontCamera()
@@ -380,6 +396,168 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * @generated
 	 */
 	void setFrontCamera(Camera value);
+
+	/**
+	 * Returns the value of the '<em><b>Wheel Radius</b></em>' attribute.
+	 * The default value is <code>"0.25"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the radius (in m) of the mobile platform's wheels.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Wheel Radius</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_WheelRadius()
+	 * @model default="0.25" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getWheelRadius();
+
+	/**
+	 * Returns the value of the '<em><b>Wheel Track</b></em>' attribute.
+	 * The default value is <code>"0.64"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the length (in m) of the mobile platform's track
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Wheel Track</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_WheelTrack()
+	 * @model default="0.64" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getWheelTrack();
+
+	/**
+	 * Returns the value of the '<em><b>Move Wait Period</b></em>' attribute.
+	 * The default value is <code>"30"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the time (in milliseconds) between subsequent movement steps of
+	 * the mobile platform.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Move Wait Period</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MoveWaitPeriod()
+	 * @model default="30" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	int getMoveWaitPeriod();
+
+	/**
+	 * Returns the value of the '<em><b>Move To Min Lin Speed</b></em>' attribute.
+	 * The default value is <code>"1.5"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the minimum linear velocity (in metres / second) that a moveTo()
+	 * operates at.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Move To Min Lin Speed</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MoveToMinLinSpeed()
+	 * @model default="1.5" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMoveToMinLinSpeed();
+
+	/**
+	 * Returns the value of the '<em><b>Error Per Meter</b></em>' attribute.
+	 * The default value is <code>"0.05"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the amount of error is taking place per metre of distance
+	 * traveled by the mobile platform.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Error Per Meter</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_ErrorPerMeter()
+	 * @model default="0.05" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getErrorPerMeter();
+
+	/**
+	 * Returns the value of the '<em><b>Max Power Level</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the maximum power level that can be sent to the rover
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Power Level</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MaxPowerLevel()
+	 * @model default="1" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMaxPowerLevel();
+
+	/**
+	 * Returns the value of the '<em><b>Max Ctr Power Level</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the maximum power level that the controller sends
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Ctr Power Level</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MaxCtrPowerLevel()
+	 * @model default="100" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMaxCtrPowerLevel();
+
+	/**
+	 * Returns the value of the '<em><b>Max Ang Velocity</b></em>' attribute.
+	 * The default value is <code>"2"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the maximum angular velocity that the controller sends
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Ang Velocity</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MaxAngVelocity()
+	 * @model default="2" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMaxAngVelocity();
+
+	/**
+	 * Returns the value of the '<em><b>Max Lin Velocity</b></em>' attribute.
+	 * The default value is <code>"2"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the maximum linear velocity that the controller sends
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Max Lin Velocity</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_MaxLinVelocity()
+	 * @model default="2" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getMaxLinVelocity();
+
+	/**
+	 * Returns the value of the '<em><b>Distance Between Wheels</b></em>' attribute.
+	 * The default value is <code>"2"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * This is the distance between the wheels
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Distance Between Wheels</em>' attribute.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_DistanceBetweenWheels()
+	 * @model default="2" unique="false" transient="true" changeable="false"
+	 * @generated
+	 */
+	double getDistanceBetweenWheels();
 
 	/**
 	 * <!-- begin-user-doc -->

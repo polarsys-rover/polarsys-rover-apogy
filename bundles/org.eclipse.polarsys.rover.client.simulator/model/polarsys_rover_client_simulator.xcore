@@ -36,7 +36,12 @@ package org.eclipse.polarsys.rover.client.simulator
 
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient
 
+@GenModel(dynamic="false")
 class PolarSysRoverPlatformClientSimulator extends PolarSysRoverPlatformClient{
+
+	/**
+	 * This is the degree symbol, as expressed in unicode
+	 */
+	transient readonly String degreeSYM = "\u00b0"
 	
-		
 }

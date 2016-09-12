@@ -323,40 +323,40 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Front Left Wheel Position</b></em>' attribute.
+	 * The feature id for the '<em><b>Left Power Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 5;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Front Right Wheel Position</b></em>' attribute.
+	 * The feature id for the '<em><b>Right Power Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 6;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Rear Left Wheel Position</b></em>' attribute.
+	 * The feature id for the '<em><b>Left Wheel Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 7;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Rear Right Wheel Position</b></em>' attribute.
+	 * The feature id for the '<em><b>Right Wheel Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 8;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Front Sonar</b></em>' attribute.
@@ -386,13 +386,103 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Wheel Radius</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_RADIUS = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Wheel Track</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_TRACK = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Move Wait Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_WAIT_PERIOD = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Move To Min Lin Speed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_TO_MIN_LIN_SPEED = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Error Per Meter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__ERROR_PER_METER = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Max Power Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Max Ctr Power Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_CTR_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Max Ang Velocity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_ANG_VELOCITY = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Max Lin Velocity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_LIN_VELOCITY = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Distance Between Wheels</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__DISTANCE_BETWEEN_WHEELS = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 21;
+
+	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Platform Client</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 12;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -586,48 +676,48 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	EAttribute getPolarSysRoverPlatformClient_AngularVelocity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontLeftWheelPosition <em>Front Left Wheel Position</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftPowerLevel <em>Left Power Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Front Left Wheel Position</em>'.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontLeftWheelPosition()
+	 * @return the meta object for the attribute '<em>Left Power Level</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftPowerLevel()
 	 * @see #getPolarSysRoverPlatformClient()
 	 * @generated
 	 */
-	EAttribute getPolarSysRoverPlatformClient_FrontLeftWheelPosition();
+	EAttribute getPolarSysRoverPlatformClient_LeftPowerLevel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontRightWheelPosition <em>Front Right Wheel Position</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightPowerLevel <em>Right Power Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Front Right Wheel Position</em>'.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontRightWheelPosition()
+	 * @return the meta object for the attribute '<em>Right Power Level</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightPowerLevel()
 	 * @see #getPolarSysRoverPlatformClient()
 	 * @generated
 	 */
-	EAttribute getPolarSysRoverPlatformClient_FrontRightWheelPosition();
+	EAttribute getPolarSysRoverPlatformClient_RightPowerLevel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearLeftWheelPosition <em>Rear Left Wheel Position</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftWheelPosition <em>Left Wheel Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rear Left Wheel Position</em>'.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearLeftWheelPosition()
+	 * @return the meta object for the attribute '<em>Left Wheel Position</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftWheelPosition()
 	 * @see #getPolarSysRoverPlatformClient()
 	 * @generated
 	 */
-	EAttribute getPolarSysRoverPlatformClient_RearLeftWheelPosition();
+	EAttribute getPolarSysRoverPlatformClient_LeftWheelPosition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearRightWheelPosition <em>Rear Right Wheel Position</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightWheelPosition <em>Right Wheel Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rear Right Wheel Position</em>'.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRearRightWheelPosition()
+	 * @return the meta object for the attribute '<em>Right Wheel Position</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightWheelPosition()
 	 * @see #getPolarSysRoverPlatformClient()
 	 * @generated
 	 */
-	EAttribute getPolarSysRoverPlatformClient_RearRightWheelPosition();
+	EAttribute getPolarSysRoverPlatformClient_RightWheelPosition();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontSonar <em>Front Sonar</em>}'.
@@ -661,6 +751,116 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPolarSysRoverPlatformClient_FrontCamera();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getWheelRadius <em>Wheel Radius</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Wheel Radius</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getWheelRadius()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_WheelRadius();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getWheelTrack <em>Wheel Track</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Wheel Track</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getWheelTrack()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_WheelTrack();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMoveWaitPeriod <em>Move Wait Period</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Move Wait Period</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMoveWaitPeriod()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_MoveWaitPeriod();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMoveToMinLinSpeed <em>Move To Min Lin Speed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Move To Min Lin Speed</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMoveToMinLinSpeed()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_MoveToMinLinSpeed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getErrorPerMeter <em>Error Per Meter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Error Per Meter</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getErrorPerMeter()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_ErrorPerMeter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxPowerLevel <em>Max Power Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Power Level</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxPowerLevel()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_MaxPowerLevel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxCtrPowerLevel <em>Max Ctr Power Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Ctr Power Level</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxCtrPowerLevel()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_MaxCtrPowerLevel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxAngVelocity <em>Max Ang Velocity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Ang Velocity</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxAngVelocity()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_MaxAngVelocity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxLinVelocity <em>Max Lin Velocity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Lin Velocity</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getMaxLinVelocity()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_MaxLinVelocity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getDistanceBetweenWheels <em>Distance Between Wheels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Distance Between Wheels</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getDistanceBetweenWheels()
+	 * @see #getPolarSysRoverPlatformClient()
+	 * @generated
+	 */
+	EAttribute getPolarSysRoverPlatformClient_DistanceBetweenWheels();
 
 	/**
 	 * Returns the meta object for the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#init() <em>Init</em>}' operation.
@@ -840,36 +1040,36 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClient_AngularVelocity();
 
 		/**
-		 * The meta object literal for the '<em><b>Front Left Wheel Position</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Left Power Level</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_FrontLeftWheelPosition();
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL = eINSTANCE.getPolarSysRoverPlatformClient_LeftPowerLevel();
 
 		/**
-		 * The meta object literal for the '<em><b>Front Right Wheel Position</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Right Power Level</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_FrontRightWheelPosition();
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL = eINSTANCE.getPolarSysRoverPlatformClient_RightPowerLevel();
 
 		/**
-		 * The meta object literal for the '<em><b>Rear Left Wheel Position</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Left Wheel Position</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_RearLeftWheelPosition();
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_LeftWheelPosition();
 
 		/**
-		 * The meta object literal for the '<em><b>Rear Right Wheel Position</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Right Wheel Position</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_RearRightWheelPosition();
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION = eINSTANCE.getPolarSysRoverPlatformClient_RightWheelPosition();
 
 		/**
 		 * The meta object literal for the '<em><b>Front Sonar</b></em>' attribute feature.
@@ -894,6 +1094,86 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EReference POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA = eINSTANCE.getPolarSysRoverPlatformClient_FrontCamera();
+
+		/**
+		 * The meta object literal for the '<em><b>Wheel Radius</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_RADIUS = eINSTANCE.getPolarSysRoverPlatformClient_WheelRadius();
+
+		/**
+		 * The meta object literal for the '<em><b>Wheel Track</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_TRACK = eINSTANCE.getPolarSysRoverPlatformClient_WheelTrack();
+
+		/**
+		 * The meta object literal for the '<em><b>Move Wait Period</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_WAIT_PERIOD = eINSTANCE.getPolarSysRoverPlatformClient_MoveWaitPeriod();
+
+		/**
+		 * The meta object literal for the '<em><b>Move To Min Lin Speed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_TO_MIN_LIN_SPEED = eINSTANCE.getPolarSysRoverPlatformClient_MoveToMinLinSpeed();
+
+		/**
+		 * The meta object literal for the '<em><b>Error Per Meter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__ERROR_PER_METER = eINSTANCE.getPolarSysRoverPlatformClient_ErrorPerMeter();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Power Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_POWER_LEVEL = eINSTANCE.getPolarSysRoverPlatformClient_MaxPowerLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Ctr Power Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_CTR_POWER_LEVEL = eINSTANCE.getPolarSysRoverPlatformClient_MaxCtrPowerLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Ang Velocity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_ANG_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClient_MaxAngVelocity();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Lin Velocity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_LIN_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClient_MaxLinVelocity();
+
+		/**
+		 * The meta object literal for the '<em><b>Distance Between Wheels</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__DISTANCE_BETWEEN_WHEELS = eINSTANCE.getPolarSysRoverPlatformClient_DistanceBetweenWheels();
 
 		/**
 		 * The meta object literal for the '<em><b>Init</b></em>' operation.

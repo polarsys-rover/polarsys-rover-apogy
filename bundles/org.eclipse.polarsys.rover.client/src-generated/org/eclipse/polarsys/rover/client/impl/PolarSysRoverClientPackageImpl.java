@@ -227,7 +227,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPolarSysRoverPlatformClient_FrontLeftWheelPosition() {
+	public EAttribute getPolarSysRoverPlatformClient_LeftPowerLevel() {
 		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -236,7 +236,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPolarSysRoverPlatformClient_FrontRightWheelPosition() {
+	public EAttribute getPolarSysRoverPlatformClient_RightPowerLevel() {
 		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -245,7 +245,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPolarSysRoverPlatformClient_RearLeftWheelPosition() {
+	public EAttribute getPolarSysRoverPlatformClient_LeftWheelPosition() {
 		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -254,7 +254,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPolarSysRoverPlatformClient_RearRightWheelPosition() {
+	public EAttribute getPolarSysRoverPlatformClient_RightWheelPosition() {
 		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -283,6 +283,96 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 	 */
 	public EReference getPolarSysRoverPlatformClient_FrontCamera() {
 		return (EReference)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_WheelRadius() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_WheelTrack() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_MoveWaitPeriod() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_MoveToMinLinSpeed() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_ErrorPerMeter() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_MaxPowerLevel() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_MaxCtrPowerLevel() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_MaxAngVelocity() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_MaxLinVelocity() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPolarSysRoverPlatformClient_DistanceBetweenWheels() {
+		return (EAttribute)polarSysRoverPlatformClientEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -380,13 +470,23 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR);
 		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY);
 		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY);
-		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_LEFT_WHEEL_POSITION);
-		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_RIGHT_WHEEL_POSITION);
-		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_LEFT_WHEEL_POSITION);
-		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__REAR_RIGHT_WHEEL_POSITION);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION);
 		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR);
 		createEReference(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION);
 		createEReference(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_RADIUS);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_TRACK);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_WAIT_PERIOD);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_TO_MIN_LIN_SPEED);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__ERROR_PER_METER);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_POWER_LEVEL);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_CTR_POWER_LEVEL);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_ANG_VELOCITY);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_LIN_VELOCITY);
+		createEAttribute(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT__DISTANCE_BETWEEN_WHEELS);
 		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___INIT);
 		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___RESET_POSITION__POSITION);
 		createEOperation(polarSysRoverPlatformClientEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT___CLEAR_POSITION_ERROR);
@@ -445,13 +545,23 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		initEAttribute(getPolarSysRoverPlatformClient_PositionError(), theEcorePackage.getEDouble(), "positionError", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClient_LinearVelocity(), theEcorePackage.getEDouble(), "linearVelocity", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClient_AngularVelocity(), theEcorePackage.getEDouble(), "angularVelocity", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClient_FrontLeftWheelPosition(), theEcorePackage.getEDouble(), "frontLeftWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClient_FrontRightWheelPosition(), theEcorePackage.getEDouble(), "frontRightWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClient_RearLeftWheelPosition(), theEcorePackage.getEDouble(), "rearLeftWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClient_RearRightWheelPosition(), theEcorePackage.getEDouble(), "rearRightWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_LeftPowerLevel(), theEcorePackage.getEDouble(), "leftPowerLevel", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_RightPowerLevel(), theEcorePackage.getEDouble(), "rightPowerLevel", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_LeftWheelPosition(), theEcorePackage.getEDouble(), "leftWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_RightWheelPosition(), theEcorePackage.getEDouble(), "rightWheelPosition", "0.0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClient_FrontSonar(), theEcorePackage.getEInt(), "frontSonar", "0", 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPolarSysRoverPlatformClient_Position(), this.getPosition(), null, "position", null, 1, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPolarSysRoverPlatformClient_FrontCamera(), this.getCamera(), null, "frontCamera", null, 0, 1, PolarSysRoverPlatformClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_WheelRadius(), theEcorePackage.getEDouble(), "wheelRadius", "0.25", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_WheelTrack(), theEcorePackage.getEDouble(), "wheelTrack", "0.64", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_MoveWaitPeriod(), theEcorePackage.getEInt(), "moveWaitPeriod", "30", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_MoveToMinLinSpeed(), theEcorePackage.getEDouble(), "moveToMinLinSpeed", "1.5", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_ErrorPerMeter(), theEcorePackage.getEDouble(), "ErrorPerMeter", "0.05", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_MaxPowerLevel(), theEcorePackage.getEDouble(), "maxPowerLevel", "1", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_MaxCtrPowerLevel(), theEcorePackage.getEDouble(), "maxCtrPowerLevel", "100", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_MaxAngVelocity(), theEcorePackage.getEDouble(), "maxAngVelocity", "2", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_MaxLinVelocity(), theEcorePackage.getEDouble(), "maxLinVelocity", "2", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolarSysRoverPlatformClient_DistanceBetweenWheels(), theEcorePackage.getEDouble(), "distanceBetweenWheels", "2", 0, 1, PolarSysRoverPlatformClient.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPolarSysRoverPlatformClient__Init(), theEcorePackage.getEBoolean(), "init", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -636,7 +746,29 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 			 "apogy_units", "rad/s"
 		   });	
 		addAnnotation
-		  (getPolarSysRoverPlatformClient_FrontLeftWheelPosition(), 
+		  (getPolarSysRoverPlatformClient_LeftPowerLevel(), 
+		   source, 
+		   new String[] {
+			 "documentation", "This is the current angular position (in radians) of\nthe mobile platform\'s front left wheels.",
+			 "children", "false",
+			 "notify", "true",
+			 "property", "Readonly",
+			 "propertyCategory", "PowerLevels",
+			 "apogy_units", "%"
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_RightPowerLevel(), 
+		   source, 
+		   new String[] {
+			 "documentation", "This is the current angular position (in radians) of\nthe mobile platform\'s front left wheels.",
+			 "children", "false",
+			 "notify", "true",
+			 "property", "Readonly",
+			 "propertyCategory", "PowerLevels",
+			 "apogy_units", "%"
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_LeftWheelPosition(), 
 		   source, 
 		   new String[] {
 			 "documentation", "This is the current angular position (in radians) of\nthe mobile platform\'s front left wheels.",
@@ -647,7 +779,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 			 "apogy_units", "rad"
 		   });	
 		addAnnotation
-		  (getPolarSysRoverPlatformClient_FrontRightWheelPosition(), 
+		  (getPolarSysRoverPlatformClient_RightWheelPosition(), 
 		   source, 
 		   new String[] {
 			 "documentation", "This is the current angular position (in radians) of\nthe mobile platform\'s front right wheels.",
@@ -658,26 +790,10 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 			 "apogy_units", "rad"
 		   });	
 		addAnnotation
-		  (getPolarSysRoverPlatformClient_RearLeftWheelPosition(), 
+		  (getPolarSysRoverPlatformClient_FrontSonar(), 
 		   source, 
 		   new String[] {
-			 "documentation", "This is the current angular position (in radians) of\nthe mobile platform\'s rear left wheels.",
-			 "children", "false",
-			 "notify", "true",
-			 "property", "Readonly",
-			 "propertyCategory", "Position",
-			 "apogy_units", "rad"
-		   });	
-		addAnnotation
-		  (getPolarSysRoverPlatformClient_RearRightWheelPosition(), 
-		   source, 
-		   new String[] {
-			 "documentation", "This is the current angular position (in radians) of\nthe mobile platform\'s rear right wheels.",
-			 "children", "false",
-			 "notify", "true",
-			 "property", "Readonly",
-			 "propertyCategory", "Position",
-			 "apogy_units", "rad"
+			 "documentation", "Front Sonar Level."
 		   });	
 		addAnnotation
 		  (getPolarSysRoverPlatformClient_Position(), 
@@ -686,6 +802,72 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 			 "documentation", "This is the mobile platform\'s current position",
 			 "notify", "true",
 			 "propertyCategory", "Position"
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_FrontCamera(), 
+		   source, 
+		   new String[] {
+			 "documentation", "Front Camera."
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_WheelRadius(), 
+		   source, 
+		   new String[] {
+			 "documentation", "This is the radius (in m) of the mobile platform\'s wheels."
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_WheelTrack(), 
+		   source, 
+		   new String[] {
+			 "documentation", "*\nThis is the length (in m) of the mobile platform\'s track"
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_MoveWaitPeriod(), 
+		   source, 
+		   new String[] {
+			 "documentation", "*\nThis is the time (in milliseconds) between subsequent movement steps of\nthe mobile platform."
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_MoveToMinLinSpeed(), 
+		   source, 
+		   new String[] {
+			 "documentation", "*\nThis is the minimum linear velocity (in metres / second) that a moveTo()\noperates at."
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_ErrorPerMeter(), 
+		   source, 
+		   new String[] {
+			 "documentation", "*\nThis is the amount of error is taking place per metre of distance\ntraveled by the mobile platform."
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_MaxPowerLevel(), 
+		   source, 
+		   new String[] {
+			 "documentation", "*\nThis is the maximum power level that can be sent to the rover"
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_MaxCtrPowerLevel(), 
+		   source, 
+		   new String[] {
+			 "documentation", "*\nThis is the maximum power level that the controller sends"
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_MaxAngVelocity(), 
+		   source, 
+		   new String[] {
+			 "documentation", "*\nThis is the maximum angular velocity that the controller sends"
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_MaxLinVelocity(), 
+		   source, 
+		   new String[] {
+			 "documentation", "*\nThis is the maximum linear velocity that the controller sends"
+		   });	
+		addAnnotation
+		  (getPolarSysRoverPlatformClient_DistanceBetweenWheels(), 
+		   source, 
+		   new String[] {
+			 "documentation", "*\nThis is the distance between the wheels"
 		   });
 	}
 

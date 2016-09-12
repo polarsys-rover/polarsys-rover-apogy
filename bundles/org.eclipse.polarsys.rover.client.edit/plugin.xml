@@ -35,4 +35,5 @@
             uri="ca.gc.asc_csa.apogy.common.topology"
             class="org.eclipse.polarsys.rover.client.provider.PolarSysRoverClientItemProviderAdapterFactory$ApogyCommonTopologyChildCreationExtender"/>
    </extension>
+
 </plugin>
