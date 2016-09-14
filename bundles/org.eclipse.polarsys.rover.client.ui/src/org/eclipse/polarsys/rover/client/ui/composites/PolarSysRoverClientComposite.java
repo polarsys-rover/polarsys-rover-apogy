@@ -1,5 +1,5 @@
 package org.eclipse.polarsys.rover.client.ui.composites;
-/*
+/**
  * Copyright (c) 2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -10,18 +10,22 @@ package org.eclipse.polarsys.rover.client.ui.composites;
  *     Pierre Allard (Pierre.Allard@canada.ca), 
  *     Regent L'Archeveque (Regent.Larcheveque@canada.ca),
  *     Sebastien Gemme (Sebastien.Gemme@canada.ca),
+ *     Olivier L. Larouche (Olivier.llarouche@canada.ca,
  *     Canadian Space Agency (CSA) - Initial API and implementation
- */
+ **/
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.conversion.Converter;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.databinding.EMFObservables;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage.Literals;
@@ -30,26 +34,72 @@ import org.eclipse.polarsys.rover.client.Position;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
-import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.core.databinding.beans.PojoProperties;
-import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Scale;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.wb.swt.SWTResourceManager;
+
+
 
 public class PolarSysRoverClientComposite extends Composite
 {
 	private DataBindingContext m_bindingContext;
 	private static final String DEGREE_SYM = "\u00b0";
-
+	private static final String READY_STR = "Ready";
+	private static final String NOT_READY_STR = "Not ready";
+	private static final String DISPOSED_STR = "Disposed";
+	private static final int SPEED_LEVEL_MAX = 100;
+	
 	private PolarSysRoverPlatformClient roverPlatformClient;
-	private Label lblPosition;
-	private Label lblLeft;
-	private Label lblRight;
-	private Label lblSonarLevel;
+	private final FormToolkit formToolKit = new FormToolkit(Display.getDefault());
 	private WritableValue roverPlatformClientBinder;
+	
+	private int speedLevel = SPEED_LEVEL_MAX;
+	
+	private Section sctnPosition;
+	private Section sctnPowerLevels;
+	private Composite compositePosition;
+	private Composite compositePowerLevels;
+	private Section sctnSonar;
+	private Composite compositeSonar;
+	private Label lblLeftText;
+	private Label lblRightText;
+	private Label lblSonarLevelText;
+	private Label lblPowerMaxLeft;
+	private Label lblPowerMaxRight;
+	private Label lblX;
+	private Label lblY;
+	private Label lblTheta;
+	private Text txtX;
+	private Text txtY;
+	private Text txtTheta;
+	private Text txtPowerLeft;
+	private Text txtPowerRight;
+	private Section sctnControls;
+	private Composite compositeDirection;
+	private Composite compositeControls;
+	private Composite compositeStatus;
+	private Text txtStatus;
+	private Label lblSpeed;
+	private Composite composite;
+	private Composite compositeSpeed;
+	private Text txtSonar;
+	private Scale scaleSpeed;
+	private Label label;
+	private Label label_1;
 
 	/**
 	 * Create the composite.
@@ -60,7 +110,6 @@ public class PolarSysRoverClientComposite extends Composite
 	{		
 		super(parent, style);
 		System.out.println("PolarSysRoverClientComposite.PolarSysRoverClientComposite()");
-		setLayout(new GridLayout(2, false));
 		
 		this.addDisposeListener(new DisposeListener()
 
@@ -72,59 +121,366 @@ public class PolarSysRoverClientComposite extends Composite
 				m_bindingContext.dispose();
 			}
 		});
+		setLayout(new GridLayout(5, false));
 		
+		sctnControls = formToolKit.createSection(this, Section.TITLE_BAR);
+		GridData gd_sctnControls = new GridData(SWT.FILL, SWT.FILL, false, false, 3, 2);
+		gd_sctnControls.widthHint = 148;
+		sctnControls.setLayoutData(gd_sctnControls);
+		formToolKit.paintBordersFor(sctnControls);
+		sctnControls.setText("Controls");
 
-		
-		Group groupPosition = new Group(this, SWT.BORDER);
-		GridData gd_groupPosition = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 2);
-		gd_groupPosition.heightHint = 135;
-		groupPosition.setLayoutData(gd_groupPosition);
-		groupPosition.setLayout(new GridLayout(1, false));
-		
-		Label lblPositions = new Label(groupPosition, SWT.NONE);
-		lblPositions.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
-		lblPositions.setText("Positions");
-		
-		lblPosition = new Label(groupPosition, SWT.NONE);
-		GridData gd_lblPosition = new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1);
-		gd_lblPosition.heightHint = 63;
-		lblPosition.setLayoutData(gd_lblPosition);
-		lblPosition.setText("Position");
-		
-		
-		Group groupVelocity = new Group(this, SWT.BORDER);
-		groupVelocity.setLayout(new GridLayout(1, false));
-		GridData gd_groupVelocity = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
-		gd_groupVelocity.widthHint = 98;
-		groupVelocity.setLayoutData(gd_groupVelocity);
+		compositeControls = formToolKit.createComposite(sctnControls, SWT.NONE);
+		formToolKit.paintBordersFor(compositeControls);
+		sctnControls.setClient(compositeControls);
+		compositeControls.setLayout(new GridLayout(1, false));
 
-		Label lblPowerLevels = new Label(groupVelocity, SWT.NONE);
-		lblPowerLevels.setAlignment(SWT.CENTER);
-		lblPowerLevels.setText("Power levels");
+		composite = new Composite(compositeControls, SWT.NONE);
+		formToolKit.adapt(composite);
+		formToolKit.paintBordersFor(composite);
+		composite.setLayout(new GridLayout(3, false));
 
-		lblLeft = new Label(groupVelocity, SWT.NONE);
-		lblLeft.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
-		lblLeft.setText("Left");
+		compositeStatus = formToolKit.createComposite(composite, SWT.BORDER);
+		compositeStatus.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1));
+		formToolKit.paintBordersFor(compositeStatus);
+		GridLayout gl_compositeStatus = new GridLayout(2, false);
+		compositeStatus.setLayout(gl_compositeStatus);
+		new Label(compositeStatus, SWT.NONE);
+		new Label(compositeStatus, SWT.NONE);
 
-		lblRight = new Label(groupVelocity, SWT.NONE);
-		lblRight.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
-		lblRight.setText("Right");
+		Button btnStart = formToolKit.createButton(compositeStatus, "Start", SWT.NONE);
+		GridData gd_btnStart = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gd_btnStart.widthHint = 120;
+		btnStart.setLayoutData(gd_btnStart);
+		btnStart.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (roverPlatformClient != null) {
+					Job initJob = new InitJob();
+
+					initJob.schedule();
+				}
+			}
+		});
+
+		Button btnStop = formToolKit.createButton(compositeStatus, "Stop", SWT.NONE);
+		GridData gd_btnStop = new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1);
+		gd_btnStop.widthHint = 120;
+		btnStop.setLayoutData(gd_btnStop);
+		btnStop.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (roverPlatformClient != null) {
+					Job disposeJob = new DisposeJob();
+
+					disposeJob.schedule();
+				}
+			}
+		});
+
+		txtStatus = formToolKit.createText(compositeStatus, "New Text", SWT.CENTER);
+		txtStatus.setText("Status");
+		GridData gd_txtStatus = new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1);
+		gd_txtStatus.widthHint = 150;
+		txtStatus.setLayoutData(gd_txtStatus);
+		txtStatus.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				if (txtStatus.getText().equals(READY_STR)) {
+					txtStatus.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+				} else {
+					txtStatus.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
+				}
+			}
+		});
+
+		compositeDirection = new Composite(composite, SWT.BORDER);
+		compositeDirection.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1));
+		formToolKit.adapt(compositeDirection);
+		formToolKit.paintBordersFor(compositeDirection);
+		GridLayout gl_compositeDirection = new GridLayout(3, false);
+		gl_compositeDirection.marginWidth = 10;
+		compositeDirection.setLayout(gl_compositeDirection);
+		new Label(compositeDirection, SWT.NONE);
+
+		Button btnFront = new Button(compositeDirection, SWT.NONE);
+		GridData gd_btnFront = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_btnFront.widthHint = 75;
+		btnFront.setLayoutData(gd_btnFront);
+		formToolKit.adapt(btnFront, true, true);
+		btnFront.setText("Front");
+		btnFront.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseUp(MouseEvent e) {
+				if (roverPlatformClient != null) {
+					Job stopJob = new StopJob();
+
+					stopJob.schedule();
+				}
+			}
+
+			@Override
+			public void mouseDown(MouseEvent e) {
+				if (roverPlatformClient != null) {
+					Job frontJob = new FrontJob();
+
+					frontJob.schedule();
+				}
+			}
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+			}
+		});
+		new Label(compositeDirection, SWT.NONE);
+
+		Button btnLeft = new Button(compositeDirection, SWT.NONE);
+		GridData gd_btnLeft = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_btnLeft.widthHint = 75;
+		btnLeft.setLayoutData(gd_btnLeft);
+		formToolKit.adapt(btnLeft, true, true);
+		btnLeft.setText("Left");
+		btnLeft.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseUp(MouseEvent e) {
+				if (roverPlatformClient != null) {
+					Job stopJob = new StopJob();
+
+					stopJob.schedule();
+				}
+			}
+
+			@Override
+			public void mouseDown(MouseEvent e) {
+				if (roverPlatformClient != null) {
+					Job leftJob = new LeftJob();
+
+					leftJob.schedule();
+				}
+			}
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+			}
+		});
+		new Label(compositeDirection, SWT.NONE);
+
+		Button btnRight = new Button(compositeDirection, SWT.NONE);
+		GridData gd_btnRight = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		gd_btnRight.widthHint = 75;
+		btnRight.setLayoutData(gd_btnRight);
+		formToolKit.adapt(btnRight, true, true);
+		btnRight.setText("Right");
+		btnRight.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseUp(MouseEvent e) {
+				if (roverPlatformClient != null) {
+					Job stopJob = new StopJob();
+
+					stopJob.schedule();
+				}
+			}
+
+			@Override
+			public void mouseDown(MouseEvent e) {
+				if (roverPlatformClient != null) {
+					Job rightJob = new RightJob();
+
+					rightJob.schedule();
+				}
+			}
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+			}
+		});
+		new Label(compositeDirection, SWT.NONE);
+
+		Button btnBack = new Button(compositeDirection, SWT.NONE);
+		GridData gd_btnBack = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_btnBack.widthHint = 75;
+		btnBack.setLayoutData(gd_btnBack);
+		formToolKit.adapt(btnBack, true, true);
+		btnBack.setText("Back");
+		btnBack.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseUp(MouseEvent e) {
+				if (roverPlatformClient != null) {
+					Job stopJob = new StopJob();
+
+					stopJob.schedule();
+				}
+			}
+
+			@Override
+			public void mouseDown(MouseEvent e) {
+				if (roverPlatformClient != null) {
+					Job backJob = new BackJob();
+
+					backJob.schedule();
+				}
+			}
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+			}
+		});
+		new Label(compositeDirection, SWT.NONE);
+
+		compositeSpeed = new Composite(composite, SWT.NONE);
+		formToolKit.adapt(compositeSpeed);
+		formToolKit.paintBordersFor(compositeSpeed);
+		compositeSpeed.setLayout(new GridLayout(1, false));
+
+		lblSpeed = new Label(compositeSpeed, SWT.CENTER);
+		lblSpeed.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
+		formToolKit.adapt(lblSpeed, true, true);
+		lblSpeed.setText("Speed");
 		
-				Group group = new Group(this, SWT.BORDER);
-				GridData gd_group = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-				gd_group.widthHint = 103;
-				group.setLayoutData(gd_group);
+		scaleSpeed = new Scale(compositeSpeed, SWT.VERTICAL);
+		scaleSpeed.setMaximum(SPEED_LEVEL_MAX);
+		scaleSpeed.setMinimum(0);
+		GridData gd_scaleSpeed = new GridData(SWT.CENTER, SWT.FILL, false, false, 1, 1);
+		gd_scaleSpeed.heightHint = 80;
+		scaleSpeed.setLayoutData(gd_scaleSpeed);
+		formToolKit.adapt(scaleSpeed, true, true);
+		scaleSpeed.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				speedLevel = SPEED_LEVEL_MAX - scaleSpeed.getSelection();
+			}
+		});
+
+		sctnPosition = formToolKit.createSection(this, Section.TITLE_BAR);
+		GridData gd_sctnPosition = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 2);
+		gd_sctnPosition.heightHint = 109;
+		gd_sctnPosition.widthHint = 146;
+		sctnPosition.setLayoutData(gd_sctnPosition);
+		formToolKit.paintBordersFor(sctnPosition);
+		sctnPosition.setText("Position");
+
+		compositePosition = new Composite(sctnPosition, SWT.NONE);
+		formToolKit.adapt(compositePosition);
+		formToolKit.paintBordersFor(compositePosition);
+		sctnPosition.setClient(compositePosition);
+		compositePosition.setLayout(new GridLayout(2, false));
+
+		lblX = formToolKit.createLabel(compositePosition, "X:", SWT.NONE);
+		lblX.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+
+		txtX = formToolKit.createText(compositePosition, "New Text", SWT.CENTER);
+		txtX.setEditable(false);
+		GridData gd_txtX = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_txtX.widthHint = 66;
+		txtX.setLayoutData(gd_txtX);
+		txtX.setText(" 0.000 m");
+
+		lblY = formToolKit.createLabel(compositePosition, "Y:", SWT.NONE);
+		lblY.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+
+		txtY = formToolKit.createText(compositePosition, "New Text", SWT.CENTER);
+		txtY.setEditable(false);
+		txtY.setText(" 0.000 m");
+		GridData gd_txtY = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_txtY.widthHint = 75;
+		txtY.setLayoutData(gd_txtY);
+
+		lblTheta = formToolKit.createLabel(compositePosition, "Theta:", SWT.NONE);
+		lblTheta.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+
+		txtTheta = formToolKit.createText(compositePosition, "New Text", SWT.CENTER);
+		txtTheta.setEditable(false);
+		txtTheta.setText(" 0.000" + DEGREE_SYM);
+		GridData gd_txtTheta = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_txtTheta.widthHint = 66;
+		txtTheta.setLayoutData(gd_txtTheta);
+		new Label(compositePosition, SWT.NONE);
+		new Label(compositePosition, SWT.NONE);
+		sctnPowerLevels = formToolKit.createSection(this, Section.TITLE_BAR);
+		GridData gd_sctnPowerLevels = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		gd_sctnPowerLevels.widthHint = 115;
+		sctnPowerLevels.setLayoutData(gd_sctnPowerLevels);
+		formToolKit.paintBordersFor(sctnPowerLevels);
+		sctnPowerLevels.setText("Power levels");
+
+		compositePowerLevels = new Composite(sctnPowerLevels, SWT.NONE);
+		formToolKit.adapt(compositePowerLevels);
+		formToolKit.paintBordersFor(compositePowerLevels);
+		sctnPowerLevels.setClient(compositePowerLevels);
+		GridLayout gl_compositePowerLevels = new GridLayout(4, false);
+		compositePowerLevels.setLayout(gl_compositePowerLevels);
+
+		lblLeftText = new Label(compositePowerLevels, SWT.NONE);
+		lblLeftText.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblLeftText.setText("Left");
+
+		txtPowerLeft = formToolKit.createText(compositePowerLevels, "New Text", SWT.CENTER);
+		txtPowerLeft.setEditable(false);
+		txtPowerLeft.setText(" 0.000");
+		GridData gd_txtPowerLeft = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_txtPowerLeft.widthHint = 51;
+		txtPowerLeft.setLayoutData(gd_txtPowerLeft);
 				
-						Label lblSonar = new Label(group, SWT.NONE);
-						lblSonar.setBounds(10, 12, 55, 15);
-						lblSonar.setText("Sonar");
+				label = new Label(compositePowerLevels, SWT.CENTER);
+				label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+				formToolKit.adapt(label, true, true);
+				label.setText("/");
 						
-								lblSonarLevel = new Label(group, SWT.NONE);
-								lblSonarLevel.setBounds(10, 33, 55, 15);
-								lblSonarLevel.setText("SonarLevel");
+								lblPowerMaxLeft = new Label(compositePowerLevels, SWT.NONE);
+								GridData gd_lblPowerMaxLeft = new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1);
+								gd_lblPowerMaxLeft.widthHint = 45;
+								lblPowerMaxLeft.setLayoutData(gd_lblPowerMaxLeft);
+								formToolKit.adapt(lblPowerMaxLeft, true, true);
+								lblPowerMaxLeft.setText(" 0.000");
+
+		lblRightText = new Label(compositePowerLevels, SWT.NONE);
+		lblRightText.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblRightText.setText("Right");
+
+		txtPowerRight = formToolKit.createText(compositePowerLevels, "New Text", SWT.CENTER);
+		txtPowerRight.setEditable(false);
+		txtPowerRight.setText(" 0.000");
+		GridData gd_txtPowerRight = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_txtPowerRight.widthHint = 44;
+		txtPowerRight.setLayoutData(gd_txtPowerRight);
+				
+				label_1 = new Label(compositePowerLevels, SWT.CENTER);
+				formToolKit.adapt(label_1, true, true);
+				label_1.setText("/");
+						
+								lblPowerMaxRight = new Label(compositePowerLevels, SWT.NONE);
+								lblPowerMaxRight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+								formToolKit.adapt(lblPowerMaxRight, true, true);
+								lblPowerMaxRight.setText(" 0.000");
+
+		sctnSonar = formToolKit.createSection(this, Section.TITLE_BAR);
+		GridData gd_sctnSonar = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		gd_sctnSonar.widthHint = 114;
+		sctnSonar.setLayoutData(gd_sctnSonar);
+		formToolKit.paintBordersFor(sctnSonar);
+		sctnSonar.setText("Sonar");
+
+		compositeSonar = new Composite(sctnSonar, SWT.NONE);
+		formToolKit.adapt(compositeSonar);
+		formToolKit.paintBordersFor(compositeSonar);
+		sctnSonar.setClient(compositeSonar);
+		compositeSonar.setLayout(new GridLayout(2, false));
+
+		lblSonarLevelText = new Label(compositeSonar, SWT.NONE);
+		lblSonarLevelText.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblSonarLevelText.setText("Level");
+		
+		txtSonar = formToolKit.createText(compositeSonar, "New Text", SWT.CENTER);
+		txtSonar.setText("000");
+		txtSonar.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+				
 		m_bindingContext = initDataBindings_();
 	}
-		
+
 	public void setPolarSysRoverClient(PolarSysRoverPlatformClient roverPlatformClient)
 	{		
 		
@@ -137,6 +493,11 @@ public class PolarSysRoverClientComposite extends Composite
 		}
 	}	
 	
+	public PolarSysRoverPlatformClient getPolarSysRoverPlatformClient()
+	{
+		return roverPlatformClient;
+	}
+	
 	@Override
 	public void dispose() {
 		m_bindingContext.dispose();
@@ -144,91 +505,305 @@ public class PolarSysRoverClientComposite extends Composite
 	}
 	
 	protected DataBindingContext initDataBindings_() {
+		
 		m_bindingContext = new DataBindingContext();
 		roverPlatformClientBinder = new WritableValue();
-		//
-		IObservableValue observeTextLblPositionvalueObserveWidget = WidgetProperties.text().observe(lblPosition);
+		
+		
+		IObservableValue observeTxtXObserveWidget = WidgetProperties.text().observe(txtX);
+		IObservableValue observeTxtYObserveWidget = WidgetProperties.text().observe(txtY);
+		IObservableValue observeTxtThetaObserveWidget = WidgetProperties.text().observe(txtTheta);
 		IObservableValue PositionRoverPlatformClientgetPositionObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION).observeDetail(roverPlatformClientBinder);
-		m_bindingContext.bindValue(observeTextLblPositionvalueObserveWidget, PositionRoverPlatformClientgetPositionObserveValue, 
+		m_bindingContext.bindValue(observeTxtXObserveWidget, PositionRoverPlatformClientgetPositionObserveValue, 
 				null,
 				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Position.class, String.class) 
 				{
 					@Override
 					public Object convert(Object arg0) {
-						return String.format("X: %1$.3f "
-											+ "\nY: %2$.3f "
-											+ "\nTheta:\n %3.3f", 
-												((Position) arg0).getX(),
-												((Position)arg0).getTheta(),
-												((Position)arg0).getY());
+						return String.format(" %1$.3f m", ((Position)arg0).getX());
+					}
+				}));
+		m_bindingContext.bindValue(observeTxtYObserveWidget, PositionRoverPlatformClientgetPositionObserveValue, 
+				null,
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Position.class, String.class) 
+				{
+					@Override
+					public Object convert(Object arg0) {
+						return String.format(" %1$.3f m", ((Position)arg0).getY());
+					}
+				}));
+		m_bindingContext.bindValue(observeTxtThetaObserveWidget, PositionRoverPlatformClientgetPositionObserveValue, 
+				null,
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Position.class, String.class) 
+				{
+					@Override
+					public Object convert(Object arg0) {
+						if(((Position)arg0).getTheta() >= 0){
+							return String.format(" %1$.3f " + DEGREE_SYM, (Math.toDegrees(((Position)arg0).getTheta()))%360);
+						}else{
+							return String.format(" %1$.3f " + DEGREE_SYM, 360 + (Math.toDegrees(((Position)arg0).getTheta()))%360);
+						}
+						
 					}
 				}));
 		
-		IObservableValue observeTextLblLeftObserveWidget = WidgetProperties.text().observe(lblLeft);
+
+		IObservableValue observeTxtPowerLeftObserveWidget = WidgetProperties.text().observe(txtPowerLeft);
 		IObservableValue xRoverPlatformClientgetLeftPowerObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL).observeDetail(roverPlatformClientBinder);
-		m_bindingContext.bindValue(observeTextLblLeftObserveWidget, xRoverPlatformClientgetLeftPowerObserveValue, 
-				null,
-				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Double.class, String.class) 
-				{
-					@Override
-					public Object convert(Object arg0) {
-						return String.format("Left: %1$.3f", ((Double)arg0));
-					}
-				}));
+		m_bindingContext.bindValue(observeTxtPowerLeftObserveWidget, xRoverPlatformClientgetLeftPowerObserveValue, null, new DoubleToStringUpdateValueStrategy());
 		
-		IObservableValue observeTextLblRightObserveWidget = WidgetProperties.text().observe(lblRight);
+		IObservableValue observeTxtPowerRightObserveWidget = WidgetProperties.text().observe(txtPowerRight);
 		IObservableValue xRoverPlatformClientgetRightPowerObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL).observeDetail(roverPlatformClientBinder);
-		m_bindingContext.bindValue(observeTextLblRightObserveWidget, xRoverPlatformClientgetRightPowerObserveValue, 
-				null,
-				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Double.class, String.class) 
-				{
-					@Override
-					public Object convert(Object arg0) {
-						return String.format("Right: %1$.3f", ((Double)arg0));
-					}
-				}));
+		m_bindingContext.bindValue(observeTxtPowerRightObserveWidget, xRoverPlatformClientgetRightPowerObserveValue, null, new DoubleToStringUpdateValueStrategy());
 		
-		IObservableValue observeTextLblSonarLevelObserveWidget = WidgetProperties.text().observe(lblSonarLevel);
+		IObservableValue observeTextLblPowerMaxLeftObserveWidget = WidgetProperties.text().observe(lblPowerMaxLeft);
+		IObservableValue observeTextLblPowerMaxRightObserveWidget = WidgetProperties.text().observe(lblPowerMaxRight);		
+		IObservableValue xRoverPlatformClientgetPowerMaxObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_POWER_LEVEL).observeDetail(roverPlatformClientBinder);
+		m_bindingContext.bindValue(observeTextLblPowerMaxLeftObserveWidget, xRoverPlatformClientgetPowerMaxObserveValue, null, new DoubleToStringUpdateValueStrategy());
+		m_bindingContext.bindValue(observeTextLblPowerMaxRightObserveWidget, xRoverPlatformClientgetPowerMaxObserveValue, null, new DoubleToStringUpdateValueStrategy());
+
+		
+		IObservableValue observeTxtSonarObserveWidget = WidgetProperties.text().observe(txtSonar);
 		IObservableValue xRoverPlatformClientgetSonarLevelObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR).observeDetail(roverPlatformClientBinder);
-		m_bindingContext.bindValue(observeTextLblSonarLevelObserveWidget, xRoverPlatformClientgetSonarLevelObserveValue, 
+		m_bindingContext.bindValue(observeTxtSonarObserveWidget, xRoverPlatformClientgetSonarLevelObserveValue, 
 				null,
-				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Double.class, String.class) 
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Integer.class, String.class) 
 				{
 					@Override
 					public Object convert(Object arg0) {
-						return String.format("Right: %1$.3f", ((Double)arg0));
+						return Integer.toString((Integer)arg0);
 					}
 				}));
 		
-		// //
-//		IObservableValue observeTextLblYvalueObserveWidget =  WidgetProperties.text().observe(lblYvalue);
-//		IObservableValue yRoverPlatformClientgetPositionObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION).observeDetail(roverPlatformClientBinder);
-//		m_bindingContext.bindValue(observeTextLblYvalueObserveWidget, yRoverPlatformClientgetPositionObserveValue, 
-//				null,
-//				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Position.class, String.class)
-//		{
-//			@Override
-//			public Object convert(Object arg0)
-//			{
-//				return ((Position)arg0).getY();
-//			}
-//		})
-//	);
-//		//
-//		IObservableValue observeTextLblThetavalueObserveWidget =  WidgetProperties.text().observe(lblThetavalue);
-//		IObservableValue thetaRoverPlatformClientgetPositionObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION).observeDetail(roverPlatformClientBinder);
-//		m_bindingContext.bindValue(observeTextLblThetavalueObserveWidget, thetaRoverPlatformClientgetPositionObserveValue, 
-//				null, 
-//				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Position.class, String.class)
-//		{
-//			@Override
-//			public Object convert(Object arg0)
-//			{
-//				return ((Position)arg0).getTheta();
-//			}
-//		})
-//	);
-		//
+
+		IObservableValue observeTextTxtStatusObserveWidget = WidgetProperties.text().observe(txtStatus);
+		IObservableValue xRoverPlatformClientInitializedLevelObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED).observeDetail(roverPlatformClientBinder);
+		m_bindingContext.bindValue(observeTextTxtStatusObserveWidget, xRoverPlatformClientInitializedLevelObserveValue, 
+				null,
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Boolean.class, String.class) 
+				{
+					@Override
+					public Object convert(Object arg0) {
+						return ((Boolean)arg0).booleanValue() ?  READY_STR : NOT_READY_STR;
+					}
+				}));
+		
+		IObservableValue xRoverPlatformClientDisposedLevelObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__DISPOSED).observeDetail(roverPlatformClientBinder);
+		m_bindingContext.bindValue(observeTextTxtStatusObserveWidget, xRoverPlatformClientDisposedLevelObserveValue,
+				null,
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Boolean.class, String.class)
+				{
+					@Override
+					public Object convert(Object arg0) {
+						return ((Boolean)arg0).booleanValue() ?  DISPOSED_STR : NOT_READY_STR;
+				}
+				}));
+		
+		//IObservableValue observeButton;
+
 		return m_bindingContext;
 	}
+	
+	private class DoubleToStringUpdateValueStrategy extends UpdateValueStrategy
+	{
+		public DoubleToStringUpdateValueStrategy()
+		{
+			setConverter(new Converter(double.class, String.class)
+			{
+				@Override
+				public Object convert(Object arg0)
+				{
+					return String.format(" %1$.3f", ((Double)arg0));
+				}				
+			});
+		}
+	}
+
+	public class FrontJob extends Job
+	{
+		public FrontJob()
+		{
+			super("Plateform, move forward");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.cmdPowerLevel(roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX, 
+													roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX);
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			return Status.OK_STATUS;
+		}					
+	}
+	
+	public class BackJob extends Job
+	{
+		public BackJob()
+		{
+			super("Plateform, move backward");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.cmdPowerLevel(-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX, 
+													-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX);
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			return Status.OK_STATUS;
+		}					
+	}
+	
+	public class LeftJob extends Job
+	{
+		public LeftJob()
+		{
+			super("Plateform, turn left");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.cmdPowerLevel(-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX,
+													roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX);
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			return Status.OK_STATUS;
+		}					
+	}
+	
+	public class RightJob extends Job
+	{
+		public RightJob()
+		{
+			super("Plateform, turn right");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.cmdPowerLevel(roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX, 
+													-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX);
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			return Status.OK_STATUS;
+		}					
+	}
+	
+	public class StopJob extends Job
+	{
+		public StopJob()
+		{
+			super("Plateform, stop");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.cmdPowerLevel(0, 0);
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			return Status.OK_STATUS;
+		}					
+	}
+	
+	public class InitJob extends Job
+	{
+		public InitJob()
+		{
+			super("Initialize platform");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.init();
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			new Timer().scheduleAtFixedRate(new TimerTask(){
+				@Override
+				public void run() {
+					if(roverPlatformClient != null){
+						roverPlatformClient.setFrontSonar((int) (Math.random() * 100));
+					}
+				}	
+			}, 500, 1000);
+			return Status.OK_STATUS;
+		}					
+	}
+	
+	public class DisposeJob extends Job
+	{
+		public DisposeJob()
+		{
+			super("Dispose platform");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.dispose();
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			return Status.OK_STATUS;
+		}					
+	}
 }
+

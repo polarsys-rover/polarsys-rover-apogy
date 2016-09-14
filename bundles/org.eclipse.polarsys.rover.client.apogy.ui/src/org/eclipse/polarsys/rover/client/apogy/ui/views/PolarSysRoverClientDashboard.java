@@ -1,4 +1,18 @@
 package org.eclipse.polarsys.rover.client.apogy.ui.views;
+/**
+ * Copyright (c) 2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Pierre Allard (Pierre.Allard@canada.ca), 
+ *     Regent L'Archeveque (Regent.Larcheveque@canada.ca),
+ *     Sebastien Gemme (Sebastien.Gemme@canada.ca),
+ *     Olivier L. Larouche (Olivier.llarouche@canada.ca,
+ *     Canadian Space Agency (CSA) - Initial API and implementation
+ **/
 
 import java.util.List;
 
@@ -6,8 +20,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
 import org.eclipse.polarsys.rover.client.ui.composites.PolarSysRoverClientComposite;
 import org.eclipse.swt.SWT;
-
-// FIXME Put Header with copyrights.
 
 import org.eclipse.swt.widgets.Composite;
 
@@ -46,7 +58,7 @@ public class PolarSysRoverClientDashboard extends AbstractView
 	@Override
 	public void updateSelection(ISelection selection)
 	{
-		// Attempt to get a robotic arm reference
+		// Attempt to get a rover platform client reference
 		List<Object> clients = ApogyCommonConvertersUIFacade.INSTANCE.convert(selection, PolarSysRoverPlatformClient.class);
 		
 		if (!clients.isEmpty())
