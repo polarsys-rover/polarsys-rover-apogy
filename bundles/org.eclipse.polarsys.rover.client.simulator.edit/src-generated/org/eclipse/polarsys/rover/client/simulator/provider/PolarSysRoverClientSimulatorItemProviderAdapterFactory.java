@@ -14,6 +14,7 @@
 package org.eclipse.polarsys.rover.client.simulator.provider;
 
 import ca.gc.asc_csa.apogy.common.topology.AggregateContentNode;
+import ca.gc.asc_csa.apogy.common.topology.AggregateGroupNode;
 import ca.gc.asc_csa.apogy.common.topology.ApogyCommonTopologyPackage;
 import ca.gc.asc_csa.apogy.common.topology.ContentNode;
 import ca.gc.asc_csa.apogy.common.topology.util.ApogyCommonTopologySwitch;
@@ -45,10 +46,13 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
+import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorFactory;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorPackage;
 
 import org.eclipse.polarsys.rover.client.simulator.util.PolarSysRoverClientSimulatorAdapterFactory;
+import org.eclipse.polarsys.rover.client.util.PolarSysRoverClientSwitch;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -127,6 +131,29 @@ public class PolarSysRoverClientSimulatorItemProviderAdapterFactory extends Pola
 		}
 
 		return polarSysRoverPlatformClientSimulatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverCameraSimulator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PolarSysRoverCameraSimulatorItemProvider polarSysRoverCameraSimulatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverCameraSimulator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPolarSysRoverCameraSimulatorAdapter() {
+		if (polarSysRoverCameraSimulatorItemProvider == null) {
+			polarSysRoverCameraSimulatorItemProvider = new PolarSysRoverCameraSimulatorItemProvider(this);
+		}
+
+		return polarSysRoverCameraSimulatorItemProvider;
 	}
 
 	/**
@@ -256,6 +283,94 @@ public class PolarSysRoverClientSimulatorItemProviderAdapterFactory extends Pola
 	 */
 	public void dispose() {
 		if (polarSysRoverPlatformClientSimulatorItemProvider != null) polarSysRoverPlatformClientSimulatorItemProvider.dispose();
+		if (polarSysRoverCameraSimulatorItemProvider != null) polarSysRoverCameraSimulatorItemProvider.dispose();
+	}
+
+	/**
+	 * A child creation extender for the {@link PolarSysRoverClientPackage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static class PolarSysRoverClientChildCreationExtender implements IChildCreationExtender {
+		/**
+		 * The switch for creating child descriptors specific to each extended class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected static class CreationSwitch extends PolarSysRoverClientSwitch<Object> {
+			/**
+			 * The child descriptors being populated.
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			protected List<Object> newChildDescriptors;
+
+			/**
+			 * The domain in which to create the children.
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			protected EditingDomain editingDomain;
+
+			/**
+			 * Creates the a switch for populating child descriptors in the given domain.
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			CreationSwitch(List<Object> newChildDescriptors, EditingDomain editingDomain) {
+				this.newChildDescriptors = newChildDescriptors;
+				this.editingDomain = editingDomain;
+			}
+			/**
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			@Override
+			public Object casePolarSysRoverPlatformClient(PolarSysRoverPlatformClient object) {
+				newChildDescriptors.add
+					(createChildParameter
+						(PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA,
+						 PolarSysRoverClientSimulatorFactory.eINSTANCE.createPolarSysRoverCameraSimulator()));
+
+				return null;
+			}
+ 
+			/**
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			protected CommandParameter createChildParameter(Object feature, Object child) {
+				return new CommandParameter(null, feature, child);
+			}
+
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public Collection<Object> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
+			ArrayList<Object> result = new ArrayList<Object>();
+			new CreationSwitch(result, editingDomain).doSwitch((EObject)object);
+			return result;
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public ResourceLocator getResourceLocator() {
+			return PolarSysRoverClientEditPlugin.INSTANCE;
+		}
 	}
 
 	/**
@@ -310,6 +425,11 @@ public class PolarSysRoverClientSimulatorItemProviderAdapterFactory extends Pola
 						(ApogyCommonTopologyPackage.Literals.CONTENT_NODE__CONTENT,
 						 PolarSysRoverClientSimulatorFactory.eINSTANCE.createPolarSysRoverPlatformClientSimulator()));
 
+				newChildDescriptors.add
+					(createChildParameter
+						(ApogyCommonTopologyPackage.Literals.CONTENT_NODE__CONTENT,
+						 PolarSysRoverClientSimulatorFactory.eINSTANCE.createPolarSysRoverCameraSimulator()));
+
 				return null;
 			}
  
@@ -325,9 +445,28 @@ public class PolarSysRoverClientSimulatorItemProviderAdapterFactory extends Pola
 						(ApogyCommonTopologyPackage.Literals.AGGREGATE_CONTENT_NODE__AGGREGATE_CONTENT,
 						 PolarSysRoverClientSimulatorFactory.eINSTANCE.createPolarSysRoverPlatformClientSimulator()));
 
+				newChildDescriptors.add
+					(createChildParameter
+						(ApogyCommonTopologyPackage.Literals.AGGREGATE_CONTENT_NODE__AGGREGATE_CONTENT,
+						 PolarSysRoverClientSimulatorFactory.eINSTANCE.createPolarSysRoverCameraSimulator()));
+
 				return null;
 			}
  
+			/**
+			 * <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * @generated
+			 */
+			@Override
+			public Object caseAggregateGroupNode(AggregateGroupNode object) {
+				newChildDescriptors.add
+					(createChildParameter
+						(ApogyCommonTopologyPackage.Literals.AGGREGATE_GROUP_NODE__AGGREGATED_CHILDREN,
+						 PolarSysRoverClientSimulatorFactory.eINSTANCE.createPolarSysRoverCameraSimulator()));
+
+				return null;
+			}
 			/**
 			 * <!-- begin-user-doc -->
 			 * <!-- end-user-doc -->

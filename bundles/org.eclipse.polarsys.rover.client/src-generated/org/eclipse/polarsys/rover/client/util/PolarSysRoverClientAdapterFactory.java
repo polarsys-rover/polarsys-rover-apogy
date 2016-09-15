@@ -91,8 +91,8 @@ public class PolarSysRoverClientAdapterFactory extends AdapterFactoryImpl {
 				return createPositionAdapter();
 			}
 			@Override
-			public Adapter caseCamera(Camera object) {
-				return createCameraAdapter();
+			public Adapter casePolarSysCamera(PolarSysCamera object) {
+				return createPolarSysCameraAdapter();
 			}
 			@Override
 			public Adapter casePolarSysRoverPlatformClient(PolarSysRoverPlatformClient object) {
@@ -161,16 +161,16 @@ public class PolarSysRoverClientAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.Camera <em>Camera</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.PolarSysCamera <em>Polar Sys Camera</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.polarsys.rover.client.Camera
+	 * @see org.eclipse.polarsys.rover.client.PolarSysCamera
 	 * @generated
 	 */
-	public Adapter createCameraAdapter() {
+	public Adapter createPolarSysCameraAdapter() {
 		return null;
 	}
 

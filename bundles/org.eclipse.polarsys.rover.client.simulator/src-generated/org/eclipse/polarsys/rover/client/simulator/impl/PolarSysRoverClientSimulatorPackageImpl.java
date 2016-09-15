@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
+import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverCameraSimulator;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorFactory;
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorPackage;
@@ -37,6 +38,12 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 	 * @generated
 	 */
 	private EClass polarSysRoverPlatformClientSimulatorEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass polarSysRoverCameraSimulatorEClass = null;
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -115,7 +122,7 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_WheelRadius() {
+	public EAttribute getPolarSysRoverPlatformClientSimulator_DegreeSYM() {
 		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -124,125 +131,8 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_DegreeSYM() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_WheelTrack() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MoveWaitPeriod() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MoveToMinLinSpeed() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_ErrorPerMeter() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MaxPowerLevel() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MinPowerLevel() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MaxCtrPowerLevel() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MinCtrPowerLevel() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MaxAngVelocity() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MinAngVelocity() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MaxLinVelocity() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_MinLinVelocity() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPolarSysRoverPlatformClientSimulator_DistanceBetweenWheels() {
-		return (EAttribute)polarSysRoverPlatformClientSimulatorEClass.getEStructuralFeatures().get(14);
+	public EClass getPolarSysRoverCameraSimulator() {
+		return polarSysRoverCameraSimulatorEClass;
 	}
 
 	/**
@@ -274,21 +164,9 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 
 		// Create classes and their features
 		polarSysRoverPlatformClientSimulatorEClass = createEClass(POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS);
 		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DEGREE_SYM);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_TRACK);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_WAIT_PERIOD);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_TO_MIN_LIN_SPEED);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__ERROR_PER_METER);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_POWER_LEVEL);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_POWER_LEVEL);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_CTR_POWER_LEVEL);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_CTR_POWER_LEVEL);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_ANG_VELOCITY);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_ANG_VELOCITY);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_LIN_VELOCITY);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_LIN_VELOCITY);
-		createEAttribute(polarSysRoverPlatformClientSimulatorEClass, POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DISTANCE_BETWEEN_WHEELS);
+
+		polarSysRoverCameraSimulatorEClass = createEClass(POLAR_SYS_ROVER_CAMERA_SIMULATOR);
 	}
 
 	/**
@@ -324,24 +202,13 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 
 		// Add supertypes to classes
 		polarSysRoverPlatformClientSimulatorEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysRoverPlatformClient());
+		polarSysRoverCameraSimulatorEClass.getESuperTypes().add(thePolarSysRoverClientPackage.getPolarSysCamera());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(polarSysRoverPlatformClientSimulatorEClass, PolarSysRoverPlatformClientSimulator.class, "PolarSysRoverPlatformClientSimulator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_WheelRadius(), theEcorePackage.getEDouble(), "wheelRadius", "0.25", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolarSysRoverPlatformClientSimulator_DegreeSYM(), theEcorePackage.getEString(), "degreeSYM", "\u00b0", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_WheelTrack(), theEcorePackage.getEDouble(), "wheelTrack", "0.64", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MoveWaitPeriod(), theEcorePackage.getEInt(), "moveWaitPeriod", "30", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MoveToMinLinSpeed(), theEcorePackage.getEDouble(), "moveToMinLinSpeed", "1.5", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_ErrorPerMeter(), theEcorePackage.getEDouble(), "ErrorPerMeter", "0.05", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MaxPowerLevel(), theEcorePackage.getEDouble(), "maxPowerLevel", "1", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MinPowerLevel(), theEcorePackage.getEDouble(), "minPowerLevel", "-1", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MaxCtrPowerLevel(), theEcorePackage.getEDouble(), "maxCtrPowerLevel", "100", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MinCtrPowerLevel(), theEcorePackage.getEDouble(), "minCtrPowerLevel", "-100", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MaxAngVelocity(), theEcorePackage.getEDouble(), "maxAngVelocity", "2", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MinAngVelocity(), theEcorePackage.getEDouble(), "minAngVelocity", "-2", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MaxLinVelocity(), theEcorePackage.getEDouble(), "maxLinVelocity", "2", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_MinLinVelocity(), theEcorePackage.getEDouble(), "minLinVelocity", "-2", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolarSysRoverPlatformClientSimulator_DistanceBetweenWheels(), theEcorePackage.getEDouble(), "distanceBetweenWheels", "2", 0, 1, PolarSysRoverPlatformClientSimulator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(polarSysRoverCameraSimulatorEClass, PolarSysRoverCameraSimulator.class, "PolarSysRoverCameraSimulator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -363,7 +230,7 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 		  (this, 
 		   source, 
 		   new String[] {
-			 "documentation", "Copyright (c) 2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Pierre Allard (Pierre.Allard@canada.ca),\n    Regent L\'Archeveque (Regent.Larcheveque@canada.ca),\n    Sebastien Gemme (Sebastien.Gemme@canada.ca),\n    Canadian Space Agency (CSA) - Initial API and implementation",
+			 "documentation", "*\nCopyright (c) 2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Pierre Allard (Pierre.Allard@canada.ca),\n    Regent L\'Archeveque (Regent.Larcheveque@canada.ca),\n    Sebastien Gemme (Sebastien.Gemme@canada.ca),\n    Olivier L. Larouche (olivier.llarouche@canada.ca),\n    Canadian Space Agency (CSA) - Initial API and implementation",
 			 "prefix", "PolarSysRoverClientSimulator",
 			 "copyrightText", "Copyright (c) 2015-2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Pierre Allard (Pierre.Allard@canada.ca), \n    Regent L\'Archeveque (Regent.Larcheveque@canada.ca),\n    Sebastien Gemme (Sebastien.Gemme@canada.ca),\n    Canadian Space Agency (CSA) - Initial API and implementation",
 			 "modelName", "PolarSysRoverClient",
@@ -383,40 +250,16 @@ public class PolarSysRoverClientSimulatorPackageImpl extends EPackageImpl implem
 			 "dynamic", "false"
 		   });	
 		addAnnotation
-		  (getPolarSysRoverPlatformClientSimulator_WheelRadius(), 
-		   source, 
-		   new String[] {
-			 "documentation", "This is the radius (in m) of the mobile platform\'s wheels."
-		   });	
-		addAnnotation
 		  (getPolarSysRoverPlatformClientSimulator_DegreeSYM(), 
 		   source, 
 		   new String[] {
 			 "documentation", "*\nThis is the degree symbol, as expressed in unicode"
 		   });	
 		addAnnotation
-		  (getPolarSysRoverPlatformClientSimulator_WheelTrack(), 
+		  (polarSysRoverCameraSimulatorEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "*\nThis is the length (in m) of the mobile platform\'s track"
-		   });	
-		addAnnotation
-		  (getPolarSysRoverPlatformClientSimulator_MoveWaitPeriod(), 
-		   source, 
-		   new String[] {
-			 "documentation", "*\nThis is the time (in milliseconds) between subsequent movement steps of\nthe mobile platform."
-		   });	
-		addAnnotation
-		  (getPolarSysRoverPlatformClientSimulator_MoveToMinLinSpeed(), 
-		   source, 
-		   new String[] {
-			 "documentation", "*\nThis is the minimum linear velocity (in metres / second) that a moveTo()\noperates at."
-		   });	
-		addAnnotation
-		  (getPolarSysRoverPlatformClientSimulator_ErrorPerMeter(), 
-		   source, 
-		   new String[] {
-			 "documentation", "*\nThis is the amount of error is taking place per metre of distance\ntraveled by the mobile platform."
+			 "documentation", "This class is used to represent the camera in a simulator"
 		   });
 	}
 

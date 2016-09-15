@@ -31,8 +31,6 @@ import ca.gc.asc_csa.apogy.common.emf.Disposable;
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#isInitialized <em>Initialized</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#isDisposed <em>Disposed</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getPositionError <em>Position Error</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLinearVelocity <em>Linear Velocity</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getAngularVelocity <em>Angular Velocity</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftPowerLevel <em>Left Power Level</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getRightPowerLevel <em>Right Power Level</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftWheelPosition <em>Left Wheel Position</em>}</li>
@@ -143,62 +141,6 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * @generated
 	 */
 	void setPositionError(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Linear Velocity</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This is the mobile platform's current linear velocity
-	 * (in metres per second)
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Linear Velocity</em>' attribute.
-	 * @see #setLinearVelocity(double)
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_LinearVelocity()
-	 * @model default="0.0" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='Velocities' apogy_units='m/s'"
-	 * @generated
-	 */
-	double getLinearVelocity();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLinearVelocity <em>Linear Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Linear Velocity</em>' attribute.
-	 * @see #getLinearVelocity()
-	 * @generated
-	 */
-	void setLinearVelocity(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Angular Velocity</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This is the mobile platform's current angular velocity
-	 * (in radians per second).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Angular Velocity</em>' attribute.
-	 * @see #setAngularVelocity(double)
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_AngularVelocity()
-	 * @model default="0.0" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='Velocities' apogy_units='rad/s'"
-	 * @generated
-	 */
-	double getAngularVelocity();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getAngularVelocity <em>Angular Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Angular Velocity</em>' attribute.
-	 * @see #getAngularVelocity()
-	 * @generated
-	 */
-	void setAngularVelocity(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Left Power Level</b></em>' attribute.
@@ -380,12 +322,13 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * Front Camera.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Front Camera</em>' containment reference.
-	 * @see #setFrontCamera(Camera)
+	 * @see #setFrontCamera(PolarSysCamera)
 	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_FrontCamera()
-	 * @model containment="true"
+	 * @model containment="true" required="true" transient="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel notify='true' propertyCategory='Position'"
 	 * @generated
 	 */
-	Camera getFrontCamera();
+	PolarSysCamera getFrontCamera();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getFrontCamera <em>Front Camera</em>}' containment reference.
@@ -395,7 +338,7 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * @see #getFrontCamera()
 	 * @generated
 	 */
-	void setFrontCamera(Camera value);
+	void setFrontCamera(PolarSysCamera value);
 
 	/**
 	 * Returns the value of the '<em><b>Wheel Radius</b></em>' attribute.

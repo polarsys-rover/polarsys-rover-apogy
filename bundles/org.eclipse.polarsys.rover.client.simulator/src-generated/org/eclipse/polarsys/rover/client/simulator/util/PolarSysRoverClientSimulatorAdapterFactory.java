@@ -13,13 +13,20 @@
  */
 package org.eclipse.polarsys.rover.client.simulator.util;
 
+import ca.gc.asc_csa.apogy.addons.sensors.Sensor;
+import ca.gc.asc_csa.apogy.addons.sensors.imaging.AbstractCamera;
 import ca.gc.asc_csa.apogy.common.emf.Disposable;
+import ca.gc.asc_csa.apogy.common.emf.Named;
+import ca.gc.asc_csa.apogy.common.topology.AggregateGroupNode;
+import ca.gc.asc_csa.apogy.common.topology.GroupNode;
+import ca.gc.asc_csa.apogy.common.topology.Node;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.polarsys.rover.client.PolarSysCamera;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
 import org.eclipse.polarsys.rover.client.simulator.*;
 
@@ -84,12 +91,44 @@ public class PolarSysRoverClientSimulatorAdapterFactory extends AdapterFactoryIm
 				return createPolarSysRoverPlatformClientSimulatorAdapter();
 			}
 			@Override
+			public Adapter casePolarSysRoverCameraSimulator(PolarSysRoverCameraSimulator object) {
+				return createPolarSysRoverCameraSimulatorAdapter();
+			}
+			@Override
 			public Adapter caseDisposable(Disposable object) {
 				return createDisposableAdapter();
 			}
 			@Override
 			public Adapter casePolarSysRoverPlatformClient(PolarSysRoverPlatformClient object) {
 				return createPolarSysRoverPlatformClientAdapter();
+			}
+			@Override
+			public Adapter caseNode(Node object) {
+				return createNodeAdapter();
+			}
+			@Override
+			public Adapter caseGroupNode(GroupNode object) {
+				return createGroupNodeAdapter();
+			}
+			@Override
+			public Adapter caseAggregateGroupNode(AggregateGroupNode object) {
+				return createAggregateGroupNodeAdapter();
+			}
+			@Override
+			public Adapter caseSensor(Sensor object) {
+				return createSensorAdapter();
+			}
+			@Override
+			public Adapter caseNamed(Named object) {
+				return createNamedAdapter();
+			}
+			@Override
+			public Adapter caseAbstractCamera(AbstractCamera object) {
+				return createAbstractCameraAdapter();
+			}
+			@Override
+			public Adapter casePolarSysCamera(PolarSysCamera object) {
+				return createPolarSysCameraAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -126,6 +165,20 @@ public class PolarSysRoverClientSimulatorAdapterFactory extends AdapterFactoryIm
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverCameraSimulator <em>Polar Sys Rover Camera Simulator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverCameraSimulator
+	 * @generated
+	 */
+	public Adapter createPolarSysRoverCameraSimulatorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.common.emf.Disposable <em>Disposable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -150,6 +203,104 @@ public class PolarSysRoverClientSimulatorAdapterFactory extends AdapterFactoryIm
 	 * @generated
 	 */
 	public Adapter createPolarSysRoverPlatformClientAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.common.topology.Node <em>Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.common.topology.Node
+	 * @generated
+	 */
+	public Adapter createNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.common.topology.GroupNode <em>Group Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.common.topology.GroupNode
+	 * @generated
+	 */
+	public Adapter createGroupNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.common.topology.AggregateGroupNode <em>Aggregate Group Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.common.topology.AggregateGroupNode
+	 * @generated
+	 */
+	public Adapter createAggregateGroupNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.addons.sensors.Sensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.addons.sensors.Sensor
+	 * @generated
+	 */
+	public Adapter createSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.common.emf.Named <em>Named</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.common.emf.Named
+	 * @generated
+	 */
+	public Adapter createNamedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.addons.sensors.imaging.AbstractCamera <em>Abstract Camera</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.addons.sensors.imaging.AbstractCamera
+	 * @generated
+	 */
+	public Adapter createAbstractCameraAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.polarsys.rover.client.PolarSysCamera <em>Polar Sys Camera</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysCamera
+	 * @generated
+	 */
+	public Adapter createPolarSysCameraAdapter() {
 		return null;
 	}
 

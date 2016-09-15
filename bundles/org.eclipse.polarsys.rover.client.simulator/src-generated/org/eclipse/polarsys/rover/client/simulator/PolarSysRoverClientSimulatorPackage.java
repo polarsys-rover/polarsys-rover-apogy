@@ -31,6 +31,7 @@ import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
  * </ul>
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
+ * *
  * Copyright (c) 2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -41,6 +42,7 @@ import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
  *     Pierre Allard (Pierre.Allard@canada.ca),
  *     Regent L'Archeveque (Regent.Larcheveque@canada.ca),
  *     Sebastien Gemme (Sebastien.Gemme@canada.ca),
+ *     Olivier L. Larouche (olivier.llarouche@canada.ca),
  *     Canadian Space Agency (CSA) - Initial API and implementation
  * <!-- end-model-doc -->
  * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverClientSimulatorFactory
@@ -119,24 +121,6 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__POSITION_ERROR = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR;
 
 	/**
-	 * The feature id for the '<em><b>Linear Velocity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__LINEAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY;
-
-	/**
-	 * The feature id for the '<em><b>Angular Velocity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__ANGULAR_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY;
-
-	/**
 	 * The feature id for the '<em><b>Left Power Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,16 +190,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Degree SYM</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DEGREE_SYM = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 1;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_RADIUS;
 
 	/**
 	 * The feature id for the '<em><b>Wheel Track</b></em>' attribute.
@@ -224,7 +199,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_TRACK = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 2;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_TRACK = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_TRACK;
 
 	/**
 	 * The feature id for the '<em><b>Move Wait Period</b></em>' attribute.
@@ -233,7 +208,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_WAIT_PERIOD = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 3;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_WAIT_PERIOD = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_WAIT_PERIOD;
 
 	/**
 	 * The feature id for the '<em><b>Move To Min Lin Speed</b></em>' attribute.
@@ -242,7 +217,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_TO_MIN_LIN_SPEED = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 4;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_TO_MIN_LIN_SPEED = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_TO_MIN_LIN_SPEED;
 
 	/**
 	 * The feature id for the '<em><b>Error Per Meter</b></em>' attribute.
@@ -251,7 +226,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__ERROR_PER_METER = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 5;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__ERROR_PER_METER = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ERROR_PER_METER;
 
 	/**
 	 * The feature id for the '<em><b>Max Power Level</b></em>' attribute.
@@ -260,16 +235,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_POWER_LEVEL = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Min Power Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_POWER_LEVEL = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 7;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_POWER_LEVEL = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_POWER_LEVEL;
 
 	/**
 	 * The feature id for the '<em><b>Max Ctr Power Level</b></em>' attribute.
@@ -278,16 +244,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_CTR_POWER_LEVEL = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Min Ctr Power Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_CTR_POWER_LEVEL = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 9;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_CTR_POWER_LEVEL = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_CTR_POWER_LEVEL;
 
 	/**
 	 * The feature id for the '<em><b>Max Ang Velocity</b></em>' attribute.
@@ -296,16 +253,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_ANG_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 10;
-
-	/**
-	 * The feature id for the '<em><b>Min Ang Velocity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_ANG_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 11;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_ANG_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_ANG_VELOCITY;
 
 	/**
 	 * The feature id for the '<em><b>Max Lin Velocity</b></em>' attribute.
@@ -314,16 +262,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_LIN_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 12;
-
-	/**
-	 * The feature id for the '<em><b>Min Lin Velocity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_LIN_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 13;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_LIN_VELOCITY = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_LIN_VELOCITY;
 
 	/**
 	 * The feature id for the '<em><b>Distance Between Wheels</b></em>' attribute.
@@ -332,7 +271,16 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DISTANCE_BETWEEN_WHEELS = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 14;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DISTANCE_BETWEEN_WHEELS = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__DISTANCE_BETWEEN_WHEELS;
+
+	/**
+	 * The feature id for the '<em><b>Degree SYM</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DEGREE_SYM = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Platform Client Simulator</em>' class.
@@ -341,7 +289,7 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 15;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -417,6 +365,179 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverCameraSimulatorImpl <em>Polar Sys Rover Camera Simulator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverCameraSimulatorImpl
+	 * @see org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverClientSimulatorPackageImpl#getPolarSysRoverCameraSimulator()
+	 * @generated
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__PARENT = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__DESCRIPTION = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Node Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__NODE_ID = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__NODE_ID;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__CHILDREN = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Aggregated Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__AGGREGATED_CHILDREN = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__AGGREGATED_CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__STATUS = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__NAME = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Latest Image Snapshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__LATEST_IMAGE_SNAPSHOT = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__LATEST_IMAGE_SNAPSHOT;
+
+	/**
+	 * The feature id for the '<em><b>Fov</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__FOV = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__FOV;
+
+	/**
+	 * The feature id for the '<em><b>Initialized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__INITIALIZED = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__INITIALIZED;
+
+	/**
+	 * The feature id for the '<em><b>Streaming Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR__STREAMING_ENABLED = PolarSysRoverClientPackage.POLAR_SYS_CAMERA__STREAMING_ENABLED;
+
+	/**
+	 * The number of structural features of the '<em>Polar Sys Rover Camera Simulator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR_FEATURE_COUNT = PolarSysRoverClientPackage.POLAR_SYS_CAMERA_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR___ACCEPT__INODEVISITOR = PolarSysRoverClientPackage.POLAR_SYS_CAMERA___ACCEPT__INODEVISITOR;
+
+	/**
+	 * The operation id for the '<em>Take Snapshot</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR___TAKE_SNAPSHOT = PolarSysRoverClientPackage.POLAR_SYS_CAMERA___TAKE_SNAPSHOT;
+
+	/**
+	 * The operation id for the '<em>Get Field Of View</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR___GET_FIELD_OF_VIEW = PolarSysRoverClientPackage.POLAR_SYS_CAMERA___GET_FIELD_OF_VIEW;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR___INIT = PolarSysRoverClientPackage.POLAR_SYS_CAMERA___INIT;
+
+	/**
+	 * The operation id for the '<em>Command Streaming</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR___COMMAND_STREAMING__BOOLEAN = PolarSysRoverClientPackage.POLAR_SYS_CAMERA___COMMAND_STREAMING__BOOLEAN;
+
+	/**
+	 * The number of operations of the '<em>Polar Sys Rover Camera Simulator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_ROVER_CAMERA_SIMULATOR_OPERATION_COUNT = PolarSysRoverClientPackage.POLAR_SYS_CAMERA_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator <em>Polar Sys Rover Platform Client Simulator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,17 +546,6 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPolarSysRoverPlatformClientSimulator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getWheelRadius <em>Wheel Radius</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Wheel Radius</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getWheelRadius()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_WheelRadius();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getDegreeSYM <em>Degree SYM</em>}'.
@@ -449,147 +559,14 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 	EAttribute getPolarSysRoverPlatformClientSimulator_DegreeSYM();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getWheelTrack <em>Wheel Track</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverCameraSimulator <em>Polar Sys Rover Camera Simulator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Wheel Track</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getWheelTrack()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
+	 * @return the meta object for class '<em>Polar Sys Rover Camera Simulator</em>'.
+	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverCameraSimulator
 	 * @generated
 	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_WheelTrack();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMoveWaitPeriod <em>Move Wait Period</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Move Wait Period</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMoveWaitPeriod()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MoveWaitPeriod();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMoveToMinLinSpeed <em>Move To Min Lin Speed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Move To Min Lin Speed</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMoveToMinLinSpeed()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MoveToMinLinSpeed();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getErrorPerMeter <em>Error Per Meter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Error Per Meter</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getErrorPerMeter()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_ErrorPerMeter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMaxPowerLevel <em>Max Power Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Power Level</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMaxPowerLevel()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MaxPowerLevel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMinPowerLevel <em>Min Power Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Power Level</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMinPowerLevel()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MinPowerLevel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMaxCtrPowerLevel <em>Max Ctr Power Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Ctr Power Level</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMaxCtrPowerLevel()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MaxCtrPowerLevel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMinCtrPowerLevel <em>Min Ctr Power Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Ctr Power Level</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMinCtrPowerLevel()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MinCtrPowerLevel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMaxAngVelocity <em>Max Ang Velocity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Ang Velocity</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMaxAngVelocity()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MaxAngVelocity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMinAngVelocity <em>Min Ang Velocity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Ang Velocity</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMinAngVelocity()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MinAngVelocity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMaxLinVelocity <em>Max Lin Velocity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Lin Velocity</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMaxLinVelocity()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MaxLinVelocity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMinLinVelocity <em>Min Lin Velocity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Lin Velocity</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getMinLinVelocity()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_MinLinVelocity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getDistanceBetweenWheels <em>Distance Between Wheels</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Distance Between Wheels</em>'.
-	 * @see org.eclipse.polarsys.rover.client.simulator.PolarSysRoverPlatformClientSimulator#getDistanceBetweenWheels()
-	 * @see #getPolarSysRoverPlatformClientSimulator()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClientSimulator_DistanceBetweenWheels();
+	EClass getPolarSysRoverCameraSimulator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -624,13 +601,6 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 		 */
 		EClass POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR = eINSTANCE.getPolarSysRoverPlatformClientSimulator();
 		/**
-		 * The meta object literal for the '<em><b>Wheel Radius</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS = eINSTANCE.getPolarSysRoverPlatformClientSimulator_WheelRadius();
-		/**
 		 * The meta object literal for the '<em><b>Degree SYM</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -638,96 +608,14 @@ public interface PolarSysRoverClientSimulatorPackage extends EPackage {
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DEGREE_SYM = eINSTANCE.getPolarSysRoverPlatformClientSimulator_DegreeSYM();
 		/**
-		 * The meta object literal for the '<em><b>Wheel Track</b></em>' attribute feature.
+		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverCameraSimulatorImpl <em>Polar Sys Rover Camera Simulator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverCameraSimulatorImpl
+		 * @see org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverClientSimulatorPackageImpl#getPolarSysRoverCameraSimulator()
 		 * @generated
 		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_TRACK = eINSTANCE.getPolarSysRoverPlatformClientSimulator_WheelTrack();
-		/**
-		 * The meta object literal for the '<em><b>Move Wait Period</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_WAIT_PERIOD = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MoveWaitPeriod();
-		/**
-		 * The meta object literal for the '<em><b>Move To Min Lin Speed</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_TO_MIN_LIN_SPEED = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MoveToMinLinSpeed();
-		/**
-		 * The meta object literal for the '<em><b>Error Per Meter</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__ERROR_PER_METER = eINSTANCE.getPolarSysRoverPlatformClientSimulator_ErrorPerMeter();
-		/**
-		 * The meta object literal for the '<em><b>Max Power Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_POWER_LEVEL = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MaxPowerLevel();
-		/**
-		 * The meta object literal for the '<em><b>Min Power Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_POWER_LEVEL = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MinPowerLevel();
-		/**
-		 * The meta object literal for the '<em><b>Max Ctr Power Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_CTR_POWER_LEVEL = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MaxCtrPowerLevel();
-		/**
-		 * The meta object literal for the '<em><b>Min Ctr Power Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_CTR_POWER_LEVEL = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MinCtrPowerLevel();
-		/**
-		 * The meta object literal for the '<em><b>Max Ang Velocity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_ANG_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MaxAngVelocity();
-		/**
-		 * The meta object literal for the '<em><b>Min Ang Velocity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_ANG_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MinAngVelocity();
-		/**
-		 * The meta object literal for the '<em><b>Max Lin Velocity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_LIN_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MaxLinVelocity();
-		/**
-		 * The meta object literal for the '<em><b>Min Lin Velocity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_LIN_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClientSimulator_MinLinVelocity();
-		/**
-		 * The meta object literal for the '<em><b>Distance Between Wheels</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DISTANCE_BETWEEN_WHEELS = eINSTANCE.getPolarSysRoverPlatformClientSimulator_DistanceBetweenWheels();
+		EClass POLAR_SYS_ROVER_CAMERA_SIMULATOR = eINSTANCE.getPolarSysRoverCameraSimulator();
 
 	}
 

@@ -80,8 +80,6 @@ public class PolarSysRoverPlatformClientItemProvider
 			addInitializedPropertyDescriptor(object);
 			addDisposedPropertyDescriptor(object);
 			addPositionErrorPropertyDescriptor(object);
-			addLinearVelocityPropertyDescriptor(object);
-			addAngularVelocityPropertyDescriptor(object);
 			addLeftPowerLevelPropertyDescriptor(object);
 			addRightPowerLevelPropertyDescriptor(object);
 			addLeftWheelPositionPropertyDescriptor(object);
@@ -167,52 +165,6 @@ public class PolarSysRoverPlatformClientItemProvider
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 getString("_UI_PositionPropertyCategory"),
-				 null));
-	}
-
-	
-	/**
-	 * This adds a property descriptor for the Linear Velocity feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLinearVelocityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(new AbstractUnitItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PolarSysRoverPlatformClient_linearVelocity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_linearVelocity_feature", "_UI_PolarSysRoverPlatformClient_type"),
-				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI_VelocitiesPropertyCategory"),
-				 null));
-	}
-
-	
-	/**
-	 * This adds a property descriptor for the Angular Velocity feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAngularVelocityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(new AbstractUnitItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PolarSysRoverPlatformClient_angularVelocity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PolarSysRoverPlatformClient_angularVelocity_feature", "_UI_PolarSysRoverPlatformClient_type"),
-				 PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI_VelocitiesPropertyCategory"),
 				 null));
 	}
 
@@ -606,8 +558,6 @@ public class PolarSysRoverPlatformClientItemProvider
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__DISPOSED:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR:
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY:
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL:
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION:
@@ -648,11 +598,6 @@ public class PolarSysRoverPlatformClientItemProvider
 			(createChildParameter
 				(PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION,
 				 PolarSysRoverClientFactory.eINSTANCE.createPosition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PolarSysRoverClientPackage.Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA,
-				 PolarSysRoverClientFactory.eINSTANCE.createCamera()));
 	}
 
 	/**

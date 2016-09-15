@@ -1,4 +1,4 @@
-/*
+/** 
  * Copyright (c) 2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -9,6 +9,7 @@
  *     Pierre Allard (Pierre.Allard@canada.ca), 
  *     Regent L'Archeveque (Regent.Larcheveque@canada.ca),
  *     Sebastien Gemme (Sebastien.Gemme@canada.ca),
+ *     Olivier L. Larouche (olivier.llarouche@canada.ca),
  *     Canadian Space Agency (CSA) - Initial API and implementation
  */
 @GenModel(prefix="PolarSysRoverClientSimulator",
@@ -35,8 +36,13 @@ Contributors:
 package org.eclipse.polarsys.rover.client.simulator
 
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient
+import org.eclipse.polarsys.rover.client.PolarSysCamera
+
 
 @GenModel(dynamic="false")
+/*
+ * This class is used to represent the platform client in a simulator
+ */
 class PolarSysRoverPlatformClientSimulator extends PolarSysRoverPlatformClient{
 
 	/**
@@ -45,3 +51,10 @@ class PolarSysRoverPlatformClientSimulator extends PolarSysRoverPlatformClient{
 	transient readonly String degreeSYM = "\u00b0"
 	
 }
+
+/*
+ * This class is used to represent the camera in a simulator
+ */
+class PolarSysRoverCameraSimulator extends PolarSysCamera{
+}
+

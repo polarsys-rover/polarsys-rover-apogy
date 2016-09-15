@@ -141,14 +141,14 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	int POSITION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.impl.CameraImpl <em>Camera</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.impl.PolarSysCameraImpl <em>Polar Sys Camera</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.polarsys.rover.client.impl.CameraImpl
-	 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientPackageImpl#getCamera()
+	 * @see org.eclipse.polarsys.rover.client.impl.PolarSysCameraImpl
+	 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientPackageImpl#getPolarSysCamera()
 	 * @generated
 	 */
-	int CAMERA = 1;
+	int POLAR_SYS_CAMERA = 1;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -157,7 +157,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__PARENT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__PARENT;
+	int POLAR_SYS_CAMERA__PARENT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -166,7 +166,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__DESCRIPTION = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__DESCRIPTION;
+	int POLAR_SYS_CAMERA__DESCRIPTION = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Node Id</b></em>' attribute.
@@ -175,7 +175,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__NODE_ID = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__NODE_ID;
+	int POLAR_SYS_CAMERA__NODE_ID = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__NODE_ID;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -184,7 +184,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__CHILDREN = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__CHILDREN;
+	int POLAR_SYS_CAMERA__CHILDREN = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Aggregated Children</b></em>' containment reference list.
@@ -193,7 +193,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__AGGREGATED_CHILDREN = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__AGGREGATED_CHILDREN;
+	int POLAR_SYS_CAMERA__AGGREGATED_CHILDREN = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__AGGREGATED_CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -202,7 +202,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__STATUS = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__STATUS;
+	int POLAR_SYS_CAMERA__STATUS = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -211,7 +211,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__NAME = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__NAME;
+	int POLAR_SYS_CAMERA__NAME = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Latest Image Snapshot</b></em>' reference.
@@ -220,16 +220,43 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__LATEST_IMAGE_SNAPSHOT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__LATEST_IMAGE_SNAPSHOT;
+	int POLAR_SYS_CAMERA__LATEST_IMAGE_SNAPSHOT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA__LATEST_IMAGE_SNAPSHOT;
 
 	/**
-	 * The number of structural features of the '<em>Camera</em>' class.
+	 * The feature id for the '<em><b>Fov</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA_FEATURE_COUNT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_FEATURE_COUNT + 0;
+	int POLAR_SYS_CAMERA__FOV = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Initialized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_CAMERA__INITIALIZED = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Streaming Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_CAMERA__STREAMING_ENABLED = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Polar Sys Camera</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_CAMERA_FEATURE_COUNT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -238,7 +265,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA___ACCEPT__INODEVISITOR = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA___ACCEPT__INODEVISITOR;
+	int POLAR_SYS_CAMERA___ACCEPT__INODEVISITOR = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA___ACCEPT__INODEVISITOR;
 
 	/**
 	 * The operation id for the '<em>Take Snapshot</em>' operation.
@@ -247,7 +274,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA___TAKE_SNAPSHOT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA___TAKE_SNAPSHOT;
+	int POLAR_SYS_CAMERA___TAKE_SNAPSHOT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA___TAKE_SNAPSHOT;
 
 	/**
 	 * The operation id for the '<em>Get Field Of View</em>' operation.
@@ -256,16 +283,34 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA___GET_FIELD_OF_VIEW = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA___GET_FIELD_OF_VIEW;
+	int POLAR_SYS_CAMERA___GET_FIELD_OF_VIEW = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA___GET_FIELD_OF_VIEW;
 
 	/**
-	 * The number of operations of the '<em>Camera</em>' class.
+	 * The operation id for the '<em>Init</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA_OPERATION_COUNT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_OPERATION_COUNT + 0;
+	int POLAR_SYS_CAMERA___INIT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Command Streaming</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_CAMERA___COMMAND_STREAMING__BOOLEAN = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Polar Sys Camera</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_SYS_CAMERA_OPERATION_COUNT = ApogyAddonsSensorsImagingPackage.ABSTRACT_CAMERA_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl <em>Polar Sys Rover Platform Client</em>}' class.
@@ -305,31 +350,13 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	int POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Linear Velocity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Angular Velocity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Left Power Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 5;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Right Power Level</b></em>' attribute.
@@ -338,7 +365,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 6;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Left Wheel Position</b></em>' attribute.
@@ -347,7 +374,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 7;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Right Wheel Position</b></em>' attribute.
@@ -356,7 +383,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 8;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_WHEEL_POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Front Sonar</b></em>' attribute.
@@ -365,7 +392,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 9;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -374,7 +401,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 10;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Front Camera</b></em>' containment reference.
@@ -383,7 +410,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 11;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Wheel Radius</b></em>' attribute.
@@ -392,7 +419,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_RADIUS = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 12;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_RADIUS = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Wheel Track</b></em>' attribute.
@@ -401,7 +428,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_TRACK = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 13;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__WHEEL_TRACK = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Move Wait Period</b></em>' attribute.
@@ -410,7 +437,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_WAIT_PERIOD = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 14;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_WAIT_PERIOD = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Move To Min Lin Speed</b></em>' attribute.
@@ -419,7 +446,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_TO_MIN_LIN_SPEED = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 15;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MOVE_TO_MIN_LIN_SPEED = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Error Per Meter</b></em>' attribute.
@@ -428,7 +455,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__ERROR_PER_METER = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 16;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__ERROR_PER_METER = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Max Power Level</b></em>' attribute.
@@ -437,7 +464,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 17;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Max Ctr Power Level</b></em>' attribute.
@@ -446,7 +473,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_CTR_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 18;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_CTR_POWER_LEVEL = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Max Ang Velocity</b></em>' attribute.
@@ -455,7 +482,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_ANG_VELOCITY = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 19;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_ANG_VELOCITY = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Max Lin Velocity</b></em>' attribute.
@@ -464,7 +491,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_LIN_VELOCITY = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 20;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__MAX_LIN_VELOCITY = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Distance Between Wheels</b></em>' attribute.
@@ -473,7 +500,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT__DISTANCE_BETWEEN_WHEELS = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 21;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT__DISTANCE_BETWEEN_WHEELS = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 19;
 
 	/**
 	 * The number of structural features of the '<em>Polar Sys Rover Platform Client</em>' class.
@@ -482,7 +509,7 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 22;
+	int POLAR_SYS_ROVER_PLATFORM_CLIENT_FEATURE_COUNT = ApogyCommonEMFPackage.DISPOSABLE_FEATURE_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -601,14 +628,67 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	EAttribute getPosition_Theta();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.Camera <em>Camera</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.PolarSysCamera <em>Polar Sys Camera</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Camera</em>'.
-	 * @see org.eclipse.polarsys.rover.client.Camera
+	 * @return the meta object for class '<em>Polar Sys Camera</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysCamera
 	 * @generated
 	 */
-	EClass getCamera();
+	EClass getPolarSysCamera();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.polarsys.rover.client.PolarSysCamera#getFov <em>Fov</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Fov</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysCamera#getFov()
+	 * @see #getPolarSysCamera()
+	 * @generated
+	 */
+	EReference getPolarSysCamera_Fov();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysCamera#isInitialized <em>Initialized</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initialized</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysCamera#isInitialized()
+	 * @see #getPolarSysCamera()
+	 * @generated
+	 */
+	EAttribute getPolarSysCamera_Initialized();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysCamera#isStreamingEnabled <em>Streaming Enabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Streaming Enabled</em>'.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysCamera#isStreamingEnabled()
+	 * @see #getPolarSysCamera()
+	 * @generated
+	 */
+	EAttribute getPolarSysCamera_StreamingEnabled();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.polarsys.rover.client.PolarSysCamera#init() <em>Init</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init</em>' operation.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysCamera#init()
+	 * @generated
+	 */
+	EOperation getPolarSysCamera__Init();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.polarsys.rover.client.PolarSysCamera#commandStreaming(boolean) <em>Command Streaming</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Command Streaming</em>' operation.
+	 * @see org.eclipse.polarsys.rover.client.PolarSysCamera#commandStreaming(boolean)
+	 * @generated
+	 */
+	EOperation getPolarSysCamera__CommandStreaming__boolean();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient <em>Polar Sys Rover Platform Client</em>}'.
@@ -652,28 +732,6 @@ public interface PolarSysRoverClientPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPolarSysRoverPlatformClient_PositionError();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLinearVelocity <em>Linear Velocity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Linear Velocity</em>'.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLinearVelocity()
-	 * @see #getPolarSysRoverPlatformClient()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClient_LinearVelocity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getAngularVelocity <em>Angular Velocity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Angular Velocity</em>'.
-	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getAngularVelocity()
-	 * @see #getPolarSysRoverPlatformClient()
-	 * @generated
-	 */
-	EAttribute getPolarSysRoverPlatformClient_AngularVelocity();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient#getLeftPowerLevel <em>Left Power Level</em>}'.
@@ -980,14 +1038,54 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		EAttribute POSITION__THETA = eINSTANCE.getPosition_Theta();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.impl.CameraImpl <em>Camera</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.impl.PolarSysCameraImpl <em>Polar Sys Camera</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.polarsys.rover.client.impl.CameraImpl
-		 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientPackageImpl#getCamera()
+		 * @see org.eclipse.polarsys.rover.client.impl.PolarSysCameraImpl
+		 * @see org.eclipse.polarsys.rover.client.impl.PolarSysRoverClientPackageImpl#getPolarSysCamera()
 		 * @generated
 		 */
-		EClass CAMERA = eINSTANCE.getCamera();
+		EClass POLAR_SYS_CAMERA = eINSTANCE.getPolarSysCamera();
+
+		/**
+		 * The meta object literal for the '<em><b>Fov</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POLAR_SYS_CAMERA__FOV = eINSTANCE.getPolarSysCamera_Fov();
+
+		/**
+		 * The meta object literal for the '<em><b>Initialized</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_CAMERA__INITIALIZED = eINSTANCE.getPolarSysCamera_Initialized();
+
+		/**
+		 * The meta object literal for the '<em><b>Streaming Enabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLAR_SYS_CAMERA__STREAMING_ENABLED = eINSTANCE.getPolarSysCamera_StreamingEnabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Init</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation POLAR_SYS_CAMERA___INIT = eINSTANCE.getPolarSysCamera__Init();
+
+		/**
+		 * The meta object literal for the '<em><b>Command Streaming</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation POLAR_SYS_CAMERA___COMMAND_STREAMING__BOOLEAN = eINSTANCE.getPolarSysCamera__CommandStreaming__boolean();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl <em>Polar Sys Rover Platform Client</em>}' class.
@@ -1022,22 +1120,6 @@ public interface PolarSysRoverClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR = eINSTANCE.getPolarSysRoverPlatformClient_PositionError();
-
-		/**
-		 * The meta object literal for the '<em><b>Linear Velocity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClient_LinearVelocity();
-
-		/**
-		 * The meta object literal for the '<em><b>Angular Velocity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY = eINSTANCE.getPolarSysRoverPlatformClient_AngularVelocity();
 
 		/**
 		 * The meta object literal for the '<em><b>Left Power Level</b></em>' attribute feature.

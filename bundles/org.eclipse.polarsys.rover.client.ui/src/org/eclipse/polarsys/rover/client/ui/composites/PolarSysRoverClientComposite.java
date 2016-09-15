@@ -28,6 +28,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
+import org.eclipse.polarsys.rover.client.PolarSysCamera;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage.Literals;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
 import org.eclipse.polarsys.rover.client.Position;
@@ -100,7 +101,11 @@ public class PolarSysRoverClientComposite extends Composite
 	private Scale scaleSpeed;
 	private Label label;
 	private Label label_1;
-
+	private Section sctnCamera;
+	private Composite compositeCamera;
+	private Button btnStartStreaming;
+	private Button btnStopStreaming;
+	private Button btnTakeSnapshot;
 	/**
 	 * Create the composite.
 	 * @param parent
@@ -109,8 +114,7 @@ public class PolarSysRoverClientComposite extends Composite
 	public PolarSysRoverClientComposite(Composite parent, int style)
 	{		
 		super(parent, style);
-		System.out.println("PolarSysRoverClientComposite.PolarSysRoverClientComposite()");
-		
+
 		this.addDisposeListener(new DisposeListener()
 
 		{
@@ -141,7 +145,7 @@ public class PolarSysRoverClientComposite extends Composite
 		composite.setLayout(new GridLayout(3, false));
 
 		compositeStatus = formToolKit.createComposite(composite, SWT.BORDER);
-		compositeStatus.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1));
+		compositeStatus.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		formToolKit.paintBordersFor(compositeStatus);
 		GridLayout gl_compositeStatus = new GridLayout(2, false);
 		compositeStatus.setLayout(gl_compositeStatus);
@@ -149,7 +153,7 @@ public class PolarSysRoverClientComposite extends Composite
 		new Label(compositeStatus, SWT.NONE);
 
 		Button btnStart = formToolKit.createButton(compositeStatus, "Start", SWT.NONE);
-		GridData gd_btnStart = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		GridData gd_btnStart = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_btnStart.widthHint = 120;
 		btnStart.setLayoutData(gd_btnStart);
 		btnStart.addSelectionListener(new SelectionAdapter() {
@@ -164,7 +168,7 @@ public class PolarSysRoverClientComposite extends Composite
 		});
 
 		Button btnStop = formToolKit.createButton(compositeStatus, "Stop", SWT.NONE);
-		GridData gd_btnStop = new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1);
+		GridData gd_btnStop = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_btnStop.widthHint = 120;
 		btnStop.setLayoutData(gd_btnStop);
 		btnStop.addSelectionListener(new SelectionAdapter() {
@@ -180,7 +184,7 @@ public class PolarSysRoverClientComposite extends Composite
 
 		txtStatus = formToolKit.createText(compositeStatus, "New Text", SWT.CENTER);
 		txtStatus.setText("Status");
-		GridData gd_txtStatus = new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1);
+		GridData gd_txtStatus = new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1);
 		gd_txtStatus.widthHint = 150;
 		txtStatus.setLayoutData(gd_txtStatus);
 		txtStatus.addModifyListener(new ModifyListener() {
@@ -195,7 +199,7 @@ public class PolarSysRoverClientComposite extends Composite
 		});
 
 		compositeDirection = new Composite(composite, SWT.BORDER);
-		compositeDirection.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1));
+		compositeDirection.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		formToolKit.adapt(compositeDirection);
 		formToolKit.paintBordersFor(compositeDirection);
 		GridLayout gl_compositeDirection = new GridLayout(3, false);
@@ -337,6 +341,7 @@ public class PolarSysRoverClientComposite extends Composite
 		compositeSpeed.setLayout(new GridLayout(1, false));
 
 		lblSpeed = new Label(compositeSpeed, SWT.CENTER);
+		lblSpeed.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		lblSpeed.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		formToolKit.adapt(lblSpeed, true, true);
 		lblSpeed.setText("Speed");
@@ -344,7 +349,7 @@ public class PolarSysRoverClientComposite extends Composite
 		scaleSpeed = new Scale(compositeSpeed, SWT.VERTICAL);
 		scaleSpeed.setMaximum(SPEED_LEVEL_MAX);
 		scaleSpeed.setMinimum(0);
-		GridData gd_scaleSpeed = new GridData(SWT.CENTER, SWT.FILL, false, false, 1, 1);
+		GridData gd_scaleSpeed = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_scaleSpeed.heightHint = 80;
 		scaleSpeed.setLayoutData(gd_scaleSpeed);
 		formToolKit.adapt(scaleSpeed, true, true);
@@ -356,7 +361,7 @@ public class PolarSysRoverClientComposite extends Composite
 		});
 
 		sctnPosition = formToolKit.createSection(this, Section.TITLE_BAR);
-		GridData gd_sctnPosition = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 2);
+		GridData gd_sctnPosition = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_sctnPosition.heightHint = 109;
 		gd_sctnPosition.widthHint = 146;
 		sctnPosition.setLayoutData(gd_sctnPosition);
@@ -369,37 +374,102 @@ public class PolarSysRoverClientComposite extends Composite
 		sctnPosition.setClient(compositePosition);
 		compositePosition.setLayout(new GridLayout(2, false));
 
-		lblX = formToolKit.createLabel(compositePosition, "X:", SWT.NONE);
-		lblX.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblX = formToolKit.createLabel(compositePosition, "X:", SWT.RIGHT);
+		lblX.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 
 		txtX = formToolKit.createText(compositePosition, "New Text", SWT.CENTER);
 		txtX.setEditable(false);
-		GridData gd_txtX = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		GridData gd_txtX = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_txtX.widthHint = 66;
 		txtX.setLayoutData(gd_txtX);
 		txtX.setText(" 0.000 m");
 
-		lblY = formToolKit.createLabel(compositePosition, "Y:", SWT.NONE);
-		lblY.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblY = formToolKit.createLabel(compositePosition, "Y:", SWT.RIGHT);
+		lblY.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 
 		txtY = formToolKit.createText(compositePosition, "New Text", SWT.CENTER);
 		txtY.setEditable(false);
 		txtY.setText(" 0.000 m");
-		GridData gd_txtY = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		GridData gd_txtY = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_txtY.widthHint = 75;
 		txtY.setLayoutData(gd_txtY);
 
-		lblTheta = formToolKit.createLabel(compositePosition, "Theta:", SWT.NONE);
-		lblTheta.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblTheta = formToolKit.createLabel(compositePosition, "Theta:", SWT.RIGHT);
+		lblTheta.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 
 		txtTheta = formToolKit.createText(compositePosition, "New Text", SWT.CENTER);
 		txtTheta.setEditable(false);
 		txtTheta.setText(" 0.000" + DEGREE_SYM);
-		GridData gd_txtTheta = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		GridData gd_txtTheta = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_txtTheta.widthHint = 66;
 		txtTheta.setLayoutData(gd_txtTheta);
 		new Label(compositePosition, SWT.NONE);
 		new Label(compositePosition, SWT.NONE);
+
+		sctnCamera = formToolKit.createSection(this, Section.TITLE_BAR);
+		sctnCamera.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		formToolKit.paintBordersFor(sctnCamera);
+		sctnCamera.setText("Camera");
+
+		compositeCamera = new Composite(sctnCamera, SWT.NONE);
+		formToolKit.adapt(compositeCamera);
+		formToolKit.paintBordersFor(compositeCamera);
+		sctnCamera.setClient(compositeCamera);
+		compositeCamera.setLayout(new GridLayout(1, false));
+		
+		btnTakeSnapshot = new Button(compositeCamera, SWT.NONE);
+		btnTakeSnapshot.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		formToolKit.adapt(btnTakeSnapshot, true, true);
+		btnTakeSnapshot.setText("Take Snapshot");
+		btnTakeSnapshot.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if(roverPlatformClient != null) {
+					Job takeSnapshotJob = new TakeSnapshotJob();
+
+					takeSnapshotJob.schedule();
+				}
+			}
+		});
+
+		btnStartStreaming = new Button(compositeCamera, SWT.NONE);
+		btnStartStreaming.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		btnStartStreaming.setGrayed(true);
+		formToolKit.adapt(btnStartStreaming, true, true);
+		btnStartStreaming.setText("Start Streaming");
+		btnStartStreaming.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if(roverPlatformClient != null) {
+					Job startStreamingJob = new StartStreamingJob();
+
+					startStreamingJob.schedule();
+					
+					btnStartStreaming.setEnabled(false);
+					btnStopStreaming.setEnabled(true);
+				}
+			}
+		});
+
+		btnStopStreaming = new Button(compositeCamera, SWT.NONE);
+		btnStopStreaming.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		formToolKit.adapt(btnStopStreaming, true, true);
+		btnStopStreaming.setText("Stop Streaming");
+		btnStopStreaming.setEnabled(false);
+		btnStopStreaming.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (roverPlatformClient != null) {
+					Job stopStreamingJob = new StopStreamingJob();
+
+					stopStreamingJob.schedule();
+					
+
+					btnStartStreaming.setEnabled(true);
+					btnStopStreaming.setEnabled(false);
+				}
+			}
+		});
 		sctnPowerLevels = formToolKit.createSection(this, Section.TITLE_BAR);
 		GridData gd_sctnPowerLevels = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_sctnPowerLevels.widthHint = 115;
@@ -414,48 +484,48 @@ public class PolarSysRoverClientComposite extends Composite
 		GridLayout gl_compositePowerLevels = new GridLayout(4, false);
 		compositePowerLevels.setLayout(gl_compositePowerLevels);
 
-		lblLeftText = new Label(compositePowerLevels, SWT.NONE);
-		lblLeftText.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblLeftText = new Label(compositePowerLevels, SWT.RIGHT);
+		lblLeftText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		lblLeftText.setText("Left");
 
 		txtPowerLeft = formToolKit.createText(compositePowerLevels, "New Text", SWT.CENTER);
 		txtPowerLeft.setEditable(false);
 		txtPowerLeft.setText(" 0.000");
-		GridData gd_txtPowerLeft = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		GridData gd_txtPowerLeft = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_txtPowerLeft.widthHint = 51;
 		txtPowerLeft.setLayoutData(gd_txtPowerLeft);
-				
-				label = new Label(compositePowerLevels, SWT.CENTER);
-				label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-				formToolKit.adapt(label, true, true);
-				label.setText("/");
-						
-								lblPowerMaxLeft = new Label(compositePowerLevels, SWT.NONE);
-								GridData gd_lblPowerMaxLeft = new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1);
-								gd_lblPowerMaxLeft.widthHint = 45;
-								lblPowerMaxLeft.setLayoutData(gd_lblPowerMaxLeft);
-								formToolKit.adapt(lblPowerMaxLeft, true, true);
-								lblPowerMaxLeft.setText(" 0.000");
 
-		lblRightText = new Label(compositePowerLevels, SWT.NONE);
-		lblRightText.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		label = new Label(compositePowerLevels, SWT.CENTER);
+		label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		formToolKit.adapt(label, true, true);
+		label.setText("/");
+
+		lblPowerMaxLeft = new Label(compositePowerLevels, SWT.NONE);
+		GridData gd_lblPowerMaxLeft = new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1);
+		gd_lblPowerMaxLeft.widthHint = 45;
+		lblPowerMaxLeft.setLayoutData(gd_lblPowerMaxLeft);
+		formToolKit.adapt(lblPowerMaxLeft, true, true);
+		lblPowerMaxLeft.setText(" 0.000");
+
+		lblRightText = new Label(compositePowerLevels, SWT.HORIZONTAL | SWT.RIGHT);
+		lblRightText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		lblRightText.setText("Right");
 
 		txtPowerRight = formToolKit.createText(compositePowerLevels, "New Text", SWT.CENTER);
 		txtPowerRight.setEditable(false);
 		txtPowerRight.setText(" 0.000");
-		GridData gd_txtPowerRight = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		GridData gd_txtPowerRight = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_txtPowerRight.widthHint = 44;
 		txtPowerRight.setLayoutData(gd_txtPowerRight);
-				
-				label_1 = new Label(compositePowerLevels, SWT.CENTER);
-				formToolKit.adapt(label_1, true, true);
-				label_1.setText("/");
-						
-								lblPowerMaxRight = new Label(compositePowerLevels, SWT.NONE);
-								lblPowerMaxRight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-								formToolKit.adapt(lblPowerMaxRight, true, true);
-								lblPowerMaxRight.setText(" 0.000");
+
+		label_1 = new Label(compositePowerLevels, SWT.CENTER);
+		formToolKit.adapt(label_1, true, true);
+		label_1.setText("/");
+
+		lblPowerMaxRight = new Label(compositePowerLevels, SWT.NONE);
+		lblPowerMaxRight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		formToolKit.adapt(lblPowerMaxRight, true, true);
+		lblPowerMaxRight.setText(" 0.000");
 
 		sctnSonar = formToolKit.createSection(this, Section.TITLE_BAR);
 		GridData gd_sctnSonar = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
@@ -473,19 +543,16 @@ public class PolarSysRoverClientComposite extends Composite
 		lblSonarLevelText = new Label(compositeSonar, SWT.NONE);
 		lblSonarLevelText.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblSonarLevelText.setText("Level");
-		
+
 		txtSonar = formToolKit.createText(compositeSonar, "New Text", SWT.CENTER);
 		txtSonar.setText("000");
-		txtSonar.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-				
+		txtSonar.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+
 		m_bindingContext = initDataBindings_();
 	}
 
 	public void setPolarSysRoverClient(PolarSysRoverPlatformClient roverPlatformClient)
-	{		
-		
-		System.out.println("PolarSysRoverClientComposite.setPolarSysRoverClient()");
-		
+	{				
 		if (roverPlatformClient != this.roverPlatformClient)
 		{
 			this.roverPlatformClient = roverPlatformClient;
@@ -599,8 +666,28 @@ public class PolarSysRoverClientComposite extends Composite
 				}
 				}));
 		
-		//IObservableValue observeButton;
-
+		IObservableValue observeEnabledStartStreamingObserveWidget = WidgetProperties.enabled().observe(btnStartStreaming);
+		IObservableValue observeEnabledStopStreamingObserveWidget = WidgetProperties.enabled().observe(btnStartStreaming);
+		IObservableValue xRoverCameraStreamingEnabledObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA).observeDetail(roverPlatformClientBinder);
+		m_bindingContext.bindValue(observeEnabledStartStreamingObserveWidget, xRoverCameraStreamingEnabledObserveValue, 
+				null,
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(PolarSysCamera.class, Boolean.class) 
+				{
+					@Override
+					public Object convert(Object arg0) {
+						return ((PolarSysCamera)arg0).isStreamingEnabled()?  false : true;
+					}
+				}));
+		m_bindingContext.bindValue(observeEnabledStopStreamingObserveWidget, xRoverCameraStreamingEnabledObserveValue, 
+				null,
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(PolarSysCamera.class, Boolean.class) 
+				{
+					@Override
+					public Object convert(Object arg0) {
+						return ((PolarSysCamera)arg0).isStreamingEnabled()?  true : false;
+					}
+				}));
+		
 		return m_bindingContext;
 	}
 	
@@ -796,6 +883,81 @@ public class PolarSysRoverClientComposite extends Composite
 			try
 			{
 				roverPlatformClient.dispose();
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			return Status.OK_STATUS;
+		}					
+	}
+	
+	public class TakeSnapshotJob extends Job
+	{
+		public TakeSnapshotJob()
+		{
+			super("Take a snapshot");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.getFrontCamera().takeSnapshot();
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			return Status.OK_STATUS;
+		}					
+	}
+	
+	public class StartStreamingJob extends Job
+	{
+		public StartStreamingJob ()
+		{
+			super("Start streaming");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.getFrontCamera().commandStreaming(true);
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+				
+			return Status.OK_STATUS;
+		}					
+	}
+	
+	public class StopStreamingJob extends Job
+	{
+		public StopStreamingJob ()
+		{
+			super("Stop streaming");
+			
+			setSystem(true);
+		}
+
+		@Override
+		public IStatus run(IProgressMonitor arg0)
+		{
+			try
+			{
+				roverPlatformClient.getFrontCamera().commandStreaming(false);
 			}
 			catch (Exception ex)
 			{

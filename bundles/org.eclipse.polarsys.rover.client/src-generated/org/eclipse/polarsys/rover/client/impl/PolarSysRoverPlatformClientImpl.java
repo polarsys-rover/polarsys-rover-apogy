@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.polarsys.rover.client.Camera;
+import org.eclipse.polarsys.rover.client.PolarSysCamera;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientFactory;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
@@ -39,8 +39,6 @@ import org.eclipse.polarsys.rover.client.Position;
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#isInitialized <em>Initialized</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#isDisposed <em>Disposed</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getPositionError <em>Position Error</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getLinearVelocity <em>Linear Velocity</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getAngularVelocity <em>Angular Velocity</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getLeftPowerLevel <em>Left Power Level</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getRightPowerLevel <em>Right Power Level</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.impl.PolarSysRoverPlatformClientImpl#getLeftWheelPosition <em>Left Wheel Position</em>}</li>
@@ -117,43 +115,6 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * @ordered
 	 */
 	protected double positionError = POSITION_ERROR_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getLinearVelocity() <em>Linear Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLinearVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double LINEAR_VELOCITY_EDEFAULT = 0.0;
-	/**
-	 * The cached value of the '{@link #getLinearVelocity() <em>Linear Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLinearVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected double linearVelocity = LINEAR_VELOCITY_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getAngularVelocity() <em>Angular Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAngularVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double ANGULAR_VELOCITY_EDEFAULT = 0.0;
-	/**
-	 * The cached value of the '{@link #getAngularVelocity() <em>Angular Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAngularVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected double angularVelocity = ANGULAR_VELOCITY_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getLeftPowerLevel() <em>Left Power Level</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -262,7 +223,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected Camera frontCamera;
+	protected PolarSysCamera frontCamera;
 
 	/**
 	 * The default value of the '{@link #getWheelRadius() <em>Wheel Radius</em>}' attribute.
@@ -532,48 +493,6 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getLinearVelocity() {
-		return linearVelocity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLinearVelocity(double newLinearVelocity) {
-		double oldLinearVelocity = linearVelocity;
-		linearVelocity = newLinearVelocity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY, oldLinearVelocity, linearVelocity));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getAngularVelocity() {
-		return angularVelocity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAngularVelocity(double newAngularVelocity) {
-		double oldAngularVelocity = angularVelocity;
-		angularVelocity = newAngularVelocity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY, oldAngularVelocity, angularVelocity));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public double getLeftPowerLevel() {
 		return leftPowerLevel;
 	}
@@ -730,7 +649,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Camera getFrontCamera() {
+	public PolarSysCamera getFrontCamera() {
 		return frontCamera;
 	}
 
@@ -739,8 +658,8 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFrontCamera(Camera newFrontCamera, NotificationChain msgs) {
-		Camera oldFrontCamera = frontCamera;
+	public NotificationChain basicSetFrontCamera(PolarSysCamera newFrontCamera, NotificationChain msgs) {
+		PolarSysCamera oldFrontCamera = frontCamera;
 		frontCamera = newFrontCamera;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA, oldFrontCamera, newFrontCamera);
@@ -754,7 +673,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFrontCamera(Camera newFrontCamera) {
+	public void setFrontCamera(PolarSysCamera newFrontCamera) {
 		if (newFrontCamera != frontCamera) {
 			NotificationChain msgs = null;
 			if (frontCamera != null)
@@ -939,10 +858,6 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return isDisposed();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR:
 				return getPositionError();
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY:
-				return getLinearVelocity();
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
-				return getAngularVelocity();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
 				return getLeftPowerLevel();
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL:
@@ -998,12 +913,6 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR:
 				setPositionError((Double)newValue);
 				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY:
-				setLinearVelocity((Double)newValue);
-				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
-				setAngularVelocity((Double)newValue);
-				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
 				setLeftPowerLevel((Double)newValue);
 				return;
@@ -1023,7 +932,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				setPosition((Position)newValue);
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA:
-				setFrontCamera((Camera)newValue);
+				setFrontCamera((PolarSysCamera)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1046,12 +955,6 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR:
 				setPositionError(POSITION_ERROR_EDEFAULT);
 				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY:
-				setLinearVelocity(LINEAR_VELOCITY_EDEFAULT);
-				return;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
-				setAngularVelocity(ANGULAR_VELOCITY_EDEFAULT);
-				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
 				setLeftPowerLevel(LEFT_POWER_LEVEL_EDEFAULT);
 				return;
@@ -1071,7 +974,7 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				setPosition((Position)null);
 				return;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA:
-				setFrontCamera((Camera)null);
+				setFrontCamera((PolarSysCamera)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1091,10 +994,6 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 				return disposed != DISPOSED_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION_ERROR:
 				return positionError != POSITION_ERROR_EDEFAULT;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LINEAR_VELOCITY:
-				return linearVelocity != LINEAR_VELOCITY_EDEFAULT;
-			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__ANGULAR_VELOCITY:
-				return angularVelocity != ANGULAR_VELOCITY_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL:
 				return leftPowerLevel != LEFT_POWER_LEVEL_EDEFAULT;
 			case PolarSysRoverClientPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT__RIGHT_POWER_LEVEL:
@@ -1181,10 +1080,6 @@ public abstract class PolarSysRoverPlatformClientImpl extends MinimalEObjectImpl
 		result.append(disposed);
 		result.append(", positionError: ");
 		result.append(positionError);
-		result.append(", linearVelocity: ");
-		result.append(linearVelocity);
-		result.append(", angularVelocity: ");
-		result.append(angularVelocity);
 		result.append(", leftPowerLevel: ");
 		result.append(leftPowerLevel);
 		result.append(", rightPowerLevel: ");

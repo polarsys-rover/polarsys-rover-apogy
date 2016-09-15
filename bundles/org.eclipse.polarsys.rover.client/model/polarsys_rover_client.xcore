@@ -35,6 +35,7 @@ package org.eclipse.polarsys.rover.client
 
 import ca.gc.asc_csa.apogy.common.emf.Disposable
 import ca.gc.asc_csa.apogy.addons.sensors.imaging.AbstractCamera
+import ca.gc.asc_csa.apogy.addons.sensors.fov.RectangularFrustrumFieldOfView
 
 /*
  * This class is used to represent a position of a particular object
@@ -67,7 +68,47 @@ class Position
 	double theta = "0.0"
 }
 
-class Camera extends AbstractCamera{	
+abstract class PolarSysCamera extends AbstractCamera{
+	/*
+	 * The field of view for this particular camera
+	 */
+	@GenModel(notify="true",
+			  propertyCategory="Field Of View")
+	contains RectangularFrustrumFieldOfView[1] fov
+	
+	/*
+	 * This is whether or not the camera has been
+	 * successfully initialized; initially false
+	 * @see #init()
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="Status")
+	boolean initialized = "false"
+	
+	/* 
+	 * This operation performs any required initialization
+	 * operations for the camera.  This is typically called
+	 * before any other operation.
+	 * @return True if the initialization was successful, false otherwise.
+	 */
+	 
+	op boolean init()
+	/*
+	 * Whether or not image streaming is enabled.
+	 */
+	@GenModel(children="false",
+			  notify="true",
+			  property="Readonly",
+			  propertyCategory="Status")
+	boolean streamingEnabled = "false"
+	
+	/*
+	 * This operation enables or disables image streaming.
+	 * When image streaming is enabled, images are updated at about 1 Hz.
+	 */
+	op boolean commandStreaming(boolean streamingEnabled)
 }
 
 /*
@@ -103,27 +144,7 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 			  propertyCategory="Position",
 			  apogy_units="m")
 	double positionError = "0.0"
-	/* 
-	 * This is the mobile platform's current linear velocity
-	 * (in metres per second)
-	 */
-	@GenModel(children="false",
-			  notify="true",
-			  property="Readonly",
-			  propertyCategory="Velocities",
-			  apogy_units="m/s")
-	double linearVelocity = "0.0"
-	/* 
-	 * This is the mobile platform's current angular velocity
-	 * (in radians per second).
-	 */
-	@GenModel(children="false",
-			  notify="true",
-			  property="Readonly",
-			  propertyCategory="Velocities",
-			  apogy_units="rad/s")
-	double angularVelocity = "0.0"
-	
+
 	/* 
 	 * This is the current angular position (in radians) of
 	 * the mobile platform's front left wheels.
@@ -183,7 +204,12 @@ abstract class PolarSysRoverPlatformClient extends Disposable{
 	/* 
 	 * Front Camera.
 	 */
-	contains Camera[0..1] frontCamera		
+	/* 
+	 * This is the mobile platform's current position
+	 */
+	@GenModel(notify="true",
+			  propertyCategory="Position")
+	contains transient PolarSysCamera[1] frontCamera		
 		
 	
 	/*
