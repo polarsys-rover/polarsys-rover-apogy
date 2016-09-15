@@ -128,7 +128,7 @@ public class PolarSysRoverClientComposite extends Composite
 		setLayout(new GridLayout(5, false));
 		
 		sctnControls = formToolKit.createSection(this, Section.TITLE_BAR);
-		GridData gd_sctnControls = new GridData(SWT.FILL, SWT.FILL, false, false, 3, 2);
+		GridData gd_sctnControls = new GridData(SWT.FILL, SWT.FILL, true, false, 3, 2);
 		gd_sctnControls.widthHint = 148;
 		sctnControls.setLayoutData(gd_sctnControls);
 		formToolKit.paintBordersFor(sctnControls);
@@ -153,7 +153,7 @@ public class PolarSysRoverClientComposite extends Composite
 		new Label(compositeStatus, SWT.NONE);
 
 		Button btnStart = formToolKit.createButton(compositeStatus, "Start", SWT.NONE);
-		GridData gd_btnStart = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_btnStart = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_btnStart.widthHint = 120;
 		btnStart.setLayoutData(gd_btnStart);
 		btnStart.addSelectionListener(new SelectionAdapter() {
@@ -168,7 +168,7 @@ public class PolarSysRoverClientComposite extends Composite
 		});
 
 		Button btnStop = formToolKit.createButton(compositeStatus, "Stop", SWT.NONE);
-		GridData gd_btnStop = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_btnStop = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_btnStop.widthHint = 120;
 		btnStop.setLayoutData(gd_btnStop);
 		btnStop.addSelectionListener(new SelectionAdapter() {
@@ -184,7 +184,7 @@ public class PolarSysRoverClientComposite extends Composite
 
 		txtStatus = formToolKit.createText(compositeStatus, "New Text", SWT.CENTER);
 		txtStatus.setText("Status");
-		GridData gd_txtStatus = new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1);
+		GridData gd_txtStatus = new GridData(SWT.FILL, SWT.FILL, false, false, 2, 1);
 		gd_txtStatus.widthHint = 150;
 		txtStatus.setLayoutData(gd_txtStatus);
 		txtStatus.addModifyListener(new ModifyListener() {
@@ -208,7 +208,7 @@ public class PolarSysRoverClientComposite extends Composite
 		new Label(compositeDirection, SWT.NONE);
 
 		Button btnFront = new Button(compositeDirection, SWT.NONE);
-		GridData gd_btnFront = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		GridData gd_btnFront = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_btnFront.widthHint = 75;
 		btnFront.setLayoutData(gd_btnFront);
 		formToolKit.adapt(btnFront, true, true);
@@ -240,7 +240,7 @@ public class PolarSysRoverClientComposite extends Composite
 		new Label(compositeDirection, SWT.NONE);
 
 		Button btnLeft = new Button(compositeDirection, SWT.NONE);
-		GridData gd_btnLeft = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		GridData gd_btnLeft = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_btnLeft.widthHint = 75;
 		btnLeft.setLayoutData(gd_btnLeft);
 		formToolKit.adapt(btnLeft, true, true);
@@ -272,7 +272,7 @@ public class PolarSysRoverClientComposite extends Composite
 		new Label(compositeDirection, SWT.NONE);
 
 		Button btnRight = new Button(compositeDirection, SWT.NONE);
-		GridData gd_btnRight = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_btnRight = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_btnRight.widthHint = 75;
 		btnRight.setLayoutData(gd_btnRight);
 		formToolKit.adapt(btnRight, true, true);
@@ -304,7 +304,7 @@ public class PolarSysRoverClientComposite extends Composite
 		new Label(compositeDirection, SWT.NONE);
 
 		Button btnBack = new Button(compositeDirection, SWT.NONE);
-		GridData gd_btnBack = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		GridData gd_btnBack = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_btnBack.widthHint = 75;
 		btnBack.setLayoutData(gd_btnBack);
 		formToolKit.adapt(btnBack, true, true);
@@ -341,7 +341,7 @@ public class PolarSysRoverClientComposite extends Composite
 		compositeSpeed.setLayout(new GridLayout(1, false));
 
 		lblSpeed = new Label(compositeSpeed, SWT.CENTER);
-		lblSpeed.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		lblSpeed.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		lblSpeed.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		formToolKit.adapt(lblSpeed, true, true);
 		lblSpeed.setText("Speed");
@@ -349,7 +349,7 @@ public class PolarSysRoverClientComposite extends Composite
 		scaleSpeed = new Scale(compositeSpeed, SWT.VERTICAL);
 		scaleSpeed.setMaximum(SPEED_LEVEL_MAX);
 		scaleSpeed.setMinimum(0);
-		GridData gd_scaleSpeed = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_scaleSpeed = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_scaleSpeed.heightHint = 80;
 		scaleSpeed.setLayoutData(gd_scaleSpeed);
 		formToolKit.adapt(scaleSpeed, true, true);
@@ -361,7 +361,7 @@ public class PolarSysRoverClientComposite extends Composite
 		});
 
 		sctnPosition = formToolKit.createSection(this, Section.TITLE_BAR);
-		GridData gd_sctnPosition = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_sctnPosition = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_sctnPosition.heightHint = 109;
 		gd_sctnPosition.widthHint = 146;
 		sctnPosition.setLayoutData(gd_sctnPosition);
@@ -375,27 +375,27 @@ public class PolarSysRoverClientComposite extends Composite
 		compositePosition.setLayout(new GridLayout(2, false));
 
 		lblX = formToolKit.createLabel(compositePosition, "X:", SWT.RIGHT);
-		lblX.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		lblX.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		txtX = formToolKit.createText(compositePosition, "New Text", SWT.CENTER);
 		txtX.setEditable(false);
-		GridData gd_txtX = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_txtX = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_txtX.widthHint = 66;
 		txtX.setLayoutData(gd_txtX);
 		txtX.setText(" 0.000 m");
 
 		lblY = formToolKit.createLabel(compositePosition, "Y:", SWT.RIGHT);
-		lblY.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		lblY.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		txtY = formToolKit.createText(compositePosition, "New Text", SWT.CENTER);
 		txtY.setEditable(false);
 		txtY.setText(" 0.000 m");
-		GridData gd_txtY = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		GridData gd_txtY = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_txtY.widthHint = 75;
 		txtY.setLayoutData(gd_txtY);
 
 		lblTheta = formToolKit.createLabel(compositePosition, "Theta:", SWT.RIGHT);
-		lblTheta.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		lblTheta.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		txtTheta = formToolKit.createText(compositePosition, "New Text", SWT.CENTER);
 		txtTheta.setEditable(false);
@@ -407,7 +407,7 @@ public class PolarSysRoverClientComposite extends Composite
 		new Label(compositePosition, SWT.NONE);
 
 		sctnCamera = formToolKit.createSection(this, Section.TITLE_BAR);
-		sctnCamera.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		sctnCamera.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		formToolKit.paintBordersFor(sctnCamera);
 		sctnCamera.setText("Camera");
 
@@ -418,7 +418,7 @@ public class PolarSysRoverClientComposite extends Composite
 		compositeCamera.setLayout(new GridLayout(1, false));
 		
 		btnTakeSnapshot = new Button(compositeCamera, SWT.NONE);
-		btnTakeSnapshot.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		btnTakeSnapshot.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		formToolKit.adapt(btnTakeSnapshot, true, true);
 		btnTakeSnapshot.setText("Take Snapshot");
 		btnTakeSnapshot.addSelectionListener(new SelectionAdapter() {
@@ -433,7 +433,7 @@ public class PolarSysRoverClientComposite extends Composite
 		});
 
 		btnStartStreaming = new Button(compositeCamera, SWT.NONE);
-		btnStartStreaming.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		btnStartStreaming.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		btnStartStreaming.setGrayed(true);
 		formToolKit.adapt(btnStartStreaming, true, true);
 		btnStartStreaming.setText("Start Streaming");
@@ -452,7 +452,7 @@ public class PolarSysRoverClientComposite extends Composite
 		});
 
 		btnStopStreaming = new Button(compositeCamera, SWT.NONE);
-		btnStopStreaming.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		btnStopStreaming.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		formToolKit.adapt(btnStopStreaming, true, true);
 		btnStopStreaming.setText("Stop Streaming");
 		btnStopStreaming.setEnabled(false);
@@ -471,7 +471,7 @@ public class PolarSysRoverClientComposite extends Composite
 			}
 		});
 		sctnPowerLevels = formToolKit.createSection(this, Section.TITLE_BAR);
-		GridData gd_sctnPowerLevels = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_sctnPowerLevels = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_sctnPowerLevels.widthHint = 115;
 		sctnPowerLevels.setLayoutData(gd_sctnPowerLevels);
 		formToolKit.paintBordersFor(sctnPowerLevels);
@@ -485,7 +485,7 @@ public class PolarSysRoverClientComposite extends Composite
 		compositePowerLevels.setLayout(gl_compositePowerLevels);
 
 		lblLeftText = new Label(compositePowerLevels, SWT.RIGHT);
-		lblLeftText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		lblLeftText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		lblLeftText.setText("Left");
 
 		txtPowerLeft = formToolKit.createText(compositePowerLevels, "New Text", SWT.CENTER);
@@ -496,19 +496,19 @@ public class PolarSysRoverClientComposite extends Composite
 		txtPowerLeft.setLayoutData(gd_txtPowerLeft);
 
 		label = new Label(compositePowerLevels, SWT.CENTER);
-		label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolKit.adapt(label, true, true);
 		label.setText("/");
 
 		lblPowerMaxLeft = new Label(compositePowerLevels, SWT.NONE);
-		GridData gd_lblPowerMaxLeft = new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1);
+		GridData gd_lblPowerMaxLeft = new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1);
 		gd_lblPowerMaxLeft.widthHint = 45;
 		lblPowerMaxLeft.setLayoutData(gd_lblPowerMaxLeft);
 		formToolKit.adapt(lblPowerMaxLeft, true, true);
 		lblPowerMaxLeft.setText(" 0.000");
 
 		lblRightText = new Label(compositePowerLevels, SWT.HORIZONTAL | SWT.RIGHT);
-		lblRightText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		lblRightText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		lblRightText.setText("Right");
 
 		txtPowerRight = formToolKit.createText(compositePowerLevels, "New Text", SWT.CENTER);
@@ -519,16 +519,17 @@ public class PolarSysRoverClientComposite extends Composite
 		txtPowerRight.setLayoutData(gd_txtPowerRight);
 
 		label_1 = new Label(compositePowerLevels, SWT.CENTER);
+		label_1.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
 		formToolKit.adapt(label_1, true, true);
 		label_1.setText("/");
 
 		lblPowerMaxRight = new Label(compositePowerLevels, SWT.NONE);
-		lblPowerMaxRight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		lblPowerMaxRight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolKit.adapt(lblPowerMaxRight, true, true);
 		lblPowerMaxRight.setText(" 0.000");
 
 		sctnSonar = formToolKit.createSection(this, Section.TITLE_BAR);
-		GridData gd_sctnSonar = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_sctnSonar = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_sctnSonar.widthHint = 114;
 		sctnSonar.setLayoutData(gd_sctnSonar);
 		formToolKit.paintBordersFor(sctnSonar);
@@ -541,7 +542,7 @@ public class PolarSysRoverClientComposite extends Composite
 		compositeSonar.setLayout(new GridLayout(2, false));
 
 		lblSonarLevelText = new Label(compositeSonar, SWT.NONE);
-		lblSonarLevelText.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblSonarLevelText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		lblSonarLevelText.setText("Level");
 
 		txtSonar = formToolKit.createText(compositeSonar, "New Text", SWT.CENTER);
