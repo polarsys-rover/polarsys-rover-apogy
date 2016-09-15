@@ -32,20 +32,23 @@ import org.eclipse.ui.forms.widgets.Section;
 
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 
-
+import ca.gc.asc_csa.apogy.core.invocator.ApogyCoreInvocatorFacade;
+import ca.gc.asc_csa.apogy.core.invocator.ApogyCoreInvocatorPackage;
+import ca.gc.asc_csa.apogy.core.invocator.InvocatorSession;
 
 
 public class PolarSysRoverSessionComposite extends Composite
 {
 	private DataBindingContext m_bindingContext;
-	private EMFEcoreInvocatorFacade ecoreInvocatorFacade = EMFEcoreInvocatorFacade.INSTANCE;
+	private ApogyCoreInvocatorFacade ecoreInvocatorFacade = ApogyCoreInvocatorFacade.INSTANCE;
 	private PolarSysRoverPlatformClient roverPlatformClient;
 	private final FormToolkit formToolKit = new FormToolkit(Display.getDefault());
 	private WritableValue roverPlatformClientBinder;
+	
+	private Label lblStatus;
 		
 	
 	/**
@@ -90,7 +93,7 @@ public class PolarSysRoverSessionComposite extends Composite
 		formToolKit.adapt(btnNewButton, true, true);
 		btnNewButton.setText("Clear Instances");
 		
-		Label lblStatus = new Label(composite, SWT.BORDER | SWT.CENTER);
+		lblStatus = new Label(composite, SWT.BORDER | SWT.CENTER);
 		lblStatus.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 		formToolKit.adapt(lblStatus, true, true);
 		lblStatus.setText("Status");
@@ -145,18 +148,20 @@ public class PolarSysRoverSessionComposite extends Composite
 		
 		
 		/** Invocator Facade Active Session Observable. */
-		IObservableValue ecoreInvocatorFacadeActiveInvocatorSessionObserveValue = EMFObservables.observeValue( ecoreInvocatorFacade, EMFEcoreInvocatorPackage.Literals.EMF_ECORE_INVOCATOR_FACADE__ACTIVE_INVOCATOR_SESSION );
+		IObservableValue ecoreInvocatorFacadeActiveInvocatorSessionObserveValue = EMFObservables.observeValue(ecoreInvocatorFacade, ApogyCoreInvocatorPackage.Literals.APOGY_CORE_INVOCATOR_FACADE__ACTIVE_INVOCATOR_SESSION);
 
 		/** Status Binding. */
-		IObservableValue observeTextStatusObserveWidget = WidgetProperties.text().observe( textStatus );
-		m_bindingContext.bindValue( observeTextStatusObserveWidget, ecoreInvocatorFacadeActiveInvocatorSessionObserveValue, null, new UpdateValueStrategy().setConverter( new Converter( InvocatorSession.class, String.class )
-		{
-			@Override
-			public Object convert( Object fromObject )
-			{
-				return fromObject == null ? "No Active Session" : "Session Ready";
-			}
-		} ) );
+		IObservableValue observeTextStatusObserveWidget = WidgetProperties.text().observe(lblStatus);
+		m_bindingContext.bindValue( observeTextStatusObserveWidget, ecoreInvocatorFacadeActiveInvocatorSessionObserveValue, 
+				null,
+				new UpdateValueStrategy().setConverter( new Converter( InvocatorSession.class, String.class )
+				{
+					@Override
+					public Object convert( Object fromObject )
+					{
+						return fromObject == null ? "No Active Session" : "Session Ready";
+					}
+		}));
 		
 		
 		
