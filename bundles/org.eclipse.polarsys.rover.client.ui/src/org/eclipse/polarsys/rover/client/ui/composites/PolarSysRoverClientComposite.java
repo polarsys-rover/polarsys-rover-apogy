@@ -53,8 +53,6 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-
-
 public class PolarSysRoverClientComposite extends Composite
 {
 	private DataBindingContext m_bindingContext;
@@ -156,6 +154,9 @@ public class PolarSysRoverClientComposite extends Composite
 		GridData gd_btnStart = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_btnStart.widthHint = 120;
 		btnStart.setLayoutData(gd_btnStart);
+		/**
+		 * Add a listener that initiates the platform client when the button is selected
+		 */
 		btnStart.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -171,6 +172,9 @@ public class PolarSysRoverClientComposite extends Composite
 		GridData gd_btnStop = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_btnStop.widthHint = 120;
 		btnStop.setLayoutData(gd_btnStop);
+		/**
+		 * Add a listener that disposes the platform client when the button is selected
+		 */
 		btnStop.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -187,6 +191,9 @@ public class PolarSysRoverClientComposite extends Composite
 		GridData gd_txtStatus = new GridData(SWT.FILL, SWT.FILL, false, false, 2, 1);
 		gd_txtStatus.widthHint = 150;
 		txtStatus.setLayoutData(gd_txtStatus);
+		/**
+		 * Add a listener that changes the background color of the label when the label's text is modified
+		 */
 		txtStatus.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
@@ -213,6 +220,12 @@ public class PolarSysRoverClientComposite extends Composite
 		btnFront.setLayoutData(gd_btnFront);
 		formToolKit.adapt(btnFront, true, true);
 		btnFront.setText("Front");
+		/**
+		 * Add a listener that makes the platform 
+		 * go forward if the mouse is pressed down on the button
+		 * or
+		 * stop completely when the mouse is released
+		 */
 		btnFront.addMouseListener(new MouseListener() {
 
 			@Override
@@ -245,6 +258,12 @@ public class PolarSysRoverClientComposite extends Composite
 		btnLeft.setLayoutData(gd_btnLeft);
 		formToolKit.adapt(btnLeft, true, true);
 		btnLeft.setText("Left");
+		/**
+		 * Add a listener that makes the platform 
+		 * go left if the mouse is pressed down on the button
+		 * or
+		 * stop completely when the mouse is released
+		 */
 		btnLeft.addMouseListener(new MouseListener() {
 
 			@Override
@@ -277,6 +296,12 @@ public class PolarSysRoverClientComposite extends Composite
 		btnRight.setLayoutData(gd_btnRight);
 		formToolKit.adapt(btnRight, true, true);
 		btnRight.setText("Right");
+		/**
+		 * Add a listener that makes the platform 
+		 * go right if the mouse is pressed down on the button
+		 * or
+		 * stop completely when the mouse is released
+		 */
 		btnRight.addMouseListener(new MouseListener() {
 
 			@Override
@@ -298,7 +323,7 @@ public class PolarSysRoverClientComposite extends Composite
 			}
 
 			@Override
-			public void mouseDoubleClick(MouseEvent e) {
+			public void mouseDoubleClick(MouseEvent e) {		
 			}
 		});
 		new Label(compositeDirection, SWT.NONE);
@@ -309,6 +334,12 @@ public class PolarSysRoverClientComposite extends Composite
 		btnBack.setLayoutData(gd_btnBack);
 		formToolKit.adapt(btnBack, true, true);
 		btnBack.setText("Back");
+		/**
+		 * Add a listener that makes the platform 
+		 * go backward if the mouse is pressed down on the button
+		 * or
+		 * stop completely when the mouse is released
+		 */
 		btnBack.addMouseListener(new MouseListener() {
 
 			@Override
@@ -353,6 +384,9 @@ public class PolarSysRoverClientComposite extends Composite
 		gd_scaleSpeed.heightHint = 80;
 		scaleSpeed.setLayoutData(gd_scaleSpeed);
 		formToolKit.adapt(scaleSpeed, true, true);
+		/**
+		 * Add a listener that sets the speed according to the value selected on the scale
+		 */
 		scaleSpeed.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -421,6 +455,9 @@ public class PolarSysRoverClientComposite extends Composite
 		btnTakeSnapshot.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		formToolKit.adapt(btnTakeSnapshot, true, true);
 		btnTakeSnapshot.setText("Take Snapshot");
+		/**
+		 * Add a listener that takes a snapshot when the button is selected
+		 */
 		btnTakeSnapshot.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -434,9 +471,12 @@ public class PolarSysRoverClientComposite extends Composite
 
 		btnStartStreaming = new Button(compositeCamera, SWT.NONE);
 		btnStartStreaming.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
-		btnStartStreaming.setGrayed(true);
+		btnStartStreaming.setEnabled(true);
 		formToolKit.adapt(btnStartStreaming, true, true);
 		btnStartStreaming.setText("Start Streaming");
+		/**
+		 * Add a listener that starts streaming when the button is selected
+		 */
 		btnStartStreaming.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -444,7 +484,7 @@ public class PolarSysRoverClientComposite extends Composite
 					Job startStreamingJob = new StartStreamingJob();
 
 					startStreamingJob.schedule();
-					
+					// Disable the start button and enable the stop button
 					btnStartStreaming.setEnabled(false);
 					btnStopStreaming.setEnabled(true);
 				}
@@ -456,6 +496,9 @@ public class PolarSysRoverClientComposite extends Composite
 		formToolKit.adapt(btnStopStreaming, true, true);
 		btnStopStreaming.setText("Stop Streaming");
 		btnStopStreaming.setEnabled(false);
+		/**
+		 * Add a listener that stops streaming when the button is selected
+		 */
 		btnStopStreaming.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -464,7 +507,7 @@ public class PolarSysRoverClientComposite extends Composite
 
 					stopStreamingJob.schedule();
 					
-
+					// Disable the stop button and enable the start button
 					btnStartStreaming.setEnabled(true);
 					btnStopStreaming.setEnabled(false);
 				}
@@ -552,32 +595,52 @@ public class PolarSysRoverClientComposite extends Composite
 		m_bindingContext = initDataBindings_();
 	}
 
+	/**
+	 * Sets the {@link PolarSysRoverPlatformClient} to be controlled by this composite.
+	 * 
+	 * @param PolarSysRoverPlatformClient
+	 *            Reference to the {@link PolarSysRoverPlatformClient}.
+	 */
 	public void setPolarSysRoverClient(PolarSysRoverPlatformClient roverPlatformClient)
 	{				
 		if (roverPlatformClient != this.roverPlatformClient)
 		{
 			this.roverPlatformClient = roverPlatformClient;
+			// Set the binder for databinding
 			this.roverPlatformClientBinder.setValue(roverPlatformClient);						
 		}
 	}	
 	
+	/**
+	 * Returns the actual {@link PolarSysRoverPlatformClient} controlled by this composite.
+	 * 
+	 * @return Reference to the PolarSysRoverPlatformClient
+	 */
 	public PolarSysRoverPlatformClient getPolarSysRoverPlatformClient()
 	{
 		return roverPlatformClient;
 	}
 	
+	/**
+	 * Disposes the actual composite.
+	 */
 	@Override
 	public void dispose() {
 		m_bindingContext.dispose();
 		super.dispose();		
 	}
 	
+	/**
+	 * Creates and returns the data bindings associated with the active session.
+	 * 
+	 * @return Reference to the bindings.
+	 */
 	protected DataBindingContext initDataBindings_() {
 		
 		m_bindingContext = new DataBindingContext();
 		roverPlatformClientBinder = new WritableValue();
 		
-		
+		/** Data binding for the position */
 		IObservableValue observeTxtXObserveWidget = WidgetProperties.text().observe(txtX);
 		IObservableValue observeTxtYObserveWidget = WidgetProperties.text().observe(txtY);
 		IObservableValue observeTxtThetaObserveWidget = WidgetProperties.text().observe(txtTheta);
@@ -616,6 +679,7 @@ public class PolarSysRoverClientComposite extends Composite
 				}));
 		
 
+		/** Data binding for the wheel powers */
 		IObservableValue observeTxtPowerLeftObserveWidget = WidgetProperties.text().observe(txtPowerLeft);
 		IObservableValue xRoverPlatformClientgetLeftPowerObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__LEFT_POWER_LEVEL).observeDetail(roverPlatformClientBinder);
 		m_bindingContext.bindValue(observeTxtPowerLeftObserveWidget, xRoverPlatformClientgetLeftPowerObserveValue, null, new DoubleToStringUpdateValueStrategy());
@@ -630,7 +694,7 @@ public class PolarSysRoverClientComposite extends Composite
 		m_bindingContext.bindValue(observeTextLblPowerMaxLeftObserveWidget, xRoverPlatformClientgetPowerMaxObserveValue, null, new DoubleToStringUpdateValueStrategy());
 		m_bindingContext.bindValue(observeTextLblPowerMaxRightObserveWidget, xRoverPlatformClientgetPowerMaxObserveValue, null, new DoubleToStringUpdateValueStrategy());
 
-		
+		/** Data binding for the sonar */
 		IObservableValue observeTxtSonarObserveWidget = WidgetProperties.text().observe(txtSonar);
 		IObservableValue xRoverPlatformClientgetSonarLevelObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_SONAR).observeDetail(roverPlatformClientBinder);
 		m_bindingContext.bindValue(observeTxtSonarObserveWidget, xRoverPlatformClientgetSonarLevelObserveValue, 
@@ -643,7 +707,7 @@ public class PolarSysRoverClientComposite extends Composite
 					}
 				}));
 		
-
+		/** Data binding to know if the platform client is initialized*/
 		IObservableValue observeTextTxtStatusObserveWidget = WidgetProperties.text().observe(txtStatus);
 		IObservableValue xRoverPlatformClientInitializedLevelObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED).observeDetail(roverPlatformClientBinder);
 		m_bindingContext.bindValue(observeTextTxtStatusObserveWidget, xRoverPlatformClientInitializedLevelObserveValue, 
@@ -656,6 +720,7 @@ public class PolarSysRoverClientComposite extends Composite
 					}
 				}));
 		
+		/** Data binding to know if the platform client is disposed*/
 		IObservableValue xRoverPlatformClientDisposedLevelObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__DISPOSED).observeDetail(roverPlatformClientBinder);
 		m_bindingContext.bindValue(observeTextTxtStatusObserveWidget, xRoverPlatformClientDisposedLevelObserveValue,
 				null,
@@ -667,6 +732,7 @@ public class PolarSysRoverClientComposite extends Composite
 				}
 				}));
 		
+		/** Data binding for the streaming*/
 		IObservableValue observeEnabledStartStreamingObserveWidget = WidgetProperties.enabled().observe(btnStartStreaming);
 		IObservableValue observeEnabledStopStreamingObserveWidget = WidgetProperties.enabled().observe(btnStartStreaming);
 		IObservableValue xRoverCameraStreamingEnabledObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA).observeDetail(roverPlatformClientBinder);
@@ -692,6 +758,9 @@ public class PolarSysRoverClientComposite extends Composite
 		return m_bindingContext;
 	}
 	
+	/**
+	 * This class is used to convert a double to a string 
+	 */
 	private class DoubleToStringUpdateValueStrategy extends UpdateValueStrategy
 	{
 		public DoubleToStringUpdateValueStrategy()
@@ -699,6 +768,9 @@ public class PolarSysRoverClientComposite extends Composite
 			setConverter(new Converter(double.class, String.class)
 			{
 				@Override
+				/**
+				 * @return A string with the first three decimals of the orignal double
+				 */
 				public Object convert(Object arg0)
 				{
 					return String.format(" %1$.3f", ((Double)arg0));
@@ -707,6 +779,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}
 	}
 
+	/**
+	 * This class is used to create a job to move the platform forward
+	 */
 	public class FrontJob extends Job
 	{
 		public FrontJob()
@@ -733,6 +808,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}					
 	}
 	
+	/**
+	 * This class is used to create a job to move the platform backward
+	 */
 	public class BackJob extends Job
 	{
 		public BackJob()
@@ -759,6 +837,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}					
 	}
 	
+	/**
+	 * This class is used to create a job to turn the platform left
+	 */
 	public class LeftJob extends Job
 	{
 		public LeftJob()
@@ -785,6 +866,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}					
 	}
 	
+	/**
+	 * This class is used to create a job to turn the platform right
+	 */
 	public class RightJob extends Job
 	{
 		public RightJob()
@@ -811,6 +895,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}					
 	}
 	
+	/**
+	 * This class is used to create a job to stop the platform
+	 */
 	public class StopJob extends Job
 	{
 		public StopJob()
@@ -836,6 +923,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}					
 	}
 	
+	/**
+	 * This class is used to create a job to initialize the platform
+	 */
 	public class InitJob extends Job
 	{
 		public InitJob()
@@ -869,6 +959,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}					
 	}
 	
+	/**
+	 * This class is used to create a job to dispose the platform
+	 */
 	public class DisposeJob extends Job
 	{
 		public DisposeJob()
@@ -894,6 +987,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}					
 	}
 	
+	/**
+	 * This class is used to create a job to take a snapshot with the camera
+	 */
 	public class TakeSnapshotJob extends Job
 	{
 		public TakeSnapshotJob()
@@ -919,6 +1015,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}					
 	}
 	
+	/**
+	 * This class is used to create a job to start streaming with the camera
+	 */
 	public class StartStreamingJob extends Job
 	{
 		public StartStreamingJob ()
@@ -944,6 +1043,9 @@ public class PolarSysRoverClientComposite extends Composite
 		}					
 	}
 	
+	/**
+	 * This class is used to create a job to stop streaming with the camera
+	 */
 	public class StopStreamingJob extends Job
 	{
 		public StopStreamingJob ()
