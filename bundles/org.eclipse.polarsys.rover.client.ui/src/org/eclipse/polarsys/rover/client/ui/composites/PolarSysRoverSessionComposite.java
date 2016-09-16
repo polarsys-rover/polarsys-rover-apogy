@@ -19,6 +19,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
+import org.eclipse.polarsys.rover.client.ui.PolarSysRoverPlatformClientUiFacade;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -204,6 +205,8 @@ public class PolarSysRoverSessionComposite extends Composite
 		} ) );
 		*/
 		
+		
+		
 		return m_bindingContext;
 	}
 	
@@ -211,19 +214,19 @@ public class PolarSysRoverSessionComposite extends Composite
 	/** FIXME: See if needed
 	 * Establishes the connection with the PolarSysRoverPlatformClient.
 	 */
-	/*protected void start()
+	protected void start()
 	{
-		PolarSysRoverPlatformClientFacade.INSTANCE.start();
-		setPolarSysRoverClient(PolarSysRoverPlatformClientFacade.INSTANCE.getActivePolarSysRoverPlatformClient());
+		PolarSysRoverPlatformClientUiFacade.INSTANCE.start();
+		setPolarSysRoverClient(PolarSysRoverPlatformClientUiFacade.INSTANCE.getActivePolarSysRoverPlatformClient());
 	}
 
 	/** FIXME: See if needed
 	 * Stops the connection with the PolarSysRoverPlatformClient.
 	 */
-	/*protected void stop()
+	protected void stop()
 	{
-		PolarSysRoverPlatformClientFacade.INSTANCE.stop();
+		PolarSysRoverPlatformClientUiFacade.INSTANCE.stop();
 		setPolarSysRoverClient(null);
-	}*/
+	}
 }
 
