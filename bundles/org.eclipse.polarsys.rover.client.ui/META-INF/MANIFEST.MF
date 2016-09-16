@@ -35,11 +35,13 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.107.0",
  org.eclipse.equinox.registry;bundle-version="3.6.0",
  ca.gc.asc_csa.apogy.common.ui;bundle-version="0.5.0",
  ca.gc.asc_csa.apogy.common.databinding;bundle-version="0.5.0",
- ca.gc.asc_csa.apogy.common.log;bundle-version="0.5.0"
+ ca.gc.asc_csa.apogy.common.log;bundle-version="0.5.0",
+ ca.gc.asc_csa.apogy.core.invocator;bundle-version="0.5.0",
+ org.eclipse.polarsys.rover.client.edit;bundle-version="0.1.0",
+ ca.gc.asc_csa.apogy.core.environment;bundle-version="0.5.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.polarsys.rover.client.ui.composites,
  org.eclipse.wb.swt,
  org.eclipse.polarsys.rover.client.ui,
  org.eclipse.polarsys.rover.client.ui.impl,
  org.eclipse.polarsys.rover.client.ui.util
-Import-Package: ca.gc.asc_csa.apogy.core.invocator
