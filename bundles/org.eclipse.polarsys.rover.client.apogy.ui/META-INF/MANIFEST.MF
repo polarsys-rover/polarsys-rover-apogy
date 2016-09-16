@@ -15,3 +15,4 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.eclipse.polarsys.rover.client.apogy.ui.Activator
+Import-Package: org.eclipse.polarsys.rover.client.ui.composites

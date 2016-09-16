@@ -18,14 +18,14 @@ import java.util.List;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
-import org.eclipse.polarsys.rover.client.ui.composites.PolarSysRoverClientComposite;
+import org.eclipse.polarsys.rover.client.ui.composites.PolarSysRoverSessionComposite;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
 import ca.gc.asc_csa.apogy.common.converters.ui.ApogyCommonConvertersUIFacade;
 import ca.gc.asc_csa.apogy.common.ui.views.AbstractView;
 
-public class PolarSysRoverClientDashboard extends AbstractView
+public class PolarSysRoverSessionDashboard extends AbstractView
 {
 	/**
 	 * The ID of the view as specified by the extension.
@@ -36,7 +36,7 @@ public class PolarSysRoverClientDashboard extends AbstractView
 	 * This is the composite which has all of the content
 	 * for the view.
 	 */
-	private PolarSysRoverClientComposite polarSysRoverClientComposite;
+	private PolarSysRoverSessionComposite polarSysRoverSessionComposite;
 	
 	
 	@Override
@@ -51,18 +51,18 @@ public class PolarSysRoverClientDashboard extends AbstractView
 		
 		// Create the control composite and attach it to
 		// the scrolled composite
-		this.polarSysRoverClientComposite = new PolarSysRoverClientComposite(parent, SWT.NONE);		
+		this.polarSysRoverSessionComposite = new PolarSysRoverSessionComposite(parent, SWT.NONE);		
 	}
 	
 	@Override
 	public void updateSelection(ISelection selection)
 	{
 		// Attempt to get a rover platform client reference
-		List<Object> clients = ApogyCommonConvertersUIFacade.INSTANCE.convert(selection, PolarSysRoverPlatformClient.class);
+		List<Object> sessions = ApogyCommonConvertersUIFacade.INSTANCE.convert(selection, PolarSysRoverPlatformClient.class);
 		
-		if (!clients.isEmpty())
+		if (!sessions.isEmpty())
 		{
-			polarSysRoverClientComposite.setPolarSysRoverClient((PolarSysRoverPlatformClient) clients.get(0));
+			polarSysRoverSessionComposite.setPolarSysRoverClient((PolarSysRoverPlatformClient) sessions.get(0));
 		}
 	}
 }
