@@ -1,0 +1,5 @@
+instructions.configure=\
+	addRepository(name:Apogy (Latest),type:0,location:http${#58}//dl.bintray.com/apogy/Develop/0.5/);\
+	addRepository(name:Apogy (Latest),type:1,location:http${#58}//dl.bintray.com/apogy/Develop/0.5/);\
+	addRepository(name:Eclipse Mars (4.5.x) Update Site,type:0,location:http${#58}//download.eclipse.org/releases/mars/);\
+	addRepository(name:Eclipse Mars (4.5.x) Update Site,type:1,location:http${#58}//download.eclipse.org/releases/mars/);
