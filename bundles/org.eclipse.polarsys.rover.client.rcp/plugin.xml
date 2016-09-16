@@ -6,14 +6,14 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="ca.gc.asc_csa.apogy.rcp.Application"
-            name="PolarSys Rover Apogy">
+            name="Polarsys Rover Apogy">
          <property
                name="windowImages"
                value="icons/polarsys_rover_icon_16x16.gif,icons/polarsys_rover_icon_32x32.gif">
          </property>
          <property
                name="aboutText"
-               value="Polarsys Rover Apogy v0.1.0">
+               value="Polarsys Rover Apogy Control Station v0.1.0">
          </property>
          <property
                name="aboutImage"

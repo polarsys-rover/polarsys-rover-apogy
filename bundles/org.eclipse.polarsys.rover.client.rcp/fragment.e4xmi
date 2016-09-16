@@ -3,6 +3,6 @@
   <imports xsi:type="advanced:Area" xmi:id="_56rlwF_yEeaP8cQvs6y_ew" elementId="org.eclipse.ui.editor.area"/>
   <imports xsi:type="basic:Part" xmi:id="_96YYsF_2EeaP8cQvs6y_ew" elementId="org.eclipse.pde.runtime.LogView"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Sm7DAFMvEeaW9MoLg4vvxw" featurename="children" parentElementId="org.eclipse.ui.ide.perspectivestack">
-    <elements xsi:type="advanced:Perspective" xmi:id="_hdO3kHwOEea0v8DgQIVtrA" elementId="org.eclipse.polarsys.rover.client.rcp.perspective.polarsysrover" label="Polarsys Rover"/>
+    <elements xsi:type="advanced:Perspective" xmi:id="_hdO3kHwOEea0v8DgQIVtrA" elementId="org.eclipse.polarsys.rover.client.rcp.perspective.polarsysrover" label="Polarsys Rover" iconURI="platform:/plugin/org.eclipse.polarsys.rover.client.rcp/icons/polarsys_rover_perspective.gif"/>
   </fragments>
 </fragment:ModelFragments>
