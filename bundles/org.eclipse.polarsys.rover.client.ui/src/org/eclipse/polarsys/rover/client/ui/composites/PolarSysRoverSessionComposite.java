@@ -14,12 +14,14 @@ package org.eclipse.polarsys.rover.client.ui.composites;
  *     Canadian Space Agency (CSA) - Initial API and implementation
  **/
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.conversion.Converter;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
@@ -31,7 +33,6 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -43,29 +44,32 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.core.databinding.Binding;
 
 import ca.gc.asc_csa.apogy.core.invocator.ApogyCoreInvocatorFacade;
 import ca.gc.asc_csa.apogy.core.invocator.ApogyCoreInvocatorPackage;
 import ca.gc.asc_csa.apogy.core.invocator.Context;
+import ca.gc.asc_csa.apogy.core.invocator.ContextsList;
 import ca.gc.asc_csa.apogy.core.invocator.InvocatorSession;
 
 public class PolarSysRoverSessionComposite extends Composite
 {
-	private static final String CONNECTED_STR = "Connected";
-	private static final String NOT_CONNECTED_STR = "Not Connected";
 	
 	private static final String NO_ACTIVE_SESSION_STR = "No Active Session";
 	private static final String SESSION_ACTIVE_STR = "Session Active";
 	
 	private DataBindingContext m_bindingContext;
+	private DataBindingContext m_bindingContextSession;
 	private ApogyCoreInvocatorFacade ecoreInvocatorFacade = ApogyCoreInvocatorFacade.INSTANCE;
 	private PolarSysRoverPlatformClient roverPlatformClient;
 	private final FormToolkit formToolKit = new FormToolkit(Display.getDefault());
 	private WritableValue roverPlatformClientBinder;
-	private EList<Context> contextList;
+	private ContextsList contextsList;
 	
 	private Text txtStatusConnexion;
 	private Combo comboContext;
+	private Button btnResetInstances;
+	private Button btnClearInstance;
 	
 	/**
 	 * Create the composite.
@@ -83,6 +87,7 @@ public class PolarSysRoverSessionComposite extends Composite
 			public void widgetDisposed(DisposeEvent e)
 			{
 				m_bindingContext.dispose();
+				m_bindingContextSession.dispose();
 			}
 
 		});
@@ -106,77 +111,89 @@ public class PolarSysRoverSessionComposite extends Composite
 		txtStatusConnexion.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 		formToolKit.adapt(txtStatusConnexion, true, true);
 		txtStatusConnexion.setEditable(false);
-		txtStatusConnexion.addModifyListener(new ModifyListener() {
-			@Override
-			public void modifyText(ModifyEvent e) {
-				if(txtStatusConnexion.getText().equals(SESSION_ACTIVE_STR)){
-					txtStatusConnexion.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-				}else{
-					txtStatusConnexion.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
-				}
-				
-			}
-		});
-		
-		Button btnResetInstances = new Button(compositeSession, SWT.NONE);
+
+
+		btnResetInstances = new Button(compositeSession, SWT.NONE);
 		GridData gd_btnResetInstances = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_btnResetInstances.minimumHeight = 100;
 		btnResetInstances.setLayoutData(gd_btnResetInstances);
 		formToolKit.adapt(btnResetInstances, true, true);
 		btnResetInstances.setText("Reset Instances");
-		// Create the listener that calls the start() method when the button is selected
+		// Create the listener that initiates the variables of the environment when the button is selected
+		// This is to reset the instances
 		btnResetInstances.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (roverPlatformClient != null) {
-					// TODO start();
+				if (ecoreInvocatorFacade != null) {
+					if(!ecoreInvocatorFacade.getActiveInvocatorSession().getEnvironment().getVariablesList().equals(null)){
+						ecoreInvocatorFacade.disposeVariableInstances(
+								ecoreInvocatorFacade.getActiveInvocatorSession().getEnvironment());
+					}
+					ecoreInvocatorFacade
+							.initVariableInstances(ecoreInvocatorFacade.getActiveInvocatorSession().getEnvironment());
 				}
 			}
 		});
-		
-				Button btnClearInstance = new Button(compositeSession, SWT.NONE);
-				GridData gd_btnClearInstance = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
-				gd_btnClearInstance.minimumHeight = 100;
-				btnClearInstance.setLayoutData(gd_btnClearInstance);
-				formToolKit.adapt(btnClearInstance, true, true);
-				btnClearInstance.setText("Clear Instances");
-				// Create the listener that calls the stop() method when the button is selected
-				btnClearInstance.addSelectionListener(new SelectionAdapter() {
-					@Override
-					public void widgetSelected(SelectionEvent e) {
-						if (roverPlatformClient != null) {
-							// TODO listener stop();
-						}
-					}
-				});
-		
+
+		btnClearInstance = new Button(compositeSession, SWT.NONE);
+		GridData gd_btnClearInstance = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		gd_btnClearInstance.minimumHeight = 100;
+		btnClearInstance.setLayoutData(gd_btnClearInstance);
+		formToolKit.adapt(btnClearInstance, true, true);
+		btnClearInstance.setText("Clear Instances");
+		// Create the listener that disposes the variables of the environment when the button is selected
+		// This is to clear the instances
+		btnClearInstance.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (ecoreInvocatorFacade != null) {
+					ecoreInvocatorFacade.disposeVariableInstances(
+							ecoreInvocatorFacade.getActiveInvocatorSession().getEnvironment());
+				}
+			}
+		});
+
 		Label lblContext = new Label(compositeSession, SWT.NONE);
 		lblContext.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		formToolKit.adapt(lblContext, true, true);
 		lblContext.setText("Context");
-		
+
 		comboContext = new Combo(compositeSession, SWT.NONE);
+		comboContext.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolKit.adapt(comboContext);
 		formToolKit.paintBordersFor(comboContext);
 		comboContext.setText("Context");
-		comboContext.addSelectionListener(new SelectionListener() {
-			
+		// Create a listener that changes the active context to the selected context
+		comboContext.addSelectionListener(new SelectionAdapter() {			
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				updateComboContext();
-			}
-			
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				// TODO Auto-generated method stub
-				
+				ecoreInvocatorFacade.getActiveInvocatorSession().getEnvironment().setActiveContext(contextsList.getContexts().get(comboContext.getSelectionIndex()));
 			}
 		});
-		
+				
+		// Create the listener that changes the color of the label according to the text
+		// This listener also disables the session controls when there is no active session
+		txtStatusConnexion.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				if (txtStatusConnexion.getText().equals(SESSION_ACTIVE_STR)) {
+					txtStatusConnexion.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+					btnResetInstances.setEnabled(true);
+					btnClearInstance.setEnabled(true);
+					comboContext.setEnabled(true);
+				} else {
+					txtStatusConnexion.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
+					btnResetInstances.setEnabled(false);
+					btnClearInstance.setEnabled(false);
+					comboContext.setEnabled(false);
+				}
 
+			}
+		});
 
 		m_bindingContext = initDataBindings_();
 	}
+
 
 	/**
 	 * Sets the {@link PolarSysRoverPlatformClient} to be controlled by this composite.
@@ -224,22 +241,7 @@ public class PolarSysRoverSessionComposite extends Composite
 		
 		roverPlatformClientBinder = new WritableValue();
 		
-		
-		/** Invocator Facade Active Session Observable. */
-		//IObservableValue ecoreInvocatorFacadeActiveInvocatorSessionObserveValue = EMFObservables.observeValue( ecoreInvocatorFacade, EMFEcoreInvocaorPackage.Literals.EMF_ECORE_INVOCATOR_FACADE__ACTIVE_INVOCATOR_SESSION t);
-
-		/** Status Binding. */
-		/*FIXME IObservableValue observeTextStatusObserveWidget = WidgetProperties.text().observe( textStatus );
-		FIXME m_bindingContext.bindValue( observeTextStatusObserveWidget, ecoreInvocatorFacadeActiveInvocatorSessionObserveValue, null, new UpdateValueStrategy().setConverter( new Converter( InvocatorSession.class, String.class )
-		{
-			@Override
-			public Object convert( Object fromObject )
-			{
-				return fromObject == null ? "No Active Session" : "Session Ready";
-			}
-		} ) );
-		*/
-		
+		/** Data binding to rebind the values if the active session is changed */
 		IObservableValue observeTextStatusConnexionObserveWidget = WidgetProperties.text().observe(txtStatusConnexion);
 		IObservableValue ecoreInvocatorFacadeActiveInvocatorSessionObserveValue = EMFObservables.observeValue(ecoreInvocatorFacade, ApogyCoreInvocatorPackage.Literals.APOGY_CORE_INVOCATOR_FACADE__ACTIVE_INVOCATOR_SESSION);
 		m_bindingContext.bindValue( observeTextStatusConnexionObserveWidget, ecoreInvocatorFacadeActiveInvocatorSessionObserveValue, 
@@ -249,62 +251,146 @@ public class PolarSysRoverSessionComposite extends Composite
 					@Override
 					public Object convert(Object fromObject)
 					{
+						initDataBindingsSession(roverPlatformClientBinder);
+						return "";
+					}
+				}));
+
+		
+		return m_bindingContext;
+	}
+	
+	/**
+	 *
+	 * Creates and returns the data bindings associated with the active session.
+	 * 
+	 * @param roverPlatformClientBinder
+	 */
+	private void initDataBindingsSession(WritableValue roverPlatformClientBinder){
+		
+		m_bindingContextSession = new DataBindingContext();
+		
+		/** Data binding to know if there is an active session */
+		IObservableValue observeTextStatusConnexionObserveWidget = WidgetProperties.text().observe(txtStatusConnexion);
+		IObservableValue ecoreInvocatorFacadeActiveInvocatorSessionObserveValue = EMFObservables.observeValue(ecoreInvocatorFacade, ApogyCoreInvocatorPackage.Literals.APOGY_CORE_INVOCATOR_FACADE__ACTIVE_INVOCATOR_SESSION);
+		m_bindingContextSession.bindValue( observeTextStatusConnexionObserveWidget, ecoreInvocatorFacadeActiveInvocatorSessionObserveValue, 
+				null, 
+				new UpdateValueStrategy().setConverter(new Converter(InvocatorSession.class, String.class)
+				{
+					@Override
+					public Object convert(Object fromObject)
+					{
 						return fromObject == null ? NO_ACTIVE_SESSION_STR : SESSION_ACTIVE_STR;
 					}
 				}));
+
+		
+		// FIXME: SELON LA LISTE
+		/*IObservableList observeComboContextListObserveWidget1 = WidgetProperties.items().observe(comboContext);
+		IObservableList ecoreInvocatorFacadeEnvironmentContextsListObserveValue2 = EMFObservables.observeList(ecoreInvocatorFacade.getActiveInvocatorSession().getEnvironment(), ApogyCoreInvocatorPackage.Literals.ENVIRONMENT__CONTEXTS_LIST);
+		m_bindingContext.bindList(observeComboContextListObserveWidget1, ecoreInvocatorFacadeEnvironmentContextsListObserveValue2,
+				null,
+				new UpdateListStrategy().setConverter(new Converter(ContextList.class, String.class) 
+				{
+					@Override
+					public Object convert(Object arg0) {
+						@SuppressWarnings("unused")
+						Context test1 = (Context)arg0;
+						@SuppressWarnings("unused")
+						ContextList test2 = (ContextList)arg0;
+						@SuppressWarnings({ "unused", "unchecked" })
+						EList<Context> test3 = (EList<Context>)arg0;
+						@SuppressWarnings("unused")
+						Environment test4 = (Environment)arg0;
+						
+						@SuppressWarnings("unchecked")
+						EList<Context> test = ((EList<Context>)arg0);
+						
+						System.out.print("bllbalblabl");
+						String[] contextNames = new String[test.size()];
+						for (int i = 0; i < contextNames.length; i++){
+							contextNames[i] = test.get(i).getName();
+						}
+						
+						/*contextsList = ((ContextsList)arg0);
+						String[] contextNames = new String[contextsList.getContexts().size()];
+						for (int i = 0; i < contextNames.length; i++){
+							contextNames[i] = ((ContextsList)arg0).getContexts().get(i).getName();
+						}*//*
+						return contextNames;
+					}
+				}));*/
 		
 		
+		/** Data binding to get the name of the contexts or the combo box */
+		// FIXME: SELON LA VALUE AVEC HACK
+		IObservableValue observeComboContextListObserveWidget = WidgetProperties.enabled().observe(comboContext);
+		IObservableValue ecoreInvocatorFacadeEnvironmentContextsListObserveValue = EMFObservables.observeValue(ecoreInvocatorFacade.getActiveInvocatorSession().getEnvironment(), ApogyCoreInvocatorPackage.Literals.ENVIRONMENT__CONTEXTS_LIST);
+		m_bindingContextSession.bindValue(observeComboContextListObserveWidget, ecoreInvocatorFacadeEnvironmentContextsListObserveValue, 
+				null,
+				new UpdateValueStrategy().setConverter(new Converter(ContextsList.class, boolean.class)
+				{
+					public Object convert(Object arg0)
+					{
+						contextsList = ((ContextsList)arg0);
+						String[] contextNames = new String[contextsList.getContexts().size()];
+						for (int i = 0; i < contextNames.length; i++){
+							contextNames[i] = ((ContextsList)arg0).getContexts().get(i).getName();
+						}
+						comboContext.setItems(contextNames);
+						return true;
+					}
+				}));
+		
+		// FIXME: SELON LA VALUE SANS HACK
+		/*IObservableList observeComboContextListObserveWidget = WidgetProperties.items().observe(comboContext);
+		IObservableList ecoreInvocatorFacadeEnvironmentContextsListObserveValue = EMFObservables.observeList(ecoreInvocatorFacade.getActiveInvocatorSession().getEnvironment(), ApogyCoreInvocatorPackage.Literals.ENVIRONMENT__CONTEXTS_LIST);
+		m_bindingContext.bindList(observeComboContextListObserveWidget, ecoreInvocatorFacadeEnvironmentContextsListObserveValue, 
+				null,
+				new UpdateListStrategy().setConverter(new Converter(ContextList.class, String.class)
+				{
+					public Object convert(Object arg0)
+					{
+						contextsList = ((ContextsList)arg0);
+						
+						String[] contextNames = new String[contextsList.getContexts().size()];
+						for (int i = 0; i < contextNames.length; i++){
+							contextNames[i] = contextsList.getContexts().get(i).getName();
+						}
+						return contextNames;
+						
+						
+						//contextsList = ((ContextsList)arg0);
+						//String[] contextNames = new String[contextsList.getContexts().size()];
+						//for (int i = 0; i < contextNames.length; i++){
+						//	contextNames[i] = ((ContextsList)arg0).getContexts().get(i).getName();
+						//}
+						//comboContext.setItems(contextNames);
+						//return true;
+					}
+				}));*/
+		
+		/** Data binding to set the text value of the combo box to the active context*/
 		IObservableValue observeComboContextObserveWidget = WidgetProperties.singleSelectionIndex().observe(comboContext);
-		m_bindingContext.bindValue(observeComboContextObserveWidget, ecoreInvocatorFacadeActiveInvocatorSessionObserveValue, 
-				null, 
-				new UpdateValueStrategy().setConverter(new Converter(InvocatorSession.class, Integer.class)
+		IObservableValue ecoreInvocatorFacadeEnvironmentActiveContextObserveValue = EMFObservables.observeValue(ecoreInvocatorFacade.getActiveInvocatorSession().getEnvironment(), ApogyCoreInvocatorPackage.Literals.ENVIRONMENT__ACTIVE_CONTEXT);
+		m_bindingContextSession.bindValue(observeComboContextObserveWidget, ecoreInvocatorFacadeEnvironmentActiveContextObserveValue, 
+				null,
+				new UpdateValueStrategy().setConverter(new Converter(Context.class, Integer.class)
 				{
 					@Override
 					public Object convert(Object arg0)
 					{
-						EList<Context> contextList = ((InvocatorSession)arg0).getEnvironment().getContextsList().getContexts();
-						updateComboContext();
-						for(int i = 0; i < contextList.size(); i++){
-							if (contextList.get(i).equals(((InvocatorSession)arg0).getEnvironment().getActiveContext()))
-							{
+						for(int i = 0; i < comboContext.getItemCount(); i++){
+							if(((Context)arg0).getName().equals(comboContext.getItem(i))){
 								return i;
-							}	
+							}
 						}
 						return -1;
 					}
 				}));
 		
-		
-		return m_bindingContext;
-	}
-	
-	
-	/** FIXME: See if needed
-	 * Establishes the connection with the PolarSysRoverPlatformClient.
-	 */
-	protected void start()
-	{
-		PolarSysRoverPlatformClientUiFacade.INSTANCE.start();
-		setPolarSysRoverClient(PolarSysRoverPlatformClientUiFacade.INSTANCE.getActivePolarSysRoverPlatformClient());
+		System.out.print("");
 	}
 
-	/** FIXME: See if needed
-	 * Stops the connection with the PolarSysRoverPlatformClient.
-	 */
-	protected void stop()
-	{
-		PolarSysRoverPlatformClientUiFacade.INSTANCE.stop();
-		setPolarSysRoverClient(null);
-	}
-	
-	private void updateComboContext(){
-		comboContext.removeAll();
-		if(!contextList.equals(null)){
-			for (int i = 0; i < contextList.size(); i++) {
-				comboContext.add(contextList.get(i).getName());
-			}
-		}
-		
-	}
 }
 
