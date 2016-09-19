@@ -14,9 +14,6 @@ package org.eclipse.polarsys.rover.client.ui.composites;
  *     Canadian Space Agency (CSA) - Initial API and implementation
  **/
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.conversion.Converter;
@@ -25,7 +22,6 @@ import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
-import org.eclipse.polarsys.rover.client.ui.PolarSysRoverPlatformClientUiFacade;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -44,7 +40,6 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.core.databinding.Binding;
 
 import ca.gc.asc_csa.apogy.core.invocator.ApogyCoreInvocatorFacade;
 import ca.gc.asc_csa.apogy.core.invocator.ApogyCoreInvocatorPackage;
