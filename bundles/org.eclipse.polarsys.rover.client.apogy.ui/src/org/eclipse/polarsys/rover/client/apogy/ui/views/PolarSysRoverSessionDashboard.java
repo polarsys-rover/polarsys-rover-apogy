@@ -14,15 +14,12 @@ package org.eclipse.polarsys.rover.client.apogy.ui.views;
  *     Canadian Space Agency (CSA) - Initial API and implementation
  **/
 
-import java.util.List;
 
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
-import org.eclipse.polarsys.rover.client.ui.composites.PolarSysRoverSessionComposite;
+import org.eclipse.polarsys.rover.client.ui.composites.ApogySessionComposite;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
-import ca.gc.asc_csa.apogy.common.converters.ui.ApogyCommonConvertersUIFacade;
 import ca.gc.asc_csa.apogy.common.ui.views.AbstractView;
 
 public class PolarSysRoverSessionDashboard extends AbstractView
@@ -31,38 +28,23 @@ public class PolarSysRoverSessionDashboard extends AbstractView
 	 * The ID of the view as specified by the extension.
 	 */
 	public static final String ID = "org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverClientDashboard";
-		
-	/**
-	 * This is the composite which has all of the content
-	 * for the view.
-	 */
-	private PolarSysRoverSessionComposite polarSysRoverSessionComposite;
-	
-	
+
 	@Override
 	public void updatePartName(){
 	}
 	
+
 	@Override
 	public void createPartControl(Composite parent)
 	{
 		// Call the superclass's version of the method
 		super.createPartControl(parent);
 		
-		// Create the control composite and attach it to
-		// the scrolled composite
-		this.polarSysRoverSessionComposite = new PolarSysRoverSessionComposite(parent, SWT.NONE);		
+		// Create the control composite
+		new ApogySessionComposite(parent, SWT.NONE);		
 	}
-	
+
 	@Override
-	public void updateSelection(ISelection selection)
-	{
-		// Attempt to get a rover platform client reference
-		List<Object> sessions = ApogyCommonConvertersUIFacade.INSTANCE.convert(selection, PolarSysRoverPlatformClient.class);
-		
-		if (!sessions.isEmpty())
-		{
-			polarSysRoverSessionComposite.setPolarSysRoverClient((PolarSysRoverPlatformClient) sessions.get(0));
-		}
-	}
+	public void updateSelection(ISelection arg0) {
+	}			
 }

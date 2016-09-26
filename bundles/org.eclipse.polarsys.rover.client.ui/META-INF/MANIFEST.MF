@@ -18,6 +18,7 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.107.0",
  org.eclipse.core.jobs,
  org.eclipse.equinox.registry;bundle-version="3.6.0",
  ca.gc.asc_csa.apogy.common.ui;bundle-version="0.5.0",
- ca.gc.asc_csa.apogy.common.databinding;bundle-version="0.5.0"
+ ca.gc.asc_csa.apogy.common.databinding;bundle-version="0.5.0",
+ ca.gc.asc_csa.apogy.core.invocator;bundle-version="0.5.0"
 Export-Package: org.eclipse.polarsys.rover.client.ui.composites,
  org.eclipse.wb.swt
