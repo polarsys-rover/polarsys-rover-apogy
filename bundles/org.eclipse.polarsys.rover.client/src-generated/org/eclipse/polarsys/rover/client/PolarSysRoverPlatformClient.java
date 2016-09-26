@@ -325,7 +325,7 @@ public interface PolarSysRoverPlatformClient extends Disposable {
 	 * @see #setFrontCamera(PolarSysCamera)
 	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysRoverPlatformClient_FrontCamera()
 	 * @model containment="true" required="true" transient="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel notify='true' propertyCategory='Position'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel notify='true' propertyCategory='Camera'"
 	 * @generated
 	 */
 	PolarSysCamera getFrontCamera();

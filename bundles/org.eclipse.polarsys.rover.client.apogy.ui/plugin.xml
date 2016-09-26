@@ -17,10 +17,10 @@
       </view>
       <view
             category="org.eclipse.polarsys.rover.client.apogy.ui"
-            class="org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverSessionDashboard"
+            class="org.eclipse.polarsys.rover.client.apogy.ui.views.ApogySessionDashboard"
             icon="icons/sample.gif"
-            id="org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverSessionDashboard"
-            name="Polar Sys Rover Session Dashboard">
+            id="org.eclipse.polarsys.rover.client.apogy.ui.views.ApogySessionDashboard"
+            name="Apogy Session Dashboard">
       </view>
    </extension>
    <extension
@@ -28,6 +28,9 @@
       <new_element
             Class="org.eclipse.polarsys.rover.client.apogy.ui.converters.VariableToRoverPlatformClientConverter">
       </new_element>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertiesView">
    </extension>
 
 </plugin>

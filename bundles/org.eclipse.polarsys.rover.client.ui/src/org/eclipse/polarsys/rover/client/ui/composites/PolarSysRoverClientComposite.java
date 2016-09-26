@@ -17,6 +17,8 @@ package org.eclipse.polarsys.rover.client.ui.composites;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.conversion.Converter;
+import org.eclipse.core.databinding.observable.map.IObservableMap;
+import org.eclipse.core.databinding.observable.map.WritableMap;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -24,6 +26,8 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.databinding.EMFProperties;
+import org.eclipse.emf.databinding.FeaturePath;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.polarsys.rover.client.PolarSysCamera;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage.Literals;
@@ -61,7 +65,6 @@ public class PolarSysRoverClientComposite extends Composite
 	
 	private final FormToolkit formToolKit = new FormToolkit(Display.getDefault());
 	private WritableValue roverPlatformClientBinder;
-	private WritableValue cameraBinder; // FIXIME
 	
 	
 	public int speedLevel = SPEED_LEVEL_MAX;
@@ -89,7 +92,7 @@ public class PolarSysRoverClientComposite extends Composite
 	private Composite compositeStatus;
 	private Text txtStatus;
 	private Label lblSpeed;
-	private Composite composite;
+	private Composite compositeControls;
 	private Composite compositeSpeed;
 	private Text txtSonar;
 	private Scale scaleSpeed;
@@ -101,7 +104,6 @@ public class PolarSysRoverClientComposite extends Composite
 	private Button btnStopStreaming;
 	private Button btnTakeSnapshot;
 	private Section sctnControls;
-	private Composite composite_1;
 	/**
 	 * Create the composite.
 	 * @param parent
@@ -127,26 +129,21 @@ public class PolarSysRoverClientComposite extends Composite
 		new Label(this, SWT.NONE);
 
 		sctnControls = formToolKit.createSection(this, Section.TITLE_BAR);
-		sctnControls.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 2));
+		GridData gd_sctnControls = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 2);
+		gd_sctnControls.minimumWidth = 350;
+		sctnControls.setLayoutData(gd_sctnControls);
 		formToolKit.paintBordersFor(sctnControls);
 		sctnControls.setText("Controls");
-		sctnControls.setExpanded(true);
 
-		composite_1 = new Composite(sctnControls, SWT.NONE);
-		formToolKit.adapt(composite_1);
-		formToolKit.paintBordersFor(composite_1);
-		sctnControls.setClient(composite_1);
-		composite_1.setLayout(new GridLayout(1, false));
+		compositeControls = new Composite(sctnControls, SWT.NONE);
+		sctnControls.setClient(compositeControls);
+		formToolKit.adapt(compositeControls);
+		formToolKit.paintBordersFor(compositeControls);
+		compositeControls.setLayout(new GridLayout(3, false));
 
-		composite = new Composite(composite_1, SWT.NONE);
-		composite.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
-		formToolKit.adapt(composite);
-		formToolKit.paintBordersFor(composite);
-		composite.setLayout(new GridLayout(3, false));
-
-		compositeStatus = formToolKit.createComposite(composite, SWT.BORDER);
+		compositeStatus = formToolKit.createComposite(compositeControls, SWT.BORDER);
 		GridData gd_compositeStatus = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
-		gd_compositeStatus.widthHint = 200;
+		gd_compositeStatus.minimumWidth = 100;
 		compositeStatus.setLayoutData(gd_compositeStatus);
 		formToolKit.paintBordersFor(compositeStatus);
 		GridLayout gl_compositeStatus = new GridLayout(2, false);
@@ -160,13 +157,14 @@ public class PolarSysRoverClientComposite extends Composite
 		btnStart.setLayoutData(gd_btnStart);
 		btnStart.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent e)  {
+			public void widgetSelected(SelectionEvent e) {
 				if (!((PolarSysRoverPlatformClient) roverPlatformClientBinder.getValue()).equals(null)) {
-					CustomJob initJob = new CustomJob("initJob"){						
+					CustomJob initJob = new CustomJob("initJob") {
 						PolarSysRoverPlatformClient roverPlatformClient = getPolarSysRoverPlatformClient();
+
 						@Override
 						protected void execute() {
-							roverPlatformClient.init();											
+							roverPlatformClient.init();
 						}
 					};
 					initJob.schedule();
@@ -201,10 +199,10 @@ public class PolarSysRoverClientComposite extends Composite
 		GridData gd_txtStatus = new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1);
 		gd_txtStatus.widthHint = 100;
 		txtStatus.setLayoutData(gd_txtStatus);
-		
-		compositeDirection = new Composite(composite, SWT.BORDER);
+
+		compositeDirection = new Composite(compositeControls, SWT.BORDER);
 		GridData gd_compositeDirection = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
-		gd_compositeDirection.widthHint = 250;
+		gd_compositeDirection.minimumWidth = 150;
 		compositeDirection.setLayoutData(gd_compositeDirection);
 		formToolKit.adapt(compositeDirection);
 		formToolKit.paintBordersFor(compositeDirection);
@@ -219,7 +217,7 @@ public class PolarSysRoverClientComposite extends Composite
 		btnFront.setLayoutData(gd_btnFront);
 		formToolKit.adapt(btnFront, true, true);
 		btnFront.setText("Front");
-				
+
 		btnFront.addMouseListener(new MouseListener() {
 
 			@Override
@@ -275,9 +273,11 @@ public class PolarSysRoverClientComposite extends Composite
 				if (!((PolarSysRoverPlatformClient) roverPlatformClientBinder.getValue()).equals(null)) {
 					CustomJob leftJob = new CustomJob("leftJob") {
 						PolarSysRoverPlatformClient roverPlatformClient = getPolarSysRoverPlatformClient();
+
 						@Override
 						protected void execute() {
-							roverPlatformClient.cmdPowerLevel(-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX, 
+							roverPlatformClient.cmdPowerLevel(
+									-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX,
 									roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX);
 						}
 					};
@@ -313,9 +313,11 @@ public class PolarSysRoverClientComposite extends Composite
 				if (!((PolarSysRoverPlatformClient) roverPlatformClientBinder.getValue()).equals(null)) {
 					CustomJob rightJob = new CustomJob("rightJob") {
 						PolarSysRoverPlatformClient roverPlatformClient = getPolarSysRoverPlatformClient();
+
 						@Override
 						protected void execute() {
-							roverPlatformClient.cmdPowerLevel(roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX, 
+							roverPlatformClient.cmdPowerLevel(
+									roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX,
 									-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX);
 						}
 					};
@@ -351,9 +353,11 @@ public class PolarSysRoverClientComposite extends Composite
 				if (!((PolarSysRoverPlatformClient) roverPlatformClientBinder.getValue()).equals(null)) {
 					CustomJob backJob = new CustomJob("backJob") {
 						PolarSysRoverPlatformClient roverPlatformClient = getPolarSysRoverPlatformClient();
+
 						@Override
 						protected void execute() {
-							roverPlatformClient.cmdPowerLevel(-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX, 
+							roverPlatformClient.cmdPowerLevel(
+									-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX,
 									-roverPlatformClient.getMaxCtrPowerLevel() * speedLevel / SPEED_LEVEL_MAX);
 						}
 					};
@@ -367,10 +371,8 @@ public class PolarSysRoverClientComposite extends Composite
 		});
 		new Label(compositeDirection, SWT.NONE);
 
-		compositeSpeed = new Composite(composite, SWT.NONE);
-		GridData gd_compositeSpeed = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
-		gd_compositeSpeed.minimumWidth = 50;
-		compositeSpeed.setLayoutData(gd_compositeSpeed);
+		compositeSpeed = new Composite(compositeControls, SWT.NONE);
+		compositeSpeed.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		formToolKit.adapt(compositeSpeed);
 		formToolKit.paintBordersFor(compositeSpeed);
 		compositeSpeed.setLayout(new GridLayout(1, false));
@@ -386,7 +388,7 @@ public class PolarSysRoverClientComposite extends Composite
 		scaleSpeed = new Scale(compositeSpeed, SWT.VERTICAL);
 		scaleSpeed.setMaximum(SPEED_LEVEL_MAX);
 		scaleSpeed.setMinimum(0);
-		GridData gd_scaleSpeed = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
+		GridData gd_scaleSpeed = new GridData(SWT.CENTER, SWT.FILL, true, false, 1, 1);
 		gd_scaleSpeed.minimumWidth = 30;
 		gd_scaleSpeed.heightHint = 80;
 		scaleSpeed.setLayoutData(gd_scaleSpeed);
@@ -619,8 +621,19 @@ public class PolarSysRoverClientComposite extends Composite
 	{				
 		if (!roverPlatformClient.equals(getPolarSysRoverPlatformClient())
 				|| (getPolarSysRoverPlatformClient() == (null) && roverPlatformClient != null)) {
+			
+			if(((PolarSysRoverPlatformClient) roverPlatformClientBinder.getValue()) == null){
+				System.out.println("PolarSysRoverClientComposite.setPolarSysRoverClient() " + "Camera null");
+			}else{
+				System.out.println("PolarSysRoverClientComposite.setPolarSysRoverClient()");
+			}
 			this.roverPlatformClientBinder.setValue(roverPlatformClient);
-			this.cameraBinder.setValue(roverPlatformClient.getFrontCamera()); // FIXME 
+			
+			if(((PolarSysRoverPlatformClient) roverPlatformClientBinder.getValue()).getFrontCamera() == null){
+				System.out.println("PolarSysRoverClientComposite.setPolarSysRoverClient() " + "Camera null");
+			}else{
+				System.out.println("PolarSysRoverClientComposite.setPolarSysRoverClient()");
+			}
 		}
 	}	
 	
@@ -657,50 +670,62 @@ public class PolarSysRoverClientComposite extends Composite
 		
 		m_bindingContext = new DataBindingContext();
 		roverPlatformClientBinder = new WritableValue();
-		cameraBinder = new WritableValue(); 
 
 		/** Data binding for the position */
 		IObservableValue observeTxtXObserveWidget = WidgetProperties.text().observe(txtX);
 		IObservableValue observeTxtYObserveWidget = WidgetProperties.text().observe(txtY);
 		IObservableValue observeTxtThetaObserveWidget = WidgetProperties.text().observe(txtTheta);
-		IObservableValue PositionRoverPlatformClientgetPositionObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION).observeDetail(roverPlatformClientBinder);
-		m_bindingContext.bindValue(observeTxtXObserveWidget, PositionRoverPlatformClientgetPositionObserveValue, null,
+		/*IObservableValue PositionRoverPlatformClientgetPositionObserveValue = EMFProperties
+				.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION).observeDetail(roverPlatformClientBinder);*/
+
+		IObservableValue positionXRoverPlatformClientObserveValue = EMFProperties
+				.value(FeaturePath.fromList(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION, Literals.POSITION__X))
+				.observeDetail(roverPlatformClientBinder);
+		IObservableValue positionYRoverPlatformClientObserveValue = EMFProperties
+				.value(FeaturePath.fromList(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION, Literals.POSITION__Y))
+				.observeDetail(roverPlatformClientBinder);
+		IObservableValue positionThetaRoverPlatformClientObserveValue = EMFProperties
+				.value(FeaturePath.fromList(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__POSITION, Literals.POSITION__THETA))
+				.observeDetail(roverPlatformClientBinder);
+		
+		m_bindingContext.bindValue(observeTxtXObserveWidget, positionXRoverPlatformClientObserveValue, null,
 				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE)
-						.setConverter(new Converter(Position.class, String.class) {
+						.setConverter(new Converter(Double.class, String.class) {
 							@Override
 							public Object convert(Object arg0) {
 								if (arg0 != null) {
-									return String.format(" %1$.3f m", ((Position) arg0).getX());
+									return String.format(" %1$.3f m", ((Double) arg0));
 								} else {
 									return " 0.000 m";
 								}
 
 							}
 						}));
-		m_bindingContext.bindValue(observeTxtYObserveWidget, PositionRoverPlatformClientgetPositionObserveValue, null,
+
+		m_bindingContext.bindValue(observeTxtYObserveWidget, positionYRoverPlatformClientObserveValue, null,
 				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE)
-						.setConverter(new Converter(Position.class, String.class) {
+						.setConverter(new Converter(Double.class, String.class) {
 							@Override
 							public Object convert(Object arg0) {
 								if (arg0 != null) {
-									return String.format(" %1$.3f m", ((Position) arg0).getY());
+									return String.format(" %1$.3f m", ((Double) arg0));
 								} else {
 									return " 0.000 m";
 								}
 							}
 						}));
-		m_bindingContext.bindValue(observeTxtThetaObserveWidget, PositionRoverPlatformClientgetPositionObserveValue,
+		m_bindingContext.bindValue(observeTxtThetaObserveWidget, positionThetaRoverPlatformClientObserveValue,
 				null, new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE)
-						.setConverter(new Converter(Position.class, String.class) {
+						.setConverter(new Converter(Double.class, String.class) {
 							@Override
 							public Object convert(Object arg0) {
 								if (arg0 != null) {
-									if (((Position) arg0).getTheta() >= 0) {
+									if (((Double) arg0) >= 0) {
 										return String.format(" %1$.3f " + DEGREE_SYM,
-												(Math.toDegrees(((Position) arg0).getTheta())) % 360);
+												(Math.toDegrees((Double) arg0)) % 360);
 									} else {
 										return String.format(" %1$.3f " + DEGREE_SYM,
-												360 + (Math.toDegrees(((Position) arg0).getTheta())) % 360);
+												360 + (Math.toDegrees((Double) arg0)) % 360);
 									}
 								}else{
 									return " 0.000" + DEGREE_SYM;
@@ -755,9 +780,6 @@ public class PolarSysRoverClientComposite extends Composite
 				{
 					@Override
 					public Object convert(Object arg0) {
-						if(((Boolean)arg0).booleanValue() == true){
-							cameraBinder.setValue(((PolarSysRoverPlatformClient)roverPlatformClientBinder.getValue()).getFrontCamera());
-						}// FIXME 
 						return ((Boolean)arg0).booleanValue() ?  READY_STR : NOT_READY_STR;
 					}
 				}));
@@ -816,17 +838,20 @@ public class PolarSysRoverClientComposite extends Composite
 		/** Data binding for the streaming*/
 		IObservableValue observeEnabledStartStreamingObserveWidget = WidgetProperties.enabled().observe(btnStartStreaming);
 		IObservableValue observeEnabledStopStreamingObserveWidget = WidgetProperties.enabled().observe(btnStopStreaming);
-		IObservableValue xRoverCameraStreamingEnabledObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA).observeDetail(roverPlatformClientBinder);
+		IObservableValue xRoverCameraStreamingEnabledObserveValue = EMFProperties.value(FeaturePath.fromList(
+				(EStructuralFeature) Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA,
+				(EStructuralFeature) Literals.POLAR_SYS_CAMERA__STREAMING_ENABLED)).observeDetail(roverPlatformClientBinder);	
+		
 		m_bindingContext.bindValue(observeEnabledStartStreamingObserveWidget, xRoverCameraStreamingEnabledObserveValue, 
 				null,
-				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(PolarSysCamera.class, Boolean.class) 
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Boolean.class, Boolean.class) 
 				{
 					@Override
 					public Object convert(Object fromObject) {
 						if(fromObject != null){
 							System.out.println(
 									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert()" + fromObject);
-							return ((PolarSysCamera) fromObject).isStreamingEnabled() ?  false : true;
+							return ((Boolean) fromObject).booleanValue() ?  false : true;
 						}else{
 							System.out.println(
 									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert() null");
@@ -844,7 +869,7 @@ public class PolarSysRoverClientComposite extends Composite
 							System.out.println(
 									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert()" + fromObject);
 							
-							return ((PolarSysCamera) fromObject).isStreamingEnabled();
+							return ((Boolean) fromObject).booleanValue();
 						}else{
 							System.out.println(
 									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert() null");
@@ -854,12 +879,15 @@ public class PolarSysRoverClientComposite extends Composite
 					}
 				}));
 		
+		// FIXME: Data binding for the camera
 		/** Data binding for the status of the camera*/
 		IObservableValue observeEnabledTakeSnapshotObserveWidget = WidgetProperties.enabled().observe(btnTakeSnapshot);
-		IObservableValue RoverCameraInitializedObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA).observeDetail(roverPlatformClientBinder);
-		m_bindingContext.bindValue(observeEnabledTakeSnapshotObserveWidget, RoverCameraInitializedObserveValue, 
+		IObservableValue RoverCameraInitializedObserveValue = EMFProperties.value(FeaturePath.fromList(
+				(EStructuralFeature) Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA,
+				(EStructuralFeature) Literals.POLAR_SYS_CAMERA__INITIALIZED)).observeDetail(roverPlatformClientBinder);
+		/*m_bindingContext.bindValue(observeEnabledTakeSnapshotObserveWidget, RoverCameraInitializedObserveValue, 
 				null, 
-				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(PolarSysCamera.class, Boolean.class) {
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Boolean.class, Boolean.class) {
 			
 			@Override
 			public Object convert(Object fromObject) {
@@ -867,7 +895,7 @@ public class PolarSysRoverClientComposite extends Composite
 					System.out.println(
 							"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert()" + fromObject);
 					
-					return ((PolarSysCamera) fromObject).isInitialized();
+					return ((Boolean) fromObject).booleanValue();
 				}else{
 					System.out.println(
 							"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert() null");
@@ -876,6 +904,25 @@ public class PolarSysRoverClientComposite extends Composite
 				}
 			}
 		}));
+		*/
+		IObservableValue test = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA).observeDetail(roverPlatformClientBinder);
+		m_bindingContext.bindValue(observeEnabledTakeSnapshotObserveWidget, test, 
+				null,
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(PolarSysCamera.class, Boolean.class) 
+				{
+					@Override
+					public Object convert(Object fromObject) {
+						if(fromObject != null){
+							System.out.println(
+									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert()" + fromObject);
+							return ((PolarSysCamera) fromObject).isInitialized(); 
+						}else{
+							System.out.println(
+									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert() null");
+							return false;
+						}
+					}
+				}));
 
 		return m_bindingContext;
 	}	

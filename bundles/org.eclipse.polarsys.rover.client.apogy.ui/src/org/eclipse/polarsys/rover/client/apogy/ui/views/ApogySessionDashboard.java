@@ -22,12 +22,12 @@ import org.eclipse.swt.widgets.Composite;
 
 import ca.gc.asc_csa.apogy.common.ui.views.AbstractView;
 
-public class PolarSysRoverSessionDashboard extends AbstractView
+public class ApogySessionDashboard extends AbstractView
 {
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
-	public static final String ID = "org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverClientDashboard";
+	public static final String ID = "org.eclipse.polarsys.rover.client.apogy.ui.views.ApogySessionDashboard";
 
 	@Override
 	public void updatePartName(){
