@@ -191,6 +191,7 @@ public class PolarSysRoverClientComposite extends Composite
 		});
 
 		txtStatus = formToolKit.createText(compositeStatus, "New Text", SWT.CENTER);
+		txtStatus.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		txtStatus.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		txtStatus.setText("Status");
 		GridData gd_txtStatus = new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1);
@@ -755,41 +756,13 @@ public class PolarSysRoverClientComposite extends Composite
 		IObservableValue observeEnabledButtonBackObserveWidget = WidgetProperties.enabled().observe(btnBack);
 		IObservableValue observeEnabledButtonLeftObserveWidget = WidgetProperties.enabled().observe(btnLeft);
 		IObservableValue observeEnabledButtonRightObserveWidget = WidgetProperties.enabled().observe(btnRight);
-		
-		
-		IObservableValue xRoverPlatformClientInitializedObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED).observeDetail(roverPlatformClientBinder);
-
-		// Binding to know if the platform is initialized
-		m_bindingContext.bindValue(observeTextTxtStatusObserveWidget, xRoverPlatformClientInitializedObserveValue, 
-				null,
-				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Boolean.class, String.class) 
-				{
-					@Override
-					public Object convert(Object arg0) {
-						return ((Boolean)arg0).booleanValue() ?  READY_STR : NOT_READY_STR;
-					}
-				}));
-		m_bindingContext.bindValue(observeBackgroundTxtStatusObserveWidget, xRoverPlatformClientInitializedObserveValue,
-				null,
-				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Boolean.class, Color.class) {
-					
-					@Override
-					public Object convert(Object fromObject) {
-						return ((Boolean)fromObject).booleanValue() ? SWTResourceManager.getColor(SWT.COLOR_GREEN) : SWTResourceManager.getColor(SWT.COLOR_RED);
-					}
-				}));
-		m_bindingContext.bindValue(observeEnabledScaleSpeedObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
-		m_bindingContext.bindValue(observeEnabledButtonFrontObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
-		m_bindingContext.bindValue(observeEnabledButtonBackObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
-		m_bindingContext.bindValue(observeEnabledButtonLeftObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
-		m_bindingContext.bindValue(observeEnabledButtonRightObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
-		
-		
-		
 		// Binding to know if the platform is disposed
 		IObservableValue observeThisEnabledObserveWidget = WidgetProperties.enabled().observe(this);
 		IObservableValue xRoverPlatformClientDisposedLevelObserveValue = EMFProperties
 				.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__DISPOSED).observeDetail(roverPlatformClientBinder);
+		
+		IObservableValue xRoverPlatformClientInitializedObserveValue = EMFProperties.value(Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__INITIALIZED).observeDetail(roverPlatformClientBinder);
+
 		m_bindingContext.bindValue(observeThisEnabledObserveWidget, xRoverPlatformClientDisposedLevelObserveValue, null,
 				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE)
 						.setConverter(new Converter(Boolean.class, Boolean.class) {
@@ -813,7 +786,7 @@ public class PolarSysRoverClientComposite extends Composite
 					
 					@Override
 					public Object convert(Object fromObject) {
-						return ((Boolean)fromObject).booleanValue() ? SWTResourceManager.getColor(SWT.COLOR_DARK_RED) : txtStatus.getBackground();
+							return ((Boolean)fromObject).booleanValue() ? SWTResourceManager.getColor(SWT.COLOR_DARK_RED) : txtStatus.getBackground();
 					}
 				}));
 		m_bindingContext.bindValue(observeForegroundTxtStatusObserveWidget, xRoverPlatformClientDisposedLevelObserveValue,
@@ -825,8 +798,36 @@ public class PolarSysRoverClientComposite extends Composite
 						return ((Boolean)fromObject).booleanValue() ? SWTResourceManager.getColor(SWT.COLOR_WHITE) : txtStatus.getForeground();
 					}
 				}));
-
 		
+		// Binding to know if the platform is initialized
+		m_bindingContext.bindValue(observeTextTxtStatusObserveWidget, xRoverPlatformClientInitializedObserveValue, 
+				null,
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Boolean.class, String.class) 
+				{
+					@Override
+					public Object convert(Object arg0) {
+						System.out.println(
+								"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert() String " + Boolean.toString(((Boolean)arg0).booleanValue()));
+						return ((Boolean)arg0).booleanValue() ?  READY_STR : NOT_READY_STR;
+					}
+				}));
+		m_bindingContext.bindValue(observeBackgroundTxtStatusObserveWidget, xRoverPlatformClientInitializedObserveValue,
+				null,
+				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Boolean.class, Color.class) {
+
+							@Override
+							public Object convert(Object fromObject) {
+								return ((Boolean) fromObject).booleanValue()
+										? SWTResourceManager.getColor(SWT.COLOR_GREEN)
+										: SWTResourceManager.getColor(SWT.COLOR_RED);
+							}
+						}));
+		m_bindingContext.bindValue(observeEnabledScaleSpeedObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
+		m_bindingContext.bindValue(observeEnabledButtonFrontObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
+		m_bindingContext.bindValue(observeEnabledButtonBackObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
+		m_bindingContext.bindValue(observeEnabledButtonLeftObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
+		m_bindingContext.bindValue(observeEnabledButtonRightObserveWidget, xRoverPlatformClientInitializedObserveValue, null, new BooleanNullToBooleanUpdateValueStrategy());
+				
 		/** Data binding for the streaming*/
 		IObservableValue observeEnabledStartStreamingObserveWidget = WidgetProperties.enabled().observe(btnStartStreaming);
 		IObservableValue observeEnabledStopStreamingObserveWidget = WidgetProperties.enabled().observe(btnStopStreaming);
@@ -843,7 +844,7 @@ public class PolarSysRoverClientComposite extends Composite
 						if(fromObject != null){
 							return ((Boolean) fromObject).booleanValue() ?  false : true;
 						}else{
-							return true;
+							return false;
 						}
 					}
 				}));

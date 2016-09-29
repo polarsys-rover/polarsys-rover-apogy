@@ -15,13 +15,6 @@
             class="org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverClientDashboard"
             id="org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverClientDashboard">
       </view>
-      <view
-            category="org.eclipse.polarsys.rover.client.apogy.ui"
-            class="org.eclipse.polarsys.rover.client.apogy.ui.views.ApogySessionDashboard"
-            icon="icons/sample.gif"
-            id="org.eclipse.polarsys.rover.client.apogy.ui.views.ApogySessionDashboard"
-            name="Apogy Session Dashboard">
-      </view>
    </extension>
    <extension
          point="ca.gc.asc_csa.apogy.common.converters">
