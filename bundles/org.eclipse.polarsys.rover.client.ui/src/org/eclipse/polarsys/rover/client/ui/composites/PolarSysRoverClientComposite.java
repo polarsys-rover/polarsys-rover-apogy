@@ -17,8 +17,6 @@ package org.eclipse.polarsys.rover.client.ui.composites;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.conversion.Converter;
-import org.eclipse.core.databinding.observable.map.IObservableMap;
-import org.eclipse.core.databinding.observable.map.WritableMap;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -32,7 +30,6 @@ import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.polarsys.rover.client.PolarSysCamera;
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage.Literals;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
-import org.eclipse.polarsys.rover.client.Position;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -617,25 +614,13 @@ public class PolarSysRoverClientComposite extends Composite
 	 * @param PolarSysRoverPlatformClient
 	 *            Reference to the {@link PolarSysRoverPlatformClient}.
 	 */
-	public void setPolarSysRoverClient(PolarSysRoverPlatformClient roverPlatformClient)
-	{				
+	public void setPolarSysRoverClient(PolarSysRoverPlatformClient roverPlatformClient) {
 		if (!roverPlatformClient.equals(getPolarSysRoverPlatformClient())
 				|| (getPolarSysRoverPlatformClient() == (null) && roverPlatformClient != null)) {
-			
-			if(((PolarSysRoverPlatformClient) roverPlatformClientBinder.getValue()) == null){
-				System.out.println("PolarSysRoverClientComposite.setPolarSysRoverClient() " + "Camera null");
-			}else{
-				System.out.println("PolarSysRoverClientComposite.setPolarSysRoverClient()");
-			}
 			this.roverPlatformClientBinder.setValue(roverPlatformClient);
-			
-			if(((PolarSysRoverPlatformClient) roverPlatformClientBinder.getValue()).getFrontCamera() == null){
-				System.out.println("PolarSysRoverClientComposite.setPolarSysRoverClient() " + "Camera null");
-			}else{
-				System.out.println("PolarSysRoverClientComposite.setPolarSysRoverClient()");
-			}
 		}
-	}	
+
+	}
 	
 	/**
 	 * Returns the actual {@link PolarSysRoverPlatformClient} controlled by this composite.
@@ -849,12 +834,8 @@ public class PolarSysRoverClientComposite extends Composite
 					@Override
 					public Object convert(Object fromObject) {
 						if(fromObject != null){
-							System.out.println(
-									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert()" + fromObject);
 							return ((Boolean) fromObject).booleanValue() ?  false : true;
 						}else{
-							System.out.println(
-									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert() null");
 							return true;
 						}
 					}
@@ -865,15 +846,9 @@ public class PolarSysRoverClientComposite extends Composite
 				{
 					@Override
 					public Object convert(Object fromObject) {
-						if(fromObject != null){
-							System.out.println(
-									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert()" + fromObject);
-							
+						if(fromObject != null){							
 							return ((Boolean) fromObject).booleanValue();
 						}else{
-							System.out.println(
-									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert() null");
-				
 							return false;
 						}
 					}
@@ -882,10 +857,10 @@ public class PolarSysRoverClientComposite extends Composite
 		// FIXME: Data binding for the camera
 		/** Data binding for the status of the camera*/
 		IObservableValue observeEnabledTakeSnapshotObserveWidget = WidgetProperties.enabled().observe(btnTakeSnapshot);
-		IObservableValue RoverCameraInitializedObserveValue = EMFProperties.value(FeaturePath.fromList(
+		/*IObservableValue RoverCameraInitializedObserveValue = EMFProperties.value(FeaturePath.fromList(
 				(EStructuralFeature) Literals.POLAR_SYS_ROVER_PLATFORM_CLIENT__FRONT_CAMERA,
 				(EStructuralFeature) Literals.POLAR_SYS_CAMERA__INITIALIZED)).observeDetail(roverPlatformClientBinder);
-		/*m_bindingContext.bindValue(observeEnabledTakeSnapshotObserveWidget, RoverCameraInitializedObserveValue, 
+		m_bindingContext.bindValue(observeEnabledTakeSnapshotObserveWidget, RoverCameraInitializedObserveValue, 
 				null, 
 				new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE).setConverter(new Converter(Boolean.class, Boolean.class) {
 			
@@ -913,12 +888,8 @@ public class PolarSysRoverClientComposite extends Composite
 					@Override
 					public Object convert(Object fromObject) {
 						if(fromObject != null){
-							System.out.println(
-									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert()" + fromObject);
 							return ((PolarSysCamera) fromObject).isInitialized(); 
 						}else{
-							System.out.println(
-									"PolarSysRoverClientComposite.initDataBindings_().new Converter() {...}.convert() null");
 							return false;
 						}
 					}
