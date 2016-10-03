@@ -199,7 +199,7 @@ public class PolarSysRoverClientComposite extends ScrolledComposite {
 		compositeDirection.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 3, 1));
 		formToolKit.adapt(compositeDirection);
 		formToolKit.paintBordersFor(compositeDirection);
-		GridLayout gl_compositeDirection = new GridLayout(3, false);
+		GridLayout gl_compositeDirection = new GridLayout(3, true);
 		compositeDirection.setLayout(gl_compositeDirection);
 		new Label(compositeDirection, SWT.NONE);
 
@@ -282,9 +282,10 @@ public class PolarSysRoverClientComposite extends ScrolledComposite {
 		new Label(compositeDirection, SWT.NONE);
 
 		btnRight = new Button(compositeDirection, SWT.NONE);
-		btnRight.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		btnRight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolKit.adapt(btnRight, true, true);
 		btnRight.setText("Right");
+		//btnRight.setSize(btnFront.getSize());
 		btnRight.addMouseListener(new MouseListener() {
 
 			@Override
@@ -324,6 +325,7 @@ public class PolarSysRoverClientComposite extends ScrolledComposite {
 		btnBack.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		formToolKit.adapt(btnBack, true, true);
 		btnBack.setText("Back");
+		//btnBack.setSize(btnFront.getSize());
 		btnBack.addMouseListener(new MouseListener() {
 
 			@Override
@@ -375,6 +377,7 @@ public class PolarSysRoverClientComposite extends ScrolledComposite {
 		scaleSpeed.setMaximum(SPEED_LEVEL_MAX);
 		scaleSpeed.setMinimum(0);
 		GridData gd_scaleSpeed = new GridData(SWT.CENTER, SWT.FILL, true, true, 1, 1);
+		gd_scaleSpeed.heightHint = 70;
 		gd_scaleSpeed.minimumHeight = 70;
 		scaleSpeed.setLayoutData(gd_scaleSpeed);
 		formToolKit.adapt(scaleSpeed, true, true);
@@ -510,9 +513,7 @@ public class PolarSysRoverClientComposite extends ScrolledComposite {
 		txtPowerLeft = formToolKit.createText(compositePowerLevels, "New Text", SWT.CENTER);
 		txtPowerLeft.setEditable(false);
 		txtPowerLeft.setText(" 0.000");
-		GridData gd_txtPowerLeft = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
-		gd_txtPowerLeft.widthHint = 40;
-		txtPowerLeft.setLayoutData(gd_txtPowerLeft);
+		txtPowerLeft.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 
 		labelOn1 = new Label(compositePowerLevels, SWT.CENTER);
 		labelOn1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
