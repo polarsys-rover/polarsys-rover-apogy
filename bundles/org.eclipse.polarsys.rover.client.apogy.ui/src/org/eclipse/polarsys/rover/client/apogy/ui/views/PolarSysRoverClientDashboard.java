@@ -51,7 +51,7 @@ public class PolarSysRoverClientDashboard extends AbstractView
 		
 		// Create the control composite and attach it to
 		// the scrolled composite
-		this.polarSysRoverClientComposite = new PolarSysRoverClientComposite(parent, SWT.NONE);		
+		this.polarSysRoverClientComposite = new PolarSysRoverClientComposite(parent, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);		
 	}
 	
 	@Override
