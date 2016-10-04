@@ -91,15 +91,15 @@ public class PolarSysRoverClientSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PolarSysRoverClientPackage.CAMERA: {
-				Camera camera = (Camera)theEObject;
-				T result = caseCamera(camera);
-				if (result == null) result = caseAbstractCamera(camera);
-				if (result == null) result = caseSensor(camera);
-				if (result == null) result = caseNamed(camera);
-				if (result == null) result = caseAggregateGroupNode(camera);
-				if (result == null) result = caseGroupNode(camera);
-				if (result == null) result = caseNode(camera);
+			case PolarSysRoverClientPackage.POLAR_SYS_CAMERA: {
+				PolarSysCamera polarSysCamera = (PolarSysCamera)theEObject;
+				T result = casePolarSysCamera(polarSysCamera);
+				if (result == null) result = caseAbstractCamera(polarSysCamera);
+				if (result == null) result = caseSensor(polarSysCamera);
+				if (result == null) result = caseNamed(polarSysCamera);
+				if (result == null) result = caseAggregateGroupNode(polarSysCamera);
+				if (result == null) result = caseGroupNode(polarSysCamera);
+				if (result == null) result = caseNode(polarSysCamera);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,17 +130,17 @@ public class PolarSysRoverClientSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Camera</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Polar Sys Camera</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Camera</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Polar Sys Camera</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCamera(Camera object) {
+	public T casePolarSysCamera(PolarSysCamera object) {
 		return null;
 	}
 

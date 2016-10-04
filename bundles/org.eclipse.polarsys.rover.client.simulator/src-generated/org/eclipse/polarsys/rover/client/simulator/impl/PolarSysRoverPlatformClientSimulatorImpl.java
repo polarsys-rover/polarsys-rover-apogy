@@ -1,5 +1,4 @@
 /**
- * Copyright (c) 2015-2016 Canadian Space Agency (CSA) / Agence spatiale canadienne (ASC).
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +12,8 @@
  */
 package org.eclipse.polarsys.rover.client.simulator.impl;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -38,47 +39,13 @@ import ca.gc.asc_csa.apogy.common.log.Logger;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getWheelRadius <em>Wheel Radius</em>}</li>
  *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getDegreeSYM <em>Degree SYM</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getWheelTrack <em>Wheel Track</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMoveWaitPeriod <em>Move Wait Period</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMoveToMinLinSpeed <em>Move To Min Lin Speed</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getErrorPerMeter <em>Error Per Meter</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMaxPowerLevel <em>Max Power Level</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMinPowerLevel <em>Min Power Level</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMaxCtrPowerLevel <em>Max Ctr Power Level</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMinCtrPowerLevel <em>Min Ctr Power Level</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMaxAngVelocity <em>Max Ang Velocity</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMinAngVelocity <em>Min Ang Velocity</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMaxLinVelocity <em>Max Lin Velocity</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getMinLinVelocity <em>Min Lin Velocity</em>}</li>
- *   <li>{@link org.eclipse.polarsys.rover.client.simulator.impl.PolarSysRoverPlatformClientSimulatorImpl#getDistanceBetweenWheels <em>Distance Between Wheels</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatformClientImpl
 		implements PolarSysRoverPlatformClientSimulator {
-
-	/**
-	 * The default value of the '{@link #getWheelRadius() <em>Wheel Radius</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWheelRadius()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double WHEEL_RADIUS_EDEFAULT = 0.25;
-
-	/**
-	 * The cached value of the '{@link #getWheelRadius() <em>Wheel Radius</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWheelRadius()
-	 * @generated
-	 * @ordered
-	 */
-	protected double wheelRadius = WHEEL_RADIUS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDegreeSYM() <em>Degree SYM</em>}' attribute.
@@ -99,266 +66,14 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 	 * @ordered
 	 */
 	protected String degreeSYM = DEGREE_SYM_EDEFAULT;
+	
 
+	
 	/**
-	 * The default value of the '{@link #getWheelTrack() <em>Wheel Track</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWheelTrack()
 	 * @generated
-	 * @ordered
 	 */
-	protected static final double WHEEL_TRACK_EDEFAULT = 0.64;
-
-	/**
-	 * The cached value of the '{@link #getWheelTrack() <em>Wheel Track</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWheelTrack()
-	 * @generated
-	 * @ordered
-	 */
-	protected double wheelTrack = WHEEL_TRACK_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMoveWaitPeriod() <em>Move Wait Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMoveWaitPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MOVE_WAIT_PERIOD_EDEFAULT = 30;
-
-	/**
-	 * The cached value of the '{@link #getMoveWaitPeriod() <em>Move Wait Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMoveWaitPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected int moveWaitPeriod = MOVE_WAIT_PERIOD_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMoveToMinLinSpeed() <em>Move To Min Lin Speed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMoveToMinLinSpeed()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MOVE_TO_MIN_LIN_SPEED_EDEFAULT = 1.5;
-
-	/**
-	 * The cached value of the '{@link #getMoveToMinLinSpeed() <em>Move To Min Lin Speed</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMoveToMinLinSpeed()
-	 * @generated
-	 * @ordered
-	 */
-	protected double moveToMinLinSpeed = MOVE_TO_MIN_LIN_SPEED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getErrorPerMeter() <em>Error Per Meter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getErrorPerMeter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double ERROR_PER_METER_EDEFAULT = 0.05;
-
-	/**
-	 * The cached value of the '{@link #getErrorPerMeter() <em>Error Per Meter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getErrorPerMeter()
-	 * @generated
-	 * @ordered
-	 */
-	protected double errorPerMeter = ERROR_PER_METER_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMaxPowerLevel() <em>Max Power Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxPowerLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MAX_POWER_LEVEL_EDEFAULT = 1.0;
-
-	/**
-	 * The cached value of the '{@link #getMaxPowerLevel() <em>Max Power Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxPowerLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected double maxPowerLevel = MAX_POWER_LEVEL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMinPowerLevel() <em>Min Power Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinPowerLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MIN_POWER_LEVEL_EDEFAULT = -1.0;
-
-	/**
-	 * The cached value of the '{@link #getMinPowerLevel() <em>Min Power Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinPowerLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected double minPowerLevel = MIN_POWER_LEVEL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMaxCtrPowerLevel() <em>Max Ctr Power Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxCtrPowerLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MAX_CTR_POWER_LEVEL_EDEFAULT = 100.0;
-
-	/**
-	 * The cached value of the '{@link #getMaxCtrPowerLevel() <em>Max Ctr Power Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxCtrPowerLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected double maxCtrPowerLevel = MAX_CTR_POWER_LEVEL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMinCtrPowerLevel() <em>Min Ctr Power Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinCtrPowerLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MIN_CTR_POWER_LEVEL_EDEFAULT = -100.0;
-
-	/**
-	 * The cached value of the '{@link #getMinCtrPowerLevel() <em>Min Ctr Power Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinCtrPowerLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected double minCtrPowerLevel = MIN_CTR_POWER_LEVEL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMaxAngVelocity() <em>Max Ang Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxAngVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MAX_ANG_VELOCITY_EDEFAULT = 2.0;
-
-	/**
-	 * The cached value of the '{@link #getMaxAngVelocity() <em>Max Ang Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxAngVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected double maxAngVelocity = MAX_ANG_VELOCITY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMinAngVelocity() <em>Min Ang Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinAngVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MIN_ANG_VELOCITY_EDEFAULT = -2.0;
-
-	/**
-	 * The cached value of the '{@link #getMinAngVelocity() <em>Min Ang Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinAngVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected double minAngVelocity = MIN_ANG_VELOCITY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMaxLinVelocity() <em>Max Lin Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxLinVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MAX_LIN_VELOCITY_EDEFAULT = 2.0;
-
-	/**
-	 * The cached value of the '{@link #getMaxLinVelocity() <em>Max Lin Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxLinVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected double maxLinVelocity = MAX_LIN_VELOCITY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMinLinVelocity() <em>Min Lin Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinLinVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MIN_LIN_VELOCITY_EDEFAULT = -2.0;
-
-	/**
-	 * The cached value of the '{@link #getMinLinVelocity() <em>Min Lin Velocity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinLinVelocity()
-	 * @generated
-	 * @ordered
-	 */
-	protected double minLinVelocity = MIN_LIN_VELOCITY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getDistanceBetweenWheels() <em>Distance Between Wheels</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDistanceBetweenWheels()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double DISTANCE_BETWEEN_WHEELS_EDEFAULT = 2.0;
-
-	/**
-	 * The cached value of the '{@link #getDistanceBetweenWheels() <em>Distance Between Wheels</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDistanceBetweenWheels()
-	 * @generated
-	 * @ordered
-	 */
-	protected double distanceBetweenWheels = DISTANCE_BETWEEN_WHEELS_EDEFAULT;
 
 	/**
 	 * This is the job used to handle moving the mobile platform
@@ -410,135 +125,12 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getWheelRadius() {
-		return wheelRadius;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getDegreeSYM() {
 		return degreeSYM;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getWheelTrack() {
-		return wheelTrack;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getMoveWaitPeriod() {
-		return moveWaitPeriod;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMoveToMinLinSpeed() {
-		return moveToMinLinSpeed;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getErrorPerMeter() {
-		return errorPerMeter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMaxPowerLevel() {
-		return maxPowerLevel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMinPowerLevel() {
-		return minPowerLevel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMaxCtrPowerLevel() {
-		return maxCtrPowerLevel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMinCtrPowerLevel() {
-		return minCtrPowerLevel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMaxAngVelocity() {
-		return maxAngVelocity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMinAngVelocity() {
-		return minAngVelocity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMaxLinVelocity() {
-		return maxLinVelocity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getMinLinVelocity() {
-		return minLinVelocity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getDistanceBetweenWheels() {
-		return distanceBetweenWheels;
-	}
+	
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -548,36 +140,8 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS:
-				return getWheelRadius();
 			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DEGREE_SYM:
 				return getDegreeSYM();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_TRACK:
-				return getWheelTrack();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_WAIT_PERIOD:
-				return getMoveWaitPeriod();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_TO_MIN_LIN_SPEED:
-				return getMoveToMinLinSpeed();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__ERROR_PER_METER:
-				return getErrorPerMeter();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_POWER_LEVEL:
-				return getMaxPowerLevel();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_POWER_LEVEL:
-				return getMinPowerLevel();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_CTR_POWER_LEVEL:
-				return getMaxCtrPowerLevel();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_CTR_POWER_LEVEL:
-				return getMinCtrPowerLevel();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_ANG_VELOCITY:
-				return getMaxAngVelocity();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_ANG_VELOCITY:
-				return getMinAngVelocity();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_LIN_VELOCITY:
-				return getMaxLinVelocity();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_LIN_VELOCITY:
-				return getMinLinVelocity();
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DISTANCE_BETWEEN_WHEELS:
-				return getDistanceBetweenWheels();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -590,36 +154,8 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_RADIUS:
-				return wheelRadius != WHEEL_RADIUS_EDEFAULT;
 			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DEGREE_SYM:
 				return DEGREE_SYM_EDEFAULT == null ? degreeSYM != null : !DEGREE_SYM_EDEFAULT.equals(degreeSYM);
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__WHEEL_TRACK:
-				return wheelTrack != WHEEL_TRACK_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_WAIT_PERIOD:
-				return moveWaitPeriod != MOVE_WAIT_PERIOD_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MOVE_TO_MIN_LIN_SPEED:
-				return moveToMinLinSpeed != MOVE_TO_MIN_LIN_SPEED_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__ERROR_PER_METER:
-				return errorPerMeter != ERROR_PER_METER_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_POWER_LEVEL:
-				return maxPowerLevel != MAX_POWER_LEVEL_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_POWER_LEVEL:
-				return minPowerLevel != MIN_POWER_LEVEL_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_CTR_POWER_LEVEL:
-				return maxCtrPowerLevel != MAX_CTR_POWER_LEVEL_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_CTR_POWER_LEVEL:
-				return minCtrPowerLevel != MIN_CTR_POWER_LEVEL_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_ANG_VELOCITY:
-				return maxAngVelocity != MAX_ANG_VELOCITY_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_ANG_VELOCITY:
-				return minAngVelocity != MIN_ANG_VELOCITY_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MAX_LIN_VELOCITY:
-				return maxLinVelocity != MAX_LIN_VELOCITY_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__MIN_LIN_VELOCITY:
-				return minLinVelocity != MIN_LIN_VELOCITY_EDEFAULT;
-			case PolarSysRoverClientSimulatorPackage.POLAR_SYS_ROVER_PLATFORM_CLIENT_SIMULATOR__DISTANCE_BETWEEN_WHEELS:
-				return distanceBetweenWheels != DISTANCE_BETWEEN_WHEELS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -634,36 +170,8 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (wheelRadius: ");
-		result.append(wheelRadius);
-		result.append(", degreeSYM: ");
+		result.append(" (degreeSYM: ");
 		result.append(degreeSYM);
-		result.append(", wheelTrack: ");
-		result.append(wheelTrack);
-		result.append(", moveWaitPeriod: ");
-		result.append(moveWaitPeriod);
-		result.append(", moveToMinLinSpeed: ");
-		result.append(moveToMinLinSpeed);
-		result.append(", ErrorPerMeter: ");
-		result.append(errorPerMeter);
-		result.append(", maxPowerLevel: ");
-		result.append(maxPowerLevel);
-		result.append(", minPowerLevel: ");
-		result.append(minPowerLevel);
-		result.append(", maxCtrPowerLevel: ");
-		result.append(maxCtrPowerLevel);
-		result.append(", minCtrPowerLevel: ");
-		result.append(minCtrPowerLevel);
-		result.append(", maxAngVelocity: ");
-		result.append(maxAngVelocity);
-		result.append(", minAngVelocity: ");
-		result.append(minAngVelocity);
-		result.append(", maxLinVelocity: ");
-		result.append(maxLinVelocity);
-		result.append(", minLinVelocity: ");
-		result.append(minLinVelocity);
-		result.append(", distanceBetweenWheels: ");
-		result.append(distanceBetweenWheels);
 		result.append(')');
 		return result.toString();
 	}
@@ -715,9 +223,24 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 			// Log this successful completion of the initialization process
 			message = LOG_PREFIX + "Mobile platform initialization complete.";
 			Logger.INSTANCE.log(Activator.ID, this, message, EventSeverity.INFO);
+						
+			// Initialize the camera
+			setFrontCamera(new PolarSysRoverCameraSimulatorImpl());
+			frontCamera.init();
+			
+			// Start the random sonar
+			Timer timer = new Timer();
 
+			timer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					setFrontSonar((int)(Math.random() * 100));  
+				}
+			}, 500, 1000);
+
+			
 			// Just return true
-			return true;
+			return true;		
 		}
 	}
 
@@ -787,17 +310,17 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 			// Power left = Linear velocity + (Angular velocity * Distance between the wheels) / 2
 			// Power right = LInear velocity - (Angular velocity * Distance between the wheels) / 2
 			if(linearVelocity >= 0){
-				this.setLeftPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
-						+ (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2));
-				this.setRightPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
-						- (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2));  
+				this.setLeftPowerLevel(maxPowerLevel* linearVelocity / maxLinVelocity
+						+ (this.distanceBetweenWheels * maxPowerLevel * angularVelocity / maxAngVelocity / 2));
+				this.setRightPowerLevel(maxPowerLevel * linearVelocity / maxLinVelocity
+						- (this.distanceBetweenWheels * maxPowerLevel * angularVelocity / maxAngVelocity / 2));  
 			}
 			// Otherwise, if the linear velocity is negative, the angular velocity changes sign
 			else{
-				this.setLeftPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
-						- (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2));
-				this.setRightPowerLevel(MAX_POWER_LEVEL_EDEFAULT * linearVelocity / MAX_LIN_VELOCITY_EDEFAULT
-						+ (this.distanceBetweenWheels * MAX_POWER_LEVEL_EDEFAULT * angularVelocity / MAX_ANG_VELOCITY_EDEFAULT / 2)); 
+				this.setLeftPowerLevel(maxPowerLevel * linearVelocity / maxLinVelocity
+						- (this.distanceBetweenWheels * maxPowerLevel * angularVelocity / maxAngVelocity / 2));
+				this.setRightPowerLevel(maxPowerLevel * linearVelocity / maxLinVelocity
+						+ (this.distanceBetweenWheels * maxPowerLevel * angularVelocity / maxAngVelocity / 2)); 
 			}
 				
 			
@@ -1088,10 +611,10 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 					// Set the linear velocities using the skid steering model equations
 					// Linear velocity = (Right power + Left power) / 2
 					// Angular velocity = (Right power - Left power) / Distance between the wheels
-					linVel = (MAX_LIN_VELOCITY_EDEFAULT * rightPow / MAX_POWER_LEVEL_EDEFAULT
-								+ MAX_LIN_VELOCITY_EDEFAULT * leftPow / MAX_POWER_LEVEL_EDEFAULT) / 2;
-					angVel = (MAX_ANG_VELOCITY_EDEFAULT * rightPow / MAX_POWER_LEVEL_EDEFAULT 
-								- MAX_ANG_VELOCITY_EDEFAULT * leftPow / MAX_POWER_LEVEL_EDEFAULT) / distanceBetweenWheels;
+					linVel = (maxLinVelocity * rightPow / maxPowerLevel
+								+ maxLinVelocity * leftPow / maxPowerLevel) / 2;
+					angVel = (maxAngVelocity * rightPow / maxPowerLevel
+								- maxAngVelocity * leftPow / maxPowerLevel) / distanceBetweenWheels;
 													
 					// Get all the values which need to be updated
 					double newX = this.platform.getPosition().getX();
@@ -1270,16 +793,16 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 			
 			// Update the left power level proportionally to MAX/MIN power levels
 			if(leftPowerLevel >=0){
-				this.setLeftPowerLevel(MAX_POWER_LEVEL_EDEFAULT*leftPowerLevel/MAX_CTR_POWER_LEVEL_EDEFAULT);
+				this.setLeftPowerLevel(maxPowerLevel*leftPowerLevel/maxCtrPowerLevel);
 			}else{
-				this.setLeftPowerLevel(MIN_POWER_LEVEL_EDEFAULT*leftPowerLevel/MIN_CTR_POWER_LEVEL_EDEFAULT);
+				this.setLeftPowerLevel(-maxPowerLevel*leftPowerLevel/-maxCtrPowerLevel);
 			}
 			
 			// Update the right power level proportionally to MAX/MIN power levels
 			if(rightPowerLevel >=0){
-				this.setRightPowerLevel(MAX_POWER_LEVEL_EDEFAULT*rightPowerLevel/MAX_CTR_POWER_LEVEL_EDEFAULT);
+				this.setRightPowerLevel(maxPowerLevel*rightPowerLevel/maxCtrPowerLevel);
 			}else{
-				this.setRightPowerLevel(MIN_POWER_LEVEL_EDEFAULT*rightPowerLevel/MIN_CTR_POWER_LEVEL_EDEFAULT);
+				this.setRightPowerLevel(maxPowerLevel*rightPowerLevel/maxCtrPowerLevel);
 			}
 								
 			// Release the internal lock

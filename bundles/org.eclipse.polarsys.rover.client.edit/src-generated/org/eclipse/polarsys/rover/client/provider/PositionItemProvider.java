@@ -15,7 +15,6 @@ package org.eclipse.polarsys.rover.client.provider;
 
 
 import ca.gc.asc_csa.apogy.common.emf.ui.descriptors.AbstractUnitItemPropertyDescriptor;
-
 import java.util.Collection;
 import java.util.List;
 

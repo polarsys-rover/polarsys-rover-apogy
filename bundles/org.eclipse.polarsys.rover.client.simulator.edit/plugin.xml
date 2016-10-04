@@ -33,6 +33,9 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <!-- @generated polarsys_rover_client_simulator -->
       <extender
+            uri="org.eclipse.polarsys.rover.client"
+            class="org.eclipse.polarsys.rover.client.simulator.provider.PolarSysRoverClientSimulatorItemProviderAdapterFactory$PolarSysRoverClientChildCreationExtender"/>
+      <extender
             uri="ca.gc.asc_csa.apogy.common.topology"
             class="org.eclipse.polarsys.rover.client.simulator.provider.PolarSysRoverClientSimulatorItemProviderAdapterFactory$ApogyCommonTopologyChildCreationExtender"/>
    </extension>

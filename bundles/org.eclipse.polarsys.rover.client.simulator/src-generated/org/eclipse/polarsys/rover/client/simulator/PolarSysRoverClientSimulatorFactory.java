@@ -42,6 +42,15 @@ public interface PolarSysRoverClientSimulatorFactory extends EFactory {
 	PolarSysRoverPlatformClientSimulator createPolarSysRoverPlatformClientSimulator();
 
 	/**
+	 * Returns a new object of class '<em>Polar Sys Rover Camera Simulator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Polar Sys Rover Camera Simulator</em>'.
+	 * @generated
+	 */
+	PolarSysRoverCameraSimulator createPolarSysRoverCameraSimulator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

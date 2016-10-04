@@ -14,7 +14,6 @@
 package org.eclipse.polarsys.rover.client.provider;
 
 import ca.gc.asc_csa.apogy.common.topology.AggregateContentNode;
-import ca.gc.asc_csa.apogy.common.topology.AggregateGroupNode;
 import ca.gc.asc_csa.apogy.common.topology.ApogyCommonTopologyPackage;
 import ca.gc.asc_csa.apogy.common.topology.ContentNode;
 import ca.gc.asc_csa.apogy.common.topology.util.ApogyCommonTopologySwitch;
@@ -126,29 +125,6 @@ public class PolarSysRoverClientItemProviderAdapterFactory extends PolarSysRover
 		}
 
 		return positionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.polarsys.rover.client.Camera} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CameraItemProvider cameraItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.polarsys.rover.client.Camera}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCameraAdapter() {
-		if (cameraItemProvider == null) {
-			cameraItemProvider = new CameraItemProvider(this);
-		}
-
-		return cameraItemProvider;
 	}
 
 	/**
@@ -278,7 +254,6 @@ public class PolarSysRoverClientItemProviderAdapterFactory extends PolarSysRover
 	 */
 	public void dispose() {
 		if (positionItemProvider != null) positionItemProvider.dispose();
-		if (cameraItemProvider != null) cameraItemProvider.dispose();
 	}
 
 	/**
@@ -333,11 +308,6 @@ public class PolarSysRoverClientItemProviderAdapterFactory extends PolarSysRover
 						(ApogyCommonTopologyPackage.Literals.CONTENT_NODE__CONTENT,
 						 PolarSysRoverClientFactory.eINSTANCE.createPosition()));
 
-				newChildDescriptors.add
-					(createChildParameter
-						(ApogyCommonTopologyPackage.Literals.CONTENT_NODE__CONTENT,
-						 PolarSysRoverClientFactory.eINSTANCE.createCamera()));
-
 				return null;
 			}
  
@@ -352,26 +322,6 @@ public class PolarSysRoverClientItemProviderAdapterFactory extends PolarSysRover
 					(createChildParameter
 						(ApogyCommonTopologyPackage.Literals.AGGREGATE_CONTENT_NODE__AGGREGATE_CONTENT,
 						 PolarSysRoverClientFactory.eINSTANCE.createPosition()));
-
-				newChildDescriptors.add
-					(createChildParameter
-						(ApogyCommonTopologyPackage.Literals.AGGREGATE_CONTENT_NODE__AGGREGATE_CONTENT,
-						 PolarSysRoverClientFactory.eINSTANCE.createCamera()));
-
-				return null;
-			}
- 
-			/**
-			 * <!-- begin-user-doc -->
-			 * <!-- end-user-doc -->
-			 * @generated
-			 */
-			@Override
-			public Object caseAggregateGroupNode(AggregateGroupNode object) {
-				newChildDescriptors.add
-					(createChildParameter
-						(ApogyCommonTopologyPackage.Literals.AGGREGATE_GROUP_NODE__AGGREGATED_CHILDREN,
-						 PolarSysRoverClientFactory.eINSTANCE.createCamera()));
 
 				return null;
 			}

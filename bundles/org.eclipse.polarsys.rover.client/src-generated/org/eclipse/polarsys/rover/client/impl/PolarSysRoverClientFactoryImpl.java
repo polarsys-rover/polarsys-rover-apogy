@@ -68,7 +68,6 @@ public class PolarSysRoverClientFactoryImpl extends EFactoryImpl implements Pola
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case PolarSysRoverClientPackage.POSITION: return createPosition();
-			case PolarSysRoverClientPackage.CAMERA: return createCamera();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -82,16 +81,6 @@ public class PolarSysRoverClientFactoryImpl extends EFactoryImpl implements Pola
 	public Position createPosition() {
 		PositionImpl position = new PositionImpl();
 		return position;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Camera createCamera() {
-		CameraImpl camera = new CameraImpl();
-		return camera;
 	}
 
 	/**

@@ -16,5 +16,14 @@
             id="org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverClientDashboard">
       </view>
    </extension>
+   <extension
+         point="ca.gc.asc_csa.apogy.common.converters">
+      <new_element
+            Class="org.eclipse.polarsys.rover.client.apogy.ui.converters.VariableToRoverPlatformClientConverter">
+      </new_element>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertiesView">
+   </extension>
 
 </plugin>
