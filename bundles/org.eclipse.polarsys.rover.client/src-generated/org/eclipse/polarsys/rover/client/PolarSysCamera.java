@@ -76,7 +76,7 @@ public interface PolarSysCamera extends AbstractCamera {
 	 * @see #setInitialized(boolean)
 	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysCamera_Initialized()
 	 * @model default="false" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='Status'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' propertyCategory='Status'"
 	 * @generated
 	 */
 	boolean isInitialized();
@@ -103,7 +103,7 @@ public interface PolarSysCamera extends AbstractCamera {
 	 * @see #setStreamingEnabled(boolean)
 	 * @see org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage#getPolarSysCamera_StreamingEnabled()
 	 * @model default="false" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' property='Readonly' propertyCategory='Status'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel children='false' notify='true' propertyCategory='Status'"
 	 * @generated
 	 */
 	boolean isStreamingEnabled();

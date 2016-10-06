@@ -12,6 +12,8 @@
  */
 package org.eclipse.polarsys.rover.client.simulator.impl;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -223,8 +225,19 @@ public class PolarSysRoverPlatformClientSimulatorImpl extends PolarSysRoverPlatf
 			Logger.INSTANCE.log(Activator.ID, this, message, EventSeverity.INFO);
 						
 			// Initialize the camera
-			frontCamera = new PolarSysRoverCameraSimulatorImpl();
+			setFrontCamera(new PolarSysRoverCameraSimulatorImpl());
 			frontCamera.init();
+			
+			// Start the random sonar
+			Timer timer = new Timer();
+
+			timer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					setFrontSonar((int)(Math.random() * 100));  
+				}
+			}, 500, 1000);
+
 			
 			// Just return true
 			return true;		

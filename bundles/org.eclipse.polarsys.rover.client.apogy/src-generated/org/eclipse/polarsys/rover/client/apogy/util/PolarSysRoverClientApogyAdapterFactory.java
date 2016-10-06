@@ -16,6 +16,9 @@ package org.eclipse.polarsys.rover.client.apogy.util;
 import ca.gc.asc_csa.apogy.core.ApogyInitializationData;
 import ca.gc.asc_csa.apogy.core.ApogySystemApiAdapter;
 import ca.gc.asc_csa.apogy.core.PoseProvider;
+import ca.gc.asc_csa.apogy.core.invocator.AbstractInitializationData;
+import ca.gc.asc_csa.apogy.core.invocator.InitializationData;
+import ca.gc.asc_csa.apogy.core.invocator.TypeApiAdapter;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -90,12 +93,24 @@ public class PolarSysRoverClientApogyAdapterFactory extends AdapterFactoryImpl {
 				return createPolarSysRoverPlatformDataAdapter();
 			}
 			@Override
+			public Adapter caseTypeApiAdapter(TypeApiAdapter object) {
+				return createTypeApiAdapterAdapter();
+			}
+			@Override
 			public Adapter casePoseProvider(PoseProvider object) {
 				return createPoseProviderAdapter();
 			}
 			@Override
 			public Adapter caseApogySystemApiAdapter(ApogySystemApiAdapter object) {
 				return createApogySystemApiAdapterAdapter();
+			}
+			@Override
+			public Adapter caseAbstractInitializationData(AbstractInitializationData object) {
+				return createAbstractInitializationDataAdapter();
+			}
+			@Override
+			public Adapter caseInitializationData(InitializationData object) {
+				return createInitializationDataAdapter();
 			}
 			@Override
 			public Adapter caseApogyInitializationData(ApogyInitializationData object) {
@@ -150,6 +165,20 @@ public class PolarSysRoverClientApogyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.core.invocator.TypeApiAdapter <em>Type Api Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.core.invocator.TypeApiAdapter
+	 * @generated
+	 */
+	public Adapter createTypeApiAdapterAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.core.PoseProvider <em>Pose Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -174,6 +203,34 @@ public class PolarSysRoverClientApogyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createApogySystemApiAdapterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.core.invocator.AbstractInitializationData <em>Abstract Initialization Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.core.invocator.AbstractInitializationData
+	 * @generated
+	 */
+	public Adapter createAbstractInitializationDataAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ca.gc.asc_csa.apogy.core.invocator.InitializationData <em>Initialization Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ca.gc.asc_csa.apogy.core.invocator.InitializationData
+	 * @generated
+	 */
+	public Adapter createInitializationDataAdapter() {
 		return null;
 	}
 

@@ -407,7 +407,7 @@ public class PolarSysRoverCameraSimulatorImpl extends PolarSysCameraImpl impleme
 			
 			// Update latest snapshot accordingly
 			this.setLatestImageSnapshot(imageSnapshot);
-			System.out.println("TakeSnapshot6");
+			
 			// Return the generated snapshot
 			return imageSnapshot;
 		}

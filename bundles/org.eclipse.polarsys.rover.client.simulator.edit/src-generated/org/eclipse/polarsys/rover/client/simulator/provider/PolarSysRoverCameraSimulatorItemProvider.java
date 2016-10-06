@@ -15,7 +15,6 @@ package org.eclipse.polarsys.rover.client.simulator.provider;
 
 
 import ca.gc.asc_csa.apogy.common.topology.ApogyCommonTopologyPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -23,9 +22,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.eclipse.polarsys.rover.client.PolarSysRoverClientPackage;
-
 import org.eclipse.polarsys.rover.client.provider.PolarSysCameraItemProvider;
 
 import org.eclipse.polarsys.rover.client.simulator.PolarSysRoverCameraSimulator;

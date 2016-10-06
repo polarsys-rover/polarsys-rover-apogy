@@ -710,7 +710,6 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 			 "documentation", "This is whether or not the camera has been\nsuccessfully initialized; initially false\n@see #init()",
 			 "children", "false",
 			 "notify", "true",
-			 "property", "Readonly",
 			 "propertyCategory", "Status"
 		   });	
 		addAnnotation
@@ -720,7 +719,6 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 			 "documentation", "Whether or not image streaming is enabled.",
 			 "children", "false",
 			 "notify", "true",
-			 "property", "Readonly",
 			 "propertyCategory", "Status"
 		   });	
 		addAnnotation
@@ -864,7 +862,7 @@ public class PolarSysRoverClientPackageImpl extends EPackageImpl implements Pola
 		   new String[] {
 			 "documentation", "Front Camera.",
 			 "notify", "true",
-			 "propertyCategory", "Position"
+			 "propertyCategory", "Camera"
 		   });	
 		addAnnotation
 		  (getPolarSysRoverPlatformClient_WheelRadius(), 

@@ -20,7 +20,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.polarsys.rover.client.PolarSysRoverPlatformClient;
 import org.eclipse.polarsys.rover.client.ui.composites.PolarSysRoverClientComposite;
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.widgets.Composite;
 
 import ca.gc.asc_csa.apogy.common.converters.ui.ApogyCommonConvertersUIFacade;
@@ -52,7 +51,7 @@ public class PolarSysRoverClientDashboard extends AbstractView
 		
 		// Create the control composite and attach it to
 		// the scrolled composite
-		this.polarSysRoverClientComposite = new PolarSysRoverClientComposite(parent, SWT.NONE);		
+		this.polarSysRoverClientComposite = new PolarSysRoverClientComposite(parent, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);		
 	}
 	
 	@Override
