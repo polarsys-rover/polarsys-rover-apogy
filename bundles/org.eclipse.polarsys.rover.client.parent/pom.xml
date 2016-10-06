@@ -41,6 +41,18 @@
 		</repository>
 
 		<repository>
+			<id>Sirius</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/sirius/updates/releases/4.0.0/neon</url>
+		</repository>
+
+		<repository>
+			<id>Orbit</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20151221205849/repository</url>
+		</repository>
+
+		<repository>
 			<id>Apogy</id>
 			<layout>p2</layout>
 			<url>https://dl.bintray.com/apogy/Develop/0.5/</url>
@@ -142,5 +154,8 @@
 		<module>../org.eclipse.polarsys.rover.client.simulator</module>
 		<module>../org.eclipse.polarsys.rover.client.simulator.edit</module>
 		<module>../org.eclipse.polarsys.rover.client.ui</module>
+		
+		<module>../org.eclipse.polarsys.rover.client.rcp</module>
+		<module>../org.eclipse.polarsys.rover.client.rcp.product</module>
 	</modules>
 </project>
