@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_QUNE4DIyEea0rbEBbr9V0w">
-  <imports xsi:type="advanced:Area" xmi:id="_56rlwF_yEeaP8cQvs6y_ew" elementId="org.eclipse.ui.editor.area"/>
-  <imports xsi:type="basic:Part" xmi:id="_96YYsF_2EeaP8cQvs6y_ew" elementId="org.eclipse.pde.runtime.LogView"/>
+  <imports xsi:type="basic:Part" xmi:id="_f6oe0IyVEeajju10_PNlwQ" elementId="ca.gc.asc_csa.apogy.core.environment.orbit.earth.ui.views.SpacecraftVisibilitySetView"/>
+  <imports xsi:type="basic:Part" xmi:id="_TLMiUIyWEeajju10_PNlwQ"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Sm7DAFMvEeaW9MoLg4vvxw" featurename="children" parentElementId="org.eclipse.ui.ide.perspectivestack">
-    <elements xsi:type="advanced:Perspective" xmi:id="_hdO3kHwOEea0v8DgQIVtrA" elementId="org.eclipse.polarsys.rover.client.rcp.perspective.polarsysrover" label="Polarsys Rover" iconURI="platform:/plugin/org.eclipse.polarsys.rover.client.rcp/icons/polarsys_rover_perspective.gif"/>
+    <elements xsi:type="advanced:Perspective" xmi:id="_hdO3kHwOEea0v8DgQIVtrA" elementId="org.eclipse.polarsys.rover.client.rcp.perspective.polarsysrover" label="Polarsys Rover" iconURI="platform:/plugin/org.eclipse.polarsys.rover.client.rcp/icons/polarsys_rover_perspective.gif">
+      <children xsi:type="basic:PartStack" xmi:id="_s0SEEIyQEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.partstack.0">
+        <children xsi:type="basic:Part" xmi:id="_tUq0UIyQEeajju10_PNlwQ" elementId="org.eclipse.pde.runtime.LogView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Test"/>
+        <children xsi:type="advanced:Placeholder" xmi:id="_hyD6gIyVEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.placeholder.0" ref="_f6oe0IyVEeajju10_PNlwQ"/>
+      </children>
+      <children xsi:type="basic:PartSashContainer" xmi:id="_K_AqYIyeEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.partsashcontainer.0" horizontal="true"/>
+    </elements>
   </fragments>
 </fragment:ModelFragments>
