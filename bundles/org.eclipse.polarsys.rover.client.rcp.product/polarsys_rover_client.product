@@ -29,14 +29,15 @@
       startupProgressRect="30,275,395,4"
       startupMessageRect="30,250,395,20"
       startupForegroundColor="2E3436" />
-   <launcher name="stratos">
-      <linux icon="/org.eclipse.polarsys.rover.client.rcp.product/polarsys_rover_client_icon.xpm"/>
+   <launcher name="apogy">
+      <linux icon="/polarsys_rover_client_icon.xpm"/>
       <solaris/>
       <win useIco="true">
-         <ico path="/org.eclipse.polarsys.rover.client.rcp.product/polarsys_rover_client_icon.ico"/>
+         <ico path="/polarsys_rover_client_icon.ico"/>
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
    </vm>
