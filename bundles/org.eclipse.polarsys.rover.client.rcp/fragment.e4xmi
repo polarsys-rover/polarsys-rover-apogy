@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_QUNE4DIyEea0rbEBbr9V0w">
-  <imports xsi:type="basic:Part" xmi:id="_f6oe0IyVEeajju10_PNlwQ" elementId="ca.gc.asc_csa.apogy.core.environment.orbit.earth.ui.views.SpacecraftVisibilitySetView"/>
-  <imports xsi:type="basic:Part" xmi:id="_TLMiUIyWEeajju10_PNlwQ"/>
+  <imports xsi:type="basic:Part" xmi:id="_f6oe0IyVEeajju10_PNlwQ" elementId="ca.gc.asc_csa.apogy.core.invocator.ui.views.SessionStatusView"/>
+  <imports xsi:type="basic:Part" xmi:id="_TLMiUIyWEeajju10_PNlwQ" elementId="ca.gc.asc_csa.apogy.core.topology.ui.views.Apogy3DView"/>
+  <imports xsi:type="basic:Part" xmi:id="_6giTgIyiEeaoU8x1yKOE8A" elementId="ca.gc.asc_csa.apogy.addons.sensors.imaging.camera.views.CameraView"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Sm7DAFMvEeaW9MoLg4vvxw" featurename="children" parentElementId="org.eclipse.ui.ide.perspectivestack">
     <elements xsi:type="advanced:Perspective" xmi:id="_hdO3kHwOEea0v8DgQIVtrA" elementId="org.eclipse.polarsys.rover.client.rcp.perspective.polarsysrover" label="Polarsys Rover" iconURI="platform:/plugin/org.eclipse.polarsys.rover.client.rcp/icons/polarsys_rover_perspective.gif">
-      <children xsi:type="basic:PartStack" xmi:id="_s0SEEIyQEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.partstack.0">
-        <children xsi:type="basic:Part" xmi:id="_tUq0UIyQEeajju10_PNlwQ" elementId="org.eclipse.pde.runtime.LogView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Test"/>
-        <children xsi:type="advanced:Placeholder" xmi:id="_hyD6gIyVEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.placeholder.0" ref="_f6oe0IyVEeajju10_PNlwQ"/>
+      <children xsi:type="basic:PartSashContainer" xmi:id="_CQZfAIyfEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.partsashcontainer.1" horizontal="true">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_K_AqYIyeEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.partsashcontainer.0">
+          <children xsi:type="basic:PartStack" xmi:id="_Ggn-EIyfEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.partstack.2">
+            <children xsi:type="advanced:Placeholder" xmi:id="_uj7pgIygEeaMHZqHB9IYoA" elementId="org.eclipse.polarsys.rover.client.rcp.placeholder.1" ref="_f6oe0IyVEeajju10_PNlwQ"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_s0SEEIyQEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.partstack.0">
+            <children xsi:type="basic:Part" xmi:id="_eOZ6oIyiEeaCcrV8h3Oecw" elementId="org.eclipse.polarsys.rover.client.apogy.ui.views.PolarSysRoverClientDashboard" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Dashboard"/>
+          </children>
+        </children>
+        <children xsi:type="basic:PartSashContainer" xmi:id="_gCs_QIyhEeaMHZqHB9IYoA" elementId="org.eclipse.polarsys.rover.client.rcp.partsashcontainer.2">
+          <children xsi:type="basic:PartStack" xmi:id="__GJJgIyeEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.partstack.1">
+            <children xsi:type="advanced:Placeholder" xmi:id="_hyD6gIyVEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.placeholder.0" ref="_TLMiUIyWEeajju10_PNlwQ"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_nPmDwIyhEeaMHZqHB9IYoA" elementId="org.eclipse.polarsys.rover.client.rcp.partstack.3">
+            <children xsi:type="advanced:Placeholder" xmi:id="_YSjVUIykEeaoU8x1yKOE8A" elementId="org.eclipse.polarsys.rover.client.rcp.placeholder.2" ref="_6giTgIyiEeaoU8x1yKOE8A"/>
+          </children>
+        </children>
       </children>
-      <children xsi:type="basic:PartSashContainer" xmi:id="_K_AqYIyeEeajju10_PNlwQ" elementId="org.eclipse.polarsys.rover.client.rcp.partsashcontainer.0" horizontal="true"/>
     </elements>
   </fragments>
 </fragment:ModelFragments>
